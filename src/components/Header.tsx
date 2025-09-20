@@ -102,7 +102,7 @@ const Header = () => {
             </div>
             
             {/* Call to Action Section */}
-            <div className="mt-8">
+            <div className="mt-4">
               <div className="mosaic-border-thick bg-white rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex items-center gap-4">
                   <img src="/src/assets/lulu-mascot-profile.png" alt="Lulu mascot" className="w-16 h-16 object-contain" />
