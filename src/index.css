@@ -153,7 +153,7 @@
     background: white;
   }
 
-  /* Enhanced Individual Mosaic Tiles - Top Border with Colorful Pattern */
+  /* Enhanced Individual Mosaic Tiles - Top Border with More Detail */
   .lulu-package::before {
     content: '';
     position: absolute;
@@ -162,36 +162,38 @@
     right: -35px;
     height: 35px;
     background: 
-      /* Curved colorful mosaic pattern */
+      /* Inner shadow for depth */
+      linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 20%),
+      /* Main tile pattern */
       linear-gradient(90deg,
-        hsl(var(--tile-lime)) 0%, hsl(var(--tile-lime)) 8%,
-        #000 8%, #000 9%,
-        hsl(var(--tile-pink)) 9%, hsl(var(--tile-pink)) 17%,
-        #000 17%, #000 18%,
-        hsl(var(--tile-green)) 18%, hsl(var(--tile-green)) 26%,
-        #000 26%, #000 27%,
-        hsl(var(--tile-coral)) 27%, hsl(var(--tile-coral)) 35%,
-        #000 35%, #000 36%,
-        hsl(var(--tile-orange)) 36%, hsl(var(--tile-orange)) 44%,
-        #000 44%, #000 45%,
-        hsl(var(--tile-yellow)) 45%, hsl(var(--tile-yellow)) 53%,
-        #000 53%, #000 54%,
-        hsl(var(--tile-teal)) 54%, hsl(var(--tile-teal)) 62%,
-        #000 62%, #000 63%,
-        hsl(var(--tile-magenta)) 63%, hsl(var(--tile-magenta)) 71%,
-        #000 71%, #000 72%,
-        hsl(var(--tile-blue)) 72%, hsl(var(--tile-blue)) 80%,
-        #000 80%, #000 81%,
-        hsl(var(--tile-purple)) 81%, hsl(var(--tile-purple)) 89%,
-        #000 89%, #000 90%,
-        hsl(var(--tile-turquoise)) 90%, hsl(var(--tile-turquoise)) 98%,
-        #000 98%, #000 100%
+        hsl(var(--tile-green)) 0%, hsl(var(--tile-green)) 7.5%,
+        #000 7.5%, #000 8.5%,
+        hsl(var(--tile-pink)) 8.5%, hsl(var(--tile-pink)) 16%,
+        #000 16%, #000 17%,
+        hsl(var(--tile-orange)) 17%, hsl(var(--tile-orange)) 24.5%,
+        #000 24.5%, #000 25.5%,
+        hsl(var(--tile-yellow)) 25.5%, hsl(var(--tile-yellow)) 33%,
+        #000 33%, #000 34%,
+        hsl(var(--tile-blue)) 34%, hsl(var(--tile-blue)) 41.5%,
+        #000 41.5%, #000 42.5%,
+        hsl(var(--tile-teal)) 42.5%, hsl(var(--tile-teal)) 50%,
+        #000 50%, #000 51%,
+        hsl(var(--tile-lime)) 51%, hsl(var(--tile-lime)) 58.5%,
+        #000 58.5%, #000 59.5%,
+        hsl(var(--tile-coral)) 59.5%, hsl(var(--tile-coral)) 67%,
+        #000 67%, #000 68%,
+        hsl(var(--tile-purple)) 68%, hsl(var(--tile-purple)) 75.5%,
+        #000 75.5%, #000 76.5%,
+        hsl(var(--tile-turquoise)) 76.5%, hsl(var(--tile-turquoise)) 84%,
+        #000 84%, #000 85%,
+        hsl(var(--tile-mint)) 85%, hsl(var(--tile-mint)) 92.5%,
+        #000 92.5%, #000 93.5%,
+        hsl(var(--tile-magenta)) 93.5%, hsl(var(--tile-magenta)) 100%
       );
     border-bottom: 2px solid #000000;
-    z-index: 1;
   }
 
-  /* Enhanced Left Border - Simple Chevron Pattern */
+  /* Enhanced Left Border with More Detail */
   .lulu-package::after {
     content: '';
     position: absolute;
@@ -200,34 +202,38 @@
     width: 35px;
     bottom: 100px;
     background: 
-      hsl(var(--tile-turquoise)),
-      /* Chevron pattern using repeating gradients */
-      repeating-linear-gradient(135deg,
-        hsl(var(--tile-orange)) 0px, hsl(var(--tile-orange)) 25px,
-        #000 25px, #000 27px,
-        hsl(var(--tile-yellow)) 27px, hsl(var(--tile-yellow)) 52px,
-        #000 52px, #000 54px,
-        hsl(var(--tile-green)) 54px, hsl(var(--tile-green)) 79px,
-        #000 79px, #000 81px,
-        hsl(var(--tile-pink)) 81px, hsl(var(--tile-pink)) 106px,
-        #000 106px, #000 108px,
-        transparent 108px, transparent 133px
-      ),
-      repeating-linear-gradient(-45deg,
-        transparent 0px, transparent 25px,
-        #000 25px, #000 27px,
-        hsl(var(--tile-orange)) 27px, hsl(var(--tile-orange)) 52px,
-        #000 52px, #000 54px,
-        hsl(var(--tile-green)) 54px, hsl(var(--tile-green)) 79px,
-        #000 79px, #000 81px,
-        hsl(var(--tile-pink)) 81px, hsl(var(--tile-pink)) 106px,
-        #000 106px, #000 108px,
-        hsl(var(--tile-yellow)) 108px, hsl(var(--tile-yellow)) 133px
+      /* Inner shadow for depth */
+      linear-gradient(90deg, rgba(0,0,0,0.2) 0%, transparent 20%),
+      /* Main tile pattern */
+      linear-gradient(0deg,
+        hsl(var(--tile-teal)) 0%, hsl(var(--tile-teal)) 7.5%,
+        #000 7.5%, #000 8.5%,
+        hsl(var(--tile-lime)) 8.5%, hsl(var(--tile-lime)) 16%,
+        #000 16%, #000 17%,
+        hsl(var(--tile-pink)) 17%, hsl(var(--tile-pink)) 24.5%,
+        #000 24.5%, #000 25.5%,
+        hsl(var(--tile-orange)) 25.5%, hsl(var(--tile-orange)) 33%,
+        #000 33%, #000 34%,
+        hsl(var(--tile-blue)) 34%, hsl(var(--tile-blue)) 41.5%,
+        #000 41.5%, #000 42.5%,
+        hsl(var(--tile-yellow)) 42.5%, hsl(var(--tile-yellow)) 50%,
+        #000 50%, #000 51%,
+        hsl(var(--tile-green)) 51%, hsl(var(--tile-green)) 58.5%,
+        #000 58.5%, #000 59.5%,
+        hsl(var(--tile-coral)) 59.5%, hsl(var(--tile-coral)) 67%,
+        #000 67%, #000 68%,
+        hsl(var(--tile-purple)) 68%, hsl(var(--tile-purple)) 75.5%,
+        #000 75.5%, #000 76.5%,
+        hsl(var(--tile-turquoise)) 76.5%, hsl(var(--tile-turquoise)) 84%,
+        #000 84%, #000 85%,
+        hsl(var(--tile-mint)) 85%, hsl(var(--tile-mint)) 92.5%,
+        #000 92.5%, #000 93.5%,
+        hsl(var(--tile-teal)) 93.5%, hsl(var(--tile-teal)) 100%
       );
     border-right: 2px solid #000000;
   }
 
-  /* Enhanced Right Border - Simple Chevron Pattern (Mirrored) */
+  /* Enhanced Right Border with More Detail */
   .lulu-package .right-border {
     position: absolute;
     top: -35px;
@@ -235,29 +241,33 @@
     width: 35px;
     bottom: 100px;
     background: 
-      hsl(var(--tile-turquoise)),
-      /* Mirrored chevron pattern */
-      repeating-linear-gradient(45deg,
-        hsl(var(--tile-yellow)) 0px, hsl(var(--tile-yellow)) 25px,
-        #000 25px, #000 27px,
-        hsl(var(--tile-orange)) 27px, hsl(var(--tile-orange)) 52px,
-        #000 52px, #000 54px,
-        hsl(var(--tile-green)) 54px, hsl(var(--tile-green)) 79px,
-        #000 79px, #000 81px,
-        hsl(var(--tile-pink)) 81px, hsl(var(--tile-pink)) 106px,
-        #000 106px, #000 108px,
-        transparent 108px, transparent 133px
-      ),
-      repeating-linear-gradient(-135deg,
-        transparent 0px, transparent 25px,
-        #000 25px, #000 27px,
-        hsl(var(--tile-yellow)) 27px, hsl(var(--tile-yellow)) 52px,
-        #000 52px, #000 54px,
-        hsl(var(--tile-green)) 54px, hsl(var(--tile-green)) 79px,
-        #000 79px, #000 81px,
-        hsl(var(--tile-pink)) 81px, hsl(var(--tile-pink)) 106px,
-        #000 106px, #000 108px,
-        hsl(var(--tile-orange)) 108px, hsl(var(--tile-orange)) 133px
+      /* Inner shadow for depth */
+      linear-gradient(-90deg, rgba(0,0,0,0.2) 0%, transparent 20%),
+      /* Main tile pattern */
+      linear-gradient(0deg,
+        hsl(var(--tile-coral)) 0%, hsl(var(--tile-coral)) 7.5%,
+        #000 7.5%, #000 8.5%,
+        hsl(var(--tile-purple)) 8.5%, hsl(var(--tile-purple)) 16%,
+        #000 16%, #000 17%,
+        hsl(var(--tile-green)) 17%, hsl(var(--tile-green)) 24.5%,
+        #000 24.5%, #000 25.5%,
+        hsl(var(--tile-yellow)) 25.5%, hsl(var(--tile-yellow)) 33%,
+        #000 33%, #000 34%,
+        hsl(var(--tile-blue)) 34%, hsl(var(--tile-blue)) 41.5%,
+        #000 41.5%, #000 42.5%,
+        hsl(var(--tile-orange)) 42.5%, hsl(var(--tile-orange)) 50%,
+        #000 50%, #000 51%,
+        hsl(var(--tile-pink)) 51%, hsl(var(--tile-pink)) 58.5%,
+        #000 58.5%, #000 59.5%,
+        hsl(var(--tile-lime)) 59.5%, hsl(var(--tile-lime)) 67%,
+        #000 67%, #000 68%,
+        hsl(var(--tile-teal)) 68%, hsl(var(--tile-teal)) 75.5%,
+        #000 75.5%, #000 76.5%,
+        hsl(var(--tile-turquoise)) 76.5%, hsl(var(--tile-turquoise)) 84%,
+        #000 84%, #000 85%,
+        hsl(var(--tile-magenta)) 85%, hsl(var(--tile-magenta)) 92.5%,
+        #000 92.5%, #000 93.5%,
+        hsl(var(--tile-coral)) 93.5%, hsl(var(--tile-coral)) 100%
       );
     border-left: 2px solid #000000;
   }
@@ -320,52 +330,6 @@
       /* Shadow for depth */
       linear-gradient(0deg, rgba(0,0,0,0.1) 0%, transparent 30%);
     border-top: 2px solid #000000;
-  }
-
-  /* Round Certification Logos */
-  .lulu-package .round-logos {
-    position: absolute;
-    top: 80px;
-    right: 60px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 2;
-  }
-
-  .round-logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: white;
-    border: 3px solid #000000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: bold;
-    color: hsl(var(--tile-teal));
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-
-  .round-logo.fsc {
-    background: hsl(var(--tile-teal));
-    color: white;
-  }
-
-  .round-logo.recyclable {
-    background: hsl(var(--tile-green));
-    color: white;
-  }
-
-  .round-logo.plastic-free {
-    background: hsl(var(--tile-coral));
-    color: white;
-  }
-
-  .round-logo.eco-smart {
-    background: hsl(var(--tile-blue));
-    color: white;
   }
 
   .lulu-content {

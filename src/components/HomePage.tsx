@@ -12,22 +12,6 @@ const HomePage = () => {
       <div className="lulu-package">
         <div className="right-border"></div>
         <div className="bottom-border"></div>
-        {/* Round Certification Logos */}
-        <div className="round-logos">
-          <div className="round-logo fsc">
-            <div className="text-xs text-center">FSC</div>
-          </div>
-          <div className="round-logo recyclable">
-            <div className="text-xs text-center">♻</div>
-          </div>
-          <div className="round-logo plastic-free">
-            <div className="text-xs text-center">NO<br/>PLASTIC</div>
-          </div>
-          <div className="round-logo eco-smart">
-            <div className="text-xs text-center">ECO<br/>SMART</div>
-          </div>
-        </div>
-        
         <div className="lulu-content">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-16 lg:py-24">
