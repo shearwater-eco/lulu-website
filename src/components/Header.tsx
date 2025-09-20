@@ -104,7 +104,7 @@ const Header = () => {
             {/* Call to Action Section - positioned directly below navigation */}
             <div className="mosaic-border-thick bg-white rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <img src="/src/assets/lulu-mascot-bird.png" alt="Lulu mascot" className="w-16 h-16 object-contain" />
+                <img src="/src/assets/lulu-mascot-bird.png" alt="Lulu mascot" className="w-24 h-24 object-contain" />
                 <div>
                   <h2 className="text-2xl font-bold lulu-font text-foreground">Ready to go LULU?</h2>
                   <p className="text-muted-foreground">Gentle on you, kind to the Earth</p>
