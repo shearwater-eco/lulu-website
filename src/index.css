@@ -26,17 +26,19 @@
     --accent: 51 100% 60%; /* Bright Yellow */
     --accent-foreground: 0 0% 10%;
 
-    /* Exact packaging mosaic tile colors */
-    --tile-green: 120 100% 40%;
-    --tile-pink: 340 100% 60%;
-    --tile-orange: 25 100% 55%;
-    --tile-yellow: 51 100% 60%;
-    --tile-blue: 200 100% 50%;
-    --tile-teal: 174 100% 35%;
-    --tile-lime: 75 100% 50%;
-    --tile-coral: 15 100% 65%;
-    --tile-purple: 280 100% 55%;
-    --tile-turquoise: 190 100% 45%;
+    /* Enhanced packaging mosaic tile colors with more vibrancy */
+    --tile-green: 118 100% 45%;
+    --tile-pink: 338 100% 65%;
+    --tile-orange: 22 100% 58%;
+    --tile-yellow: 52 100% 65%;
+    --tile-blue: 205 100% 55%;
+    --tile-teal: 176 100% 38%;
+    --tile-lime: 78 100% 55%;
+    --tile-coral: 12 100% 68%;
+    --tile-purple: 275 100% 60%;
+    --tile-turquoise: 185 100% 48%;
+    --tile-mint: 155 100% 50%;
+    --tile-magenta: 320 100% 60%;
 
     --success: 140 70% 40%;
     --success-foreground: 0 0% 100%;
@@ -151,168 +153,197 @@
     background: white;
   }
 
-  /* Individual Mosaic Tiles - Top Border */
+  /* Enhanced Individual Mosaic Tiles - Top Border with More Detail */
   .lulu-package::before {
     content: '';
     position: absolute;
-    top: -30px;
-    left: -30px;
-    right: -30px;
-    height: 30px;
+    top: -35px;
+    left: -35px;
+    right: -35px;
+    height: 35px;
     background: 
+      /* Inner shadow for depth */
+      linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 20%),
+      /* Main tile pattern */
       linear-gradient(90deg,
-        hsl(var(--tile-green)) 0%, hsl(var(--tile-green)) 8.33%,
-        #000 8.33%, #000 8.66%,
-        hsl(var(--tile-pink)) 8.66%, hsl(var(--tile-pink)) 16.99%,
-        #000 16.99%, #000 17.32%,
-        hsl(var(--tile-orange)) 17.32%, hsl(var(--tile-orange)) 25.65%,
-        #000 25.65%, #000 25.98%,
-        hsl(var(--tile-yellow)) 25.98%, hsl(var(--tile-yellow)) 34.31%,
-        #000 34.31%, #000 34.64%,
-        hsl(var(--tile-blue)) 34.64%, hsl(var(--tile-blue)) 42.97%,
-        #000 42.97%, #000 43.3%,
-        hsl(var(--tile-teal)) 43.3%, hsl(var(--tile-teal)) 51.63%,
-        #000 51.63%, #000 51.96%,
-        hsl(var(--tile-lime)) 51.96%, hsl(var(--tile-lime)) 60.29%,
-        #000 60.29%, #000 60.62%,
-        hsl(var(--tile-coral)) 60.62%, hsl(var(--tile-coral)) 68.95%,
-        #000 68.95%, #000 69.28%,
-        hsl(var(--tile-purple)) 69.28%, hsl(var(--tile-purple)) 77.61%,
-        #000 77.61%, #000 77.94%,
-        hsl(var(--tile-turquoise)) 77.94%, hsl(var(--tile-turquoise)) 86.27%,
-        #000 86.27%, #000 86.6%,
-        hsl(var(--tile-green)) 86.6%, hsl(var(--tile-green)) 94.93%,
-        #000 94.93%, #000 95.26%,
-        hsl(var(--tile-pink)) 95.26%, hsl(var(--tile-pink)) 100%
+        hsl(var(--tile-green)) 0%, hsl(var(--tile-green)) 7.5%,
+        #000 7.5%, #000 8.5%,
+        hsl(var(--tile-pink)) 8.5%, hsl(var(--tile-pink)) 16%,
+        #000 16%, #000 17%,
+        hsl(var(--tile-orange)) 17%, hsl(var(--tile-orange)) 24.5%,
+        #000 24.5%, #000 25.5%,
+        hsl(var(--tile-yellow)) 25.5%, hsl(var(--tile-yellow)) 33%,
+        #000 33%, #000 34%,
+        hsl(var(--tile-blue)) 34%, hsl(var(--tile-blue)) 41.5%,
+        #000 41.5%, #000 42.5%,
+        hsl(var(--tile-teal)) 42.5%, hsl(var(--tile-teal)) 50%,
+        #000 50%, #000 51%,
+        hsl(var(--tile-lime)) 51%, hsl(var(--tile-lime)) 58.5%,
+        #000 58.5%, #000 59.5%,
+        hsl(var(--tile-coral)) 59.5%, hsl(var(--tile-coral)) 67%,
+        #000 67%, #000 68%,
+        hsl(var(--tile-purple)) 68%, hsl(var(--tile-purple)) 75.5%,
+        #000 75.5%, #000 76.5%,
+        hsl(var(--tile-turquoise)) 76.5%, hsl(var(--tile-turquoise)) 84%,
+        #000 84%, #000 85%,
+        hsl(var(--tile-mint)) 85%, hsl(var(--tile-mint)) 92.5%,
+        #000 92.5%, #000 93.5%,
+        hsl(var(--tile-magenta)) 93.5%, hsl(var(--tile-magenta)) 100%
       );
+    border-bottom: 2px solid #000000;
   }
 
-  /* Left Border */
+  /* Enhanced Left Border with More Detail */
   .lulu-package::after {
     content: '';
     position: absolute;
-    top: -30px;
-    left: -30px;
-    width: 30px;
+    top: -35px;
+    left: -35px;
+    width: 35px;
     bottom: 100px;
     background: 
+      /* Inner shadow for depth */
+      linear-gradient(90deg, rgba(0,0,0,0.2) 0%, transparent 20%),
+      /* Main tile pattern */
       linear-gradient(0deg,
-        hsl(var(--tile-teal)) 0%, hsl(var(--tile-teal)) 8.33%,
-        #000 8.33%, #000 8.66%,
-        hsl(var(--tile-lime)) 8.66%, hsl(var(--tile-lime)) 16.99%,
-        #000 16.99%, #000 17.32%,
-        hsl(var(--tile-pink)) 17.32%, hsl(var(--tile-pink)) 25.65%,
-        #000 25.65%, #000 25.98%,
-        hsl(var(--tile-orange)) 25.98%, hsl(var(--tile-orange)) 34.31%,
-        #000 34.31%, #000 34.64%,
-        hsl(var(--tile-blue)) 34.64%, hsl(var(--tile-blue)) 42.97%,
-        #000 42.97%, #000 43.3%,
-        hsl(var(--tile-yellow)) 43.3%, hsl(var(--tile-yellow)) 51.63%,
-        #000 51.63%, #000 51.96%,
-        hsl(var(--tile-green)) 51.96%, hsl(var(--tile-green)) 60.29%,
-        #000 60.29%, #000 60.62%,
-        hsl(var(--tile-coral)) 60.62%, hsl(var(--tile-coral)) 68.95%,
-        #000 68.95%, #000 69.28%,
-        hsl(var(--tile-purple)) 69.28%, hsl(var(--tile-purple)) 77.61%,
-        #000 77.61%, #000 77.94%,
-        hsl(var(--tile-turquoise)) 77.94%, hsl(var(--tile-turquoise)) 86.27%,
-        #000 86.27%, #000 86.6%,
-        hsl(var(--tile-teal)) 86.6%, hsl(var(--tile-teal)) 100%
+        hsl(var(--tile-teal)) 0%, hsl(var(--tile-teal)) 7.5%,
+        #000 7.5%, #000 8.5%,
+        hsl(var(--tile-lime)) 8.5%, hsl(var(--tile-lime)) 16%,
+        #000 16%, #000 17%,
+        hsl(var(--tile-pink)) 17%, hsl(var(--tile-pink)) 24.5%,
+        #000 24.5%, #000 25.5%,
+        hsl(var(--tile-orange)) 25.5%, hsl(var(--tile-orange)) 33%,
+        #000 33%, #000 34%,
+        hsl(var(--tile-blue)) 34%, hsl(var(--tile-blue)) 41.5%,
+        #000 41.5%, #000 42.5%,
+        hsl(var(--tile-yellow)) 42.5%, hsl(var(--tile-yellow)) 50%,
+        #000 50%, #000 51%,
+        hsl(var(--tile-green)) 51%, hsl(var(--tile-green)) 58.5%,
+        #000 58.5%, #000 59.5%,
+        hsl(var(--tile-coral)) 59.5%, hsl(var(--tile-coral)) 67%,
+        #000 67%, #000 68%,
+        hsl(var(--tile-purple)) 68%, hsl(var(--tile-purple)) 75.5%,
+        #000 75.5%, #000 76.5%,
+        hsl(var(--tile-turquoise)) 76.5%, hsl(var(--tile-turquoise)) 84%,
+        #000 84%, #000 85%,
+        hsl(var(--tile-mint)) 85%, hsl(var(--tile-mint)) 92.5%,
+        #000 92.5%, #000 93.5%,
+        hsl(var(--tile-teal)) 93.5%, hsl(var(--tile-teal)) 100%
       );
+    border-right: 2px solid #000000;
   }
 
-  /* Right Border */
+  /* Enhanced Right Border with More Detail */
   .lulu-package .right-border {
     position: absolute;
-    top: -30px;
-    right: -30px;
-    width: 30px;
+    top: -35px;
+    right: -35px;
+    width: 35px;
     bottom: 100px;
     background: 
+      /* Inner shadow for depth */
+      linear-gradient(-90deg, rgba(0,0,0,0.2) 0%, transparent 20%),
+      /* Main tile pattern */
       linear-gradient(0deg,
-        hsl(var(--tile-coral)) 0%, hsl(var(--tile-coral)) 8.33%,
-        #000 8.33%, #000 8.66%,
-        hsl(var(--tile-purple)) 8.66%, hsl(var(--tile-purple)) 16.99%,
-        #000 16.99%, #000 17.32%,
-        hsl(var(--tile-green)) 17.32%, hsl(var(--tile-green)) 25.65%,
-        #000 25.65%, #000 25.98%,
-        hsl(var(--tile-yellow)) 25.98%, hsl(var(--tile-yellow)) 34.31%,
-        #000 34.31%, #000 34.64%,
-        hsl(var(--tile-blue)) 34.64%, hsl(var(--tile-blue)) 42.97%,
-        #000 42.97%, #000 43.3%,
-        hsl(var(--tile-orange)) 43.3%, hsl(var(--tile-orange)) 51.63%,
-        #000 51.63%, #000 51.96%,
-        hsl(var(--tile-pink)) 51.96%, hsl(var(--tile-pink)) 60.29%,
-        #000 60.29%, #000 60.62%,
-        hsl(var(--tile-lime)) 60.62%, hsl(var(--tile-lime)) 68.95%,
-        #000 68.95%, #000 69.28%,
-        hsl(var(--tile-teal)) 69.28%, hsl(var(--tile-teal)) 77.61%,
-        #000 77.61%, #000 77.94%,
-        hsl(var(--tile-turquoise)) 77.94%, hsl(var(--tile-turquoise)) 86.27%,
-        #000 86.27%, #000 86.6%,
-        hsl(var(--tile-coral)) 86.6%, hsl(var(--tile-coral)) 100%
+        hsl(var(--tile-coral)) 0%, hsl(var(--tile-coral)) 7.5%,
+        #000 7.5%, #000 8.5%,
+        hsl(var(--tile-purple)) 8.5%, hsl(var(--tile-purple)) 16%,
+        #000 16%, #000 17%,
+        hsl(var(--tile-green)) 17%, hsl(var(--tile-green)) 24.5%,
+        #000 24.5%, #000 25.5%,
+        hsl(var(--tile-yellow)) 25.5%, hsl(var(--tile-yellow)) 33%,
+        #000 33%, #000 34%,
+        hsl(var(--tile-blue)) 34%, hsl(var(--tile-blue)) 41.5%,
+        #000 41.5%, #000 42.5%,
+        hsl(var(--tile-orange)) 42.5%, hsl(var(--tile-orange)) 50%,
+        #000 50%, #000 51%,
+        hsl(var(--tile-pink)) 51%, hsl(var(--tile-pink)) 58.5%,
+        #000 58.5%, #000 59.5%,
+        hsl(var(--tile-lime)) 59.5%, hsl(var(--tile-lime)) 67%,
+        #000 67%, #000 68%,
+        hsl(var(--tile-teal)) 68%, hsl(var(--tile-teal)) 75.5%,
+        #000 75.5%, #000 76.5%,
+        hsl(var(--tile-turquoise)) 76.5%, hsl(var(--tile-turquoise)) 84%,
+        #000 84%, #000 85%,
+        hsl(var(--tile-magenta)) 85%, hsl(var(--tile-magenta)) 92.5%,
+        #000 92.5%, #000 93.5%,
+        hsl(var(--tile-coral)) 93.5%, hsl(var(--tile-coral)) 100%
       );
+    border-left: 2px solid #000000;
   }
 
-  /* Curved Bottom Border - Key Feature from Packaging */
+  /* Enhanced Curved Bottom Border - Signature Packaging Feature */
   .lulu-package .bottom-border {
     position: absolute;
-    bottom: -30px;
-    left: -30px;
-    right: -30px;
-    height: 130px;
+    bottom: -35px;
+    left: -35px;
+    right: -35px;
+    height: 140px;
     background: 
-      radial-gradient(ellipse 50% 100% at center bottom,
+      /* Curved inner sections with depth */
+      radial-gradient(ellipse 55% 100% at center bottom,
         transparent 0%,
-        transparent 76%,
-        #000 76%,
-        #000 77%,
-        hsl(var(--tile-purple)) 77%,
-        hsl(var(--tile-purple)) 84%,
-        #000 84%,
-        #000 85%,
-        hsl(var(--tile-coral)) 85%,
-        hsl(var(--tile-coral)) 92%,
-        #000 92%,
-        #000 93%,
-        hsl(var(--tile-lime)) 93%,
-        hsl(var(--tile-lime)) 100%
+        transparent 72%,
+        #000 72%,
+        #000 74%,
+        hsl(var(--tile-purple)) 74%,
+        hsl(var(--tile-purple)) 80%,
+        #000 80%,
+        #000 82%,
+        hsl(var(--tile-coral)) 82%,
+        hsl(var(--tile-coral)) 88%,
+        #000 88%,
+        #000 90%,
+        hsl(var(--tile-lime)) 90%,
+        hsl(var(--tile-lime)) 96%,
+        #000 96%,
+        #000 98%,
+        hsl(var(--tile-mint)) 98%,
+        hsl(var(--tile-mint)) 100%
       ),
+      /* Main bottom border tiles */
       linear-gradient(90deg,
-        hsl(var(--tile-purple)) 0%, hsl(var(--tile-purple)) 8.33%,
-        #000 8.33%, #000 8.66%,
-        hsl(var(--tile-coral)) 8.66%, hsl(var(--tile-coral)) 16.99%,
-        #000 16.99%, #000 17.32%,
-        hsl(var(--tile-lime)) 17.32%, hsl(var(--tile-lime)) 25.65%,
-        #000 25.65%, #000 25.98%,
-        hsl(var(--tile-teal)) 25.98%, hsl(var(--tile-teal)) 34.31%,
-        #000 34.31%, #000 34.64%,
-        hsl(var(--tile-blue)) 34.64%, hsl(var(--tile-blue)) 42.97%,
-        #000 42.97%, #000 43.3%,
-        hsl(var(--tile-yellow)) 43.3%, hsl(var(--tile-yellow)) 51.63%,
-        #000 51.63%, #000 51.96%,
-        hsl(var(--tile-orange)) 51.96%, hsl(var(--tile-orange)) 60.29%,
-        #000 60.29%, #000 60.62%,
-        hsl(var(--tile-pink)) 60.62%, hsl(var(--tile-pink)) 68.95%,
-        #000 68.95%, #000 69.28%,
-        hsl(var(--tile-green)) 69.28%, hsl(var(--tile-green)) 77.61%,
-        #000 77.61%, #000 77.94%,
-        hsl(var(--tile-turquoise)) 77.94%, hsl(var(--tile-turquoise)) 86.27%,
-        #000 86.27%, #000 86.6%,
-        hsl(var(--tile-purple)) 86.6%, hsl(var(--tile-purple)) 100%
-      );
+        hsl(var(--tile-purple)) 0%, hsl(var(--tile-purple)) 7%,
+        #000 7%, #000 8.5%,
+        hsl(var(--tile-coral)) 8.5%, hsl(var(--tile-coral)) 15.5%,
+        #000 15.5%, #000 17%,
+        hsl(var(--tile-lime)) 17%, hsl(var(--tile-lime)) 24%,
+        #000 24%, #000 25.5%,
+        hsl(var(--tile-teal)) 25.5%, hsl(var(--tile-teal)) 32.5%,
+        #000 32.5%, #000 34%,
+        hsl(var(--tile-blue)) 34%, hsl(var(--tile-blue)) 41%,
+        #000 41%, #000 42.5%,
+        hsl(var(--tile-yellow)) 42.5%, hsl(var(--tile-yellow)) 49.5%,
+        #000 49.5%, #000 51%,
+        hsl(var(--tile-orange)) 51%, hsl(var(--tile-orange)) 58%,
+        #000 58%, #000 59.5%,
+        hsl(var(--tile-pink)) 59.5%, hsl(var(--tile-pink)) 66.5%,
+        #000 66.5%, #000 68%,
+        hsl(var(--tile-green)) 68%, hsl(var(--tile-green)) 75%,
+        #000 75%, #000 76.5%,
+        hsl(var(--tile-turquoise)) 76.5%, hsl(var(--tile-turquoise)) 83.5%,
+        #000 83.5%, #000 85%,
+        hsl(var(--tile-magenta)) 85%, hsl(var(--tile-magenta)) 92%,
+        #000 92%, #000 93.5%,
+        hsl(var(--tile-purple)) 93.5%, hsl(var(--tile-purple)) 100%
+      ),
+      /* Shadow for depth */
+      linear-gradient(0deg, rgba(0,0,0,0.1) 0%, transparent 30%);
+    border-top: 2px solid #000000;
   }
 
   .lulu-content {
     position: relative;
     background: white;
-    min-height: calc(100vh - 200px);
-    margin: 40px 40px 140px 40px;
-    /* Curved bottom like packaging */
-    border-radius: 20px 20px 50% 50% / 20px 20px 100px 100px;
-    border: 3px solid #000000;
+    min-height: calc(100vh - 220px);
+    margin: 45px 45px 150px 45px;
+    /* Enhanced curved bottom like packaging */
+    border-radius: 25px 25px 60% 60% / 25px 25px 120px 120px;
+    border: 4px solid #000000;
     padding: 60px 40px 100px;
     z-index: 1;
+    /* Subtle inner shadow for depth */
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
   }
 
   /* Small mosaic elements */

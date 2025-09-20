@@ -40,7 +40,7 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        // Exact packaging tile colors
+        // Enhanced packaging tile colors
         tile: {
           green: "hsl(var(--tile-green))",
           pink: "hsl(var(--tile-pink))",
@@ -52,6 +52,8 @@ export default {
           coral: "hsl(var(--tile-coral))",
           purple: "hsl(var(--tile-purple))",
           turquoise: "hsl(var(--tile-turquoise))",
+          mint: "hsl(var(--tile-mint))",
+          magenta: "hsl(var(--tile-magenta))",
         },
         success: {
           DEFAULT: "hsl(var(--success))",
