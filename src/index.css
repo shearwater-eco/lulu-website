@@ -2,95 +2,121 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Definition of the design system - LULU vibrant mosaic theme
+All colors MUST be HSL based on the colorful packaging design.
 */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* LULU Brand Colors - inspired by packaging mosaic */
+    --primary: 174 100% 29%; /* Teal - main brand color */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 174 100% 85%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 340 100% 50%; /* Bright Pink */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 51 100% 50%; /* Bright Yellow */
+    --accent-foreground: 0 0% 10%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --success: 140 70% 40%; /* Green */
+    --success-foreground: 0 0% 100%;
+
+    --warning: 35 100% 50%; /* Orange */
+    --warning-foreground: 0 0% 100%;
+
+    --info: 270 70% 50%; /* Purple */
+    --info-foreground: 0 0% 100%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 174 100% 29%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Mosaic border gradient - recreating the packaging pattern */
+    --mosaic-gradient: linear-gradient(45deg, 
+      hsl(174 100% 29%) 0%, 
+      hsl(340 100% 50%) 15%, 
+      hsl(51 100% 50%) 30%, 
+      hsl(140 70% 40%) 45%, 
+      hsl(35 100% 50%) 60%, 
+      hsl(270 70% 50%) 75%, 
+      hsl(174 100% 29%) 100%);
+
+    /* Box shadows with brand colors */
+    --shadow-brand: 0 10px 30px -10px hsl(174 100% 29% / 0.3);
+    --shadow-colorful: 0 20px 40px -15px hsl(340 100% 50% / 0.2);
 
     --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-foreground: 0 0% 20%;
+    --sidebar-primary: 174 100% 29%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 95%;
+    --sidebar-accent-foreground: 0 0% 20%;
+    --sidebar-border: 0 0% 91%;
+    --sidebar-ring: 174 100% 29%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 174 100% 40%;
+    --primary-foreground: 0 0% 5%;
+    --primary-light: 174 100% 20%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 340 80% 60%;
+    --secondary-foreground: 0 0% 5%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 51 80% 60%;
+    --accent-foreground: 0 0% 5%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --success: 140 60% 50%;
+    --success-foreground: 0 0% 5%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --warning: 35 80% 60%;
+    --warning-foreground: 0 0% 5%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --info: 270 60% 60%;
+    --info-foreground: 0 0% 5%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 174 100% 40%;
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 174 100% 40%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 174 100% 40%;
   }
 }
 
@@ -101,5 +127,56 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Times', 'Times New Roman', serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Times', 'Times New Roman', serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  /* Mosaic border pattern like the packaging */
+  .mosaic-border {
+    position: relative;
+    padding: 8px;
+  }
+  
+  .mosaic-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 4px;
+    background: var(--mosaic-gradient);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+  }
+
+  /* Hero button variants */
+  .btn-hero {
+    @apply px-8 py-4 text-lg font-bold rounded-xl;
+    @apply bg-primary text-primary-foreground;
+    @apply hover:bg-primary/90 transition-all duration-300;
+    @apply shadow-lg hover:shadow-brand;
+    @apply mosaic-border;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 text-lg font-bold rounded-xl;
+    @apply bg-secondary text-secondary-foreground;
+    @apply hover:bg-secondary/90 transition-all duration-300;
+    @apply shadow-lg hover:shadow-colorful;
+    @apply mosaic-border;
+  }
+
+  /* Colorful section backgrounds */
+  .section-colorful {
+    background: linear-gradient(135deg, 
+      hsl(var(--primary-light)) 0%, 
+      hsl(var(--background)) 50%, 
+      hsl(var(--accent) / 0.1) 100%);
   }
 }
