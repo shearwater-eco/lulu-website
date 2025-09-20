@@ -34,7 +34,7 @@ const Header = () => {
       {/* Header with curved mosaic border */}
       <header className="relative sticky top-0 z-50 backdrop-blur">
         <div className="mosaic-border-curved-top bg-white relative">
-          <div className="container mx-auto px-4 pt-8 pb-4">
+          <div className="container mx-auto px-4 pt-8 pb-2">
             <div className="flex items-center justify-between h-20">
               <Link to="/" className="flex items-center space-x-2">
                 <div className="mosaic-border-thick rounded-lg p-4 bg-white">
