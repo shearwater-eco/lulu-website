@@ -9,7 +9,10 @@ import luluBoxMockup from "@/assets/lulu-box-mockup.png";
 const HomePage = () => {
   return (
     <div className="lulu-frame">
-      <div className="lulu-content">
+      <div className="lulu-package">
+        <div className="right-border"></div>
+        <div className="bottom-border"></div>
+        <div className="lulu-content">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-16 lg:py-24">
           <div className="container mx-auto px-4">
@@ -22,14 +25,14 @@ const HomePage = () => {
                   <p className="text-lg lg:text-xl text-foreground mb-4 lulu-subtitle">
                     by
                   </p>
-                  <h1 className="lulu-title text-mosaic-teal mb-4">
+                  <h1 className="lulu-title text-4xl text-black mb-4">
                     LULU
                   </h1>
                 </div>
                 
-                <h2 className="text-2xl lg:text-3xl font-bold text-foreground leading-tight lulu-subtitle">
+                <div className="lulu-tagline">
                   Gentle on you, kind to the Earth
-                </h2>
+                </div>
                 
                 <p className="text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0">
                   Welsh sustainable paper products that don't compromise on quality. 
@@ -97,19 +100,19 @@ const HomePage = () => {
                   title: "Toilet Tissue",
                   description: "Soft, strong, and sustainable. Perfect for everyday use.",
                   features: ["9 Rolls", "3-Ply", "FSC Certified"],
-                  bgColor: "mosaic-green"
+                  bgColor: "tile-green"
                 },
                 {
                   title: "Kitchen Rolls",
                   description: "Absorbent and eco-friendly for all your kitchen needs.",
                   features: ["6 Rolls", "2-Ply", "Plastic-Free"],
-                  bgColor: "mosaic-blue"
+                  bgColor: "tile-blue"
                 },
                 {
                   title: "Facial Tissues",
                   description: "Gentle on your skin, gentle on the environment.",
                   features: ["Box of 150", "Ultra Soft", "Chemical-Free"],
-                  bgColor: "mosaic-orange"
+                  bgColor: "tile-orange"
                 }
               ].map((product, index) => (
                 <div key={index} className="card-lulu hover:transform hover:scale-105 transition-all duration-300">
@@ -170,19 +173,19 @@ const HomePage = () => {
                       icon: Heart,
                       title: "Welsh Heritage",
                       description: "Proudly made in Wales with local craftsmanship and care.",
-                      color: "mosaic-coral"
+                      color: "tile-coral"
                     },
                     {
                       icon: Shield,
                       title: "Supermarket Quality",
                       description: "Premium quality that matches leading brands, without the environmental cost.",
-                      color: "mosaic-purple"
+                      color: "tile-purple"
                     },
                     {
                       icon: Truck,
                       title: "Convenient Delivery",
                       description: "Subscribe and never run out. Delivered right to your door.",
-                      color: "mosaic-turquoise"
+                      color: "tile-turquoise"
                     }
                   ].map((item, index) => {
                     const Icon = item.icon;
@@ -234,27 +237,27 @@ const HomePage = () => {
                   location: "Cardiff",
                   rating: 5,
                   review: "Love the quality and knowing I'm helping the environment. Lulu is adorable too!",
-                  color: "mosaic-green"
+                  color: "tile-green"
                 },
                 {
                   name: "James T.",
                   location: "London",
                   rating: 5,
                   review: "Switched our office to LULU. Great quality, competitive pricing, and sustainable!",
-                  color: "mosaic-pink"
+                  color: "tile-pink"
                 },
                 {
                   name: "Emma W.",
                   location: "Edinburgh",
                   rating: 5,
                   review: "The subscription service is perfect - never run out and delivered on time.",
-                  color: "mosaic-yellow"
+                  color: "tile-yellow"
                 }
               ].map((review, index) => (
                 <div key={index} className="card-lulu hover:transform hover:scale-105 transition-all duration-300">
                   <div className="flex items-center mb-4">
                     {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-current text-mosaic-yellow" />
+                      <Star key={i} className="h-5 w-5 fill-current text-tile-yellow" />
                     ))}
                   </div>
                   <p className="text-muted-foreground mb-4 lulu-subtitle">
@@ -297,6 +300,7 @@ const HomePage = () => {
             </div>
           </div>
         </section>
+        </div>
       </div>
     </div>
   );

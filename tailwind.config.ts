@@ -40,18 +40,18 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        // Exact packaging mosaic colors
-        mosaic: {
-          green: "hsl(var(--mosaic-green))",
-          pink: "hsl(var(--mosaic-pink))",
-          orange: "hsl(var(--mosaic-orange))",
-          yellow: "hsl(var(--mosaic-yellow))",
-          blue: "hsl(var(--mosaic-blue))",
-          teal: "hsl(var(--mosaic-teal))",
-          lime: "hsl(var(--mosaic-lime))",
-          coral: "hsl(var(--mosaic-coral))",
-          purple: "hsl(var(--mosaic-purple))",
-          turquoise: "hsl(var(--mosaic-turquoise))",
+        // Exact packaging tile colors
+        tile: {
+          green: "hsl(var(--tile-green))",
+          pink: "hsl(var(--tile-pink))",
+          orange: "hsl(var(--tile-orange))",
+          yellow: "hsl(var(--tile-yellow))",
+          blue: "hsl(var(--tile-blue))",
+          teal: "hsl(var(--tile-teal))",
+          lime: "hsl(var(--tile-lime))",
+          coral: "hsl(var(--tile-coral))",
+          purple: "hsl(var(--tile-purple))",
+          turquoise: "hsl(var(--tile-turquoise))",
         },
         success: {
           DEFAULT: "hsl(var(--success))",

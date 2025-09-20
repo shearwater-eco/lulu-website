@@ -28,13 +28,13 @@ const EcoBadges = ({ className = "" }: { className?: string }) => {
     }
   ];
 
-  const mosaicColors = ['mosaic-green', 'mosaic-pink', 'mosaic-yellow', 'mosaic-blue'];
+  const tileColors = ['tile-green', 'tile-pink', 'tile-yellow', 'tile-blue'];
 
   return (
     <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 ${className}`}>
       {badges.map((badge, index) => {
         const Icon = badge.icon;
-        const colorVar = mosaicColors[index];
+        const colorVar = tileColors[index];
         return (
           <div
             key={index}
