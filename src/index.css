@@ -191,8 +191,8 @@
         hsl(var(--tile-magenta)) 93.5%, hsl(var(--tile-magenta)) 100%
       );
     border-bottom: 2px solid #000000;
-    border-radius: 0 0 50% 50% / 0 0 15px 15px;
-    clip-path: ellipse(100% 100% at center bottom);
+    border-radius: 50% 50% 0 0 / 15px 15px 0 0;
+    clip-path: ellipse(100% 100% at center top);
   }
 
   /* Enhanced Left Border with More Detail */
