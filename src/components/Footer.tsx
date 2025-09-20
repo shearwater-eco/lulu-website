@@ -2,15 +2,9 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
-
 const Footer = () => {
-  const linkColors = [
-    'vibrant-green', 'secondary', 'accent', 'vibrant-blue', 
-    'vibrant-orange', 'vibrant-purple', 'vibrant-lime', 'vibrant-coral'
-  ];
-
-  return (
-    <footer className="relative mt-16">
+  const linkColors = ['vibrant-green', 'secondary', 'accent', 'vibrant-blue', 'vibrant-orange', 'vibrant-purple', 'vibrant-lime', 'vibrant-coral'];
+  return <footer className="relative mt-16">
       <div className="mosaic-border-curved-bottom bg-white relative">
         <div className="container mx-auto px-4 pt-12 pb-20">
           <div className="grid md:grid-cols-4 gap-8">
@@ -20,9 +14,7 @@ const Footer = () => {
                   <span className="text-2xl font-bold logo-mosaic">LULU</span>
                 </div>
               </div>
-              <p className="text-muted-foreground mb-4 font-medium">
-                Welsh sustainable paper products that are gentle on you and kind to the Earth.
-              </p>
+              <p className="text-muted-foreground mb-4 font-medium">Sustainable paper products that are gentle on you and kind to the Earth.</p>
               <div className="flex space-x-4">
                 <Button variant="ghost" size="icon" className="mosaic-border bg-vibrant-green text-white hover:bg-vibrant-green/90">
                   <Facebook className="h-5 w-5" />
@@ -39,59 +31,68 @@ const Footer = () => {
             <div>
               <h4 className="font-bold text-foreground mb-4 text-lg">Shop</h4>
               <ul className="space-y-3">
-                {[
-                  { name: "Toilet Tissue", href: "/shop", colorIndex: 0 },
-                  { name: "Kitchen Rolls", href: "/shop", colorIndex: 1 },
-                  { name: "Facial Tissues", href: "/shop", colorIndex: 2 },
-                  { name: "Bulk Orders", href: "/shop", colorIndex: 3 }
-                ].map((item, index) => (
-                  <li key={item.name}>
-                    <Link 
-                      to={item.href} 
-                      className="text-muted-foreground hover:text-primary transition-colors font-medium border-l-4 border-transparent hover:border-current pl-2"
-                      style={{ ['--hover-border-color' as any]: `hsl(var(--${linkColors[item.colorIndex]}))` }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.borderLeftColor = `hsl(var(--${linkColors[item.colorIndex]}))`;
-                        e.currentTarget.style.color = `hsl(var(--${linkColors[item.colorIndex]}))`;
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.borderLeftColor = 'transparent';
-                        e.currentTarget.style.color = 'hsl(var(--muted-foreground))';
-                      }}
-                    >
+                {[{
+                name: "Toilet Tissue",
+                href: "/shop",
+                colorIndex: 0
+              }, {
+                name: "Kitchen Rolls",
+                href: "/shop",
+                colorIndex: 1
+              }, {
+                name: "Facial Tissues",
+                href: "/shop",
+                colorIndex: 2
+              }, {
+                name: "Bulk Orders",
+                href: "/shop",
+                colorIndex: 3
+              }].map((item, index) => <li key={item.name}>
+                    <Link to={item.href} className="text-muted-foreground hover:text-primary transition-colors font-medium border-l-4 border-transparent hover:border-current pl-2" style={{
+                  ['--hover-border-color' as any]: `hsl(var(--${linkColors[item.colorIndex]}))`
+                }} onMouseEnter={e => {
+                  e.currentTarget.style.borderLeftColor = `hsl(var(--${linkColors[item.colorIndex]}))`;
+                  e.currentTarget.style.color = `hsl(var(--${linkColors[item.colorIndex]}))`;
+                }} onMouseLeave={e => {
+                  e.currentTarget.style.borderLeftColor = 'transparent';
+                  e.currentTarget.style.color = 'hsl(var(--muted-foreground))';
+                }}>
                       {item.name}
                     </Link>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
 
             <div>
               <h4 className="font-bold text-foreground mb-4 text-lg">Company</h4>
               <ul className="space-y-3">
-                {[
-                  { name: "About Us", href: "/about", colorIndex: 4 },
-                  { name: "Sustainability", href: "/sustainability", colorIndex: 5 },
-                  { name: "Business", href: "/business", colorIndex: 6 },
-                  { name: "Blog", href: "/blog", colorIndex: 7 }
-                ].map((item) => (
-                  <li key={item.name}>
-                    <Link 
-                      to={item.href} 
-                      className="text-muted-foreground hover:text-primary transition-colors font-medium border-l-4 border-transparent hover:border-current pl-2"
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.borderLeftColor = `hsl(var(--${linkColors[item.colorIndex]}))`;
-                        e.currentTarget.style.color = `hsl(var(--${linkColors[item.colorIndex]}))`;
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.borderLeftColor = 'transparent';
-                        e.currentTarget.style.color = 'hsl(var(--muted-foreground))';
-                      }}
-                    >
+                {[{
+                name: "About Us",
+                href: "/about",
+                colorIndex: 4
+              }, {
+                name: "Sustainability",
+                href: "/sustainability",
+                colorIndex: 5
+              }, {
+                name: "Business",
+                href: "/business",
+                colorIndex: 6
+              }, {
+                name: "Blog",
+                href: "/blog",
+                colorIndex: 7
+              }].map(item => <li key={item.name}>
+                    <Link to={item.href} className="text-muted-foreground hover:text-primary transition-colors font-medium border-l-4 border-transparent hover:border-current pl-2" onMouseEnter={e => {
+                  e.currentTarget.style.borderLeftColor = `hsl(var(--${linkColors[item.colorIndex]}))`;
+                  e.currentTarget.style.color = `hsl(var(--${linkColors[item.colorIndex]}))`;
+                }} onMouseLeave={e => {
+                  e.currentTarget.style.borderLeftColor = 'transparent';
+                  e.currentTarget.style.color = 'hsl(var(--muted-foreground))';
+                }}>
                       {item.name}
                     </Link>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
 
@@ -101,11 +102,7 @@ const Footer = () => {
                 Get the latest updates on new products and sustainability tips from Lulu!
               </p>
               <div className="space-y-3">
-                <Input 
-                  type="email" 
-                  placeholder="Your email" 
-                  className="mosaic-border bg-white"
-                />
+                <Input type="email" placeholder="Your email" className="mosaic-border bg-white" />
                 <Button className="btn-hero w-full">
                   Subscribe
                 </Button>
@@ -130,8 +127,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
