@@ -153,7 +153,7 @@
     background: white;
   }
 
-  /* Enhanced Individual Mosaic Tiles - Top Border with More Detail */
+  /* Enhanced Individual Mosaic Tiles - Top Border with Slight Curve */
   .lulu-package::before {
     content: '';
     position: absolute;
@@ -191,6 +191,8 @@
         hsl(var(--tile-magenta)) 93.5%, hsl(var(--tile-magenta)) 100%
       );
     border-bottom: 2px solid #000000;
+    border-radius: 0 0 50% 50% / 0 0 15px 15px;
+    clip-path: ellipse(100% 100% at center bottom);
   }
 
   /* Enhanced Left Border with More Detail */
