@@ -193,7 +193,7 @@
     border-bottom: 2px solid #000000;
   }
 
-  /* Enhanced Left Border with More Detail */
+  /* Enhanced Left Border - Diagonal Brick Pattern from Uploaded Image */
   .lulu-package::after {
     content: '';
     position: absolute;
@@ -204,36 +204,40 @@
     background: 
       /* Inner shadow for depth */
       linear-gradient(90deg, rgba(0,0,0,0.2) 0%, transparent 20%),
-      /* Main tile pattern */
-      linear-gradient(0deg,
-        hsl(var(--tile-teal)) 0%, hsl(var(--tile-teal)) 7.5%,
-        #000 7.5%, #000 8.5%,
-        hsl(var(--tile-lime)) 8.5%, hsl(var(--tile-lime)) 16%,
-        #000 16%, #000 17%,
-        hsl(var(--tile-pink)) 17%, hsl(var(--tile-pink)) 24.5%,
-        #000 24.5%, #000 25.5%,
-        hsl(var(--tile-orange)) 25.5%, hsl(var(--tile-orange)) 33%,
-        #000 33%, #000 34%,
-        hsl(var(--tile-blue)) 34%, hsl(var(--tile-blue)) 41.5%,
-        #000 41.5%, #000 42.5%,
-        hsl(var(--tile-yellow)) 42.5%, hsl(var(--tile-yellow)) 50%,
-        #000 50%, #000 51%,
-        hsl(var(--tile-green)) 51%, hsl(var(--tile-green)) 58.5%,
-        #000 58.5%, #000 59.5%,
-        hsl(var(--tile-coral)) 59.5%, hsl(var(--tile-coral)) 67%,
-        #000 67%, #000 68%,
-        hsl(var(--tile-purple)) 68%, hsl(var(--tile-purple)) 75.5%,
-        #000 75.5%, #000 76.5%,
-        hsl(var(--tile-turquoise)) 76.5%, hsl(var(--tile-turquoise)) 84%,
-        #000 84%, #000 85%,
-        hsl(var(--tile-mint)) 85%, hsl(var(--tile-mint)) 92.5%,
-        #000 92.5%, #000 93.5%,
-        hsl(var(--tile-teal)) 93.5%, hsl(var(--tile-teal)) 100%
+      /* Diagonal brick pattern matching uploaded image */
+      repeating-linear-gradient(-45deg,
+        hsl(var(--tile-lime)) 0px, hsl(var(--tile-lime)) 25px,
+        #000 25px, #000 27px,
+        hsl(var(--tile-coral)) 27px, hsl(var(--tile-coral)) 52px,
+        #000 52px, #000 54px,
+        hsl(var(--tile-orange)) 54px, hsl(var(--tile-orange)) 79px,
+        #000 79px, #000 81px,
+        hsl(var(--tile-teal)) 81px, hsl(var(--tile-teal)) 106px,
+        #000 106px, #000 108px,
+        hsl(var(--tile-yellow)) 108px, hsl(var(--tile-yellow)) 133px,
+        #000 133px, #000 135px,
+        hsl(var(--tile-pink)) 135px, hsl(var(--tile-pink)) 160px,
+        #000 160px, #000 162px,
+        hsl(var(--tile-green)) 162px, hsl(var(--tile-green)) 187px,
+        #000 187px, #000 189px
+      ),
+      /* Offset diagonal pattern for brick effect */
+      repeating-linear-gradient(45deg,
+        transparent 0px, transparent 12px,
+        hsl(var(--tile-blue)) 12px, hsl(var(--tile-blue)) 37px,
+        #000 37px, #000 39px,
+        hsl(var(--tile-purple)) 39px, hsl(var(--tile-purple)) 64px,
+        #000 64px, #000 66px,
+        hsl(var(--tile-turquoise)) 66px, hsl(var(--tile-turquoise)) 91px,
+        #000 91px, #000 93px,
+        hsl(var(--tile-magenta)) 93px, hsl(var(--tile-magenta)) 118px,
+        #000 118px, #000 120px,
+        transparent 120px, transparent 132px
       );
     border-right: 2px solid #000000;
   }
 
-  /* Enhanced Right Border - Diagonal Brick Pattern from Packaging */
+  /* Enhanced Right Border - Diagonal Brick Pattern from Uploaded Image */
   .lulu-package .right-border {
     position: absolute;
     top: -35px;
@@ -243,35 +247,35 @@
     background: 
       /* Inner shadow for depth */
       linear-gradient(-90deg, rgba(0,0,0,0.2) 0%, transparent 20%),
-      /* Diagonal brick pattern matching packaging */
+      /* Diagonal brick pattern matching uploaded image */
       repeating-linear-gradient(45deg,
-        hsl(var(--tile-teal)) 0px, hsl(var(--tile-teal)) 15px,
-        #000 15px, #000 17px,
-        hsl(var(--tile-pink)) 17px, hsl(var(--tile-pink)) 32px,
-        #000 32px, #000 34px,
-        hsl(var(--tile-orange)) 34px, hsl(var(--tile-orange)) 49px,
-        #000 49px, #000 51px,
-        hsl(var(--tile-lime)) 51px, hsl(var(--tile-lime)) 66px,
-        #000 66px, #000 68px,
-        hsl(var(--tile-blue)) 68px, hsl(var(--tile-blue)) 83px,
-        #000 83px, #000 85px,
-        hsl(var(--tile-yellow)) 85px, hsl(var(--tile-yellow)) 100px,
-        #000 100px, #000 102px,
-        hsl(var(--tile-purple)) 102px, hsl(var(--tile-purple)) 117px,
-        #000 117px, #000 119px,
-        hsl(var(--tile-coral)) 119px, hsl(var(--tile-coral)) 134px,
-        #000 134px, #000 136px
+        hsl(var(--tile-green)) 0px, hsl(var(--tile-green)) 25px,
+        #000 25px, #000 27px,
+        hsl(var(--tile-pink)) 27px, hsl(var(--tile-pink)) 52px,
+        #000 52px, #000 54px,
+        hsl(var(--tile-orange)) 54px, hsl(var(--tile-orange)) 79px,
+        #000 79px, #000 81px,
+        hsl(var(--tile-teal)) 81px, hsl(var(--tile-teal)) 106px,
+        #000 106px, #000 108px,
+        hsl(var(--tile-yellow)) 108px, hsl(var(--tile-yellow)) 133px,
+        #000 133px, #000 135px,
+        hsl(var(--tile-lime)) 135px, hsl(var(--tile-lime)) 160px,
+        #000 160px, #000 162px,
+        hsl(var(--tile-coral)) 162px, hsl(var(--tile-coral)) 187px,
+        #000 187px, #000 189px
       ),
       /* Offset diagonal pattern for brick effect */
       repeating-linear-gradient(-45deg,
-        transparent 0px, transparent 8px,
-        hsl(var(--tile-green)) 8px, hsl(var(--tile-green)) 23px,
-        #000 23px, #000 25px,
-        hsl(var(--tile-magenta)) 25px, hsl(var(--tile-magenta)) 40px,
-        #000 40px, #000 42px,
-        hsl(var(--tile-turquoise)) 42px, hsl(var(--tile-turquoise)) 57px,
-        #000 57px, #000 59px,
-        transparent 59px, transparent 67px
+        transparent 0px, transparent 12px,
+        hsl(var(--tile-purple)) 12px, hsl(var(--tile-purple)) 37px,
+        #000 37px, #000 39px,
+        hsl(var(--tile-blue)) 39px, hsl(var(--tile-blue)) 64px,
+        #000 64px, #000 66px,
+        hsl(var(--tile-turquoise)) 66px, hsl(var(--tile-turquoise)) 91px,
+        #000 91px, #000 93px,
+        hsl(var(--tile-magenta)) 93px, hsl(var(--tile-magenta)) 118px,
+        #000 118px, #000 120px,
+        transparent 120px, transparent 132px
       );
     border-left: 2px solid #000000;
   }
