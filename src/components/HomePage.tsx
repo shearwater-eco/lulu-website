@@ -10,6 +10,8 @@ const HomePage = () => {
   return (
     <div className="lulu-frame">
       <div className="lulu-package">
+        <div className="right-border"></div>
+        <div className="bottom-border"></div>
         <div className="lulu-content">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-16 lg:py-24">

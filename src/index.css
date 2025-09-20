@@ -145,76 +145,180 @@
     justify-content: center;
   }
 
-  /* Unified Curved Mosaic Border - Single SVG approach */
-  /* Unified Curved Mosaic Frame - Clean Implementation */
   .lulu-package {
     position: relative;
     width: 100%;
     max-width: 1200px;
     min-height: calc(100vh - 120px);
     background: white;
-    border-radius: 50px 50px 60% 60% / 25px 25px 120px 120px;
-    padding: 35px;
-    overflow: hidden;
   }
 
+  /* Enhanced Individual Mosaic Tiles - Top Border with More Detail */
   .lulu-package::before {
     content: '';
     position: absolute;
-    inset: -35px;
-    border-radius: 50px 50px 60% 60% / 25px 25px 120px 120px;
+    top: -35px;
+    left: -35px;
+    right: -35px;
+    height: 35px;
     background: 
-      /* Create continuous curved border */
-      conic-gradient(
-        hsl(var(--tile-green)) 0deg 20deg,
-        #000 20deg 22deg,
-        hsl(var(--tile-pink)) 22deg 42deg,
-        #000 42deg 44deg,
-        hsl(var(--tile-lime)) 44deg 64deg,
-        #000 64deg 66deg,
-        hsl(var(--tile-orange)) 66deg 86deg,
-        #000 86deg 88deg,
-        hsl(var(--tile-yellow)) 88deg 108deg,
-        #000 108deg 110deg,
-        hsl(var(--tile-blue)) 110deg 130deg,
-        #000 130deg 132deg,
-        hsl(var(--tile-teal)) 132deg 152deg,
-        #000 152deg 154deg,
-        hsl(var(--tile-coral)) 154deg 174deg,
-        #000 174deg 176deg,
-        hsl(var(--tile-purple)) 176deg 196deg,
-        #000 196deg 198deg,
-        hsl(var(--tile-turquoise)) 198deg 218deg,
-        #000 218deg 220deg,
-        hsl(var(--tile-magenta)) 220deg 240deg,
-        #000 240deg 242deg,
-        hsl(var(--tile-green)) 242deg 262deg,
-        #000 262deg 264deg,
-        hsl(var(--tile-pink)) 264deg 284deg,
-        #000 284deg 286deg,
-        hsl(var(--tile-lime)) 286deg 306deg,
-        #000 306deg 308deg,
-        hsl(var(--tile-coral)) 308deg 328deg,
-        #000 328deg 330deg,
-        hsl(var(--tile-orange)) 330deg 350deg,
-        #000 350deg 352deg,
-        hsl(var(--tile-yellow)) 352deg 360deg
+      /* Inner shadow for depth */
+      linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 20%),
+      /* Main tile pattern */
+      linear-gradient(90deg,
+        hsl(var(--tile-green)) 0%, hsl(var(--tile-green)) 7.5%,
+        #000 7.5%, #000 8.5%,
+        hsl(var(--tile-pink)) 8.5%, hsl(var(--tile-pink)) 16%,
+        #000 16%, #000 17%,
+        hsl(var(--tile-orange)) 17%, hsl(var(--tile-orange)) 24.5%,
+        #000 24.5%, #000 25.5%,
+        hsl(var(--tile-yellow)) 25.5%, hsl(var(--tile-yellow)) 33%,
+        #000 33%, #000 34%,
+        hsl(var(--tile-blue)) 34%, hsl(var(--tile-blue)) 41.5%,
+        #000 41.5%, #000 42.5%,
+        hsl(var(--tile-teal)) 42.5%, hsl(var(--tile-teal)) 50%,
+        #000 50%, #000 51%,
+        hsl(var(--tile-lime)) 51%, hsl(var(--tile-lime)) 58.5%,
+        #000 58.5%, #000 59.5%,
+        hsl(var(--tile-coral)) 59.5%, hsl(var(--tile-coral)) 67%,
+        #000 67%, #000 68%,
+        hsl(var(--tile-purple)) 68%, hsl(var(--tile-purple)) 75.5%,
+        #000 75.5%, #000 76.5%,
+        hsl(var(--tile-turquoise)) 76.5%, hsl(var(--tile-turquoise)) 84%,
+        #000 84%, #000 85%,
+        hsl(var(--tile-mint)) 85%, hsl(var(--tile-mint)) 92.5%,
+        #000 92.5%, #000 93.5%,
+        hsl(var(--tile-magenta)) 93.5%, hsl(var(--tile-magenta)) 100%
       );
-    z-index: -1;
-    clip-path: polygon(
-      35px 25px, calc(100% - 35px) 25px, 
-      100% 35px, 100% calc(100% - 120px),
-      calc(100% - 60px) calc(100% - 35px),
-      60px calc(100% - 35px),
-      0px calc(100% - 120px),
-      0px 35px
-    );
+    border-bottom: 2px solid #000000;
+  }
+
+  /* Enhanced Left Border with More Detail */
+  .lulu-package::after {
+    content: '';
+    position: absolute;
+    top: -35px;
+    left: -35px;
+    width: 35px;
+    bottom: 100px;
+    background: 
+      /* Inner shadow for depth */
+      linear-gradient(90deg, rgba(0,0,0,0.2) 0%, transparent 20%),
+      /* Main tile pattern */
+      linear-gradient(0deg,
+        hsl(var(--tile-teal)) 0%, hsl(var(--tile-teal)) 7.5%,
+        #000 7.5%, #000 8.5%,
+        hsl(var(--tile-lime)) 8.5%, hsl(var(--tile-lime)) 16%,
+        #000 16%, #000 17%,
+        hsl(var(--tile-pink)) 17%, hsl(var(--tile-pink)) 24.5%,
+        #000 24.5%, #000 25.5%,
+        hsl(var(--tile-orange)) 25.5%, hsl(var(--tile-orange)) 33%,
+        #000 33%, #000 34%,
+        hsl(var(--tile-blue)) 34%, hsl(var(--tile-blue)) 41.5%,
+        #000 41.5%, #000 42.5%,
+        hsl(var(--tile-yellow)) 42.5%, hsl(var(--tile-yellow)) 50%,
+        #000 50%, #000 51%,
+        hsl(var(--tile-green)) 51%, hsl(var(--tile-green)) 58.5%,
+        #000 58.5%, #000 59.5%,
+        hsl(var(--tile-coral)) 59.5%, hsl(var(--tile-coral)) 67%,
+        #000 67%, #000 68%,
+        hsl(var(--tile-purple)) 68%, hsl(var(--tile-purple)) 75.5%,
+        #000 75.5%, #000 76.5%,
+        hsl(var(--tile-turquoise)) 76.5%, hsl(var(--tile-turquoise)) 84%,
+        #000 84%, #000 85%,
+        hsl(var(--tile-mint)) 85%, hsl(var(--tile-mint)) 92.5%,
+        #000 92.5%, #000 93.5%,
+        hsl(var(--tile-teal)) 93.5%, hsl(var(--tile-teal)) 100%
+      );
+    border-right: 2px solid #000000;
+  }
+
+  /* Enhanced Right Border with More Detail */
+  .lulu-package .right-border {
+    position: absolute;
+    top: -35px;
+    right: -35px;
+    width: 35px;
+    bottom: 100px;
+    background: 
+      /* Inner shadow for depth */
+      linear-gradient(-90deg, rgba(0,0,0,0.2) 0%, transparent 20%),
+      /* Main tile pattern */
+      linear-gradient(0deg,
+        hsl(var(--tile-coral)) 0%, hsl(var(--tile-coral)) 7.5%,
+        #000 7.5%, #000 8.5%,
+        hsl(var(--tile-purple)) 8.5%, hsl(var(--tile-purple)) 16%,
+        #000 16%, #000 17%,
+        hsl(var(--tile-green)) 17%, hsl(var(--tile-green)) 24.5%,
+        #000 24.5%, #000 25.5%,
+        hsl(var(--tile-yellow)) 25.5%, hsl(var(--tile-yellow)) 33%,
+        #000 33%, #000 34%,
+        hsl(var(--tile-blue)) 34%, hsl(var(--tile-blue)) 41.5%,
+        #000 41.5%, #000 42.5%,
+        hsl(var(--tile-orange)) 42.5%, hsl(var(--tile-orange)) 50%,
+        #000 50%, #000 51%,
+        hsl(var(--tile-pink)) 51%, hsl(var(--tile-pink)) 58.5%,
+        #000 58.5%, #000 59.5%,
+        hsl(var(--tile-lime)) 59.5%, hsl(var(--tile-lime)) 67%,
+        #000 67%, #000 68%,
+        hsl(var(--tile-teal)) 68%, hsl(var(--tile-teal)) 75.5%,
+        #000 75.5%, #000 76.5%,
+        hsl(var(--tile-turquoise)) 76.5%, hsl(var(--tile-turquoise)) 84%,
+        #000 84%, #000 85%,
+        hsl(var(--tile-magenta)) 85%, hsl(var(--tile-magenta)) 92.5%,
+        #000 92.5%, #000 93.5%,
+        hsl(var(--tile-coral)) 93.5%, hsl(var(--tile-coral)) 100%
+      );
+    border-left: 2px solid #000000;
+  }
+
+  /* Enhanced Curved Bottom Border - Full curved area with colors */
+  .lulu-package .bottom-border {
+    position: absolute;
+    bottom: -35px;
+    left: -35px;
+    right: -35px;
+    height: 120px;
+    background: 
+      linear-gradient(90deg,
+        hsl(var(--tile-green)) 0% 6%,
+        #000 6% 7.5%,
+        hsl(var(--tile-pink)) 7.5% 13.5%,
+        #000 13.5% 15%,
+        hsl(var(--tile-lime)) 15% 21%,
+        #000 21% 22.5%,
+        hsl(var(--tile-green)) 22.5% 28.5%,
+        #000 28.5% 30%,
+        hsl(var(--tile-coral)) 30% 36%,
+        #000 36% 37.5%,
+        hsl(var(--tile-orange)) 37.5% 43.5%,
+        #000 43.5% 45%,
+        hsl(var(--tile-yellow)) 45% 51%,
+        #000 51% 52.5%,
+        hsl(var(--tile-lime)) 52.5% 58.5%,
+        #000 58.5% 60%,
+        hsl(var(--tile-coral)) 60% 66%,
+        #000 66% 67.5%,
+        hsl(var(--tile-turquoise)) 67.5% 73.5%,
+        #000 73.5% 75%,
+        hsl(var(--tile-green)) 75% 81%,
+        #000 81% 82.5%,
+        hsl(var(--tile-pink)) 82.5% 88.5%,
+        #000 88.5% 90%,
+        hsl(var(--tile-magenta)) 90% 96%,
+        #000 96% 97.5%,
+        hsl(var(--tile-turquoise)) 97.5% 100%
+      );
+    border-radius: 0 0 60% 60% / 0 0 120px 120px;
+    border: 3px solid #000000;
+    clip-path: ellipse(100% 100% at center top);
   }
 
   .lulu-content {
     position: relative;
     background: white;
     min-height: calc(100vh - 220px);
+    margin: 45px 45px 150px 45px;
     /* Enhanced curved bottom like packaging */
     border-radius: 25px 25px 60% 60% / 25px 25px 120px 120px;
     border: 4px solid #000000;
