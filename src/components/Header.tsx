@@ -101,24 +101,22 @@ const Header = () => {
               </div>
             </div>
             
-            {/* Call to Action Section */}
-            <div>
-              <div className="mosaic-border-thick bg-white rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="flex items-center gap-4">
-                  <img src="/src/assets/lulu-mascot-profile.png" alt="Lulu mascot" className="w-16 h-16 object-contain" />
-                  <div>
-                    <h2 className="text-2xl font-bold lulu-font text-foreground">Ready to go LULU?</h2>
-                    <p className="text-muted-foreground">Gentle on you, kind to the Earth</p>
-                  </div>
+            {/* Call to Action Section - positioned directly below navigation */}
+            <div className="mosaic-border-thick bg-white rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/lulu-mascot-profile.png" alt="Lulu mascot" className="w-16 h-16 object-contain" />
+                <div>
+                  <h2 className="text-2xl font-bold lulu-font text-foreground">Ready to go LULU?</h2>
+                  <p className="text-muted-foreground">Gentle on you, kind to the Earth</p>
                 </div>
-                <div className="flex gap-4">
-                  <Button className="btn-hero px-8 py-3 text-lg font-bold">
-                    Shop Now
-                  </Button>
-                  <Button variant="outline" className="mosaic-border px-8 py-3 text-lg font-bold">
-                    For Business
-                  </Button>
-                </div>
+              </div>
+              <div className="flex gap-4">
+                <Button className="btn-hero px-8 py-3 text-lg font-bold">
+                  Shop Now
+                </Button>
+                <Button variant="outline" className="mosaic-border px-8 py-3 text-lg font-bold">
+                  For Business
+                </Button>
               </div>
             </div>
           </div>
