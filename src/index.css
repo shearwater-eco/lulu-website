@@ -517,3 +517,84 @@
     border-radius: inherit;
   }
 }
+
+/* Curved border designs matching packaging */
+.mosaic-border-curved-top {
+  position: relative;
+  padding-top: 40px;
+}
+
+.mosaic-border-curved-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: 
+    repeating-linear-gradient(90deg,
+      hsl(var(--tile-1)) 0px 25px,
+      #000 25px 27px,
+      hsl(var(--tile-2)) 27px 52px,
+      #000 52px 54px,
+      hsl(var(--tile-3)) 54px 79px,
+      #000 79px 81px,
+      hsl(var(--tile-4)) 81px 106px,
+      #000 106px 108px,
+      hsl(var(--tile-5)) 108px 133px,
+      #000 133px 135px,
+      hsl(var(--tile-6)) 135px 160px,
+      #000 160px 162px,
+      hsl(var(--tile-7)) 162px 187px,
+      #000 187px 189px,
+      hsl(var(--tile-8)) 189px 214px,
+      #000 214px 216px,
+      hsl(var(--tile-9)) 216px 241px,
+      #000 241px 243px,
+      hsl(var(--tile-10)) 243px 268px,
+      #000 268px 270px
+    );
+  box-shadow: inset 0 -2px 4px rgba(0,0,0,0.1);
+  border-bottom: 2px solid #000;
+  z-index: 1;
+}
+
+.mosaic-border-curved-bottom {
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.mosaic-border-curved-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: 
+    repeating-linear-gradient(90deg,
+      hsl(var(--tile-1)) 0px 25px,
+      #000 25px 27px,
+      hsl(var(--tile-2)) 27px 52px,
+      #000 52px 54px,
+      hsl(var(--tile-3)) 54px 79px,
+      #000 79px 81px,
+      hsl(var(--tile-4)) 81px 106px,
+      #000 106px 108px,
+      hsl(var(--tile-5)) 108px 133px,
+      #000 133px 135px,
+      hsl(var(--tile-6)) 135px 160px,
+      #000 160px 162px,
+      hsl(var(--tile-7)) 162px 187px,
+      #000 187px 189px,
+      hsl(var(--tile-8)) 189px 214px,
+      #000 214px 216px,
+      hsl(var(--tile-9)) 216px 241px,
+      #000 241px 243px,
+      hsl(var(--tile-10)) 243px 268px,
+      #000 268px 270px
+    );
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  border-top: 2px solid #000;
+  z-index: 1;
+}
