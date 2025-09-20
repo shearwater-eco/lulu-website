@@ -28,26 +28,26 @@ const EcoBadges = ({ className = "" }: { className?: string }) => {
     }
   ];
 
-  const vibrantColors = ['vibrant-green', 'secondary', 'accent', 'vibrant-blue'];
+  const mosaicColors = ['mosaic-green', 'mosaic-pink', 'mosaic-yellow', 'mosaic-blue'];
 
   return (
     <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 ${className}`}>
       {badges.map((badge, index) => {
         const Icon = badge.icon;
-        const colorVar = vibrantColors[index];
+        const colorVar = mosaicColors[index];
         return (
           <div
             key={index}
-            className="card-vibrant flex flex-col items-center text-center p-6 rounded-xl animate-fade-in hover:shadow-vibrant transition-all duration-300"
+            className="card-lulu flex flex-col items-center text-center p-6 rounded-xl animate-fade-in hover:transform hover:scale-105 transition-all duration-300"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div 
-              className="p-4 rounded-full mb-4 text-white"
+              className="p-4 rounded-full mb-4 text-white border-2 border-black"
               style={{ backgroundColor: `hsl(var(--${colorVar}))` }}
             >
               <Icon className="h-8 w-8" />
             </div>
-            <h4 className="font-bold text-base text-foreground mb-2">
+            <h4 className="lulu-title text-sm text-foreground mb-2">
               {badge.title}
             </h4>
             <p className="text-sm text-muted-foreground">

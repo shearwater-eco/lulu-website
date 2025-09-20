@@ -40,15 +40,18 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        // Vibrant packaging colors
-        vibrant: {
-          green: "hsl(var(--vibrant-green))",
-          blue: "hsl(var(--vibrant-blue))",
-          orange: "hsl(var(--vibrant-orange))",
-          purple: "hsl(var(--vibrant-purple))",
-          lime: "hsl(var(--vibrant-lime))",
-          coral: "hsl(var(--vibrant-coral))",
-          turquoise: "hsl(var(--vibrant-turquoise))",
+        // Exact packaging mosaic colors
+        mosaic: {
+          green: "hsl(var(--mosaic-green))",
+          pink: "hsl(var(--mosaic-pink))",
+          orange: "hsl(var(--mosaic-orange))",
+          yellow: "hsl(var(--mosaic-yellow))",
+          blue: "hsl(var(--mosaic-blue))",
+          teal: "hsl(var(--mosaic-teal))",
+          lime: "hsl(var(--mosaic-lime))",
+          coral: "hsl(var(--mosaic-coral))",
+          purple: "hsl(var(--mosaic-purple))",
+          turquoise: "hsl(var(--mosaic-turquoise))",
         },
         success: {
           DEFAULT: "hsl(var(--success))",
