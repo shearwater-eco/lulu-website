@@ -153,7 +153,7 @@
     background: white;
   }
 
-  /* Enhanced Individual Mosaic Tiles - Curved Top Border from New Image */
+  /* Enhanced Individual Mosaic Tiles - Top Border with Colorful Pattern */
   .lulu-package::before {
     content: '';
     position: absolute;
@@ -162,36 +162,33 @@
     right: -35px;
     height: 35px;
     background: 
-      /* Curved mosaic pattern matching uploaded image */
-      conic-gradient(from 90deg at center 200%,
-        /* Large angular sections following the curve */
-        hsl(var(--tile-lime)) 0deg, hsl(var(--tile-lime)) 12deg,
-        #000 12deg, #000 14deg,
-        hsl(var(--tile-pink)) 14deg, hsl(var(--tile-pink)) 26deg,
-        #000 26deg, #000 28deg,
-        hsl(var(--tile-green)) 28deg, hsl(var(--tile-green)) 40deg,
-        #000 40deg, #000 42deg,
-        hsl(var(--tile-coral)) 42deg, hsl(var(--tile-coral)) 54deg,
-        #000 54deg, #000 56deg,
-        hsl(var(--tile-orange)) 56deg, hsl(var(--tile-orange)) 68deg,
-        #000 68deg, #000 70deg,
-        hsl(var(--tile-yellow)) 70deg, hsl(var(--tile-yellow)) 82deg,
-        #000 82deg, #000 84deg,
-        hsl(var(--tile-teal)) 84deg, hsl(var(--tile-teal)) 96deg,
-        #000 96deg, #000 98deg,
-        hsl(var(--tile-magenta)) 98deg, hsl(var(--tile-magenta)) 110deg,
-        #000 110deg, #000 112deg,
-        hsl(var(--tile-blue)) 112deg, hsl(var(--tile-blue)) 124deg,
-        #000 124deg, #000 126deg,
-        hsl(var(--tile-purple)) 126deg, hsl(var(--tile-purple)) 138deg,
-        #000 138deg, #000 140deg,
-        hsl(var(--tile-turquoise)) 140deg, hsl(var(--tile-turquoise)) 152deg,
-        #000 152deg, #000 154deg,
-        hsl(var(--tile-coral)) 154deg, hsl(var(--tile-coral)) 166deg,
-        #000 166deg, #000 168deg,
-        hsl(var(--tile-lime)) 168deg, hsl(var(--tile-lime)) 180deg
+      /* Curved colorful mosaic pattern */
+      linear-gradient(90deg,
+        hsl(var(--tile-lime)) 0%, hsl(var(--tile-lime)) 8%,
+        #000 8%, #000 9%,
+        hsl(var(--tile-pink)) 9%, hsl(var(--tile-pink)) 17%,
+        #000 17%, #000 18%,
+        hsl(var(--tile-green)) 18%, hsl(var(--tile-green)) 26%,
+        #000 26%, #000 27%,
+        hsl(var(--tile-coral)) 27%, hsl(var(--tile-coral)) 35%,
+        #000 35%, #000 36%,
+        hsl(var(--tile-orange)) 36%, hsl(var(--tile-orange)) 44%,
+        #000 44%, #000 45%,
+        hsl(var(--tile-yellow)) 45%, hsl(var(--tile-yellow)) 53%,
+        #000 53%, #000 54%,
+        hsl(var(--tile-teal)) 54%, hsl(var(--tile-teal)) 62%,
+        #000 62%, #000 63%,
+        hsl(var(--tile-magenta)) 63%, hsl(var(--tile-magenta)) 71%,
+        #000 71%, #000 72%,
+        hsl(var(--tile-blue)) 72%, hsl(var(--tile-blue)) 80%,
+        #000 80%, #000 81%,
+        hsl(var(--tile-purple)) 81%, hsl(var(--tile-purple)) 89%,
+        #000 89%, #000 90%,
+        hsl(var(--tile-turquoise)) 90%, hsl(var(--tile-turquoise)) 98%,
+        #000 98%, #000 100%
       );
     border-bottom: 2px solid #000000;
+    z-index: 1;
   }
 
   /* Enhanced Left Border - Simple Chevron Pattern */
