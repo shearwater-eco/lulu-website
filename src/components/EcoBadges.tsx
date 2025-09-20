@@ -3,27 +3,40 @@ import { Leaf, Recycle, TreePine, Award } from "lucide-react";
 const EcoBadges = ({ className = "" }: { className?: string }) => {
   const badges = [
     {
-      icon: Leaf,
-      title: "Plastic-Free",
-      description: "100% plastic-free packaging",
-      color: "text-success"
-    },
-    {
-      icon: TreePine,
-      title: "FSC Certified",
-      description: "Responsibly sourced paper",
+      icon: () => (
+        <div className="relative">
+          <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center border-2 border-current">
+            <div className="text-xs font-bold">ECO</div>
+          </div>
+          <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 text-xs font-bold">
+            SMART
+          </div>
+        </div>
+      ),
+      title: "ECO SMART",
+      description: "6 ROLLS",
       color: "text-primary"
     },
     {
+      icon: TreePine,
+      title: "FSC",
+      description: "Certified sustainable",
+      color: "text-success"
+    },
+    {
       icon: Recycle,
-      title: "Low Carbon",
-      description: "Minimal environmental impact",
+      title: "100%",
+      description: "Recyclable",
       color: "text-info"
     },
     {
-      icon: Award,
-      title: "Chemical-Free",
-      description: "No harmful chemicals",
+      icon: () => (
+        <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center border-2 border-current">
+          <Leaf className="h-4 w-4 text-green-600" />
+        </div>
+      ),
+      title: "PLASTIC",
+      description: "FREE",
       color: "text-warning"
     }
   ];
