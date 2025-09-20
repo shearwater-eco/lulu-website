@@ -272,89 +272,58 @@
     border-left: 2px solid #000000;
   }
 
-  /* Enhanced Curved Bottom Border - Signature Packaging Feature */
+  /* Enhanced Curved Bottom Border - Simplified approach */
   .lulu-package .bottom-border {
     position: absolute;
     bottom: -35px;
     left: -35px;
     right: -35px;
-    height: 140px;
+    height: 120px;
+    background: white;
+    border-radius: 0 0 60% 60% / 0 0 120px 120px;
+    border: 3px solid white;
+    overflow: hidden;
+  }
+
+  /* Curved segments using simple approach */
+  .lulu-package .bottom-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
     background: 
-      /* White background base */
-      white,
-      /* Curved mosaic pattern with angular segments */
-      radial-gradient(ellipse 100% 100% at center bottom,
-        transparent 0%,
-        transparent 60%,
-        /* First curved layer of segments */
-        white 60%,
-        white 62%,
-        hsl(var(--tile-lime)) 62%,
-        hsl(var(--tile-lime)) 68%,
-        white 68%,
-        white 70%,
-        hsl(var(--tile-pink)) 70%,
-        hsl(var(--tile-pink)) 76%,
-        white 76%,
-        white 78%,
-        hsl(var(--tile-green)) 78%,
-        hsl(var(--tile-green)) 84%,
-        white 84%,
-        white 86%,
-        hsl(var(--tile-orange)) 86%,
-        hsl(var(--tile-orange)) 92%,
-        white 92%,
-        white 94%,
-        hsl(var(--tile-yellow)) 94%,
-        hsl(var(--tile-yellow)) 100%
-      ),
-      /* Angular top segments with white borders */
-      conic-gradient(from 0deg at center bottom,
-        hsl(var(--tile-green)) 0deg,
-        hsl(var(--tile-green)) 30deg,
-        white 30deg,
-        white 35deg,
-        hsl(var(--tile-pink)) 35deg,
-        hsl(var(--tile-pink)) 65deg,
-        white 65deg,
-        white 70deg,
-        hsl(var(--tile-lime)) 70deg,
-        hsl(var(--tile-lime)) 100deg,
-        white 100deg,
-        white 105deg,
-        hsl(var(--tile-green)) 105deg,
-        hsl(var(--tile-green)) 135deg,
-        white 135deg,
-        white 140deg,
-        hsl(var(--tile-coral)) 140deg,
-        hsl(var(--tile-coral)) 170deg,
-        white 170deg,
-        white 175deg,
-        hsl(var(--tile-orange)) 175deg,
-        hsl(var(--tile-orange)) 205deg,
-        white 205deg,
-        white 210deg,
-        hsl(var(--tile-yellow)) 210deg,
-        hsl(var(--tile-yellow)) 240deg,
-        white 240deg,
-        white 245deg,
-        hsl(var(--tile-lime)) 245deg,
-        hsl(var(--tile-lime)) 275deg,
-        white 275deg,
-        white 280deg,
-        hsl(var(--tile-coral)) 280deg,
-        hsl(var(--tile-coral)) 310deg,
-        white 310deg,
-        white 315deg,
-        hsl(var(--tile-turquoise)) 315deg,
-        hsl(var(--tile-turquoise)) 345deg,
-        white 345deg,
-        white 350deg,
-        hsl(var(--tile-green)) 350deg,
-        hsl(var(--tile-green)) 360deg
+      linear-gradient(90deg,
+        hsl(var(--tile-green)) 0% 6.25%,
+        white 6.25% 7.5%,
+        hsl(var(--tile-pink)) 7.5% 13.75%,
+        white 13.75% 15%,
+        hsl(var(--tile-lime)) 15% 21.25%,
+        white 21.25% 22.5%,
+        hsl(var(--tile-green)) 22.5% 28.75%,
+        white 28.75% 30%,
+        hsl(var(--tile-coral)) 30% 36.25%,
+        white 36.25% 37.5%,
+        hsl(var(--tile-orange)) 37.5% 43.75%,
+        white 43.75% 45%,
+        hsl(var(--tile-yellow)) 45% 51.25%,
+        white 51.25% 52.5%,
+        hsl(var(--tile-lime)) 52.5% 58.75%,
+        white 58.75% 60%,
+        hsl(var(--tile-coral)) 60% 66.25%,
+        white 66.25% 67.5%,
+        hsl(var(--tile-turquoise)) 67.5% 73.75%,
+        white 73.75% 75%,
+        hsl(var(--tile-green)) 75% 81.25%,
+        white 81.25% 82.5%,
+        hsl(var(--tile-pink)) 82.5% 88.75%,
+        white 88.75% 90%,
+        hsl(var(--tile-magenta)) 90% 96.25%,
+        white 96.25% 100%
       );
-    border-top: 3px solid white;
-    clip-path: ellipse(100% 100% at center bottom);
+    clip-path: ellipse(100% 100% at center top);
+    border-top: 2px solid white;
   }
 
   .lulu-content {
