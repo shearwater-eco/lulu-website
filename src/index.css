@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system - LULU vibrant mosaic theme
-All colors MUST be HSL based on the colorful packaging design.
-*/
+/* LULU Packaging Exact Color Matching - Vibrant Mosaic Theme */
 
 @layer base {
   :root {
@@ -17,16 +15,25 @@ All colors MUST be HSL based on the colorful packaging design.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    /* LULU Brand Colors - inspired by packaging mosaic */
-    --primary: 174 100% 29%; /* Teal - main brand color */
+    /* LULU Packaging Exact Colors - Vibrant Mosaic Pattern */
+    --primary: 174 100% 35%; /* Teal from packaging */
     --primary-foreground: 0 0% 100%;
     --primary-light: 174 100% 85%;
 
-    --secondary: 340 100% 50%; /* Bright Pink */
+    --secondary: 340 100% 60%; /* Hot Pink from packaging */
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 51 100% 50%; /* Bright Yellow */
+    --accent: 51 100% 60%; /* Bright Yellow from packaging */
     --accent-foreground: 0 0% 10%;
+
+    /* Extended vibrant colors from packaging mosaic */
+    --vibrant-green: 120 100% 50%; /* Bright Green */
+    --vibrant-blue: 200 100% 60%; /* Sky Blue */
+    --vibrant-orange: 30 100% 60%; /* Orange */
+    --vibrant-purple: 280 100% 60%; /* Purple */
+    --vibrant-lime: 80 100% 60%; /* Lime Green */
+    --vibrant-coral: 15 100% 65%; /* Coral */
+    --vibrant-turquoise: 190 100% 55%; /* Turquoise */
 
     --success: 140 70% 40%; /* Green */
     --success-foreground: 0 0% 100%;
@@ -49,19 +56,39 @@ All colors MUST be HSL based on the colorful packaging design.
 
     --radius: 0.75rem;
 
-    /* Mosaic border gradient - recreating the packaging pattern */
-    --mosaic-gradient: linear-gradient(45deg, 
-      hsl(174 100% 29%) 0%, 
-      hsl(340 100% 50%) 15%, 
-      hsl(51 100% 50%) 30%, 
-      hsl(140 70% 40%) 45%, 
-      hsl(35 100% 50%) 60%, 
-      hsl(270 70% 50%) 75%, 
-      hsl(174 100% 29%) 100%);
+    /* Full Spectrum Mosaic Pattern - Matching Packaging Exactly */
+    --mosaic-border-thick: 
+      hsl(var(--vibrant-green)) 0px 0px 0px 8px,
+      hsl(var(--secondary)) 8px 8px 0px 8px,
+      hsl(var(--accent)) 16px 16px 0px 8px,
+      hsl(var(--vibrant-blue)) 24px 24px 0px 8px,
+      hsl(var(--vibrant-orange)) 32px 32px 0px 8px,
+      hsl(var(--vibrant-purple)) 40px 40px 0px 8px,
+      hsl(var(--primary)) 48px 48px 0px 8px,
+      hsl(var(--vibrant-lime)) 56px 56px 0px 8px,
+      hsl(var(--vibrant-coral)) 64px 64px 0px 8px,
+      hsl(var(--vibrant-turquoise)) 72px 72px 0px 8px;
 
-    /* Box shadows with brand colors */
-    --shadow-brand: 0 10px 30px -10px hsl(174 100% 29% / 0.3);
-    --shadow-colorful: 0 20px 40px -15px hsl(340 100% 50% / 0.2);
+    /* Complex mosaic gradient for backgrounds */
+    --mosaic-gradient-complex: linear-gradient(45deg, 
+      hsl(var(--vibrant-green)) 0%, 
+      hsl(var(--secondary)) 8%, 
+      hsl(var(--accent)) 16%, 
+      hsl(var(--vibrant-blue)) 24%, 
+      hsl(var(--vibrant-orange)) 32%, 
+      hsl(var(--vibrant-purple)) 40%, 
+      hsl(var(--primary)) 48%, 
+      hsl(var(--vibrant-lime)) 56%, 
+      hsl(var(--vibrant-coral)) 64%, 
+      hsl(var(--vibrant-turquoise)) 72%, 
+      hsl(var(--secondary)) 80%, 
+      hsl(var(--accent)) 88%, 
+      hsl(var(--vibrant-green)) 100%);
+
+    /* Box shadows with vibrant colors */
+    --shadow-brand: 0 10px 30px -10px hsl(var(--primary) / 0.4);
+    --shadow-colorful: 0 20px 40px -15px hsl(var(--secondary) / 0.3);
+    --shadow-vibrant: 0 15px 35px -10px hsl(var(--vibrant-green) / 0.3);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 0 0% 20%;
@@ -137,46 +164,124 @@ All colors MUST be HSL based on the colorful packaging design.
 }
 
 @layer components {
-  /* Mosaic border pattern like the packaging */
-  .mosaic-border {
+  /* Thick Mosaic Border Pattern - Exactly Like Packaging */
+  .mosaic-border-thick {
     position: relative;
-    padding: 8px;
-  }
-  
-  .mosaic-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    padding: 4px;
-    background: var(--mosaic-gradient);
-    border-radius: inherit;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: xor;
-    -webkit-mask-composite: xor;
+    padding: 20px;
+    background: white;
+    box-shadow: var(--mosaic-border-thick);
   }
 
-  /* Hero button variants */
+  /* Medium Mosaic Border */
+  .mosaic-border {
+    position: relative;
+    padding: 12px;
+    background: white;
+    border: 8px solid;
+    border-image: var(--mosaic-gradient-complex) 1;
+  }
+
+  /* Full Page Border Frame */
+  .page-frame {
+    min-height: 100vh;
+    background: var(--mosaic-gradient-complex);
+    padding: 40px 20px;
+  }
+
+  .page-content {
+    background: white;
+    min-height: calc(100vh - 80px);
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 
+      inset 0 0 0 8px hsl(var(--vibrant-green)),
+      inset 0 0 0 16px hsl(var(--secondary)),
+      inset 0 0 0 24px hsl(var(--accent)),
+      inset 0 0 0 32px hsl(var(--vibrant-blue)),
+      inset 0 0 0 40px hsl(var(--vibrant-orange)),
+      inset 0 0 0 48px hsl(var(--vibrant-purple)),
+      inset 0 0 0 56px hsl(var(--primary)),
+      inset 0 0 0 64px hsl(var(--vibrant-lime));
+    padding: 80px 40px 40px;
+  }
+
+  /* Colorful Section Backgrounds */
+  .section-mosaic {
+    background: linear-gradient(135deg, 
+      hsl(var(--vibrant-green) / 0.1) 0%, 
+      hsl(var(--secondary) / 0.1) 25%, 
+      hsl(var(--accent) / 0.1) 50%, 
+      hsl(var(--vibrant-blue) / 0.1) 75%, 
+      hsl(var(--vibrant-orange) / 0.1) 100%);
+    position: relative;
+  }
+
+  .section-mosaic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: var(--mosaic-gradient-complex);
+  }
+
+  .section-mosaic::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: var(--mosaic-gradient-complex);
+  }
+
+  /* Vibrant Button Variants with Thick Borders */
   .btn-hero {
-    @apply px-8 py-4 text-lg font-bold rounded-xl;
-    @apply bg-primary text-primary-foreground;
-    @apply hover:bg-primary/90 transition-all duration-300;
-    @apply shadow-lg hover:shadow-brand;
-    @apply mosaic-border;
+    @apply px-8 py-4 text-lg font-bold rounded-xl relative;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border: 6px solid;
+    border-image: var(--mosaic-gradient-complex) 1;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-brand);
+  }
+
+  .btn-hero:hover {
+    background: hsl(var(--primary) / 0.9);
+    box-shadow: var(--shadow-vibrant);
+    transform: translateY(-2px);
   }
 
   .btn-secondary {
-    @apply px-8 py-4 text-lg font-bold rounded-xl;
-    @apply bg-secondary text-secondary-foreground;
-    @apply hover:bg-secondary/90 transition-all duration-300;
-    @apply shadow-lg hover:shadow-colorful;
-    @apply mosaic-border;
+    @apply px-8 py-4 text-lg font-bold rounded-xl relative;
+    background: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+    border: 6px solid;
+    border-image: var(--mosaic-gradient-complex) 1;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-colorful);
   }
 
-  /* Colorful section backgrounds */
-  .section-colorful {
-    background: linear-gradient(135deg, 
-      hsl(var(--primary-light)) 0%, 
-      hsl(var(--background)) 50%, 
-      hsl(var(--accent) / 0.1) 100%);
+  .btn-secondary:hover {
+    background: hsl(var(--secondary) / 0.9);
+    box-shadow: var(--shadow-vibrant);
+    transform: translateY(-2px);
+  }
+
+  /* Vibrant Card Variants */
+  .card-vibrant {
+    border: 8px solid;
+    border-image: var(--mosaic-gradient-complex) 1;
+    background: white;
+    box-shadow: var(--shadow-vibrant);
+  }
+
+  /* Logo with Mosaic Background */
+  .logo-mosaic {
+    background: var(--mosaic-gradient-complex);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

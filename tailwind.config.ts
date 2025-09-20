@@ -40,6 +40,16 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        // Vibrant packaging colors
+        vibrant: {
+          green: "hsl(var(--vibrant-green))",
+          blue: "hsl(var(--vibrant-blue))",
+          orange: "hsl(var(--vibrant-orange))",
+          purple: "hsl(var(--vibrant-purple))",
+          lime: "hsl(var(--vibrant-lime))",
+          coral: "hsl(var(--vibrant-coral))",
+          turquoise: "hsl(var(--vibrant-turquoise))",
+        },
         success: {
           DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",
@@ -78,6 +88,11 @@ export default {
       boxShadow: {
         'brand': 'var(--shadow-brand)',
         'colorful': 'var(--shadow-colorful)',
+        'vibrant': 'var(--shadow-vibrant)',
+        'mosaic': 'var(--mosaic-border-thick)',
+      },
+      backgroundImage: {
+        'mosaic': 'var(--mosaic-gradient-complex)',
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -1,87 +1,100 @@
 import { useState } from "react";
-import { Menu, X, ShoppingCart, User } from "lucide-react";
+import { Menu, X, ShoppingCart, User, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Shop", href: "/shop" },
-    { name: "About", href: "/about" },
-    { name: "Sustainability", href: "/sustainability" },
-    { name: "For Businesses", href: "/business" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" },
+    { name: "Shop", href: "/shop", color: "vibrant-green" },
+    { name: "About", href: "/about", color: "secondary" },
+    { name: "Sustainability", href: "/sustainability", color: "accent" },
+    { name: "Business", href: "/business", color: "vibrant-blue" },
+    { name: "Blog", href: "/blog", color: "vibrant-orange" },
+    { name: "Contact", href: "/contact", color: "vibrant-purple" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        {/* Logo */}
-        <a href="/" className="flex items-center space-x-2">
-          <div className="mosaic-border rounded-lg">
-            <h1 className="text-2xl font-bold text-primary px-3 py-1">LULU</h1>
-          </div>
-        </a>
+    <header className="bg-white border-b-8 border-mosaic sticky top-0 z-50 backdrop-blur">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20">
+          <Link to="/" className="flex items-center space-x-2">
+            <div className="mosaic-border-thick rounded-lg p-4 bg-white">
+              <span className="text-3xl font-bold logo-mosaic">LULU</span>
+            </div>
+          </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-foreground hover:text-primary transition-colors font-medium"
-            >
-              {item.name}
-            </a>
-          ))}
-        </nav>
+          <nav className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link 
+                key={item.name}
+                to={item.href} 
+                className="text-foreground hover:text-primary transition-colors font-bold text-lg border-b-4 border-transparent hover:border-current relative group"
+                style={{ ['--hover-color' as any]: `hsl(var(--${item.color}))` }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderBottomColor = `hsl(var(--${item.color}))`;
+                  e.currentTarget.style.color = `hsl(var(--${item.color}))`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderBottomColor = 'transparent';
+                  e.currentTarget.style.color = 'hsl(var(--foreground))';
+                }}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
 
-        {/* Right side actions */}
-        <div className="flex items-center space-x-4">
-          <Button variant="ghost" size="icon">
-            <User className="h-5 w-5" />
-          </Button>
-          <Button variant="ghost" size="icon" className="relative">
-            <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -top-2 -right-2 h-4 w-4 rounded-full bg-secondary text-secondary-foreground text-xs flex items-center justify-center">
-              0
-            </span>
-          </Button>
+          <div className="flex items-center space-x-4">
+            <Button variant="ghost" size="icon" className="mosaic-border p-3">
+              <Search className="h-6 w-6" />
+            </Button>
+            <Button variant="ghost" size="icon" className="mosaic-border p-3 relative">
+              <ShoppingCart className="h-6 w-6" />
+              <span className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-secondary text-white text-xs flex items-center justify-center font-bold">
+                0
+              </span>
+            </Button>
+            <Button variant="ghost" size="icon" className="mosaic-border p-3">
+              <User className="h-6 w-6" />
+            </Button>
 
-          {/* Mobile menu trigger */}
-          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col space-y-4 mt-8">
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-lg font-medium text-foreground hover:text-primary transition-colors p-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                ))}
-                <div className="border-t pt-4 space-y-2">
-                  <Button className="w-full justify-start" variant="ghost">
-                    <User className="h-5 w-5 mr-2" />
-                    My Account
-                  </Button>
-                  <Button className="w-full justify-start" variant="ghost">
-                    <ShoppingCart className="h-5 w-5 mr-2" />
-                    Cart (0)
-                  </Button>
+            {/* Mobile menu trigger */}
+            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+              <SheetTrigger asChild className="md:hidden">
+                <Button variant="ghost" size="icon" className="mosaic-border p-3">
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white border-l-8 border-mosaic">
+                <div className="flex flex-col space-y-4 mt-8">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className="text-lg font-bold text-foreground hover:text-primary transition-colors p-4 mosaic-border rounded-lg hover:shadow-vibrant"
+                      onClick={() => setIsMenuOpen(false)}
+                      style={{ borderLeftColor: `hsl(var(--${item.color}))` }}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                  <div className="mosaic-border-thick pt-4 mt-4 space-y-2 rounded-xl bg-white">
+                    <Button className="w-full justify-start btn-hero" variant="ghost">
+                      <User className="h-5 w-5 mr-2" />
+                      My Account
+                    </Button>
+                    <Button className="w-full justify-start btn-secondary" variant="ghost">
+                      <ShoppingCart className="h-5 w-5 mr-2" />
+                      Cart (0)
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </header>

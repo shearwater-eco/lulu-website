@@ -1,90 +1,131 @@
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const linkColors = [
+    'vibrant-green', 'secondary', 'accent', 'vibrant-blue', 
+    'vibrant-orange', 'vibrant-purple', 'vibrant-lime', 'vibrant-coral'
+  ];
+
   return (
-    <footer className="bg-muted/30 border-t">
-      <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand */}
-          <div className="space-y-4">
-            <div className="mosaic-border rounded-lg inline-block">
-              <h3 className="text-xl font-bold text-primary px-3 py-1">LULU</h3>
+    <footer className="section-mosaic border-t-8 border-mosaic mt-16">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid md:grid-cols-4 gap-8">
+          <div>
+            <div className="flex items-center space-x-2 mb-4">
+              <div className="mosaic-border-thick rounded-lg p-4 bg-white">
+                <span className="text-2xl font-bold logo-mosaic">LULU</span>
+              </div>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground mb-4 font-medium">
               Welsh sustainable paper products that are gentle on you and kind to the Earth.
             </p>
-            <div className="flex space-x-2">
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <Facebook className="h-4 w-4" />
+            <div className="flex space-x-4">
+              <Button variant="ghost" size="icon" className="mosaic-border bg-vibrant-green text-white hover:bg-vibrant-green/90">
+                <Facebook className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <Twitter className="h-4 w-4" />
+              <Button variant="ghost" size="icon" className="mosaic-border bg-secondary text-white hover:bg-secondary/90">
+                <Instagram className="h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="h-8 w-8">
-                <Instagram className="h-4 w-4" />
+              <Button variant="ghost" size="icon" className="mosaic-border bg-accent text-white hover:bg-accent/90">
+                <Twitter className="h-5 w-5" />
               </Button>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="/shop" className="text-muted-foreground hover:text-primary transition-colors">Shop</a></li>
-              <li><a href="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="/sustainability" className="text-muted-foreground hover:text-primary transition-colors">Sustainability</a></li>
-              <li><a href="/business" className="text-muted-foreground hover:text-primary transition-colors">For Businesses</a></li>
-              <li><a href="/blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</a></li>
+          <div>
+            <h4 className="font-bold text-foreground mb-4 text-lg">Shop</h4>
+            <ul className="space-y-3">
+              {[
+                { name: "Toilet Tissue", href: "/shop", colorIndex: 0 },
+                { name: "Kitchen Rolls", href: "/shop", colorIndex: 1 },
+                { name: "Facial Tissues", href: "/shop", colorIndex: 2 },
+                { name: "Bulk Orders", href: "/shop", colorIndex: 3 }
+              ].map((item, index) => (
+                <li key={item.name}>
+                  <Link 
+                    to={item.href} 
+                    className="text-muted-foreground hover:text-primary transition-colors font-medium border-l-4 border-transparent hover:border-current pl-2"
+                    style={{ ['--hover-border-color' as any]: `hsl(var(--${linkColors[item.colorIndex]}))` }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderLeftColor = `hsl(var(--${linkColors[item.colorIndex]}))`;
+                      e.currentTarget.style.color = `hsl(var(--${linkColors[item.colorIndex]}))`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderLeftColor = 'transparent';
+                      e.currentTarget.style.color = 'hsl(var(--muted-foreground))';
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Support */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Support</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact Us</a></li>
-              <li><a href="/faq" className="text-muted-foreground hover:text-primary transition-colors">FAQ</a></li>
-              <li><a href="/shipping" className="text-muted-foreground hover:text-primary transition-colors">Shipping Info</a></li>
-              <li><a href="/returns" className="text-muted-foreground hover:text-primary transition-colors">Returns</a></li>
-              <li><a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a></li>
+          <div>
+            <h4 className="font-bold text-foreground mb-4 text-lg">Company</h4>
+            <ul className="space-y-3">
+              {[
+                { name: "About Us", href: "/about", colorIndex: 4 },
+                { name: "Sustainability", href: "/sustainability", colorIndex: 5 },
+                { name: "Business", href: "/business", colorIndex: 6 },
+                { name: "Blog", href: "/blog", colorIndex: 7 }
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link 
+                    to={item.href} 
+                    className="text-muted-foreground hover:text-primary transition-colors font-medium border-l-4 border-transparent hover:border-current pl-2"
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderLeftColor = `hsl(var(--${linkColors[item.colorIndex]}))`;
+                      e.currentTarget.style.color = `hsl(var(--${linkColors[item.colorIndex]}))`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderLeftColor = 'transparent';
+                      e.currentTarget.style.color = 'hsl(var(--muted-foreground))';
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Join the Flock</h4>
-            <p className="text-sm text-muted-foreground">
-              Get the latest updates on new products and sustainability tips.
+          <div>
+            <h4 className="font-bold text-foreground mb-4 text-lg">Join the Flock</h4>
+            <p className="text-muted-foreground mb-4 font-medium">
+              Get the latest updates on new products and sustainability tips from Lulu!
             </p>
-            <div className="flex space-x-2">
+            <div className="space-y-3">
               <Input 
                 type="email" 
                 placeholder="Your email" 
-                className="flex-1"
+                className="mosaic-border bg-white"
               />
-              <Button className="bg-primary hover:bg-primary/90">
+              <Button className="btn-hero w-full">
                 Subscribe
               </Button>
             </div>
+            <div className="mt-4 space-y-2 text-sm">
+              <Link to="/contact" className="block text-muted-foreground hover:text-vibrant-turquoise transition-colors font-medium">
+                <Mail className="h-4 w-4 inline mr-2" />
+                hello@lulu.earth
+              </Link>
+              <div className="text-muted-foreground">
+                <MapPin className="h-4 w-4 inline mr-2" />
+                Made in Wales, UK
+              </div>
+            </div>
           </div>
         </div>
-        
-        <div className="border-t mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-muted-foreground">
-            © 2024 LULU. All rights reserved.
+
+        <div className="mosaic-border-thick mt-8 pt-8 text-center bg-white rounded-xl">
+          <p className="text-muted-foreground font-medium text-lg">
+            © 2024 LULU. All rights reserved. Made with ❤️ in Wales.
           </p>
-          <div className="flex items-center space-x-4 mt-4 md:mt-0 text-sm text-muted-foreground">
-            <span className="flex items-center">
-              <MapPin className="h-4 w-4 mr-1" />
-              Wales, UK
-            </span>
-            <a href="mailto:hello@lulu.earth" className="flex items-center hover:text-primary transition-colors">
-              <Mail className="h-4 w-4 mr-1" />
-              hello@lulu.earth
-            </a>
-          </div>
         </div>
       </div>
     </footer>
