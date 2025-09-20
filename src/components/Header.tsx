@@ -38,7 +38,7 @@ const Header = () => {
             <div className="flex items-center justify-between h-20">
               <Link to="/" className="flex items-center space-x-2">
                 <div className="mosaic-border-thick rounded-lg p-4 bg-white">
-                  <span className="text-3xl font-bold logo-mosaic">LULU
+                  <span className="text-4xl font-bold logo-mosaic">LULU
                 </span>
                 </div>
               </Link>
