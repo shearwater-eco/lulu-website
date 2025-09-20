@@ -193,7 +193,7 @@
     border-bottom: 2px solid #000000;
   }
 
-  /* Enhanced Left Border - Angular Geometric Pattern from Border Image */
+  /* Enhanced Left Border - Simple Chevron Pattern */
   .lulu-package::after {
     content: '';
     position: absolute;
@@ -202,62 +202,34 @@
     width: 35px;
     bottom: 100px;
     background: 
-      /* Base turquoise background */
       hsl(var(--tile-turquoise)),
-      /* Large angular shapes with black outlines */
-      linear-gradient(125deg, 
-        transparent 0%, transparent 8%,
-        #000 8%, #000 10%,
-        hsl(var(--tile-orange)) 10%, hsl(var(--tile-orange)) 25%,
-        #000 25%, #000 27%,
-        transparent 27%, transparent 30%
+      /* Chevron pattern using repeating gradients */
+      repeating-linear-gradient(135deg,
+        hsl(var(--tile-orange)) 0px, hsl(var(--tile-orange)) 25px,
+        #000 25px, #000 27px,
+        hsl(var(--tile-yellow)) 27px, hsl(var(--tile-yellow)) 52px,
+        #000 52px, #000 54px,
+        hsl(var(--tile-green)) 54px, hsl(var(--tile-green)) 79px,
+        #000 79px, #000 81px,
+        hsl(var(--tile-pink)) 81px, hsl(var(--tile-pink)) 106px,
+        #000 106px, #000 108px,
+        transparent 108px, transparent 133px
       ),
-      linear-gradient(145deg,
-        transparent 0%, transparent 15%,
-        #000 15%, #000 17%,
-        hsl(var(--tile-yellow)) 17%, hsl(var(--tile-yellow)) 35%,
-        #000 35%, #000 37%,
-        transparent 37%, transparent 45%
-      ),
-      linear-gradient(135deg,
-        transparent 0%, transparent 25%,
-        #000 25%, #000 27%,
-        hsl(var(--tile-green)) 27%, hsl(var(--tile-green)) 50%,
-        #000 50%, #000 52%,
-        transparent 52%, transparent 60%
-      ),
-      linear-gradient(155deg,
-        transparent 0%, transparent 35%,
-        #000 35%, #000 37%,
-        hsl(var(--tile-pink)) 37%, hsl(var(--tile-pink)) 60%,
-        #000 60%, #000 62%,
-        transparent 62%, transparent 70%
-      ),
-      linear-gradient(120deg,
-        transparent 0%, transparent 45%,
-        #000 45%, #000 47%,
-        hsl(var(--tile-orange)) 47%, hsl(var(--tile-orange)) 70%,
-        #000 70%, #000 72%,
-        transparent 72%, transparent 80%
-      ),
-      linear-gradient(140deg,
-        transparent 0%, transparent 55%,
-        #000 55%, #000 57%,
-        hsl(var(--tile-green)) 57%, hsl(var(--tile-green)) 80%,
-        #000 80%, #000 82%,
-        transparent 82%, transparent 90%
-      ),
-      linear-gradient(130deg,
-        transparent 0%, transparent 65%,
-        #000 65%, #000 67%,
-        hsl(var(--tile-pink)) 67%, hsl(var(--tile-pink)) 90%,
-        #000 90%, #000 92%,
-        transparent 92%, transparent 100%
+      repeating-linear-gradient(-45deg,
+        transparent 0px, transparent 25px,
+        #000 25px, #000 27px,
+        hsl(var(--tile-orange)) 27px, hsl(var(--tile-orange)) 52px,
+        #000 52px, #000 54px,
+        hsl(var(--tile-green)) 54px, hsl(var(--tile-green)) 79px,
+        #000 79px, #000 81px,
+        hsl(var(--tile-pink)) 81px, hsl(var(--tile-pink)) 106px,
+        #000 106px, #000 108px,
+        hsl(var(--tile-yellow)) 108px, hsl(var(--tile-yellow)) 133px
       );
     border-right: 2px solid #000000;
   }
 
-  /* Enhanced Right Border - Angular Geometric Pattern from Border Image */
+  /* Enhanced Right Border - Simple Chevron Pattern (Mirrored) */
   .lulu-package .right-border {
     position: absolute;
     top: -35px;
@@ -265,57 +237,29 @@
     width: 35px;
     bottom: 100px;
     background: 
-      /* Base turquoise background */
       hsl(var(--tile-turquoise)),
-      /* Large angular shapes with black outlines - mirrored pattern */
-      linear-gradient(-125deg, 
-        transparent 0%, transparent 8%,
-        #000 8%, #000 10%,
-        hsl(var(--tile-orange)) 10%, hsl(var(--tile-orange)) 25%,
-        #000 25%, #000 27%,
-        transparent 27%, transparent 30%
+      /* Mirrored chevron pattern */
+      repeating-linear-gradient(45deg,
+        hsl(var(--tile-yellow)) 0px, hsl(var(--tile-yellow)) 25px,
+        #000 25px, #000 27px,
+        hsl(var(--tile-orange)) 27px, hsl(var(--tile-orange)) 52px,
+        #000 52px, #000 54px,
+        hsl(var(--tile-green)) 54px, hsl(var(--tile-green)) 79px,
+        #000 79px, #000 81px,
+        hsl(var(--tile-pink)) 81px, hsl(var(--tile-pink)) 106px,
+        #000 106px, #000 108px,
+        transparent 108px, transparent 133px
       ),
-      linear-gradient(-145deg,
-        transparent 0%, transparent 15%,
-        #000 15%, #000 17%,
-        hsl(var(--tile-yellow)) 17%, hsl(var(--tile-yellow)) 35%,
-        #000 35%, #000 37%,
-        transparent 37%, transparent 45%
-      ),
-      linear-gradient(-135deg,
-        transparent 0%, transparent 25%,
-        #000 25%, #000 27%,
-        hsl(var(--tile-green)) 27%, hsl(var(--tile-green)) 50%,
-        #000 50%, #000 52%,
-        transparent 52%, transparent 60%
-      ),
-      linear-gradient(-155deg,
-        transparent 0%, transparent 35%,
-        #000 35%, #000 37%,
-        hsl(var(--tile-pink)) 37%, hsl(var(--tile-pink)) 60%,
-        #000 60%, #000 62%,
-        transparent 62%, transparent 70%
-      ),
-      linear-gradient(-120deg,
-        transparent 0%, transparent 45%,
-        #000 45%, #000 47%,
-        hsl(var(--tile-orange)) 47%, hsl(var(--tile-orange)) 70%,
-        #000 70%, #000 72%,
-        transparent 72%, transparent 80%
-      ),
-      linear-gradient(-140deg,
-        transparent 0%, transparent 55%,
-        #000 55%, #000 57%,
-        hsl(var(--tile-green)) 57%, hsl(var(--tile-green)) 80%,
-        #000 80%, #000 82%,
-        transparent 82%, transparent 90%
-      ),
-      linear-gradient(-130deg,
-        transparent 0%, transparent 65%,
-        #000 65%, #000 67%,
-        hsl(var(--tile-pink)) 67%, hsl(var(--tile-pink)) 90%,
-        #000 90%, #000 92%,
-        transparent 92%, transparent 100%
+      repeating-linear-gradient(-135deg,
+        transparent 0px, transparent 25px,
+        #000 25px, #000 27px,
+        hsl(var(--tile-yellow)) 27px, hsl(var(--tile-yellow)) 52px,
+        #000 52px, #000 54px,
+        hsl(var(--tile-green)) 54px, hsl(var(--tile-green)) 79px,
+        #000 79px, #000 81px,
+        hsl(var(--tile-pink)) 81px, hsl(var(--tile-pink)) 106px,
+        #000 106px, #000 108px,
+        hsl(var(--tile-orange)) 108px, hsl(var(--tile-orange)) 133px
       );
     border-left: 2px solid #000000;
   }
