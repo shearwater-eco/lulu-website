@@ -114,6 +114,14 @@ const Header = () => {
                   muted 
                   playsInline
                   className="w-24 h-24 object-contain rounded-lg"
+                  onEnded={(e) => {
+                    const video = e.currentTarget;
+                    const img = document.createElement('img');
+                    img.src = '/src/assets/lulu-mascot-bird.png';
+                    img.className = 'w-24 h-24 object-contain rounded-lg';
+                    img.alt = 'Lulu mascot bird';
+                    video.parentNode?.replaceChild(img, video);
+                  }}
                 />
                 <div>
                   <h2 className="text-2xl font-bold lulu-font text-foreground">Ready to go LULU?</h2>
