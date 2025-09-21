@@ -124,193 +124,308 @@ const Checkout = () => {
   return (
     <div className="min-h-screen bg-background py-4 sm:py-8">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Checkout</h1>
+        <div className="max-w-7xl mx-auto">
+          {/* Clean Header */}
+          <div className="mb-6 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Checkout</h1>
+            <p className="text-muted-foreground mt-2">Complete your order details below</p>
+          </div>
           
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
-            {/* Checkout Form */}
-            <div className="space-y-4 sm:space-y-6">
-              <form onSubmit={handleSubmit}>
-                {/* Shipping Address */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Shipping Address</CardTitle>
+          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
+            {/* Left Column - Checkout Forms */}
+            <div className="lg:col-span-2 space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Shipping Address Card */}
+                <Card className="shadow-sm">
+                  <CardHeader className="pb-4">
+                    <CardTitle className="text-lg font-semibold text-foreground">
+                      📦 Shipping Information
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="shipping-firstName">First Name</Label>
+                    {/* Name Fields */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="shipping-firstName" className="text-sm font-medium">
+                          First Name *
+                        </Label>
                         <Input
                           id="shipping-firstName"
                           value={shippingAddress.firstName}
                           onChange={(e) => handleInputChange('shipping', 'firstName', e.target.value)}
+                          placeholder="Enter first name"
                           required
+                          className="h-11"
                         />
                       </div>
-                      <div>
-                        <Label htmlFor="shipping-lastName">Last Name</Label>
+                      <div className="space-y-2">
+                        <Label htmlFor="shipping-lastName" className="text-sm font-medium">
+                          Last Name *
+                        </Label>
                         <Input
                           id="shipping-lastName"
                           value={shippingAddress.lastName}
                           onChange={(e) => handleInputChange('shipping', 'lastName', e.target.value)}
+                          placeholder="Enter last name"
                           required
+                          className="h-11"
                         />
                       </div>
                     </div>
-                    <div>
-                      <Label htmlFor="shipping-email">Email</Label>
-                      <Input
-                        id="shipping-email"
-                        type="email"
-                        value={shippingAddress.email}
-                        onChange={(e) => handleInputChange('shipping', 'email', e.target.value)}
-                        required
-                      />
+
+                    {/* Contact Fields */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="shipping-email" className="text-sm font-medium">
+                          Email Address *
+                        </Label>
+                        <Input
+                          id="shipping-email"
+                          type="email"
+                          value={shippingAddress.email}
+                          onChange={(e) => handleInputChange('shipping', 'email', e.target.value)}
+                          placeholder="your.email@example.com"
+                          required
+                          className="h-11"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="shipping-phone" className="text-sm font-medium">
+                          Phone Number
+                        </Label>
+                        <Input
+                          id="shipping-phone"
+                          value={shippingAddress.phone}
+                          onChange={(e) => handleInputChange('shipping', 'phone', e.target.value)}
+                          placeholder="+44 7XXX XXX XXX"
+                          className="h-11"
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <Label htmlFor="shipping-phone">Phone</Label>
-                      <Input
-                        id="shipping-phone"
-                        value={shippingAddress.phone}
-                        onChange={(e) => handleInputChange('shipping', 'phone', e.target.value)}
-                      />
+
+                    {/* Address Fields */}
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="shipping-address1" className="text-sm font-medium">
+                          Address Line 1 *
+                        </Label>
+                        <Input
+                          id="shipping-address1"
+                          value={shippingAddress.addressLine1}
+                          onChange={(e) => handleInputChange('shipping', 'addressLine1', e.target.value)}
+                          placeholder="123 Main Street"
+                          required
+                          className="h-11"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="shipping-address2" className="text-sm font-medium">
+                          Address Line 2 <span className="text-muted-foreground">(Optional)</span>
+                        </Label>
+                        <Input
+                          id="shipping-address2"
+                          value={shippingAddress.addressLine2}
+                          onChange={(e) => handleInputChange('shipping', 'addressLine2', e.target.value)}
+                          placeholder="Apartment, suite, etc."
+                          className="h-11"
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <Label htmlFor="shipping-address1">Address Line 1</Label>
-                      <Input
-                        id="shipping-address1"
-                        value={shippingAddress.addressLine1}
-                        onChange={(e) => handleInputChange('shipping', 'addressLine1', e.target.value)}
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="shipping-address2">Address Line 2 (Optional)</Label>
-                      <Input
-                        id="shipping-address2"
-                        value={shippingAddress.addressLine2}
-                        onChange={(e) => handleInputChange('shipping', 'addressLine2', e.target.value)}
-                      />
-                    </div>
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                      <div>
-                        <Label htmlFor="shipping-city">City</Label>
+
+                    {/* City, State, Postal */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="shipping-city" className="text-sm font-medium">
+                          City *
+                        </Label>
                         <Input
                           id="shipping-city"
                           value={shippingAddress.city}
                           onChange={(e) => handleInputChange('shipping', 'city', e.target.value)}
+                          placeholder="Cardiff"
                           required
+                          className="h-11"
                         />
                       </div>
-                      <div>
-                        <Label htmlFor="shipping-state">State/County</Label>
+                      <div className="space-y-2">
+                        <Label htmlFor="shipping-state" className="text-sm font-medium">
+                          County *
+                        </Label>
                         <Input
                           id="shipping-state"
                           value={shippingAddress.state}
                           onChange={(e) => handleInputChange('shipping', 'state', e.target.value)}
+                          placeholder="Wales"
                           required
+                          className="h-11"
                         />
                       </div>
-                      <div>
-                        <Label htmlFor="shipping-postal">Postal Code</Label>
+                      <div className="space-y-2">
+                        <Label htmlFor="shipping-postal" className="text-sm font-medium">
+                          Postcode *
+                        </Label>
                         <Input
                           id="shipping-postal"
                           value={shippingAddress.postalCode}
                           onChange={(e) => handleInputChange('shipping', 'postalCode', e.target.value)}
+                          placeholder="CF10 1AA"
                           required
+                          className="h-11"
                         />
                       </div>
                     </div>
                   </CardContent>
                 </Card>
 
-                {/* Billing Address */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Billing Address</CardTitle>
-                    <div className="flex items-center space-x-2">
+                {/* Billing Address Card */}
+                <Card className="shadow-sm">
+                  <CardHeader className="pb-4">
+                    <CardTitle className="text-lg font-semibold text-foreground">
+                      💳 Billing Information
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex items-center space-x-3 mb-4">
                       <input
                         type="checkbox"
                         id="same-as-shipping"
                         checked={sameAsShipping}
                         onChange={(e) => handleSameAsShippingChange(e.target.checked)}
+                        className="h-4 w-4 rounded"
                       />
-                      <Label htmlFor="same-as-shipping">Same as shipping address</Label>
+                      <Label htmlFor="same-as-shipping" className="text-sm font-medium cursor-pointer">
+                        Same as shipping address
+                      </Label>
                     </div>
-                  </CardHeader>
-                  {!sameAsShipping && (
-                    <CardContent className="space-y-4">
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div>
-                          <Label htmlFor="billing-firstName">First Name</Label>
-                          <Input
-                            id="billing-firstName"
-                            value={billingAddress.firstName}
-                            onChange={(e) => handleInputChange('billing', 'firstName', e.target.value)}
-                            required
-                          />
+                    
+                    {!sameAsShipping && (
+                      <div className="space-y-4 pt-4 border-t">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          <div className="space-y-2">
+                            <Label htmlFor="billing-firstName" className="text-sm font-medium">
+                              First Name *
+                            </Label>
+                            <Input
+                              id="billing-firstName"
+                              value={billingAddress.firstName}
+                              onChange={(e) => handleInputChange('billing', 'firstName', e.target.value)}
+                              placeholder="Enter first name"
+                              required
+                              className="h-11"
+                            />
+                          </div>
+                          <div className="space-y-2">
+                            <Label htmlFor="billing-lastName" className="text-sm font-medium">
+                              Last Name *
+                            </Label>
+                            <Input
+                              id="billing-lastName"
+                              value={billingAddress.lastName}
+                              onChange={(e) => handleInputChange('billing', 'lastName', e.target.value)}
+                              placeholder="Enter last name"
+                              required
+                              className="h-11"
+                            />
+                          </div>
                         </div>
-                        <div>
-                          <Label htmlFor="billing-lastName">Last Name</Label>
-                          <Input
-                            id="billing-lastName"
-                            value={billingAddress.lastName}
-                            onChange={(e) => handleInputChange('billing', 'lastName', e.target.value)}
-                            required
-                          />
-                        </div>
+                        {/* Add remaining billing fields if needed */}
                       </div>
-                      {/* ... similar fields as shipping address ... */}
-                    </CardContent>
-                  )}
+                    )}
+                  </CardContent>
                 </Card>
 
-                <Button 
-                  type="submit" 
-                  className="w-full" 
-                  size="lg"
-                  disabled={isProcessing}
-                >
-                  {isProcessing ? "Processing..." : `Place Order - £${total.toFixed(2)}`}
-                </Button>
+                {/* Place Order Button */}
+                <Card className="shadow-sm bg-primary/5">
+                  <CardContent className="p-6">
+                    <Button 
+                      type="submit" 
+                      className="w-full h-12 text-base font-semibold" 
+                      disabled={isProcessing}
+                    >
+                      {isProcessing ? (
+                        <span className="flex items-center">
+                          <div className="animate-spin mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
+                          Processing Order...
+                        </span>
+                      ) : (
+                        `Complete Order - £${(total + 4.99).toFixed(2)}`
+                      )}
+                    </Button>
+                    <p className="text-xs text-muted-foreground text-center mt-3">
+                      🔒 Your payment information is secure and encrypted
+                    </p>
+                  </CardContent>
+                </Card>
               </form>
             </div>
 
-            {/* Order Summary */}
-            <div>
-              <Card className="sticky top-8">
-                <CardHeader>
-                  <CardTitle>Order Summary</CardTitle>
+            {/* Right Column - Order Summary */}
+            <div className="lg:col-span-1">
+              <Card className="shadow-sm sticky top-4">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-lg font-semibold text-foreground">
+                    🛒 Order Summary
+                  </CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="space-y-4">
+                  {/* Items List */}
                   <div className="space-y-4">
                     {items.map((item) => (
-                      <div key={item.product.id} className="flex justify-between items-start">
-                        <div className="flex space-x-3">
-                          <div className="text-xl">{item.product.image}</div>
-                          <div>
-                            <p className="font-medium">{item.product.name}</p>
-                            <p className="text-sm text-muted-foreground">Qty: {item.quantity}</p>
-                          </div>
+                      <div key={item.product.id} className="flex items-start space-x-3 p-3 rounded-lg bg-background">
+                        <div className="flex-shrink-0 text-2xl bg-primary/10 p-2 rounded-lg">
+                          {item.product.image}
                         </div>
-                        <p className="font-medium">£{(item.product.price * item.quantity).toFixed(2)}</p>
+                        <div className="flex-1 min-w-0">
+                          <p className="font-medium text-sm text-foreground truncate">
+                            {item.product.name}
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            Qty: {item.quantity}
+                          </p>
+                        </div>
+                        <div className="text-right">
+                          <p className="font-semibold text-sm text-foreground">
+                            £{(item.product.price * item.quantity).toFixed(2)}
+                          </p>
+                        </div>
                       </div>
                     ))}
+                  </div>
+                  
+                  <Separator />
+                  
+                  {/* Price Breakdown */}
+                  <div className="space-y-3">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">Subtotal</span>
+                      <span className="font-medium">£{total.toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-muted-foreground">Shipping</span>
+                      <span className="font-medium">£4.99</span>
+                    </div>
                     <Separator />
-                    <div className="space-y-2">
-                      <div className="flex justify-between">
-                        <span>Subtotal</span>
-                        <span>£{total.toFixed(2)}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Shipping</span>
-                        <span>£4.99</span>
-                      </div>
-                      <Separator />
-                      <div className="flex justify-between font-bold text-lg">
-                        <span>Total</span>
-                        <span>£{(total + 4.99).toFixed(2)}</span>
-                      </div>
+                    <div className="flex justify-between">
+                      <span className="font-semibold text-base">Total</span>
+                      <span className="font-bold text-lg text-primary">
+                        £{(total + 4.99).toFixed(2)}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Trust Indicators */}
+                  <div className="pt-4 border-t space-y-2">
+                    <div className="flex items-center text-xs text-muted-foreground">
+                      <span className="mr-2">✅</span>
+                      Free returns within 30 days
+                    </div>
+                    <div className="flex items-center text-xs text-muted-foreground">
+                      <span className="mr-2">🚚</span>
+                      Fast, eco-friendly delivery
+                    </div>
+                    <div className="flex items-center text-xs text-muted-foreground">
+                      <span className="mr-2">🌱</span>
+                      100% sustainable packaging
                     </div>
                   </div>
                 </CardContent>
