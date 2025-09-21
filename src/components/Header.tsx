@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Menu, X, ShoppingCart, User, Search } from "lucide-react";
+import { Menu, X, User, Search, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link } from "react-router-dom";
+import { CartSheet } from "./CartSheet";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = [{
@@ -65,12 +66,7 @@ const Header = () => {
                 <Button variant="ghost" size="icon" className="mosaic-border p-3">
                   <Search className="h-6 w-6" />
                 </Button>
-                <Button variant="ghost" size="icon" className="mosaic-border p-3 relative">
-                  <ShoppingCart className="h-6 w-6" />
-                  <span className="absolute -top-2 -right-2 h-5 w-5 rounded-full bg-secondary text-white text-xs flex items-center justify-center font-bold">
-                    0
-                  </span>
-                </Button>
+                <CartSheet />
                 <Button variant="ghost" size="icon" className="mosaic-border p-3">
                   <User className="h-6 w-6" />
                 </Button>
@@ -129,11 +125,11 @@ const Header = () => {
                 </div>
               </div>
               <div className="flex gap-4">
-                <Button className="btn-hero px-8 py-3 text-lg font-bold">
-                  Shop Now
+                <Button className="btn-hero px-8 py-3 text-lg font-bold" asChild>
+                  <Link to="/shop">Shop Now</Link>
                 </Button>
-                <Button variant="outline" className="mosaic-border px-8 py-3 text-lg font-bold">
-                  For Business
+                <Button variant="outline" className="mosaic-border px-8 py-3 text-lg font-bold" asChild>
+                  <Link to="/business">For Business</Link>
                 </Button>
               </div>
             </div>

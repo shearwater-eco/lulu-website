@@ -2,31 +2,54 @@ import { Search, Filter, Grid, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
+import { useCart } from "@/hooks/useCart";
+import { useToast } from "@/hooks/use-toast";
+import { Product } from "@/lib/ecommerce-types";
 
 const Shop = () => {
-  const products = [
+  const { addItem } = useCart();
+  const { toast } = useToast();
+  
+  const products: Product[] = [
     {
-      id: 1,
+      id: "1",
       name: "LULU Toilet Tissue",
       description: "9 rolls of 3-ply sustainable toilet tissue",
-      price: "£12.99",
-      image: "🧻"
+      price: 12.99,
+      image: "🧻",
+      category: "toilet-tissue",
+      stock: 50,
+      sku: "LLU-TT-001"
     },
     {
-      id: 2,
+      id: "2",
       name: "LULU Kitchen Rolls", 
       description: "6 rolls of absorbent kitchen paper",
-      price: "£9.99",
-      image: "🧽"
+      price: 9.99,
+      image: "🧽",
+      category: "kitchen-rolls",
+      stock: 30,
+      sku: "LLU-KR-001"
     },
     {
-      id: 3,
+      id: "3",
       name: "LULU Facial Tissues",
       description: "Box of 150 ultra-soft facial tissues",
-      price: "£4.99", 
-      image: "🤧"
+      price: 4.99,
+      image: "🤧",
+      category: "facial-tissues",
+      stock: 75,
+      sku: "LLU-FT-001"
     }
   ];
+
+  const handleAddToCart = (product: Product) => {
+    addItem(product);
+    toast({
+      title: "Added to cart",
+      description: `${product.name} has been added to your cart.`,
+    });
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -89,9 +112,12 @@ const Shop = () => {
                   </p>
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-bold text-primary">
-                      {product.price}
+                      £{product.price.toFixed(2)}
                     </span>
-                    <Button className="btn-hero">
+                    <Button 
+                      className="btn-hero"
+                      onClick={() => handleAddToCart(product)}
+                    >
                       Add to Cart
                     </Button>
                   </div>
