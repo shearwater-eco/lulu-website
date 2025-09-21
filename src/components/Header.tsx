@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = [{
+    name: "Home",
+    href: "/",
+    color: "primary"
+  }, {
     name: "Shop",
     href: "/shop",
     color: "vibrant-green"
