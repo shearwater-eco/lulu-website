@@ -108,7 +108,14 @@ const Header = () => {
             {/* Call to Action Section - positioned directly below navigation */}
             <div className="mosaic-border-thick bg-white rounded-2xl p-3 flex flex-col md:flex-row items-center justify-between gap-3 -mt-8 mb-2">
               <div className="flex items-center gap-4">
-                <img src="/src/assets/lulu-mascot-bird.png" alt="Lulu mascot" className="w-24 h-24 object-contain" />
+                <video 
+                  src="/lulu-video-website.mp4" 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  className="w-24 h-24 object-contain rounded-lg"
+                />
                 <div>
                   <h2 className="text-2xl font-bold lulu-font text-foreground">Ready to go LULU?</h2>
                   <p className="text-muted-foreground">Gentle on you, kind to the Earth</p>
