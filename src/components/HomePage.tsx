@@ -174,8 +174,8 @@ const HomePage = () => {
                   {[
                     {
                       icon: Heart,
-                      title: "Welsh Heritage",
-                      description: "Proudly made in Wales with local craftsmanship and care.",
+                      title: "Welsh Wildlife Protection",
+                      description: "Supporting Welsh seabird conservation with every purchase. Lulu represents our commitment to protecting coastal wildlife.",
                       color: "tile-coral"
                     },
                     {
