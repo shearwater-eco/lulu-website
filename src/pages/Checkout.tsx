@@ -122,14 +122,14 @@ const Checkout = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background py-8">
+    <div className="min-h-screen bg-background py-4 sm:py-8">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-3xl font-bold mb-8">Checkout</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Checkout</h1>
           
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
             {/* Checkout Form */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <form onSubmit={handleSubmit}>
                 {/* Shipping Address */}
                 <Card>
@@ -137,7 +137,7 @@ const Checkout = () => {
                     <CardTitle>Shipping Address</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="shipping-firstName">First Name</Label>
                         <Input
@@ -192,7 +192,7 @@ const Checkout = () => {
                         onChange={(e) => handleInputChange('shipping', 'addressLine2', e.target.value)}
                       />
                     </div>
-                    <div className="grid md:grid-cols-3 gap-4">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                       <div>
                         <Label htmlFor="shipping-city">City</Label>
                         <Input
