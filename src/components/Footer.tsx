@@ -116,7 +116,7 @@ const Footer = () => {
                 </Link>
                 <div className="text-muted-foreground">
                   <MapPin className="h-4 w-4 inline mr-2" />
-                  Made in Wales, UK
+                  Wales, UK
                 </div>
               </div>
             </div>
