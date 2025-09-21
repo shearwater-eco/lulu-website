@@ -111,7 +111,6 @@ const Header = () => {
                 <video 
                   src="/lulu-video-website.mp4" 
                   autoPlay 
-                  loop 
                   muted 
                   playsInline
                   className="w-24 h-24 object-contain rounded-lg"
