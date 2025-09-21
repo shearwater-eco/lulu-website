@@ -8,12 +8,12 @@ const Business = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/20 to-secondary/10 py-16">
+      <section className="bg-gradient-to-br from-primary/20 to-secondary/10 py-8 sm:py-12 lg:py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-4 sm:mb-6">
             Business & Wholesale Solutions
           </h1>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
             Join forward-thinking businesses making the switch to sustainable paper products. 
             Competitive pricing, reliable supply, and eco-credentials your customers will love.
           </p>
@@ -21,15 +21,15 @@ const Business = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16">
+      <section className="py-8 sm:py-12 lg:py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
               Why Choose LULU for Business?
             </h2>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
             {[
               {
                 icon: Building,
@@ -59,14 +59,14 @@ const Business = () => {
               const Icon = benefit.icon;
               return (
                 <Card key={index} className="mosaic-border text-center hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-4 ${benefit.color}`}>
-                      <Icon className="h-8 w-8" />
+                  <CardContent className="p-4 sm:p-6">
+                    <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-muted mb-4 ${benefit.color}`}>
+                      <Icon className="h-6 w-6 sm:h-8 sm:w-8" />
                     </div>
-                    <h3 className="font-bold text-foreground mb-2">
+                    <h3 className="font-bold text-foreground mb-2 text-sm sm:text-base">
                       {benefit.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-xs sm:text-sm text-muted-foreground">
                       {benefit.description}
                     </p>
                   </CardContent>
@@ -78,10 +78,10 @@ const Business = () => {
       </section>
 
       {/* Pricing Tiers */}
-      <section className="py-16 bg-muted/20">
+      <section className="py-8 sm:py-12 lg:py-16 bg-muted/20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
               Wholesale Pricing Tiers
             </h2>
             <p className="text-muted-foreground">
@@ -89,7 +89,7 @@ const Business = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
               {
                 title: "Starter",
@@ -113,29 +113,29 @@ const Business = () => {
             ].map((tier, index) => (
               <Card key={index} className={`mosaic-border relative ${tier.popular ? 'border-primary border-2' : ''}`}>
                 {tier.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-bold">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-bold">
                     Most Popular
                   </div>
                 )}
-                <CardContent className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-foreground mb-2">
+                <CardContent className="p-4 sm:p-6 text-center">
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">
                     {tier.title}
                   </h3>
-                  <p className="text-muted-foreground mb-2">
+                  <p className="text-muted-foreground mb-2 text-sm sm:text-base">
                     {tier.minimum}
                   </p>
-                  <p className="text-2xl font-bold text-primary mb-6">
+                  <p className="text-xl sm:text-2xl font-bold text-primary mb-4 sm:mb-6">
                     {tier.discount}
                   </p>
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-2 mb-4 sm:mb-6">
                     {tier.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-sm text-muted-foreground">
-                        <CheckCircle className="h-4 w-4 text-success mr-2" />
+                      <li key={idx} className="flex items-center text-xs sm:text-sm text-muted-foreground">
+                        <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-success mr-2 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
                   </ul>
-                  <Button className={`w-full ${tier.popular ? 'btn-hero' : ''}`}>
+                  <Button className={`w-full ${tier.popular ? 'btn-hero' : ''} h-10 sm:h-11 text-sm sm:text-base`}>
                     Get Quote
                   </Button>
                 </CardContent>
@@ -146,11 +146,11 @@ const Business = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="py-16">
+      <section className="py-8 sm:py-12 lg:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-foreground mb-4">
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
                 Request a Quote
               </h2>
               <p className="text-muted-foreground">
@@ -159,35 +159,35 @@ const Business = () => {
             </div>
             
             <Card className="mosaic-border">
-              <CardContent className="p-8">
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
+              <CardContent className="p-4 sm:p-6 lg:p-8">
+                <form className="space-y-4 sm:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Company Name *
                       </label>
-                      <Input placeholder="Your company name" />
+                      <Input placeholder="Your company name" className="h-11" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Contact Name *
                       </label>
-                      <Input placeholder="Your full name" />
+                      <Input placeholder="Your full name" className="h-11" />
                     </div>
                   </div>
                   
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Email *
                       </label>
-                      <Input type="email" placeholder="your@company.com" />
+                      <Input type="email" placeholder="your@company.com" className="h-11" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Phone
                       </label>
-                      <Input type="tel" placeholder="+44 xxx xxx xxxx" />
+                      <Input type="tel" placeholder="+44 xxx xxx xxxx" className="h-11" />
                     </div>
                   </div>
                   
@@ -195,7 +195,7 @@ const Business = () => {
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Monthly Volume Required
                     </label>
-                    <Input placeholder="e.g., 100 toilet roll packs, 50 kitchen roll packs" />
+                    <Input placeholder="e.g., 100 toilet roll packs, 50 kitchen roll packs" className="h-11" />
                   </div>
                   
                   <div>
@@ -205,10 +205,11 @@ const Business = () => {
                     <Textarea 
                       placeholder="Tell us about your specific needs, delivery requirements, or any questions..."
                       rows={4}
+                      className="resize-none"
                     />
                   </div>
                   
-                  <Button className="btn-hero w-full text-lg py-3">
+                  <Button className="btn-hero w-full text-base sm:text-lg py-3 h-12">
                     Send Quote Request
                   </Button>
                 </form>
