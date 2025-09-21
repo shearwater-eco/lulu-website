@@ -13,6 +13,7 @@ const MusicPlayer = () => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
       audioRef.current.loop = true;
+      console.log('Music player initialized with volume:', volume);
     }
   }, [volume]);
 
@@ -20,10 +21,17 @@ const MusicPlayer = () => {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
+        console.log('Music paused');
       } else {
-        audioRef.current.play();
+        audioRef.current.play().then(() => {
+          console.log('Music playing successfully');
+        }).catch((error) => {
+          console.error('Failed to play music:', error);
+        });
       }
       setIsPlaying(!isPlaying);
+    } else {
+      console.error('Audio element not found');
     }
   };
 
@@ -83,16 +91,34 @@ const MusicPlayer = () => {
           />
           
           <span className="text-xs text-muted-foreground font-medium">
-            Welsh Folk
+            {isPlaying ? "♪ Welsh Folk Playing" : "Welsh Folk Ready"}
           </span>
         </div>
         
         <audio
           ref={audioRef}
           src="/music/welsh-folk-placeholder.mp3"
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
-          onEnded={() => setIsPlaying(false)}
+          onPlay={() => {
+            console.log('Audio started playing');
+            setIsPlaying(true);
+          }}
+          onPause={() => {
+            console.log('Audio paused');
+            setIsPlaying(false);
+          }}
+          onEnded={() => {
+            console.log('Audio ended');
+            setIsPlaying(false);
+          }}
+          onError={(e) => {
+            console.error('Audio error:', e);
+          }}
+          onLoadStart={() => {
+            console.log('Audio loading started');
+          }}
+          onCanPlayThrough={() => {
+            console.log('Audio can play through');
+          }}
         />
       </div>
     </div>
