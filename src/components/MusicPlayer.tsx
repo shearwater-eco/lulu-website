@@ -43,9 +43,9 @@ const MusicPlayer = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
-      <div className="mosaic-border-thick bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg">
-        <div className="flex items-center space-x-2">
+    <div className="fixed bottom-20 right-4 z-50">
+      <div className="mosaic-border-thick bg-white/95 backdrop-blur-sm rounded-xl p-2 shadow-lg">
+        <div className="flex items-center space-x-1">
           <Button
             variant="ghost"
             size="icon"
