@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import MusicPlayer from "./components/MusicPlayer";
 import Index from "./pages/Index";
 import Shop from "./pages/Shop";
 import About from "./pages/About";
@@ -42,6 +43,7 @@ const App = () => (
             </Routes>
           </main>
           <Footer />
+          <MusicPlayer />
         </div>
       </BrowserRouter>
     </TooltipProvider>
