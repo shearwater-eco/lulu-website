@@ -70,21 +70,6 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Eco Certifications */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-foreground mb-4 lulu-title text-2xl">
-                Trusted by Nature, Loved by You
-              </h3>
-              <p className="text-lg text-muted-foreground lulu-subtitle">
-                Our eco-certifications speak for themselves
-              </p>
-            </div>
-            <EcoBadges />
-          </div>
-        </section>
-
         {/* Product Highlights */}
         <section className="py-16">
           <div className="container mx-auto px-4">
@@ -150,6 +135,21 @@ const HomePage = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Eco Certifications */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-foreground mb-4 lulu-title text-2xl">
+                Trusted by Nature, Loved by You
+              </h3>
+              <p className="text-lg text-muted-foreground lulu-subtitle">
+                Our eco-certifications speak for themselves
+              </p>
+            </div>
+            <EcoBadges />
           </div>
         </section>
 
