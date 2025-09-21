@@ -5,8 +5,45 @@ import EcoBadges from "./EcoBadges";
 import luluMascotThumbsUp from "@/assets/lulu-mascot-thumbs-up.png";
 import luluMascotCoast from "@/assets/lulu-mascot-welsh-coast.png";
 import luluBoxMockup from "@/assets/lulu-box-mockup.png";
+import { useEffect, useRef } from "react";
 
 const HomePage = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    const audio = audioRef.current;
+    
+    if (!video || !audio) return;
+
+    // Set audio properties
+    audio.loop = true;
+    audio.volume = 0.3;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Video is visible - play ambient music
+            audio.play().catch(console.error);
+          } else {
+            // Video is not visible - pause music
+            audio.pause();
+          }
+        });
+      },
+      { threshold: 0.5 } // Play when 50% of video is visible
+    );
+
+    observer.observe(video);
+
+    return () => {
+      observer.disconnect();
+      audio.pause();
+    };
+  }, []);
+
   return (
     <div className="lulu-frame">
       <div className="lulu-package">
@@ -54,12 +91,18 @@ const HomePage = () => {
               <div className="relative">
                 <div className="mosaic-border-small rounded-3xl bg-white p-8">
                   <video 
+                    ref={videoRef}
                     src="/lulu-video-website-2.mp4" 
                     autoPlay 
                     loop 
                     muted 
                     playsInline
                     className="w-full max-w-md mx-auto drop-shadow-2xl animate-bounce-gentle"
+                  />
+                  <audio 
+                    ref={audioRef}
+                    src="/music/ambient-stream.mp3"
+                    preload="auto"
                   />
                 </div>
                 <div className="absolute -bottom-4 -right-4 card-lulu px-6 py-3 rounded-full font-bold text-lg animate-pulse">
