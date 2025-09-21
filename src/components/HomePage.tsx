@@ -5,31 +5,67 @@ import EcoBadges from "./EcoBadges";
 import luluMascotThumbsUp from "@/assets/lulu-mascot-thumbs-up.png";
 import luluMascotCoast from "@/assets/lulu-mascot-welsh-coast.png";
 import luluBoxMockup from "@/assets/lulu-box-mockup.png";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const HomePage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const [hasPlayedWelcome, setHasPlayedWelcome] = useState(false);
+
+  const playWelcomeMessage = async () => {
+    if (hasPlayedWelcome) return;
+    
+    try {
+      // This will be replaced with your actual ElevenLabs API key
+      const ELEVENLABS_API_KEY = "your-api-key-here";
+      
+      if (!ELEVENLABS_API_KEY || ELEVENLABS_API_KEY === "your-api-key-here") {
+        console.log("ElevenLabs API key needed for Welsh voice");
+        return;
+      }
+
+      const response = await fetch("https://api.elevenlabs.io/v1/text-to-speech/CwhRBWXzGAHq8TQ4Fs17", {
+        method: "POST",
+        headers: {
+          "Accept": "audio/mpeg",
+          "Content-Type": "application/json",
+          "xi-api-key": ELEVENLABS_API_KEY
+        },
+        body: JSON.stringify({
+          text: "Helloooo lovely",
+          model_id: "eleven_multilingual_v2",
+          voice_settings: {
+            stability: 0.5,
+            similarity_boost: 0.75,
+            style: 0.0,
+            use_speaker_boost: true
+          }
+        })
+      });
+
+      if (response.ok) {
+        const audioBlob = await response.blob();
+        const audioUrl = URL.createObjectURL(audioBlob);
+        const audio = new Audio(audioUrl);
+        audio.volume = 0.7;
+        audio.play();
+        setHasPlayedWelcome(true);
+      }
+    } catch (error) {
+      console.error("Error playing welcome message:", error);
+    }
+  };
 
   useEffect(() => {
     const video = videoRef.current;
-    const audio = audioRef.current;
     
-    if (!video || !audio) return;
-
-    // Set audio properties
-    audio.loop = true;
-    audio.volume = 0.3;
+    if (!video) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Video is visible - play ambient music
-            audio.play().catch(console.error);
-          } else {
-            // Video is not visible - pause music
-            audio.pause();
+            // Video is visible - play Welsh welcome message
+            playWelcomeMessage();
           }
         });
       },
@@ -40,9 +76,8 @@ const HomePage = () => {
 
     return () => {
       observer.disconnect();
-      audio.pause();
     };
-  }, []);
+  }, [hasPlayedWelcome]);
 
   return (
     <div className="lulu-frame">
@@ -98,11 +133,6 @@ const HomePage = () => {
                     muted 
                     playsInline
                     className="w-full max-w-sm sm:max-w-md mx-auto drop-shadow-2xl animate-bounce-gentle"
-                  />
-                  <audio 
-                    ref={audioRef}
-                    src="/music/ambient-nature.mp3"
-                    preload="auto"
                   />
                 </div>
                 <div className="absolute -bottom-2 sm:-bottom-4 -right-2 sm:-right-4 card-lulu px-3 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-sm sm:text-lg animate-pulse">
