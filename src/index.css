@@ -145,13 +145,13 @@
     justify-content: center;
   }
 
-  @screen sm {
+  @media (min-width: 640px) {
     .lulu-frame {
       padding: 20px;
     }
   }
 
-  @screen lg {
+  @media (min-width: 1024px) {
     .lulu-frame {
       padding: 40px;
     }
@@ -340,7 +340,7 @@
     box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
   }
 
-  @screen sm {
+  @media (min-width: 640px) {
     .lulu-content {
       margin: 25px 25px 100px 25px;
       border-radius: 20px 20px 50% 50% / 20px 20px 100px 100px;
@@ -349,7 +349,7 @@
     }
   }
 
-  @screen lg {
+  @media (min-width: 1024px) {
     .lulu-content {
       margin: 45px 45px 150px 45px;
       border-radius: 25px 25px 60% 60% / 25px 25px 120px 120px;
