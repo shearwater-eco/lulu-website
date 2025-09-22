@@ -65,12 +65,12 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-accent/20 to-primary-light/20 py-8 sm:py-12 lg:py-16">
+      <section className="bg-gradient-to-br from-accent/20 to-primary-light/20 py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground mb-4 sm:mb-6">
+          <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
             LULU Blog & News
           </h1>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Discover the latest in sustainable living, learn about Welsh wildlife, 
             and stay updated with LULU's eco-friendly mission.
           </p>
@@ -78,14 +78,14 @@ const Blog = () => {
       </section>
 
       {/* Category Filter */}
-      <section className="py-4 sm:py-8 border-b">
+      <section className="py-8 border-b">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-2">
             {categories.map((category) => (
               <Button
                 key={category}
                 variant={category === "All" ? "default" : "outline"}
-                className={`${category === "All" ? "btn-hero" : ""} rounded-full text-xs sm:text-sm px-3 sm:px-4 py-2 h-9 sm:h-10`}
+                className={`${category === "All" ? "btn-hero" : ""} rounded-full`}
               >
                 {category}
               </Button>
@@ -95,14 +95,14 @@ const Blog = () => {
       </section>
 
       {/* Blog Posts Grid */}
-      <section className="py-8 sm:py-12">
+      <section className="py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
               <Card key={post.id} className="mosaic-border hover:shadow-lg transition-all duration-300 group">
-                <CardContent className="p-4 sm:p-6">
+                <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="px-2 sm:px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium">
+                    <span className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium">
                       {post.category}
                     </span>
                     <span className="text-xs text-muted-foreground">
@@ -110,30 +110,30 @@ const Blog = () => {
                     </span>
                   </div>
                   
-                  <h3 className="text-base sm:text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                  <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                     {post.title}
                   </h3>
                   
-                  <p className="text-muted-foreground text-xs sm:text-sm mb-4 line-clamp-3">
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
                   
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-muted-foreground mb-4 gap-2">
+                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
                     <div className="flex items-center space-x-3">
                       <span className="flex items-center">
                         <User className="h-3 w-3 mr-1" />
                         {post.author}
                       </span>
+                      <span className="flex items-center">
+                        <Calendar className="h-3 w-3 mr-1" />
+                        {post.date}
+                      </span>
                     </div>
-                    <span className="flex items-center">
-                      <Calendar className="h-3 w-3 mr-1" />
-                      {post.date}
-                    </span>
                   </div>
                   
-                  <Button variant="ghost" className="w-full justify-between p-0 h-auto text-primary hover:text-primary/80 text-sm">
+                  <Button variant="ghost" className="w-full justify-between p-0 h-auto text-primary hover:text-primary/80">
                     Read More
-                    <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
+                    <ArrowRight className="h-4 w-4" />
                   </Button>
                 </CardContent>
               </Card>
@@ -143,21 +143,21 @@ const Blog = () => {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-r from-primary to-secondary text-white">
+      <section className="py-16 bg-gradient-to-r from-primary to-secondary text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+          <h2 className="text-3xl font-bold mb-4">
             Stay Updated with LULU
           </h2>
-          <p className="text-base sm:text-lg mb-6 sm:mb-8 opacity-90">
+          <p className="text-lg mb-8 opacity-90">
             Get the latest blog posts, sustainability tips, and wildlife stories delivered to your inbox.
           </p>
-          <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <div className="max-w-md mx-auto flex gap-4">
             <input
               type="email"
               placeholder="Your email address"
-              className="flex-1 px-4 py-3 rounded-lg text-foreground text-sm sm:text-base h-11"
+              className="flex-1 px-4 py-3 rounded-lg text-foreground"
             />
-            <Button variant="secondary" className="px-4 sm:px-6 py-3 bg-background text-foreground hover:bg-background/90 h-11 text-sm sm:text-base">
+            <Button variant="secondary" className="px-6 py-3 bg-background text-foreground hover:bg-background/90">
               Subscribe
             </Button>
           </div>

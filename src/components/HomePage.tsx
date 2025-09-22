@@ -5,80 +5,8 @@ import EcoBadges from "./EcoBadges";
 import luluMascotThumbsUp from "@/assets/lulu-mascot-thumbs-up.png";
 import luluMascotCoast from "@/assets/lulu-mascot-welsh-coast.png";
 import luluBoxMockup from "@/assets/lulu-box-mockup.png";
-import { useEffect, useRef, useState } from "react";
 
 const HomePage = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [hasPlayedWelcome, setHasPlayedWelcome] = useState(false);
-
-  const playWelcomeMessage = async () => {
-    if (hasPlayedWelcome) return;
-    
-    try {
-      // This will be replaced with your actual ElevenLabs API key
-      const ELEVENLABS_API_KEY = "your-api-key-here";
-      
-      if (!ELEVENLABS_API_KEY || ELEVENLABS_API_KEY === "your-api-key-here") {
-        console.log("ElevenLabs API key needed for Welsh voice");
-        return;
-      }
-
-      const response = await fetch("https://api.elevenlabs.io/v1/text-to-speech/CwhRBWXzGAHq8TQ4Fs17", {
-        method: "POST",
-        headers: {
-          "Accept": "audio/mpeg",
-          "Content-Type": "application/json",
-          "xi-api-key": ELEVENLABS_API_KEY
-        },
-        body: JSON.stringify({
-          text: "Helloooo lovely",
-          model_id: "eleven_multilingual_v2",
-          voice_settings: {
-            stability: 0.5,
-            similarity_boost: 0.75,
-            style: 0.0,
-            use_speaker_boost: true
-          }
-        })
-      });
-
-      if (response.ok) {
-        const audioBlob = await response.blob();
-        const audioUrl = URL.createObjectURL(audioBlob);
-        const audio = new Audio(audioUrl);
-        audio.volume = 0.7;
-        audio.play();
-        setHasPlayedWelcome(true);
-      }
-    } catch (error) {
-      console.error("Error playing welcome message:", error);
-    }
-  };
-
-  useEffect(() => {
-    const video = videoRef.current;
-    
-    if (!video) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Video is visible - play Welsh welcome message
-            playWelcomeMessage();
-          }
-        });
-      },
-      { threshold: 0.5 } // Play when 50% of video is visible
-    );
-
-    observer.observe(video);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [hasPlayedWelcome]);
-
   return (
     <div className="lulu-frame">
       <div className="lulu-package">
@@ -86,18 +14,18 @@ const HomePage = () => {
         <div className="bottom-border"></div>
         <div className="lulu-content">
         {/* Hero Section */}
-        <section className="relative overflow-hidden py-8 sm:py-16 lg:py-24">
+        <section className="relative overflow-hidden py-16 lg:py-24">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
-                <div className="mosaic-border-small rounded-2xl inline-block p-4 sm:p-8 bg-white">
-                  <p className="text-lg sm:text-xl lg:text-2xl text-foreground font-bold mb-2">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-8 text-center lg:text-left">
+                <div className="mosaic-border-small rounded-2xl inline-block p-8 bg-white">
+                  <p className="text-xl lg:text-2xl text-foreground font-bold mb-2">
                     TOILET TISSUE
                   </p>
-                  <p className="text-base sm:text-lg lg:text-xl text-foreground mb-4 lulu-subtitle">
+                  <p className="text-lg lg:text-xl text-foreground mb-4 lulu-subtitle">
                     by
                   </p>
-                  <h1 className="lulu-title text-2xl sm:text-3xl lg:text-4xl text-black mb-4">
+                  <h1 className="lulu-title text-4xl text-black mb-4">
                     LULU
                   </h1>
                 </div>
@@ -106,36 +34,35 @@ const HomePage = () => {
                   Gentle on you, kind to the Earth
                 </div>
                 
-                <p className="text-base sm:text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0">
+                <p className="text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0">
                   Welsh sustainable paper products that don't compromise on quality. 
                   Join the eco-revolution with Lulu the Shearwater!
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                  <button className="btn-lulu-primary text-sm sm:text-base px-6 sm:px-8 py-3">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <button className="btn-lulu-primary">
                     Shop Now
-                    <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5 inline" />
+                    <ArrowRight className="ml-2 h-5 w-5 inline" />
                   </button>
-                  <button className="btn-lulu-secondary text-sm sm:text-base px-6 sm:px-8 py-3">
+                  <button className="btn-lulu-secondary">
                     For Businesses
-                    <Users className="ml-2 h-4 sm:h-5 w-4 sm:w-5 inline" />
+                    <Users className="ml-2 h-5 w-5 inline" />
                   </button>
                 </div>
               </div>
 
               <div className="relative">
-                <div className="mosaic-border-small rounded-3xl bg-white p-4 sm:p-8">
+                <div className="mosaic-border-small rounded-3xl bg-white p-8">
                   <video 
-                    ref={videoRef}
                     src="/lulu-video-website-2.mp4" 
                     autoPlay 
                     loop 
                     muted 
                     playsInline
-                    className="w-full max-w-sm sm:max-w-md mx-auto drop-shadow-2xl animate-bounce-gentle"
+                    className="w-full max-w-md mx-auto drop-shadow-2xl animate-bounce-gentle"
                   />
                 </div>
-                <div className="absolute -bottom-2 sm:-bottom-4 -right-2 sm:-right-4 card-lulu px-3 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-sm sm:text-lg animate-pulse">
+                <div className="absolute -bottom-4 -right-4 card-lulu px-6 py-3 rounded-full font-bold text-lg animate-pulse">
                   Meet Lulu! 👋
                 </div>
               </div>
@@ -144,18 +71,18 @@ const HomePage = () => {
         </section>
 
         {/* Product Highlights */}
-        <section className="py-8 sm:py-16">
+        <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-8 sm:mb-12">
-              <h3 className="lulu-title text-xl sm:text-2xl text-foreground mb-4">
+            <div className="text-center mb-12">
+              <h3 className="lulu-title text-2xl text-foreground mb-4">
                 Our Sustainable Range
               </h3>
-              <p className="text-base sm:text-lg text-muted-foreground lulu-subtitle">
+              <p className="text-lg text-muted-foreground lulu-subtitle">
                 Premium quality without compromising the planet
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
                   title: "Toilet Tissue",
@@ -354,22 +281,22 @@ const HomePage = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-8 sm:py-16">
+        <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="mosaic-border-small rounded-3xl bg-white p-6 sm:p-12 text-center space-y-4 sm:space-y-6">
-              <h3 className="lulu-title text-2xl sm:text-3xl lg:text-4xl text-foreground">
+            <div className="mosaic-border-small rounded-3xl bg-white p-12 text-center space-y-6">
+              <h3 className="lulu-title text-3xl lg:text-4xl text-foreground">
                 Ready to Join the Eco-Revolution?
               </h3>
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto lulu-subtitle">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto lulu-subtitle">
                 Make the switch to sustainable paper products without compromising on quality. 
                 Lulu and the planet will thank you!
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                <button className="btn-lulu-primary text-base sm:text-xl px-6 sm:px-12 py-3 sm:py-6">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="btn-lulu-primary text-xl px-12 py-6">
                   Shop Now
-                  <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5 inline" />
+                  <ArrowRight className="ml-2 h-5 w-5 inline" />
                 </button>
-                <button className="btn-lulu-secondary text-base sm:text-xl px-6 sm:px-12 py-3 sm:py-6">
+                <button className="btn-lulu-secondary text-xl px-12 py-6">
                   Learn More About Us
                 </button>
               </div>

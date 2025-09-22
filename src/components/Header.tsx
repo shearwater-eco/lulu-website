@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link } from "react-router-dom";
 import { CartSheet } from "./CartSheet";
-import luluMascotThumbsUpNew from "@/assets/lulu-mascot-thumbs-up-new.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = [{
@@ -43,8 +42,8 @@ const Header = () => {
           <div className="container px-4 pt-3 pb-0 mx-0 my-0 py-0">
             <div className="flex items-center justify-between h-20">
               <Link to="/" className="flex items-center space-x-2">
-                <div className="mosaic-border-thick rounded-lg p-2 md:p-4 bg-white">
-                  <span className="text-3xl md:text-6xl font-bold logo-mosaic">LULU
+                <div className="mosaic-border-thick rounded-lg p-4 bg-white">
+                  <span className="text-6xl font-bold logo-mosaic">LULU
                 </span>
                 </div>
               </Link>
@@ -104,22 +103,32 @@ const Header = () => {
             
             {/* Call to Action Section - positioned directly below navigation */}
             <div className="mosaic-border-thick bg-white rounded-2xl p-3 flex flex-col md:flex-row items-center justify-between gap-3 -mt-8 mb-2">
-              <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-                <img 
-                  src={luluMascotThumbsUpNew} 
-                  alt="Lulu mascot with thumbs up"
-                  className="w-16 h-16 sm:w-24 sm:h-24 object-contain rounded-lg"
+              <div className="flex items-center gap-4">
+                <video 
+                  src="/lulu-video-website.mp4" 
+                  autoPlay 
+                  muted 
+                  playsInline
+                  className="w-24 h-24 object-contain rounded-lg"
+                  onEnded={(e) => {
+                    const video = e.currentTarget;
+                    const img = document.createElement('img');
+                    img.src = '/src/assets/lulu-mascot-bird.png';
+                    img.className = 'w-24 h-24 object-contain rounded-lg';
+                    img.alt = 'Lulu mascot bird';
+                    video.parentNode?.replaceChild(img, video);
+                  }}
                 />
                 <div>
-                  <h2 className="text-lg sm:text-2xl font-bold lulu-font text-foreground">Ready to go LULU?</h2>
-                  <p className="text-sm sm:text-base text-muted-foreground">Gentle on you, kind to the Earth</p>
+                  <h2 className="text-2xl font-bold lulu-font text-foreground">Ready to go LULU?</h2>
+                  <p className="text-muted-foreground">Gentle on you, kind to the Earth</p>
                 </div>
               </div>
-              <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-                <Button className="btn-hero px-4 sm:px-8 py-2 sm:py-3 text-sm sm:text-lg font-bold" asChild>
+              <div className="flex gap-4">
+                <Button className="btn-hero px-8 py-3 text-lg font-bold" asChild>
                   <Link to="/shop">Shop Now</Link>
                 </Button>
-                <Button variant="outline" className="mosaic-border px-4 sm:px-8 py-2 sm:py-3 text-sm sm:text-lg font-bold" asChild>
+                <Button variant="outline" className="mosaic-border px-8 py-3 text-lg font-bold" asChild>
                   <Link to="/business">For Business</Link>
                 </Button>
               </div>
