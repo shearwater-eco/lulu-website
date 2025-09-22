@@ -135,14 +135,26 @@
 }
 
 @layer components {
-  /* Exact LULU Packaging Frame Recreation */
+  /* Exact LULU Packaging Frame Recreation - Mobile First */
   .lulu-frame {
     min-height: 100vh;
-    padding: 40px;
+    padding: 8px;
     background: white;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  @media (min-width: 640px) {
+    .lulu-frame {
+      padding: 20px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lulu-frame {
+      padding: 40px;
+    }
   }
 
   .lulu-package {
@@ -153,14 +165,14 @@
     background: white;
   }
 
-  /* Enhanced Individual Mosaic Tiles - Top Border with More Detail */
+  /* Enhanced Individual Mosaic Tiles - Top Border with More Detail - Mobile First */
   .lulu-package::before {
     content: '';
     position: absolute;
-    top: -35px;
-    left: -35px;
-    right: -35px;
-    height: 35px;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    height: 15px;
     background: 
       /* Inner shadow for depth */
       linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 20%),
@@ -193,14 +205,14 @@
     border-bottom: 2px solid #000000;
   }
 
-  /* Enhanced Left Border with More Detail */
+  /* Enhanced Left Border with More Detail - Mobile First */
   .lulu-package::after {
     content: '';
     position: absolute;
-    top: -35px;
-    left: -35px;
-    width: 35px;
-    bottom: 100px;
+    top: -15px;
+    left: -15px;
+    width: 15px;
+    bottom: 40px;
     background: 
       /* Inner shadow for depth */
       linear-gradient(90deg, rgba(0,0,0,0.2) 0%, transparent 20%),
@@ -233,13 +245,13 @@
     border-right: 2px solid #000000;
   }
 
-  /* Enhanced Right Border with More Detail */
+  /* Enhanced Right Border with More Detail - Mobile First */
   .lulu-package .right-border {
     position: absolute;
-    top: -35px;
-    right: -35px;
-    width: 35px;
-    bottom: 100px;
+    top: -15px;
+    right: -15px;
+    width: 15px;
+    bottom: 40px;
     background: 
       /* Inner shadow for depth */
       linear-gradient(-90deg, rgba(0,0,0,0.2) 0%, transparent 20%),
@@ -272,13 +284,13 @@
     border-left: 2px solid #000000;
   }
 
-  /* Enhanced Curved Bottom Border - Full curved area with colors */
+  /* Enhanced Curved Bottom Border - Full curved area with colors - Mobile First */
   .lulu-package .bottom-border {
     position: absolute;
-    bottom: -35px;
-    left: -35px;
-    right: -35px;
-    height: 120px;
+    bottom: -15px;
+    left: -15px;
+    right: -15px;
+    height: 60px;
     background: 
       linear-gradient(90deg,
         hsl(var(--tile-green)) 0% 6%,
@@ -309,23 +321,107 @@
         #000 96% 97.5%,
         hsl(var(--tile-turquoise)) 97.5% 100%
       );
-    border-radius: 0 0 60% 60% / 0 0 120px 120px;
-    border: 3px solid #000000;
+    border-radius: 0 0 40% 40% / 0 0 60px 60px;
+    border: 2px solid #000000;
     clip-path: ellipse(100% 100% at center top);
+  }
+
+  @media (min-width: 640px) {
+    .lulu-package::before {
+      top: -25px;
+      left: -25px;
+      right: -25px;
+      height: 25px;
+    }
+
+    .lulu-package::after {
+      top: -25px;
+      left: -25px;
+      width: 25px;
+      bottom: 70px;
+    }
+
+    .lulu-package .right-border {
+      top: -25px;
+      right: -25px;
+      width: 25px;
+      bottom: 70px;
+    }
+
+    .lulu-package .bottom-border {
+      bottom: -25px;
+      left: -25px;
+      right: -25px;
+      height: 90px;
+      border-radius: 0 0 50% 50% / 0 0 90px 90px;
+      border: 2px solid #000000;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lulu-package::before {
+      top: -35px;
+      left: -35px;
+      right: -35px;
+      height: 35px;
+    }
+
+    .lulu-package::after {
+      top: -35px;
+      left: -35px;
+      width: 35px;
+      bottom: 100px;
+    }
+
+    .lulu-package .right-border {
+      top: -35px;
+      right: -35px;
+      width: 35px;
+      bottom: 100px;
+    }
+
+    .lulu-package .bottom-border {
+      bottom: -35px;
+      left: -35px;
+      right: -35px;
+      height: 120px;
+      border-radius: 0 0 60% 60% / 0 0 120px 120px;
+      border: 3px solid #000000;
+    }
   }
 
   .lulu-content {
     position: relative;
     background: white;
-    min-height: calc(100vh - 220px);
-    margin: 45px 45px 150px 45px;
+    min-height: calc(100vh - 120px);
+    margin: 15px 15px 80px 15px;
     /* Enhanced curved bottom like packaging */
-    border-radius: 25px 25px 60% 60% / 25px 25px 120px 120px;
-    border: 4px solid #000000;
-    padding: 60px 40px 100px;
+    border-radius: 15px 15px 40% 40% / 15px 15px 60px 60px;
+    border: 2px solid #000000;
+    padding: 20px 15px 60px;
     z-index: 1;
     /* Subtle inner shadow for depth */
     box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+  }
+
+  @media (min-width: 640px) {
+    .lulu-content {
+      min-height: calc(100vh - 160px);
+      margin: 25px 25px 100px 25px;
+      border-radius: 20px 20px 50% 50% / 20px 20px 80px 80px;
+      border: 3px solid #000000;
+      padding: 40px 25px 80px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lulu-content {
+      min-height: calc(100vh - 220px);
+      margin: 45px 45px 150px 45px;
+      border-radius: 25px 25px 60% 60% / 25px 25px 120px 120px;
+      border: 4px solid #000000;
+      padding: 60px 40px 100px;
+    }
   }
 
   /* Small mosaic elements */
