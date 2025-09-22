@@ -53,12 +53,9 @@ const HomePage = () => {
 
               <div className="relative">
                 <div className="mosaic-border-small rounded-3xl bg-white p-8">
-                  <video 
-                    src="/lulu-video-website-2.mp4" 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
+                  <img 
+                    src="/src/assets/lulu-mascot-thumbs-up-new.png" 
+                    alt="Lulu mascot giving thumbs up"
                     className="w-full max-w-md mx-auto drop-shadow-2xl animate-bounce-gentle"
                   />
                 </div>

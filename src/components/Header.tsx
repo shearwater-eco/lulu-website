@@ -104,20 +104,10 @@ const Header = () => {
             {/* Call to Action Section - positioned directly below navigation */}
             <div className="mosaic-border-thick bg-white rounded-2xl p-3 flex flex-col md:flex-row items-center justify-between gap-3 -mt-8 mb-2">
               <div className="flex items-center gap-4">
-                <video 
-                  src="/lulu-video-website.mp4" 
-                  autoPlay 
-                  muted 
-                  playsInline
+                <img 
+                  src="/src/assets/lulu-mascot-thumbs-up-new.png" 
+                  alt="Lulu mascot giving thumbs up"
                   className="w-24 h-24 object-contain rounded-lg"
-                  onEnded={(e) => {
-                    const video = e.currentTarget;
-                    const img = document.createElement('img');
-                    img.src = '/src/assets/lulu-mascot-bird.png';
-                    img.className = 'w-24 h-24 object-contain rounded-lg';
-                    img.alt = 'Lulu mascot bird';
-                    video.parentNode?.replaceChild(img, video);
-                  }}
                 />
                 <div>
                   <h2 className="text-2xl font-bold lulu-font text-foreground">Ready to go LULU?</h2>
