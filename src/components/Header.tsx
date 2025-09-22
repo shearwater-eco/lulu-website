@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link } from "react-router-dom";
 import { CartSheet } from "./CartSheet";
+import luluMascotImage from "@/assets/lulu-mascot-thumbs-up-new.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = [{
@@ -105,7 +106,7 @@ const Header = () => {
             <div className="mosaic-border-thick bg-white rounded-2xl p-3 flex flex-col md:flex-row items-center justify-between gap-3 -mt-8 mb-2">
               <div className="flex items-center gap-4">
                 <img 
-                  src="/src/assets/lulu-mascot-thumbs-up-new.png" 
+                  src={luluMascotImage} 
                   alt="Lulu mascot giving thumbs up"
                   className="w-24 h-24 object-contain rounded-lg"
                 />
