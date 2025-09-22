@@ -35,7 +35,7 @@ const HomePage = () => {
                 </div>
                 
                 <p className="text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0">
-                  Welsh sustainable paper products that don't compromise on quality. 
+                  Sustainable paper products that don't compromise on quality. 
                   Join the eco-revolution with Lulu the Shearwater!
                 </p>
 
