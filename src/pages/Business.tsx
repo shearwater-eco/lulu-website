@@ -31,10 +31,10 @@ const Business = () => {
             </div>
             
             {/* Video Side */}
-            <div className="relative">
-              <div className="aspect-video rounded-lg overflow-hidden shadow-2xl">
+            <div className="relative max-w-md mx-auto lg:mx-0">
+              <div className="aspect-video rounded-lg overflow-hidden shadow-2xl bg-muted/20">
                 <video 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   controls
                   poster="/lulu-mascot-landscape.png"
                 >
@@ -42,7 +42,7 @@ const Business = () => {
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-primary/90 text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm">
+              <div className="absolute -bottom-3 -right-3 bg-primary/90 text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">
                 See LULU in Action
               </div>
             </div>
