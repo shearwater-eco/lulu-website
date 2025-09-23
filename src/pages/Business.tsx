@@ -8,14 +8,22 @@ const Business = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/20 to-secondary/10 py-16">
+      <section className="bg-gradient-to-br from-primary/20 to-secondary/10 py-16 relative overflow-hidden">
+        {/* Subtle colorful accent borders */}
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tile-green via-tile-pink to-tile-orange opacity-60"></div>
+        <div className="absolute top-0 right-0 w-1 h-20 bg-gradient-to-b from-tile-blue via-tile-teal to-tile-lime opacity-60"></div>
+        
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Content Side */}
             <div className="text-center lg:text-left">
-              <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-                Business & Wholesale Solutions
-              </h1>
+              <div className="relative inline-block mb-6">
+                <h1 className="text-4xl lg:text-5xl font-bold text-foreground">
+                  Business & Wholesale Solutions
+                </h1>
+                {/* Small accent dot */}
+                <div className="absolute -top-2 -right-2 w-3 h-3 rounded-full bg-tile-coral opacity-80"></div>
+              </div>
               <p className="text-lg text-muted-foreground mb-8">
                 Join forward-thinking businesses making the switch to sustainable paper products. 
                 Competitive pricing, reliable supply, and eco-credentials your customers will love.
@@ -32,7 +40,7 @@ const Business = () => {
             
             {/* Video Side */}
             <div className="relative max-w-lg mx-auto lg:mx-0">
-              <div className="aspect-video rounded-lg overflow-hidden shadow-2xl bg-muted/20">
+              <div className="mosaic-border-small aspect-video rounded-lg overflow-hidden shadow-2xl bg-muted/20">
                 <video 
                   className="w-full h-full object-contain"
                   controls
@@ -54,10 +62,18 @@ const Business = () => {
       {/* Benefits Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Why Choose LULU for Business?
-            </h2>
+          <div className="text-center mb-12 relative">
+            <div className="inline-block">
+              <h2 className="text-3xl font-bold text-foreground mb-4">
+                Why Choose LULU for Business?
+              </h2>
+              {/* Small accent dots */}
+              <div className="flex justify-center gap-2 mt-2">
+                <div className="w-2 h-2 rounded-full bg-tile-green opacity-70"></div>
+                <div className="w-2 h-2 rounded-full bg-tile-pink opacity-70"></div>
+                <div className="w-2 h-2 rounded-full bg-tile-orange opacity-70"></div>
+              </div>
+            </div>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
@@ -111,11 +127,15 @@ const Business = () => {
       {/* Pricing Tiers */}
       <section className="py-16 bg-muted/20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Wholesale Pricing Tiers
-            </h2>
-            <p className="text-muted-foreground">
+          <div className="text-center mb-12 relative">
+            <div className="inline-block">
+              <h2 className="text-3xl font-bold text-foreground mb-4">
+                Wholesale Pricing Tiers
+              </h2>
+              {/* Subtle colorful underline */}
+              <div className="w-24 h-1 mx-auto bg-gradient-to-r from-tile-blue via-tile-teal to-tile-lime rounded-full opacity-60"></div>
+            </div>
+            <p className="text-muted-foreground mt-4">
               The more you order, the more you save. MOQ 2500 units.
             </p>
           </div>
