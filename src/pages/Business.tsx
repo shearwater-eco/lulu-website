@@ -136,7 +136,7 @@ const Business = () => {
               },
               {
                 title: "Enterprise",
-                minimum: "500+ units",
+                minimum: "2500+ units",
                 discount: "30+ off",
                 features: ["Weekly delivery", "Dedicated account manager", "60-day terms", "Custom branding", "Sustainability reporting"]
               }
