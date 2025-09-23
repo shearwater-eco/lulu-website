@@ -138,7 +138,7 @@ const Business = () => {
                 title: "Wholesale",
                 minimum: "50,000+ units",
                 discount: "30+ off",
-                features: ["Weekly delivery", "Dedicated account manager", "60-day terms", "Custom branding", "Sustainability reporting"]
+                features: ["Weekly delivery", "Dedicated account manager", "Sustainability reporting"]
               }
             ].map((tier, index) => (
               <Card key={index} className={`mosaic-border relative ${tier.popular ? 'border-primary border-2' : ''}`}>
