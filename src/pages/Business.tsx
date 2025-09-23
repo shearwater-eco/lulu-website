@@ -24,7 +24,7 @@ const Business = () => {
                 <Button className="btn-hero text-lg px-8 py-3">
                   Request Quote
                 </Button>
-                <Button variant="outline" className="text-lg px-8 py-3">
+                <Button variant="outline" className="text-lg px-8 py-3" onClick={() => window.location.href = '/catalog'}>
                   View Catalog
                 </Button>
               </div>

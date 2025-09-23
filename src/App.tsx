@@ -14,6 +14,7 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
+import Catalog from "./pages/Catalog";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/sustainability" element={<Sustainability />} />
               <Route path="/business" element={<Business />} />
+              <Route path="/catalog" element={<Catalog />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/checkout" element={<Checkout />} />
