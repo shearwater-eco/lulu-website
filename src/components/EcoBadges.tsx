@@ -1,32 +1,42 @@
-import recycledPlasticLogo from "@/assets/100-recycled-plastic.png";
-import treFreeLogo from "@/assets/tree-free.png";
-import zeroPlasticLogo from "@/assets/zero-plastic.png";
-import zeroWasteLogo from "@/assets/zero-waste.png";
+import { Leaf, Recycle, TreePine, Award } from "lucide-react";
 
 const EcoBadges = ({ className = "" }: { className?: string }) => {
   const badges = [
     {
-      image: recycledPlasticLogo,
-      title: "100% RECYCLED",
-      description: "Plastic packaging",
+      icon: () => (
+        <div className="relative">
+          <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center border-2 border-current">
+            <div className="text-xs font-bold">ECO</div>
+          </div>
+          <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 text-xs font-bold">
+            SMART
+          </div>
+        </div>
+      ),
+      title: "ECO SMART",
+      description: "6 ROLLS",
       color: "text-primary"
     },
     {
-      image: treFreeLogo,
-      title: "TREE-FREE",
-      description: "Sustainable source",
+      icon: TreePine,
+      title: "FSC",
+      description: "Certified sustainable",
       color: "text-success"
     },
     {
-      image: zeroPlasticLogo,
-      title: "ZERO PLASTIC",
-      description: "Product content",
+      icon: Recycle,
+      title: "100%",
+      description: "Recyclable",
       color: "text-info"
     },
     {
-      image: zeroWasteLogo,
-      title: "ZERO WASTE",
-      description: "Reused or recycled",
+      icon: () => (
+        <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center border-2 border-current">
+          <Leaf className="h-4 w-4 text-green-600" />
+        </div>
+      ),
+      title: "PLASTIC",
+      description: "FREE",
       color: "text-warning"
     }
   ];
@@ -36,6 +46,7 @@ const EcoBadges = ({ className = "" }: { className?: string }) => {
   return (
     <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 ${className}`}>
       {badges.map((badge, index) => {
+        const Icon = badge.icon;
         const colorVar = tileColors[index];
         return (
           <div
@@ -44,14 +55,10 @@ const EcoBadges = ({ className = "" }: { className?: string }) => {
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div 
-              className="p-4 rounded-full mb-4 text-white border-2 border-black flex items-center justify-center"
+              className="p-4 rounded-full mb-4 text-white border-2 border-black"
               style={{ backgroundColor: `hsl(var(--${colorVar}))` }}
             >
-              <img 
-                src={badge.image} 
-                alt={badge.title}
-                className="h-12 w-12 object-contain"
-              />
+              <Icon className="h-8 w-8" />
             </div>
             <h4 className="lulu-title text-sm text-foreground mb-2">
               {badge.title}
