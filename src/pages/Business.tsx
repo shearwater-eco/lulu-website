@@ -31,11 +31,12 @@ const Business = () => {
             </div>
             
             {/* Video Side */}
-            <div className="relative max-w-md mx-auto lg:mx-0">
+            <div className="relative max-w-lg mx-auto lg:mx-0">
               <div className="aspect-video rounded-lg overflow-hidden shadow-2xl bg-muted/20">
                 <video 
                   className="w-full h-full object-contain"
                   controls
+                  loop
                   poster="/lulu-mascot-landscape.png"
                 >
                   <source src="/lulu-supermarket-video.mp4" type="video/mp4" />
