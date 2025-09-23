@@ -131,7 +131,7 @@ const Business = () => {
                 title: "Business",
                 minimum: "10,000+ units", 
                 discount: "20% off",
-                features: ["Bi-weekly delivery", "Priority support", "30-day terms", "Custom packaging"],
+                features: ["Bi-weekly delivery", "Priority support", "Auto order processing"],
                 popular: true
               },
               {
