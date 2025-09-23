@@ -9,14 +9,44 @@ const Business = () => {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/20 to-secondary/10 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Business & Wholesale Solutions
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Join forward-thinking businesses making the switch to sustainable paper products. 
-            Competitive pricing, reliable supply, and eco-credentials your customers will love.
-          </p>
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Content Side */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                Business & Wholesale Solutions
+              </h1>
+              <p className="text-lg text-muted-foreground mb-8">
+                Join forward-thinking businesses making the switch to sustainable paper products. 
+                Competitive pricing, reliable supply, and eco-credentials your customers will love.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button className="btn-hero text-lg px-8 py-3">
+                  Request Quote
+                </Button>
+                <Button variant="outline" className="text-lg px-8 py-3">
+                  View Catalog
+                </Button>
+              </div>
+            </div>
+            
+            {/* Video Side */}
+            <div className="relative">
+              <div className="aspect-video rounded-lg overflow-hidden shadow-2xl">
+                <video 
+                  className="w-full h-full object-cover"
+                  controls
+                  poster="/lulu-mascot-landscape.png"
+                >
+                  <source src="/lulu-supermarket-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div className="absolute -bottom-4 -right-4 bg-primary/90 text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm">
+                See LULU in Action
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
