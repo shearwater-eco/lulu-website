@@ -123,20 +123,20 @@ const Business = () => {
             {[
               {
                 title: "Starter",
-                minimum: "50+ units",
+                minimum: "2500+ units",
                 discount: "10% off",
                 features: ["Monthly delivery", "Standard support", "Invoice payment"]
               },
               {
                 title: "Business",
-                minimum: "200+ units", 
+                minimum: "10,000+ units", 
                 discount: "20% off",
                 features: ["Bi-weekly delivery", "Priority support", "30-day terms", "Custom packaging"],
                 popular: true
               },
               {
-                title: "Enterprise",
-                minimum: "2500+ units",
+                title: "Wholesale",
+                minimum: "50,000+ units",
                 discount: "30+ off",
                 features: ["Weekly delivery", "Dedicated account manager", "60-day terms", "Custom branding", "Sustainability reporting"]
               }
