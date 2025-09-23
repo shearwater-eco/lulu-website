@@ -115,7 +115,7 @@ const Business = () => {
               Wholesale Pricing Tiers
             </h2>
             <p className="text-muted-foreground">
-              The more you order, the more you save
+              The more you order, the more you save. MOQ 2500 units.
             </p>
           </div>
           
