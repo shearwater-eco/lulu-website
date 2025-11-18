@@ -10,6 +10,7 @@ import Shop from "./pages/Shop";
 import About from "./pages/About";
 import Sustainability from "./pages/Sustainability";
 import Business from "./pages/Business";
+import Asda from "./pages/Asda";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Checkout from "./pages/Checkout";
@@ -34,6 +35,7 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/sustainability" element={<Sustainability />} />
               <Route path="/business" element={<Business />} />
+              <Route path="/asda" element={<Asda />} />
               <Route path="/catalog" element={<Catalog />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
