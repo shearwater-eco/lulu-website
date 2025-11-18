@@ -28,6 +28,10 @@ const Header = () => {
     href: "/business",
     color: "vibrant-blue"
   }, {
+    name: "Retailers",
+    href: "/asda",
+    color: "vibrant-pink"
+  }, {
     name: "Blog",
     href: "/blog",
     color: "vibrant-orange"
