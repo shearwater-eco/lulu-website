@@ -30,8 +30,8 @@ const Asda = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Password: retailers2024
-    if (password === "retailers2024") {
+    // Password: ASDA_2026
+    if (password === "ASDA_2026") {
       sessionStorage.setItem("retailerAuth", "true");
       setIsAuthenticated(true);
       toast.success("Access granted!");
