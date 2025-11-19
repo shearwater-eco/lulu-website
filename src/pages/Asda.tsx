@@ -7,7 +7,6 @@ import luluBoxMockup from "@/assets/lulu-product-box.jpg";
 import luluFrontBox from "@/assets/lulu-box-hero.jpg";
 import luluMascot from "@/assets/lulu-mascot-thumbs-up-new.png";
 import { EcoConsumerChart } from "@/components/EcoConsumerChart";
-
 const Asda = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -83,7 +82,7 @@ const Asda = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="space-y-6 text-lg">
               <p className="text-foreground/90 font-medium">
-                Born in Pembrokeshire, Wales, Lulu brings warmth and personality to the bathroom aisle — while staying completely plastic-free and low-carbon.
+                Born in Pembrokeshire, Wales, Lulu brings warmth and personality to the bat aisle — while staying completely plastic-free and low-carbon.
               </p>
               <p className="text-foreground/90 font-medium">
                 Our brand is inclusive, ethical, and designed to stand out.
