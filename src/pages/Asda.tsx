@@ -80,7 +80,9 @@ const Asda = () => {
       <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,hsl(var(--primary)/0.1),transparent)]" />
         <div className="container mx-auto px-4 py-20 relative z-10">
-          <h1 className="text-6xl md:text-8xl font-bold text-foreground mb-12 text-center">​LULU FOR ASDA</h1>
+          <div className="mosaic-border-small inline-block mb-12 mx-auto">
+            <h1 className="text-4xl md:text-6xl font-bold text-foreground">​LULU FOR ASDA</h1>
+          </div>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 text-center">
               <p className="text-2xl text-muted-foreground font-medium">Affordable. Eco. Distinctive. Retail Ready!</p>
@@ -89,7 +91,9 @@ const Asda = () => {
               </p>
             </div>
             <div className="flex justify-center">
-              <img src={luluFrontBox} alt="Lulu 24-roll box" className="w-full max-w-md rounded-lg shadow-2xl" />
+              <div className="mosaic-border-small inline-block">
+                <img src={luluFrontBox} alt="Lulu 24-roll box" className="w-full max-w-md rounded-lg shadow-2xl" />
+              </div>
             </div>
           </div>
         </div>
@@ -130,7 +134,9 @@ const Asda = () => {
               </p>
             </div>
             <div className="flex justify-center">
-              <img src={luluMascot} alt="Lulu mascot" className="w-full max-w-sm" />
+              <div className="mosaic-border-small inline-block">
+                <img src={luluMascot} alt="Lulu mascot" className="w-full max-w-sm" />
+              </div>
             </div>
           </div>
         </div>
@@ -175,7 +181,9 @@ const Asda = () => {
               </p>
             </div>
             <div className="flex justify-center">
-              <img src={luluBoxMockup} alt="Val-U-Smart 24 roll box" className="w-full max-w-md rounded-lg shadow-xl" />
+              <div className="mosaic-border-small inline-block">
+                <img src={luluBoxMockup} alt="Val-U-Smart 24 roll box" className="w-full max-w-md rounded-lg shadow-xl" />
+              </div>
             </div>
           </div>
         </div>
@@ -219,7 +227,9 @@ const Asda = () => {
                 </ul>
               </div>
               <div className="flex justify-center items-center">
-                <img src={luluBoxMockup} alt="Packaging design" className="w-full max-w-sm rounded-lg shadow-lg" />
+                <div className="mosaic-border-small inline-block">
+                  <img src={luluBoxMockup} alt="Packaging design" className="w-full max-w-sm rounded-lg shadow-lg" />
+                </div>
               </div>
             </div>
           </div>
