@@ -469,7 +469,17 @@ const Asda = () => {
             <p className="text-lg text-foreground/90 font-medium">
               A short 20–30 second introduction from Lulu — soft Welsh tone, friendly, light, warm.
             </p>
-            <Button size="lg" className="gap-2">
+            <Button 
+              size="lg" 
+              className="gap-2"
+              onClick={() => {
+                const audio = new Audio('/lulu-welcome-audio.m4a');
+                audio.play().catch(error => {
+                  console.error('Error playing audio:', error);
+                  toast.error('Failed to play audio');
+                });
+              }}
+            >
               <span>▶</span> Play Audio
             </Button>
           </div>
