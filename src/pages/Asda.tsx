@@ -4,11 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import luluMascot from "@/assets/lulu-mascot-thumbs-up-new.png";
-import luluFrontPanel from "@/assets/lulu-front-panel.png";
-import luluBackPanel from "@/assets/lulu-back-panel.png";
-import luluSidePanel from "@/assets/lulu-side-panel.png";
-import valUSmartLogo from "@/assets/val-u-smart-logo.png";
-import dignityBadge from "@/assets/dignity-badge.png";
+import PackagingBox3D from "@/components/PackagingBox3D";
 import { Lock } from "lucide-react";
 const Asda = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -94,22 +90,7 @@ const Asda = () => {
               </p>
             </div>
             <div className="flex justify-center">
-              <div className="relative w-full max-w-lg">
-                <div className="mosaic-border-small rounded-3xl bg-white p-6">
-                  <div className="grid grid-cols-3 gap-4 items-start">
-                    <img src={luluFrontPanel} alt="Lulu front packaging" className="w-full rounded-lg shadow-lg transform hover:scale-105 transition-transform" />
-                    <img src={luluBackPanel} alt="Lulu back packaging with mascot" className="w-full rounded-lg shadow-xl transform scale-110 hover:scale-115 transition-transform ring-4 ring-primary/30" />
-                    <img src={luluSidePanel} alt="Lulu side packaging" className="w-full rounded-lg shadow-lg transform hover:scale-105 transition-transform" />
-                  </div>
-                  <div className="flex justify-center gap-4 mt-6">
-                    <img src={valUSmartLogo} alt="Val-U-Smart logo" className="w-20 h-20 object-contain" />
-                    <img src={dignityBadge} alt="Dignity badge" className="w-20 h-20 object-contain" />
-                  </div>
-                </div>
-                <div className="absolute -bottom-4 -right-4 card-lulu px-6 py-3 rounded-full font-bold text-lg animate-pulse">
-                  Meet Lulu! 👋
-                </div>
-              </div>
+              <PackagingBox3D />
             </div>
           </div>
         </div>
@@ -195,17 +176,7 @@ const Asda = () => {
               </p>
             </div>
             <div className="flex justify-center">
-              <div className="relative w-full max-w-lg">
-                <div className="mosaic-border-small rounded-3xl bg-white p-6">
-                  <div className="grid grid-cols-2 gap-6 items-center">
-                    <img src={luluFrontPanel} alt="Lulu front packaging" className="w-full rounded-lg shadow-lg hover:scale-105 transition-transform" />
-                    <img src={luluBackPanel} alt="Lulu back packaging with bird mascot" className="w-full rounded-lg shadow-xl ring-4 ring-primary/40 hover:ring-primary/60 transition-all" />
-                  </div>
-                  <div className="mt-4 text-center">
-                    <p className="text-sm text-muted-foreground font-medium">Featuring Lulu the Shearwater</p>
-                  </div>
-                </div>
-              </div>
+              <PackagingBox3D />
             </div>
           </div>
         </div>
@@ -249,20 +220,7 @@ const Asda = () => {
                 </ul>
               </div>
               <div className="flex justify-center items-center">
-                <div className="relative">
-                  <div className="mosaic-border-small rounded-2xl bg-white p-4">
-                    <div className="space-y-4">
-                      <img src={luluBackPanel} alt="Back panel with Lulu mascot" className="w-full max-w-xs mx-auto rounded-lg shadow-xl ring-4 ring-primary/30" />
-                      <div className="flex justify-center gap-3">
-                        <img src={luluFrontPanel} alt="Front panel" className="w-24 rounded shadow-md" />
-                        <img src={luluSidePanel} alt="Side panel" className="w-24 rounded shadow-md" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="absolute -top-3 -right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-bold shadow-lg">
-                    Stand Out!
-                  </div>
-                </div>
+                <PackagingBox3D />
               </div>
             </div>
           </div>
