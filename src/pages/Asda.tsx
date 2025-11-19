@@ -111,10 +111,7 @@ const Asda = () => {
             Shoppers Want Eco — But They Need It to Be Affordable.
           </h2>
           <div className="max-w-3xl mx-auto space-y-6 text-lg">
-            <p className="text-foreground/90 font-medium">
-              Sustainability matters to most families, but premium eco brands remain out of reach.
-              Own-label provides value, but lacks a strong consumer-facing brand.
-            </p>
+            <p className="text-foreground/90 font-medium">Sustainability matters to most families, but premium eco brands remain out of reach. </p>
             <p className="text-xl font-semibold text-foreground bg-primary/10 p-6 rounded-lg">
               Lulu fills the gap — a bold, warm, low-carbon toilet paper brand that delivers eco credentials without the premium price tag.
             </p>
@@ -496,30 +493,30 @@ const Asda = () => {
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">Your Name</label>
               <Input required value={formData.name} onChange={e => setFormData({
-              ...formData,
-              name: e.target.value
-            })} placeholder="Enter your name" />
+                  ...formData,
+                  name: e.target.value
+                })} placeholder="Enter your name" />
             </div>
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">Email</label>
               <Input required type="email" value={formData.email} onChange={e => setFormData({
-              ...formData,
-              email: e.target.value
-            })} placeholder="your.email@asda.com" />
+                  ...formData,
+                  email: e.target.value
+                })} placeholder="your.email@asda.com" />
             </div>
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">Phone</label>
               <Input required type="tel" value={formData.phone} onChange={e => setFormData({
-              ...formData,
-              phone: e.target.value
-            })} placeholder="+44 ..." />
+                  ...formData,
+                  phone: e.target.value
+                })} placeholder="+44 ..." />
             </div>
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">Message</label>
               <Textarea value={formData.message} onChange={e => setFormData({
-              ...formData,
-              message: e.target.value
-            })} placeholder="Optional message..." rows={4} />
+                  ...formData,
+                  message: e.target.value
+                })} placeholder="Optional message..." rows={4} />
             </div>
             <Button type="submit" size="lg" className="w-full">
               Send Enquiry
