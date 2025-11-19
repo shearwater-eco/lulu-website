@@ -8,6 +8,7 @@ const PackagingBox3D = () => {
   const [rotateY, setRotateY] = useState(20);
   const [rotateX, setRotateX] = useState(-10);
   const [autoRotate, setAutoRotate] = useState(true);
+  const [isExploded, setIsExploded] = useState(false);
 
   useEffect(() => {
     if (!autoRotate) return;
@@ -30,8 +31,17 @@ const PackagingBox3D = () => {
     setRotateY(y);
   };
 
+  const explodeDistance = isExploded ? 200 : 0;
+
   return (
     <div className="flex flex-col items-center gap-8">
+      <button
+        onClick={() => setIsExploded(!isExploded)}
+        className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-semibold"
+      >
+        {isExploded ? "Collapse View" : "Exploded View"}
+      </button>
+      
       <div 
         className="w-full max-w-2xl aspect-square perspective-[1000px] cursor-pointer"
         onMouseMove={handleMouseMove}
@@ -47,9 +57,9 @@ const PackagingBox3D = () => {
         >
           {/* Front Face */}
           <div 
-            className="absolute inset-0 backface-hidden"
+            className="absolute inset-0 backface-hidden transition-all duration-700 ease-out"
             style={{
-              transform: 'translateZ(100px)',
+              transform: `translateZ(${100 + explodeDistance}px)`,
               transformStyle: 'preserve-3d'
             }}
           >
@@ -62,9 +72,9 @@ const PackagingBox3D = () => {
 
           {/* Back Face */}
           <div 
-            className="absolute inset-0 backface-hidden"
+            className="absolute inset-0 backface-hidden transition-all duration-700 ease-out"
             style={{
-              transform: 'translateZ(-100px) rotateY(180deg)',
+              transform: `translateZ(${-100 - explodeDistance}px) rotateY(180deg)`,
               transformStyle: 'preserve-3d'
             }}
           >
@@ -77,9 +87,9 @@ const PackagingBox3D = () => {
 
           {/* Right Side */}
           <div 
-            className="absolute inset-0 backface-hidden"
+            className="absolute inset-0 backface-hidden transition-all duration-700 ease-out"
             style={{
-              transform: 'rotateY(90deg) translateZ(100px)',
+              transform: `rotateY(90deg) translateZ(${100 + explodeDistance}px)`,
               transformStyle: 'preserve-3d'
             }}
           >
@@ -92,9 +102,9 @@ const PackagingBox3D = () => {
 
           {/* Left Side */}
           <div 
-            className="absolute inset-0 backface-hidden"
+            className="absolute inset-0 backface-hidden transition-all duration-700 ease-out"
             style={{
-              transform: 'rotateY(-90deg) translateZ(100px)',
+              transform: `rotateY(-90deg) translateZ(${100 + explodeDistance}px)`,
               transformStyle: 'preserve-3d'
             }}
           >
@@ -107,9 +117,9 @@ const PackagingBox3D = () => {
 
           {/* Top Face */}
           <div 
-            className="absolute inset-0 backface-hidden bg-white/90"
+            className="absolute inset-0 backface-hidden bg-white/90 transition-all duration-700 ease-out"
             style={{
-              transform: 'rotateX(90deg) translateZ(100px)',
+              transform: `rotateX(90deg) translateZ(${100 + explodeDistance}px)`,
               transformStyle: 'preserve-3d'
             }}
           >
@@ -124,9 +134,9 @@ const PackagingBox3D = () => {
 
           {/* Bottom Face */}
           <div 
-            className="absolute inset-0 backface-hidden bg-gradient-to-br from-primary/5 to-secondary/5"
+            className="absolute inset-0 backface-hidden bg-gradient-to-br from-primary/5 to-secondary/5 transition-all duration-700 ease-out"
             style={{
-              transform: 'rotateX(-90deg) translateZ(100px)',
+              transform: `rotateX(-90deg) translateZ(${100 + explodeDistance}px)`,
               transformStyle: 'preserve-3d'
             }}
           />
