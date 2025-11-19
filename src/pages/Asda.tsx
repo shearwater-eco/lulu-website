@@ -186,7 +186,9 @@ const Asda = () => {
               </p>
             </div>
             <div className="flex justify-center">
-              <img src={luluBoxMockup} alt="Val-U-Smart 24 roll box" className="w-full max-w-md rounded-lg shadow-xl mosaic-border-small" />
+              <div className="mosaic-border-small inline-block">
+                <img src={luluBoxMockup} alt="Val-U-Smart 24 roll box" className="w-full max-w-md rounded-lg shadow-xl" />
+              </div>
             </div>
           </div>
         </div>
