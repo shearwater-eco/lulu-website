@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { Lock, CheckCircle, TrendingUp, Package, ShoppingCart, Mail, Download } from "lucide-react";
-import ImageWithBackgroundRemoval from "@/components/ImageWithBackgroundRemoval";
 import luluMascot from "@/assets/lulu-mascot-thumbs-up-new.png";
 import packagingFront from "@/assets/packaging-front-angle.jpg";
 import packagingBack from "@/assets/packaging-back-angle.jpg";
@@ -99,7 +98,7 @@ const Asda = () => {
 
               {/* Right: Packaging */}
               <div className="flex items-center justify-center">
-                <ImageWithBackgroundRemoval 
+                <img 
                   src={packagingFront} 
                   alt="LULU packaging" 
                   className="w-full max-w-md rounded-lg shadow-2xl animate-fade-in"
