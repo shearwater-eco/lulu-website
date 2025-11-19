@@ -459,32 +459,6 @@ const Asda = () => {
         </div>
       </section>
 
-      {/* SECTION 12 - AUDIO/VIDEO */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-foreground mb-8 text-center">
-            A Warm Welcome from Lulu
-          </h2>
-          <div className="max-w-2xl mx-auto text-center space-y-6">
-            <p className="text-lg text-foreground/90 font-medium">
-              A short 20–30 second introduction from Lulu — soft Welsh tone, friendly, light, warm.
-            </p>
-            <Button 
-              size="lg" 
-              className="gap-2"
-              onClick={() => {
-                const audio = new Audio('/lulu-welcome-audio.m4a');
-                audio.play().catch(error => {
-                  console.error('Error playing audio:', error);
-                  toast.error('Failed to play audio');
-                });
-              }}
-            >
-              <span>▶</span> Play Audio
-            </Button>
-          </div>
-        </div>
-      </section>
 
       {/* SECTION 13 - CONTACT */}
       <section className="py-20 bg-primary/10">
