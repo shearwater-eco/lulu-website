@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import luluBoxMockup from "@/assets/lulu-product-box.jpg";
-import luluFrontBox from "@/assets/lulu-box-mockup.png";
+import luluFrontBox from "@/assets/lulu-real-box.jpg";
 import luluMascot from "@/assets/lulu-mascot-thumbs-up-new.png";
 import { Lock } from "lucide-react";
 const Asda = () => {
