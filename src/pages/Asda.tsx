@@ -81,7 +81,7 @@ const Asda = () => {
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground">​LULU FOR ASDA</h1>
+              <h1 className="text-6xl md:text-8xl font-bold text-foreground text-center">​LULU FOR ASDA</h1>
               <p className="text-2xl text-muted-foreground font-medium">
                 Affordable. Eco. Distinctive. Ready for launch.
               </p>
