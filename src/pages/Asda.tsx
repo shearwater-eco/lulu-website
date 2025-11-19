@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import luluBoxMockup from "@/assets/lulu-product-box.jpg";
-import luluFrontBox from "@/assets/lulu-box-front-angle.jpg";
+import luluFrontBox from "@/assets/lulu-box-mockup.png";
 import luluMascot from "@/assets/lulu-mascot-thumbs-up-new.png";
 import { Lock } from "lucide-react";
 const Asda = () => {
@@ -84,7 +84,7 @@ const Asda = () => {
             <div className="space-y-6">
               <h1 className="text-6xl md:text-8xl font-bold text-foreground text-center">​LULU FOR ASDA</h1>
               <p className="text-2xl text-muted-foreground font-medium">
-                Affordable. Eco. Distinctive. Ready for launch.
+                Affordable. Eco. Distinctive. Ready for l
               </p>
               <p className="text-lg text-muted-foreground">
                 A modern, family-friendly toilet tissue brand designed for everyday shoppers.
