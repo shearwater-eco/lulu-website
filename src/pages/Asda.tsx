@@ -75,18 +75,26 @@ const Asda = () => {
       message: ""
     });
   };
-  return <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background relative">
+      {/* Page Border */}
+      <div className="fixed inset-0 pointer-events-none z-50">
+        <div className="absolute top-0 left-0 right-0 h-4 mosaic-border-top" />
+        <div className="absolute bottom-0 left-0 right-0 h-4 mosaic-border-bottom" />
+        <div className="absolute top-0 bottom-0 left-0 w-4 mosaic-border-left" />
+        <div className="absolute top-0 bottom-0 right-0 w-4 mosaic-border-right" />
+      </div>
+
       {/* SECTION 1 - HERO */}
       <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,hsl(var(--primary)/0.1),transparent)]" />
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="mosaic-border-small inline-block mb-12 mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground">​LULU FOR ASDA</h1>
+            <h1 className="text-4xl md:text-6xl font-bold text-foreground bg-background/80 backdrop-blur-sm px-8 py-4">​LULU FOR ASDA</h1>
           </div>
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 text-center">
-              <p className="text-2xl text-muted-foreground font-medium">Affordable. Eco. Distinctive. Retail Ready!</p>
-              <p className="text-lg text-muted-foreground">
+            <div className="space-y-6 text-center bg-background/60 backdrop-blur-sm p-8 rounded-lg">
+              <p className="text-2xl text-foreground font-semibold">Affordable. Eco. Distinctive. Retail Ready!</p>
+              <p className="text-lg text-foreground/80 font-medium">
                 A modern, family-friendly toilet tissue brand designed for everyday shoppers.
               </p>
             </div>
@@ -105,12 +113,12 @@ const Asda = () => {
           <h2 className="text-4xl font-bold text-foreground mb-8 text-center">
             Shoppers Want Eco — But They Need It to Be Affordable.
           </h2>
-          <div className="max-w-3xl mx-auto space-y-6 text-lg text-muted-foreground">
-            <p>
+          <div className="max-w-3xl mx-auto space-y-6 text-lg">
+            <p className="text-foreground/90 font-medium">
               Sustainability matters to most families, but premium eco brands remain out of reach.
               Own-label provides value, but lacks a strong consumer-facing brand.
             </p>
-            <p className="text-xl font-semibold text-foreground">
+            <p className="text-xl font-semibold text-foreground bg-primary/10 p-6 rounded-lg">
               Lulu fills the gap — a bold, warm, low-carbon toilet paper brand that delivers eco credentials without the premium price tag.
             </p>
           </div>
@@ -124,11 +132,11 @@ const Asda = () => {
             A Fresh, Friendly Approach to Toilet Paper
           </h2>
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div className="space-y-6 text-lg text-muted-foreground">
-              <p>
+            <div className="space-y-6 text-lg">
+              <p className="text-foreground/90 font-medium">
                 Born in Pembrokeshire, Wales, Lulu brings warmth and personality to the bathroom aisle — while staying completely plastic-free and low-carbon.
               </p>
-              <p>
+              <p className="text-foreground/90 font-medium">
                 Our brand is inclusive, ethical, and designed to stand out.
                 Lulu connects with shoppers emotionally while delivering strong everyday value.
               </p>
@@ -153,30 +161,30 @@ const Asda = () => {
               <ul className="space-y-4 text-lg">
                 <li className="flex items-start gap-3">
                   <span className="text-primary font-bold">•</span>
-                  <span className="text-muted-foreground">2-ply | 200 sheets</span>
+                  <span className="text-foreground/90 font-medium">2-ply | 200 sheets</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-primary font-bold">•</span>
-                  <span className="text-muted-foreground">Direct alternative to Andrex Standard 24</span>
+                  <span className="text-foreground/90 font-medium">Direct alternative to Andrex Standard 24</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-primary font-bold">•</span>
-                  <span className="text-muted-foreground">Paper-based, plastic-free box</span>
+                  <span className="text-foreground/90 font-medium">Paper-based, plastic-free box</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-primary font-bold">•</span>
-                  <span className="text-muted-foreground">Natural fibre, low-carbon production</span>
+                  <span className="text-foreground/90 font-medium">Natural fibre, low-carbon production</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-primary font-bold">•</span>
-                  <span className="text-muted-foreground">Strong 360gsm structure with top carry handle</span>
+                  <span className="text-foreground/90 font-medium">Strong 360gsm structure with top carry handle</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-primary font-bold">•</span>
-                  <span className="text-muted-foreground">Bright, distinctive mosaic design</span>
+                  <span className="text-foreground/90 font-medium">Bright, distinctive mosaic design</span>
                 </li>
               </ul>
-              <p className="text-xl font-semibold text-foreground pt-4">
+              <p className="text-xl font-semibold text-foreground bg-primary/10 p-4 rounded-lg pt-4">
                 Mid-tier quality at a value-led price point.
               </p>
             </div>
@@ -244,29 +252,29 @@ const Asda = () => {
           </h2>
           <div className="max-w-3xl mx-auto">
             <ul className="space-y-4 text-lg">
-              <li className="flex items-start gap-3 p-4 bg-secondary/10 rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-secondary/20 rounded-lg">
                 <span className="text-primary font-bold text-2xl">🌿</span>
-                <span className="text-muted-foreground">Plastic-free</span>
+                <span className="text-foreground/90 font-medium">Plastic-free</span>
               </li>
-              <li className="flex items-start gap-3 p-4 bg-secondary/10 rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-secondary/20 rounded-lg">
                 <span className="text-primary font-bold text-2xl">🌍</span>
-                <span className="text-muted-foreground">Low-carbon natural fibre</span>
+                <span className="text-foreground/90 font-medium">Low-carbon natural fibre</span>
               </li>
-              <li className="flex items-start gap-3 p-4 bg-secondary/10 rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-secondary/20 rounded-lg">
                 <span className="text-primary font-bold text-2xl">✨</span>
-                <span className="text-muted-foreground">Chemical-free (no bleach, dyes, or harsh additives)</span>
+                <span className="text-foreground/90 font-medium">Chemical-free (no bleach, dyes, or harsh additives)</span>
               </li>
-              <li className="flex items-start gap-3 p-4 bg-secondary/10 rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-secondary/20 rounded-lg">
                 <span className="text-primary font-bold text-2xl">♻️</span>
-                <span className="text-muted-foreground">Fully recyclable packaging</span>
+                <span className="text-foreground/90 font-medium">Fully recyclable packaging</span>
               </li>
-              <li className="flex items-start gap-3 p-4 bg-secondary/10 rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-secondary/20 rounded-lg">
                 <span className="text-primary font-bold text-2xl">❤️</span>
-                <span className="text-muted-foreground">Ethically positioned brand story</span>
+                <span className="text-foreground/90 font-medium">Ethically positioned brand story</span>
               </li>
-              <li className="flex items-start gap-3 p-4 bg-secondary/10 rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-secondary/20 rounded-lg">
                 <span className="text-primary font-bold text-2xl">📋</span>
-                <span className="text-muted-foreground">Clear back-of-pack educational panel</span>
+                <span className="text-foreground/90 font-medium">Clear back-of-pack educational panel</span>
               </li>
             </ul>
           </div>
@@ -279,25 +287,25 @@ const Asda = () => {
           <h2 className="text-4xl font-bold text-foreground mb-8 text-center">
             A Range Built for Flexibility
           </h2>
-          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-12">
+          <p className="text-lg text-foreground/90 font-medium text-center max-w-3xl mx-auto mb-12">
             Lulu offers multiple variants to support different shopper missions.
             For this pitch, we're presenting the hero SKU, with future expansion available as needed.
           </p>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="bg-background p-8 rounded-lg shadow-lg border-2 border-primary">
               <h3 className="text-2xl font-bold text-foreground mb-4">Val-U-Smart (Hero)</h3>
-              <p className="text-muted-foreground mb-4">Mid-tier quality | 200 sheets, 2-ply</p>
-              <p className="text-sm text-muted-foreground">Comparable to Andrex Standard</p>
+              <p className="text-foreground/90 font-medium mb-4">Mid-tier quality | 200 sheets, 2-ply</p>
+              <p className="text-sm text-foreground/80">Comparable to Andrex Standard</p>
             </div>
             <div className="bg-background p-8 rounded-lg shadow-lg border border-border">
               <h3 className="text-2xl font-bold text-foreground mb-4">Val-U-Wise</h3>
-              <p className="text-muted-foreground mb-4">Value tier | 180 sheets, 2-ply</p>
-              <p className="text-sm text-muted-foreground">Comparable to Andrex Family Pack</p>
+              <p className="text-foreground/90 font-medium mb-4">Value tier | 180 sheets, 2-ply</p>
+              <p className="text-sm text-foreground/80">Comparable to Andrex Family Pack</p>
             </div>
             <div className="bg-background p-8 rounded-lg shadow-lg border border-border">
               <h3 className="text-2xl font-bold text-foreground mb-4">Eco-Smart</h3>
-              <p className="text-muted-foreground mb-4">Premium eco | 3-ply, 200 sheets</p>
-              <p className="text-sm text-muted-foreground">Natural colour, silky soft, extra long</p>
+              <p className="text-foreground/90 font-medium mb-4">Premium eco | 3-ply, 200 sheets</p>
+              <p className="text-sm text-foreground/80">Natural colour, silky soft, extra long</p>
             </div>
           </div>
         </div>
@@ -310,32 +318,32 @@ const Asda = () => {
             Commercial Strength
           </h2>
           <div className="max-w-4xl mx-auto space-y-8">
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-foreground/90 font-medium">
               We provide competitive wholesale pricing (dependent on supply chain and MOQs), flexible production, and zero constraints on capacity.
             </p>
             <ul className="space-y-3 text-lg">
               <li className="flex items-start gap-3">
                 <span className="text-primary font-bold">•</span>
-                <span className="text-muted-foreground">Scalable from regional to national</span>
+                <span className="text-foreground/90 font-medium">Scalable from regional to national</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary font-bold">•</span>
-                <span className="text-muted-foreground">Predictable lead times</span>
+                <span className="text-foreground/90 font-medium">Predictable lead times</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary font-bold">•</span>
-                <span className="text-muted-foreground">Strong cost-per-sheet value</span>
+                <span className="text-foreground/90 font-medium">Strong cost-per-sheet value</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary font-bold">•</span>
-                <span className="text-muted-foreground">24-roll family format increases basket spend</span>
+                <span className="text-foreground/90 font-medium">24-roll family format increases basket spend</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-primary font-bold">•</span>
-                <span className="text-muted-foreground">Promotional flexibility</span>
+                <span className="text-foreground/90 font-medium">Promotional flexibility</span>
               </li>
             </ul>
-            <p className="text-sm text-muted-foreground italic">
+            <p className="text-sm text-foreground/80 italic bg-muted/30 p-4 rounded-lg">
               Pricing will be finalised once retailer chain is confirmed.
             </p>
           </div>
@@ -350,29 +358,29 @@ const Asda = () => {
           </h2>
           <div className="max-w-3xl mx-auto">
             <ul className="space-y-3 text-lg">
-              <li className="flex items-start gap-3 p-4 bg-background rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-background rounded-lg shadow">
                 <span className="text-primary font-bold">✓</span>
-                <span className="text-muted-foreground">No production limits</span>
+                <span className="text-foreground/90 font-medium">No production limits</span>
               </li>
-              <li className="flex items-start gap-3 p-4 bg-background rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-background rounded-lg shadow">
                 <span className="text-primary font-bold">✓</span>
-                <span className="text-muted-foreground">Simple onboarding</span>
+                <span className="text-foreground/90 font-medium">Simple onboarding</span>
               </li>
-              <li className="flex items-start gap-3 p-4 bg-background rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-background rounded-lg shadow">
                 <span className="text-primary font-bold">✓</span>
-                <span className="text-muted-foreground">UK-based team</span>
+                <span className="text-foreground/90 font-medium">UK-based team</span>
               </li>
-              <li className="flex items-start gap-3 p-4 bg-background rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-background rounded-lg shadow">
                 <span className="text-primary font-bold">✓</span>
-                <span className="text-muted-foreground">Fully developed dielines</span>
+                <span className="text-foreground/90 font-medium">Fully developed dielines</span>
               </li>
-              <li className="flex items-start gap-3 p-4 bg-background rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-background rounded-lg shadow">
                 <span className="text-primary font-bold">✓</span>
-                <span className="text-muted-foreground">Ready for print run</span>
+                <span className="text-foreground/90 font-medium">Ready for print run</span>
               </li>
-              <li className="flex items-start gap-3 p-4 bg-background rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-background rounded-lg shadow">
                 <span className="text-primary font-bold">✓</span>
-                <span className="text-muted-foreground">Box and 24-roll format fully tested</span>
+                <span className="text-foreground/90 font-medium">Box and 24-roll format fully tested</span>
               </li>
             </ul>
           </div>
@@ -386,32 +394,32 @@ const Asda = () => {
             Flexible Launch Options
           </h2>
           <div className="max-w-4xl mx-auto space-y-8">
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-foreground/90 font-medium">
               We'd welcome ASDA's view on the best route:
               whether Lulu should begin as a regional listing, national rollout, or phased trial.
             </p>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-foreground/90 font-medium">
               We're able to support whichever path fits your category strategy.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="p-6 bg-secondary/10 rounded-lg">
+              <div className="p-6 bg-secondary/20 rounded-lg shadow">
                 <h3 className="text-xl font-bold text-foreground mb-3">Options:</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-3">
                     <span className="text-primary font-bold">•</span>
-                    <span className="text-muted-foreground">Regional trial (Wales, Midlands, value regions)</span>
+                    <span className="text-foreground/90 font-medium">Regional trial (Wales, Midlands, value regions)</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-primary font-bold">•</span>
-                    <span className="text-muted-foreground">National family rollout</span>
+                    <span className="text-foreground/90 font-medium">National family rollout</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-primary font-bold">•</span>
-                    <span className="text-muted-foreground">Hero SKU only, with future variants ready</span>
+                    <span className="text-foreground/90 font-medium">Hero SKU only, with future variants ready</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-primary font-bold">•</span>
-                    <span className="text-muted-foreground">Promotional trials</span>
+                    <span className="text-foreground/90 font-medium">Promotional trials</span>
                   </li>
                 </ul>
               </div>
@@ -428,29 +436,29 @@ const Asda = () => {
           </h2>
           <div className="max-w-3xl mx-auto">
             <ul className="space-y-3 text-lg">
-              <li className="flex items-start gap-3 p-4 bg-background rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-background rounded-lg shadow">
                 <span className="text-primary font-bold">🎯</span>
-                <span className="text-muted-foreground">Optional price-marked packs</span>
+                <span className="text-foreground/90 font-medium">Optional price-marked packs</span>
               </li>
-              <li className="flex items-start gap-3 p-4 bg-background rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-background rounded-lg shadow">
                 <span className="text-primary font-bold">📱</span>
-                <span className="text-muted-foreground">Digital + social marketing from Lulu</span>
+                <span className="text-foreground/90 font-medium">Digital + social marketing from Lulu</span>
               </li>
-              <li className="flex items-start gap-3 p-4 bg-background rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-background rounded-lg shadow">
                 <span className="text-primary font-bold">🏴󠁧󠁢󠁷󠁬󠁳󠁿</span>
-                <span className="text-muted-foreground">Welsh provenance story for PR</span>
+                <span className="text-foreground/90 font-medium">Welsh provenance story for PR</span>
               </li>
-              <li className="flex items-start gap-3 p-4 bg-background rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-background rounded-lg shadow">
                 <span className="text-primary font-bold">🎉</span>
-                <span className="text-muted-foreground">Seasonal promotions</span>
+                <span className="text-foreground/90 font-medium">Seasonal promotions</span>
               </li>
-              <li className="flex items-start gap-3 p-4 bg-background rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-background rounded-lg shadow">
                 <span className="text-primary font-bold">🌱</span>
-                <span className="text-muted-foreground">Sustainability storytelling</span>
+                <span className="text-foreground/90 font-medium">Sustainability storytelling</span>
               </li>
-              <li className="flex items-start gap-3 p-4 bg-background rounded-lg">
+              <li className="flex items-start gap-3 p-4 bg-background rounded-lg shadow">
                 <span className="text-primary font-bold">💻</span>
-                <span className="text-muted-foreground">Easy-to-share digital content</span>
+                <span className="text-foreground/90 font-medium">Easy-to-share digital content</span>
               </li>
             </ul>
           </div>
@@ -464,7 +472,7 @@ const Asda = () => {
             A Warm Welcome from Lulu
           </h2>
           <div className="max-w-2xl mx-auto text-center space-y-6">
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-foreground/90 font-medium">
               A short 20–30 second introduction from Lulu — soft Welsh tone, friendly, light, warm.
             </p>
             <Button size="lg" className="gap-2">
@@ -483,7 +491,7 @@ const Asda = () => {
           <p className="text-2xl text-center text-primary font-semibold mb-8">
             Reaching our 1 billion tree target!
           </p>
-          <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12">
+          <p className="text-lg text-foreground/90 font-medium text-center max-w-2xl mx-auto mb-12">
             Thank you for reviewing the Lulu range.
             We'd love to explore how Lulu can support ASDA's tissue category.
           </p>

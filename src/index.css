@@ -676,3 +676,40 @@
   border-top: 2px solid #000;
   z-index: 1;
 }
+
+/* Page edge borders with mosaic pattern */
+.mosaic-border-top,
+.mosaic-border-bottom {
+  background: repeating-linear-gradient(90deg,
+    hsl(var(--tile-green)) 0px, hsl(var(--tile-green)) 30px,
+    #000 30px, #000 32px,
+    hsl(var(--tile-pink)) 32px, hsl(var(--tile-pink)) 62px,
+    #000 62px, #000 64px,
+    hsl(var(--tile-orange)) 64px, hsl(var(--tile-orange)) 94px,
+    #000 94px, #000 96px,
+    hsl(var(--tile-yellow)) 96px, hsl(var(--tile-yellow)) 126px,
+    #000 126px, #000 128px,
+    hsl(var(--tile-blue)) 128px, hsl(var(--tile-blue)) 158px,
+    #000 158px, #000 160px,
+    hsl(var(--tile-teal)) 160px, hsl(var(--tile-teal)) 190px,
+    #000 190px, #000 192px
+  );
+}
+
+.mosaic-border-left,
+.mosaic-border-right {
+  background: repeating-linear-gradient(180deg,
+    hsl(var(--tile-coral)) 0px, hsl(var(--tile-coral)) 30px,
+    #000 30px, #000 32px,
+    hsl(var(--tile-purple)) 32px, hsl(var(--tile-purple)) 62px,
+    #000 62px, #000 64px,
+    hsl(var(--tile-turquoise)) 64px, hsl(var(--tile-turquoise)) 94px,
+    #000 94px, #000 96px,
+    hsl(var(--tile-mint)) 96px, hsl(var(--tile-mint)) 126px,
+    #000 126px, #000 128px,
+    hsl(var(--tile-magenta)) 128px, hsl(var(--tile-magenta)) 158px,
+    #000 158px, #000 160px,
+    hsl(var(--tile-lime)) 160px, hsl(var(--tile-lime)) 190px,
+    #000 190px, #000 192px
+  );
+}
