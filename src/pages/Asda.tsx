@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import luluBoxMockup from "@/assets/lulu-product-box.jpg";
+import luluFrontBox from "@/assets/lulu-box-mockup.png";
 import luluMascot from "@/assets/lulu-mascot-thumbs-up-new.png";
 import { Lock } from "lucide-react";
 const Asda = () => {
@@ -90,7 +91,7 @@ const Asda = () => {
               </p>
             </div>
             <div className="flex justify-center">
-              <img src={luluBoxMockup} alt="Lulu 24-roll box" className="w-full max-w-md rounded-lg shadow-2xl" />
+              <img src={luluFrontBox} alt="Lulu 24-roll box" className="w-full max-w-md rounded-lg shadow-2xl" />
             </div>
           </div>
         </div>
