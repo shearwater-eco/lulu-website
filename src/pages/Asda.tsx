@@ -10,30 +10,26 @@ import luluSidePanel from "@/assets/lulu-side-panel.png";
 import valUSmartLogo from "@/assets/val-u-smart-logo.png";
 import dignityBadge from "@/assets/dignity-badge.png";
 import { Lock } from "lucide-react";
-
 const Asda = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     message: ""
   });
-
   useEffect(() => {
     const auth = sessionStorage.getItem("retailerAuth");
     if (auth === "true") {
       setIsAuthenticated(true);
     }
   }, []);
-
   const handlePasswordSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Password: ASDA_2026
     if (password === "ASDA_2026") {
       sessionStorage.setItem("retailerAuth", "true");
@@ -45,10 +41,8 @@ const Asda = () => {
     setIsLoading(false);
     setPassword("");
   };
-
   if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-secondary/10 flex items-center justify-center p-4">
+    return <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-secondary/10 flex items-center justify-center p-4">
         <div className="max-w-md w-full bg-background p-8 rounded-lg shadow-2xl border border-border">
           <div className="flex flex-col items-center mb-8">
             <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-4">
@@ -62,14 +56,7 @@ const Asda = () => {
           <form onSubmit={handlePasswordSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">Password</label>
-              <Input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter password"
-                required
-                className="w-full"
-              />
+              <Input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Enter password" required className="w-full" />
             </div>
             <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading ? "Verifying..." : "Access Retailer Portal"}
@@ -79,18 +66,19 @@ const Asda = () => {
             For access, please contact the Lulu team
           </p>
         </div>
-      </div>
-    );
+      </div>;
   }
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("Thank you for your interest! We'll be in touch soon.");
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      message: ""
+    });
   };
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       {/* SECTION 1 - HERO */}
       <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,hsl(var(--primary)/0.1),transparent)]" />
@@ -100,11 +88,9 @@ const Asda = () => {
               <h1 className="text-5xl md:text-6xl font-bold text-foreground">
                 Lulu x ASDA — Toilet Tissue by Lulu
               </h1>
-              <p className="text-2xl text-muted-foreground font-medium">
-                Affordable. Eco. Distinctive. Ready for launch.
-              </p>
+              <p className="text-2xl text-muted-foreground font-medium">Meet Lulu - finanlly a challenge                </p>
               <p className="text-lg text-muted-foreground">
-                A modern, family-friendly toilet tissue brand designed for everyday shoppers.
+                A modern, family-friendly eco toilet tissue brand designed for everyday shoppers that offers price point with all the flu                           
               </p>
             </div>
             <div className="flex justify-center">
@@ -537,41 +523,31 @@ const Asda = () => {
           <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6 bg-background p-8 rounded-lg shadow-xl">
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">Your Name</label>
-              <Input
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="Enter your name"
-              />
+              <Input required value={formData.name} onChange={e => setFormData({
+              ...formData,
+              name: e.target.value
+            })} placeholder="Enter your name" />
             </div>
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">Email</label>
-              <Input
-                required
-                type="email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder="your.email@asda.com"
-              />
+              <Input required type="email" value={formData.email} onChange={e => setFormData({
+              ...formData,
+              email: e.target.value
+            })} placeholder="your.email@asda.com" />
             </div>
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">Phone</label>
-              <Input
-                required
-                type="tel"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                placeholder="+44 ..."
-              />
+              <Input required type="tel" value={formData.phone} onChange={e => setFormData({
+              ...formData,
+              phone: e.target.value
+            })} placeholder="+44 ..." />
             </div>
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">Message</label>
-              <Textarea
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                placeholder="Optional message..."
-                rows={4}
-              />
+              <Textarea value={formData.message} onChange={e => setFormData({
+              ...formData,
+              message: e.target.value
+            })} placeholder="Optional message..." rows={4} />
             </div>
             <Button type="submit" size="lg" className="w-full">
               Send Enquiry
@@ -586,8 +562,6 @@ const Asda = () => {
           <p className="text-muted-foreground">© Lulu. All rights reserved.</p>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Asda;
