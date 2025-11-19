@@ -1,12 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, User, Search, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { CartSheet } from "./CartSheet";
 import luluMascotImage from "@/assets/lulu-mascot-thumbs-up-new.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const location = useLocation();
+  const isAsdaPage = location.pathname === "/asda";
+
+  useEffect(() => {
+    if (!isAsdaPage) return;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY, isAsdaPage]);
   const navItems = [{
     name: "Home",
     href: "/",
@@ -42,7 +65,7 @@ const Header = () => {
   }];
   return <>
       {/* Header with curved mosaic border */}
-      <header className="relative sticky top-0 z-50 backdrop-blur">
+      <header className={`relative sticky top-0 z-50 backdrop-blur transition-transform duration-300 ${isAsdaPage && !isVisible ? '-translate-y-full' : 'translate-y-0'}`}>
         <div className="mosaic-border-curved-top bg-white relative">
           <div className="container px-4 pt-3 pb-0 mx-0 my-0 py-0">
             <div className="flex items-center justify-between h-20">
