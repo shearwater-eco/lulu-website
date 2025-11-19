@@ -75,14 +75,11 @@ const Asda = () => {
       message: ""
     });
   };
-  return <div className="min-h-screen bg-background relative">
-      {/* Page Border */}
-      <div className="fixed inset-0 pointer-events-none z-50">
-        <div className="absolute top-0 left-0 right-0 h-4 mosaic-border-top" />
-        <div className="absolute bottom-0 left-0 right-0 h-4 mosaic-border-bottom" />
-        <div className="absolute top-0 bottom-0 left-0 w-4 mosaic-border-left" />
-        <div className="absolute top-0 bottom-0 right-0 w-4 mosaic-border-right" />
-      </div>
+  return <div className="lulu-frame">
+      <div className="lulu-package">
+        <div className="right-border"></div>
+        <div className="bottom-border"></div>
+        <div className="lulu-content">
 
       {/* SECTION 1 - HERO */}
       <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 overflow-hidden">
@@ -537,6 +534,8 @@ const Asda = () => {
           <p className="text-muted-foreground">© Lulu. All rights reserved.</p>
         </div>
       </footer>
+        </div>
+      </div>
     </div>;
 };
 export default Asda;
