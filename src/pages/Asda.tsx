@@ -86,7 +86,7 @@ const Asda = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h1 className="text-5xl md:text-6xl font-bold text-foreground">
-                Lulu x ASDA — Toilet Tissue by Lulu
+                Lulu in Asda
               </h1>
               <p className="text-2xl text-muted-foreground font-medium">Meet Lulu - finanlly a challenge                </p>
               <p className="text-lg text-muted-foreground">
