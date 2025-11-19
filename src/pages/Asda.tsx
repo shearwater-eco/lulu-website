@@ -110,7 +110,7 @@ const Asda = () => {
           <h2 className="text-4xl font-bold text-foreground mb-8 text-center">
             Shoppers Want Eco — But They Need It to Be Affordable.
           </h2>
-          <div className="max-w-3xl mx-auto space-y-6 text-lg">
+          <div className="max-w-3xl mx-auto space-y-6 text-lg text-center">
             <p className="text-foreground/90 font-medium">Sustainability matters to most families, but premium eco brands remain out of reach. </p>
             <p className="text-xl font-semibold text-foreground bg-primary/10 p-6 rounded-lg">
               Lulu fills the gap — a bold, warm, low-carbon toilet paper brand that delivers eco credentials without the premium price tag.
