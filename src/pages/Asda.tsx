@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import luluBoxMockup from "@/assets/lulu-real-box.jpg";
+import luluBoxMockup from "@/assets/lulu-product-box.jpg";
 import luluMascot from "@/assets/lulu-mascot-thumbs-up-new.png";
 import { Lock } from "lucide-react";
 
