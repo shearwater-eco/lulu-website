@@ -155,6 +155,11 @@ export default {
         "bounce-gentle": "bounce-gentle 2s infinite",
         "shimmer": "shimmer 2s linear infinite",
       },
+      perspective: {
+        '1000': '1000px',
+        '1500': '1500px',
+        '2000': '2000px',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
