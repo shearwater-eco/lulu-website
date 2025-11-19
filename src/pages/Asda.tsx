@@ -7,6 +7,7 @@ import luluBoxMockup from "@/assets/lulu-product-box.jpg";
 import luluFrontBox from "@/assets/lulu-box-hero.jpg";
 import luluMascot from "@/assets/lulu-mascot-thumbs-up-new.png";
 import { Lock } from "lucide-react";
+import { EcoConsumerChart } from "@/components/EcoConsumerChart";
 const Asda = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
@@ -110,11 +111,16 @@ const Asda = () => {
           <h2 className="text-4xl font-bold text-foreground mb-8 text-center">
             Shoppers Want Eco — But They Need It to Be Affordable.
           </h2>
-          <div className="max-w-3xl mx-auto space-y-6 text-lg text-center">
+          <div className="max-w-3xl mx-auto space-y-6 text-lg text-center mb-12">
             <p className="text-foreground/90 font-medium">Sustainability matters to most families, but premium eco brands remain out of reach. </p>
             <p className="text-xl font-semibold text-foreground bg-primary/10 p-6 rounded-lg">
               Lulu fills the gap — a bold, warm, low-carbon toilet paper brand that delivers eco credentials without the premium price tag.
             </p>
+          </div>
+          
+          {/* Interactive Data Chart */}
+          <div className="max-w-6xl mx-auto">
+            <EcoConsumerChart />
           </div>
         </div>
       </section>
