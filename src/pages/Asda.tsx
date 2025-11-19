@@ -84,7 +84,7 @@ const Asda = () => {
               <p className="text-foreground/90 font-medium text-center">
                 Born in Pembrokeshire, Wales, Lulu brings warmth and personality to the bat aisle — while staying completely plastic-free and low-carbon.
               </p>
-              <p className="text-foreground/90 font-medium">
+              <p className="text-foreground/90 font-medium text-center">
                 Our brand is inclusive, ethical, and designed to stand out.
                 Lulu connects with shoppers emotionally while delivering strong everyday value.
               </p>
