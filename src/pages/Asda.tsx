@@ -14,12 +14,25 @@ import badgeDignity from "@/assets/badge-dignity.png";
 import badgeTreeFree from "@/assets/badge-tree-free.png";
 import { EcoConsumerChart } from "@/components/EcoConsumerChart";
 const Asda = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     message: ""
   });
+  const handlePasswordSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password === "ASDAXLULU_2026") {
+      setIsAuthenticated(true);
+      toast.success("Access granted");
+    } else {
+      toast.error("Incorrect password");
+      setPassword("");
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("Thank you for your interest! We'll be in touch soon.");
@@ -30,6 +43,32 @@ const Asda = () => {
       message: ""
     });
   };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-secondary/10 flex items-center justify-center p-4">
+        <div className="max-w-md w-full bg-background p-8 rounded-lg shadow-2xl border border-border">
+          <h1 className="text-3xl font-bold text-foreground mb-6 text-center">Protected Content</h1>
+          <form onSubmit={handlePasswordSubmit} className="space-y-6">
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-2">Enter Password</label>
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter password"
+                className="w-full"
+                required
+              />
+            </div>
+            <Button type="submit" size="lg" className="w-full">
+              Access Page
+            </Button>
+          </form>
+        </div>
+      </div>
+    );
+  }
   return <div className="lulu-frame">
       <div className="lulu-package">
         <div className="right-border"></div>
