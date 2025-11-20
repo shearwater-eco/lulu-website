@@ -446,6 +446,161 @@ const Asda = () => {
         </div>
       </section>
 
+      {/* SECTION 12.5 - RETAIL MARGIN BENCHMARK */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-foreground mb-8 text-center">
+            Retail Margin Analysis
+          </h2>
+          
+          {/* First Table - Lulu Margin Outcomes */}
+          <div className="max-w-5xl mx-auto mb-16">
+            <h3 className="text-2xl font-bold text-foreground mb-4">
+              Lulu Val-u-Smart Margin Outcomes (24-roll pack)
+            </h3>
+            <p className="text-sm text-foreground/80 mb-6">
+              Wholesale cost to ASDA = £6.75 ex-VAT
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse bg-background shadow-lg rounded-lg overflow-hidden">
+                <thead>
+                  <tr className="bg-primary text-primary-foreground">
+                    <th className="p-4 text-left font-bold">Retail RRP (£)</th>
+                    <th className="p-4 text-left font-bold">Cost to Retailer (£)</th>
+                    <th className="p-4 text-left font-bold">Retailer Gross Margin (£)</th>
+                    <th className="p-4 text-left font-bold">Retailer Gross Margin (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border hover:bg-secondary/10 transition-colors">
+                    <td className="p-4 font-medium">8.99</td>
+                    <td className="p-4">6.75</td>
+                    <td className="p-4">2.24</td>
+                    <td className="p-4 font-semibold text-primary">24.9%</td>
+                  </tr>
+                  <tr className="border-b border-border hover:bg-secondary/10 transition-colors">
+                    <td className="p-4 font-medium">9.99</td>
+                    <td className="p-4">6.75</td>
+                    <td className="p-4">3.24</td>
+                    <td className="p-4 font-semibold text-primary">32.4%</td>
+                  </tr>
+                  <tr className="border-b border-border hover:bg-secondary/10 transition-colors">
+                    <td className="p-4 font-medium">10.99</td>
+                    <td className="p-4">6.75</td>
+                    <td className="p-4">4.24</td>
+                    <td className="p-4 font-semibold text-primary">38.6%</td>
+                  </tr>
+                  <tr className="border-b border-border hover:bg-secondary/10 transition-colors bg-primary/5">
+                    <td className="p-4 font-medium">11.99</td>
+                    <td className="p-4">6.75</td>
+                    <td className="p-4">5.24</td>
+                    <td className="p-4 font-bold text-primary">43.7%</td>
+                  </tr>
+                  <tr className="hover:bg-secondary/10 transition-colors">
+                    <td className="p-4 font-medium">12.99</td>
+                    <td className="p-4">6.75</td>
+                    <td className="p-4">6.24</td>
+                    <td className="p-4 font-semibold text-primary">48.0%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div className="mt-6 p-6 bg-muted/30 rounded-lg space-y-3">
+              <h4 className="font-bold text-foreground mb-3">Assumptions & Notes:</h4>
+              <ul className="space-y-2 text-sm text-foreground/80">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary font-bold">•</span>
+                  <span>Wholesale cost to ASDA = £6.75 ex-VAT (you supply to them at that cost)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary font-bold">•</span>
+                  <span>Retail RRP is the price ASDA charges consumers (including VAT)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary font-bold">•</span>
+                  <span>Margin % = (RRP − cost) ÷ RRP</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary font-bold">•</span>
+                  <span>These are gross margins (before overheads, promotions, shrinkage, logistics for ASDA)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary font-bold">•</span>
+                  <span>ASDA is a high-volume supermarket: they may operate on tighter margins in many categories, so realistic RRP should reflect their value positioning</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Second Table - Competitive Comparison */}
+          <div className="max-w-5xl mx-auto">
+            <h3 className="text-2xl font-bold text-foreground mb-4">
+              Competitive Margin Comparison
+            </h3>
+            <p className="text-sm text-foreground/80 mb-6">
+              Estimated margins vs. comparable brands
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse bg-background shadow-lg rounded-lg overflow-hidden">
+                <thead>
+                  <tr className="bg-secondary text-secondary-foreground">
+                    <th className="p-4 text-left font-bold">Brand & Pack</th>
+                    <th className="p-4 text-left font-bold">Example Retail RRP (£)</th>
+                    <th className="p-4 text-left font-bold">Cost to Retailer (£)</th>
+                    <th className="p-4 text-left font-bold">Retailer Gross Margin (£)</th>
+                    <th className="p-4 text-left font-bold">Margin %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border hover:bg-secondary/10 transition-colors">
+                    <td className="p-4 font-medium">Andrex (example 1)</td>
+                    <td className="p-4">22.36</td>
+                    <td className="p-4 text-muted-foreground">unknown</td>
+                    <td className="p-4 text-muted-foreground">–</td>
+                    <td className="p-4 text-muted-foreground">–</td>
+                  </tr>
+                  <tr className="border-b border-border hover:bg-secondary/10 transition-colors">
+                    <td className="p-4 font-medium">Andrex (example 2)</td>
+                    <td className="p-4">16.68</td>
+                    <td className="p-4 text-muted-foreground">unknown</td>
+                    <td className="p-4 text-muted-foreground">–</td>
+                    <td className="p-4 text-muted-foreground">–</td>
+                  </tr>
+                  <tr className="border-b border-border hover:bg-secondary/10 transition-colors">
+                    <td className="p-4 font-medium">Andrex (example 3)</td>
+                    <td className="p-4 text-muted-foreground">(assume) £20.00</td>
+                    <td className="p-4 text-muted-foreground">(assume ~£12)</td>
+                    <td className="p-4 text-muted-foreground">~£8.00</td>
+                    <td className="p-4 text-muted-foreground">~40%</td>
+                  </tr>
+                  <tr className="border-b border-border bg-primary/10 hover:bg-primary/20 transition-colors">
+                    <td className="p-4 font-bold text-primary">Lulu*</td>
+                    <td className="p-4 font-bold">11.99</td>
+                    <td className="p-4 font-bold">6.75</td>
+                    <td className="p-4 font-bold">5.24</td>
+                    <td className="p-4 font-bold text-primary">43.7%</td>
+                  </tr>
+                  <tr className="border-b border-border hover:bg-secondary/10 transition-colors">
+                    <td className="p-4 font-medium">Lulu</td>
+                    <td className="p-4">10.99</td>
+                    <td className="p-4">6.75</td>
+                    <td className="p-4">4.24</td>
+                    <td className="p-4 font-semibold">38.6%</td>
+                  </tr>
+                  <tr className="hover:bg-secondary/10 transition-colors">
+                    <td className="p-4 font-medium">Lulu</td>
+                    <td className="p-4">9.99</td>
+                    <td className="p-4">6.75</td>
+                    <td className="p-4">3.24</td>
+                    <td className="p-4 font-semibold">32.4%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* SECTION 13 - CONTACT */}
       <section className="py-20 bg-primary/10">
