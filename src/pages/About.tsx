@@ -1,9 +1,7 @@
 import luluMascot from "@/assets/lulu-mascot.png";
 import luluLandscape from "@/assets/lulu-mascot-landscape.png";
-
 const About = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary-light/20 to-accent/10 py-16">
         <div className="container mx-auto px-4">
@@ -24,11 +22,7 @@ const About = () => {
               </div>
             </div>
             <div className="text-center">
-              <img 
-                src={luluMascot} 
-                alt="Lulu the Shearwater mascot"
-                className="w-full max-w-md mx-auto animate-bounce-gentle"
-              />
+              <img src={luluMascot} alt="Lulu the Shearwater mascot" className="w-full max-w-md mx-auto animate-bounce-gentle" />
             </div>
           </div>
         </div>
@@ -39,11 +33,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <img 
-                src={luluLandscape} 
-                alt="Lulu in Welsh coastal landscape"
-                className="w-full rounded-2xl shadow-lg"
-              />
+              <img src={luluLandscape} alt="Lulu in Welsh coastal landscape" className="w-full rounded-2xl shadow-lg" />
             </div>
             <div className="space-y-6">
               <h2 className="text-3xl font-bold text-foreground">
@@ -62,20 +52,18 @@ const About = () => {
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-primary mt-2"></div>
-                  <p className="text-muted-foreground">
-                    <strong className="text-foreground">2023:</strong> LULU founded with a mission to revolutionize paper products
+                  <p className="text-muted-foreground">2018: Ty Mor founded with a mission to revolutionize paper products<strong className="text-foreground">2023:</strong> LULU founded with a mission to revolutionize paper products
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-secondary mt-2"></div>
-                  <p className="text-muted-foreground">
-                    <strong className="text-foreground">2024:</strong> Launched our full sustainable range across Wales
+                  <p className="text-muted-foreground">2020: Launched our full sustainable range across Wales &amp; the UK<strong className="text-foreground">2020:</strong> Launched our full sustainable range across Wales
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full bg-accent mt-2"></div>
                   <p className="text-muted-foreground">
-                    <strong className="text-foreground">Today:</strong> Expanding UK-wide with our eco-friendly mission
+                    <strong className="text-foreground">2025: Launched LULU</strong> Expanding UK-wide with our eco-friendly mission
                   </p>
                 </div>
               </div>
@@ -83,8 +71,6 @@ const About = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default About;
