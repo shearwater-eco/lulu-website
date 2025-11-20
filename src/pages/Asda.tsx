@@ -505,32 +505,6 @@ const Asda = () => {
                 </tbody>
               </table>
             </div>
-            
-            <div className="mt-6 p-6 bg-muted/30 rounded-lg space-y-3">
-              <h4 className="font-bold text-foreground mb-3">Assumptions & Notes:</h4>
-              <ul className="space-y-2 text-sm text-foreground/80">
-                <li className="flex items-start gap-2">
-                  <span className="text-primary font-bold">•</span>
-                  <span>Wholesale cost to ASDA = £6.75 ex-VAT (you supply to them at that cost)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary font-bold">•</span>
-                  <span>Retail RRP is the price ASDA charges consumers (including VAT)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary font-bold">•</span>
-                  <span>Margin % = (RRP − cost) ÷ RRP</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary font-bold">•</span>
-                  <span>These are gross margins (before overheads, promotions, shrinkage, logistics for ASDA)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary font-bold">•</span>
-                  <span>ASDA is a high-volume supermarket: they may operate on tighter margins in many categories, so realistic RRP should reflect their value positioning</span>
-                </li>
-              </ul>
-            </div>
           </div>
 
           {/* Second Table - Competitive Comparison */}
