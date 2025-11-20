@@ -24,7 +24,7 @@ const Asda = () => {
   });
   const handlePasswordSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === "ASDAXLULU_2026") {
+    if (password === "ENTER") {
       setIsAuthenticated(true);
       toast.success("Access granted");
     } else {
