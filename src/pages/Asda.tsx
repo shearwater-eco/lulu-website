@@ -229,9 +229,9 @@ const Asda = () => {
           
           {/* Eco Badges */}
           <div className="flex justify-center gap-8 mb-12 flex-wrap">
-            <img src={badgeLowerCarbon} alt="Lower Carbon Footprint" className="w-32 h-32 object-contain" />
-            <img src={badgeDignity} alt="Dignity for People and Planet" className="w-32 h-32 object-contain" />
-            <img src={badgeTreeFree} alt="Tree Free" className="w-32 h-32 object-contain" />
+            <img src={badgeLowerCarbon} alt="Lower Carbon Footprint" className="w-64 h-64 object-contain" />
+            <img src={badgeDignity} alt="Dignity for People and Planet" className="w-64 h-64 object-contain" />
+            <img src={badgeTreeFree} alt="Tree Free" className="w-64 h-64 object-contain" />
           </div>
           
           <div className="max-w-3xl mx-auto">
