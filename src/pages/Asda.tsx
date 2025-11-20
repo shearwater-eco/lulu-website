@@ -271,10 +271,7 @@ const Asda = () => {
           <h2 className="text-4xl font-bold text-foreground mb-8 text-center">
             A Range Built for Flexibility
           </h2>
-          <p className="text-lg text-foreground/90 font-medium text-center max-w-3xl mx-auto mb-12">
-            Lulu offers multiple variants to support different shopper missions.
-            For this pitch, we're presenting the hero SKU, with future expansion available as needed.
-          </p>
+          <p className="text-lg text-foreground/90 font-medium text-center max-w-3xl mx-auto mb-12">Lulu offers multiple variants to support different shopper missions. For this pitch, we're presenting  the Val-U-Smart as our hero SKU, with future expansion available as needed, tissues, kitchen rolls, etc</p>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="bg-background p-8 rounded-lg shadow-lg border-2 border-primary">
               <h3 className="text-2xl font-bold text-foreground mb-4">Val-U-Smart (Hero)</h3>
