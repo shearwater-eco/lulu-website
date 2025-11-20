@@ -148,7 +148,7 @@ export const EcoConsumerChart = () => {
                 <BarChart data={marketGrowthData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                   <XAxis dataKey="year" stroke="hsl(var(--foreground))" />
-                  <YAxis stroke="hsl(var(--foreground))" label={{ value: 'USD Billion', angle: -90, position: 'insideLeft' }} />
+                  <YAxis stroke="hsl(var(--foreground))" label={{ value: 'GBP Billion', angle: -90, position: 'insideLeft' }} />
                   <Tooltip 
                     contentStyle={{ 
                       backgroundColor: "hsl(var(--background))", 
@@ -160,7 +160,7 @@ export const EcoConsumerChart = () => {
                   <Bar 
                     dataKey="value" 
                     fill="hsl(var(--primary))" 
-                    name="Market Value (USD Billion)"
+                    name="Market Value (GBP Billion)"
                     radius={[8, 8, 0, 0]}
                   />
                 </BarChart>
@@ -169,11 +169,11 @@ export const EcoConsumerChart = () => {
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div className="p-4 bg-primary/10 rounded-lg">
                 <p className="font-semibold text-foreground">📊 Current Market</p>
-                <p className="text-foreground/80">USD 1.52 Billion (2024)</p>
+                <p className="text-foreground/80">£1.52 Billion (2024)</p>
               </div>
               <div className="p-4 bg-secondary/10 rounded-lg">
                 <p className="font-semibold text-foreground">🚀 Projected Growth</p>
-                <p className="text-foreground/80">USD 2.52 Billion by 2034 (5.2% CAGR)</p>
+                <p className="text-foreground/80">£2.52 Billion by 2034 (5.2% CAGR)</p>
               </div>
             </div>
           </TabsContent>
