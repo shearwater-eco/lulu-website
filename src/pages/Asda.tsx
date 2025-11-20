@@ -9,6 +9,9 @@ import luluMascot from "@/assets/lulu-mascot-thumbs-up-new.png";
 import luluBoxOpen from "@/assets/lulu-box-open.jpg";
 import luluBoxFront from "@/assets/lulu-box-front.jpg";
 import luluBoxAngle from "@/assets/lulu-box-angle.jpg";
+import badgeLowerCarbon from "@/assets/badge-lower-carbon.png";
+import badgeDignity from "@/assets/badge-dignity.png";
+import badgeTreeFree from "@/assets/badge-tree-free.png";
 import { EcoConsumerChart } from "@/components/EcoConsumerChart";
 const Asda = () => {
   const [formData, setFormData] = useState({
@@ -223,6 +226,14 @@ const Asda = () => {
           <h2 className="text-4xl font-bold text-foreground mb-8 text-center">
             Eco Credentials Shoppers Understand
           </h2>
+          
+          {/* Eco Badges */}
+          <div className="flex justify-center gap-8 mb-12 flex-wrap">
+            <img src={badgeLowerCarbon} alt="Lower Carbon Footprint" className="w-32 h-32 object-contain" />
+            <img src={badgeDignity} alt="Dignity for People and Planet" className="w-32 h-32 object-contain" />
+            <img src={badgeTreeFree} alt="Tree Free" className="w-32 h-32 object-contain" />
+          </div>
+          
           <div className="max-w-3xl mx-auto">
             <ul className="space-y-4 text-lg">
               <li className="flex items-start gap-3 p-4 bg-secondary/20 rounded-lg">
