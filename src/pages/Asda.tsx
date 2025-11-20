@@ -38,11 +38,7 @@ const Asda = () => {
           </h2>
           <div className="max-w-4xl mx-auto">
             <div className="mosaic-border-small inline-block w-full">
-              <video 
-                className="w-full rounded-lg shadow-2xl" 
-                controls 
-                poster="/lulu-box-hero.jpg"
-              >
+              <video className="w-full rounded-lg shadow-2xl" controls poster="/lulu-box-hero.jpg">
                 <source src="/lulu-welcome-video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -102,9 +98,7 @@ const Asda = () => {
           </h2>
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="space-y-6 text-lg">
-              <p className="text-foreground/90 font-medium text-center">
-                Born in Pembrokeshire, Wales, Lulu brings warmth and personality to the bat aisle — while staying completely plastic-free and low-carbon.
-              </p>
+              <p className="text-foreground/90 font-medium text-center">Born in Pembrokeshire, Wales, Lulu brings warmth and personality to the toilet paper aisle — while staying completely plastic-free and low-carbon.</p>
               <p className="text-foreground/90 font-medium text-center">
                 Our brand is inclusive, ethical, and designed to stand out.
                 Lulu connects with shoppers emotionally while delivering strong everyday value.
@@ -187,11 +181,12 @@ const Asda = () => {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-primary font-bold">✓</span>
-                    <span className="text-muted-foreground">Strong brand blocking</span>
+                    <span className="text-muted-foreground">Strong brand blocking -elegant and appealing design
+                      </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-primary font-bold">✓</span>
-                    <span className="text-muted-foreground">Clear format navigation</span>
+                    <span className="text-muted-foreground">​strong packaging, less waste/breakage</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-primary font-bold">✓</span>
