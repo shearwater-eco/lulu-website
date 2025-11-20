@@ -8,6 +8,7 @@ import luluFrontBox from "@/assets/lulu-box-hero.jpg";
 import luluMascot from "@/assets/lulu-mascot-thumbs-up-new.png";
 import luluBoxOpen from "@/assets/lulu-box-open.jpg";
 import luluBoxFront from "@/assets/lulu-box-front.jpg";
+import luluBoxAngle from "@/assets/lulu-box-angle.jpg";
 import { EcoConsumerChart } from "@/components/EcoConsumerChart";
 const Asda = () => {
   const [formData, setFormData] = useState({
@@ -199,6 +200,9 @@ const Asda = () => {
                     <span className="text-muted-foreground">Box format = reduced shrink and enhanced hygiene perception</span>
                   </li>
                 </ul>
+                <div className="mosaic-border-small inline-block mt-6">
+                  <img src={luluBoxAngle} alt="Val-U-Smart packaging" className="w-full max-w-sm rounded-lg shadow-lg" />
+                </div>
               </div>
               <div className="flex flex-col gap-6 justify-center items-center">
                 <div className="mosaic-border-small inline-block">
