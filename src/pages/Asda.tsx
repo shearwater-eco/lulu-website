@@ -6,6 +6,8 @@ import { toast } from "sonner";
 import luluBoxMockup from "@/assets/lulu-product-box.jpg";
 import luluFrontBox from "@/assets/lulu-box-hero.jpg";
 import luluMascot from "@/assets/lulu-mascot-thumbs-up-new.png";
+import luluBoxOpen from "@/assets/lulu-box-open.jpg";
+import luluBoxFront from "@/assets/lulu-box-front.jpg";
 import { EcoConsumerChart } from "@/components/EcoConsumerChart";
 const Asda = () => {
   const [formData, setFormData] = useState({
@@ -198,9 +200,12 @@ const Asda = () => {
                   </li>
                 </ul>
               </div>
-              <div className="flex justify-center items-center">
+              <div className="flex flex-col gap-6 justify-center items-center">
                 <div className="mosaic-border-small inline-block">
-                  <img src={luluBoxMockup} alt="Packaging design" className="w-full max-w-sm rounded-lg shadow-lg" />
+                  <img src={luluBoxOpen} alt="Lulu box open with rolls inside" className="w-full max-w-sm rounded-lg shadow-lg" />
+                </div>
+                <div className="mosaic-border-small inline-block">
+                  <img src={luluBoxFront} alt="Lulu box front packaging" className="w-full max-w-sm rounded-lg shadow-lg" />
                 </div>
               </div>
             </div>
