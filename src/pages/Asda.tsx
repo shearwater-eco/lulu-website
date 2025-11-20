@@ -30,6 +30,27 @@ const Asda = () => {
         <div className="bottom-border"></div>
         <div className="lulu-content">
 
+      {/* NEW SECTION - WELCOME VIDEO */}
+      <section className="relative py-12 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-8">
+            A WARM WELCOME FROM LULU
+          </h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="mosaic-border-small inline-block w-full">
+              <video 
+                className="w-full rounded-lg shadow-2xl" 
+                controls 
+                poster="/lulu-box-hero.jpg"
+              >
+                <source src="/lulu-welcome-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 1 - HERO */}
       <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,hsl(var(--primary)/0.1),transparent)]" />
