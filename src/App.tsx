@@ -17,6 +17,9 @@ import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import Catalog from "./pages/Catalog";
 import NotFound from "./pages/NotFound";
+// NEW: Storefront pages
+import ProductDetail from "./pages/ProductDetail";
+import Cart from "./pages/Cart";
 
 const queryClient = new QueryClient();
 
@@ -36,11 +39,14 @@ const App = () => (
               <Route path="/sustainability" element={<Sustainability />} />
               <Route path="/business" element={<Business />} />
               <Route path="/asda" element={<Asda />} />
-              <Route path="/catalog" element={<Catalog />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/order-confirmation" element={<OrderConfirmation />} />
+              <Route path="/catalog" element={<Catalog />} />
+              {/* NEW: Storefront routes */}
+              <Route path="/product/:productId" element={<ProductDetail />} />
+              <Route path="/cart" element={<Cart />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
