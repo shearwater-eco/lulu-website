@@ -17,9 +17,18 @@ import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import Catalog from "./pages/Catalog";
 import NotFound from "./pages/NotFound";
-// NEW: Storefront pages
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
+import Auth from "./pages/Auth";
+// Admin pages
+import AdminDashboard from "./pages/admin/Dashboard";
+import AdminOrders from "./pages/admin/Orders";
+import AdminProducts from "./pages/admin/Products";
+import AdminInventory from "./pages/admin/Inventory";
+import AdminCustomers from "./pages/admin/Customers";
+import AdminSuppliers from "./pages/admin/Suppliers";
+import AdminReports from "./pages/admin/Reports";
+import AdminSettings from "./pages/admin/Settings";
 
 const queryClient = new QueryClient();
 
@@ -29,30 +38,44 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-1">
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/shop" element={<Shop />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/sustainability" element={<Sustainability />} />
-              <Route path="/business" element={<Business />} />
-              <Route path="/asda" element={<Asda />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/checkout" element={<Checkout />} />
-              <Route path="/order-confirmation" element={<OrderConfirmation />} />
-              <Route path="/catalog" element={<Catalog />} />
-              {/* NEW: Storefront routes */}
-              <Route path="/product/:productId" element={<ProductDetail />} />
-              <Route path="/cart" element={<Cart />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
+        <Routes>
+          {/* Admin routes (no header/footer) */}
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/orders" element={<AdminOrders />} />
+          <Route path="/admin/products" element={<AdminProducts />} />
+          <Route path="/admin/inventory" element={<AdminInventory />} />
+          <Route path="/admin/customers" element={<AdminCustomers />} />
+          <Route path="/admin/suppliers" element={<AdminSuppliers />} />
+          <Route path="/admin/reports" element={<AdminReports />} />
+          <Route path="/admin/settings" element={<AdminSettings />} />
+          <Route path="/auth" element={<Auth />} />
+          
+          {/* Public routes with header/footer */}
+          <Route path="/*" element={
+            <div className="min-h-screen flex flex-col">
+              <Header />
+              <main className="flex-1">
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/shop" element={<Shop />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/sustainability" element={<Sustainability />} />
+                  <Route path="/business" element={<Business />} />
+                  <Route path="/asda" element={<Asda />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/checkout" element={<Checkout />} />
+                  <Route path="/order-confirmation" element={<OrderConfirmation />} />
+                  <Route path="/catalog" element={<Catalog />} />
+                  <Route path="/product/:productId" element={<ProductDetail />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </main>
+              <Footer />
+            </div>
+          } />
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
