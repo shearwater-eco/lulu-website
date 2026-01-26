@@ -14,6 +14,333 @@ export type Database = {
   }
   public: {
     Tables: {
+      cart_items: {
+        Row: {
+          cart_id: string
+          created_at: string
+          id: string
+          product_id: string
+          quantity: number
+          updated_at: string
+        }
+        Insert: {
+          cart_id: string
+          created_at?: string
+          id?: string
+          product_id: string
+          quantity?: number
+          updated_at?: string
+        }
+        Update: {
+          cart_id?: string
+          created_at?: string
+          id?: string
+          product_id?: string
+          quantity?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "cart_items_cart_id_fkey"
+            columns: ["cart_id"]
+            isOneToOne: false
+            referencedRelation: "shopping_carts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "cart_items_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      inventory: {
+        Row: {
+          created_at: string
+          id: string
+          product_id: string
+          quantity_on_hand: number
+          updated_at: string
+          warehouse_location: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          product_id: string
+          quantity_on_hand?: number
+          updated_at?: string
+          warehouse_location?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          product_id?: string
+          quantity_on_hand?: number
+          updated_at?: string
+          warehouse_location?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "inventory_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      order_items: {
+        Row: {
+          created_at: string
+          id: string
+          line_total: number
+          order_id: string
+          product_id: string | null
+          product_image_url: string | null
+          product_name: string
+          product_sku: string
+          quantity: number
+          unit_price: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          line_total?: number
+          order_id: string
+          product_id?: string | null
+          product_image_url?: string | null
+          product_name: string
+          product_sku: string
+          quantity?: number
+          unit_price?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          line_total?: number
+          order_id?: string
+          product_id?: string | null
+          product_image_url?: string | null
+          product_name?: string
+          product_sku?: string
+          quantity?: number
+          unit_price?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "order_items_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "order_items_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      orders: {
+        Row: {
+          billing_address_line1: string | null
+          billing_address_line2: string | null
+          billing_city: string | null
+          billing_country: string | null
+          billing_email: string | null
+          billing_first_name: string | null
+          billing_last_name: string | null
+          billing_phone: string | null
+          billing_postal_code: string | null
+          billing_state: string | null
+          created_at: string
+          id: string
+          notes: string | null
+          order_number: string
+          shipping_address_line1: string | null
+          shipping_address_line2: string | null
+          shipping_amount: number
+          shipping_city: string | null
+          shipping_country: string | null
+          shipping_email: string | null
+          shipping_first_name: string | null
+          shipping_last_name: string | null
+          shipping_phone: string | null
+          shipping_postal_code: string | null
+          shipping_state: string | null
+          status: string
+          subtotal: number
+          tax_amount: number
+          total_amount: number
+          tracking_number: string | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          billing_address_line1?: string | null
+          billing_address_line2?: string | null
+          billing_city?: string | null
+          billing_country?: string | null
+          billing_email?: string | null
+          billing_first_name?: string | null
+          billing_last_name?: string | null
+          billing_phone?: string | null
+          billing_postal_code?: string | null
+          billing_state?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          order_number: string
+          shipping_address_line1?: string | null
+          shipping_address_line2?: string | null
+          shipping_amount?: number
+          shipping_city?: string | null
+          shipping_country?: string | null
+          shipping_email?: string | null
+          shipping_first_name?: string | null
+          shipping_last_name?: string | null
+          shipping_phone?: string | null
+          shipping_postal_code?: string | null
+          shipping_state?: string | null
+          status?: string
+          subtotal?: number
+          tax_amount?: number
+          total_amount?: number
+          tracking_number?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          billing_address_line1?: string | null
+          billing_address_line2?: string | null
+          billing_city?: string | null
+          billing_country?: string | null
+          billing_email?: string | null
+          billing_first_name?: string | null
+          billing_last_name?: string | null
+          billing_phone?: string | null
+          billing_postal_code?: string | null
+          billing_state?: string | null
+          created_at?: string
+          id?: string
+          notes?: string | null
+          order_number?: string
+          shipping_address_line1?: string | null
+          shipping_address_line2?: string | null
+          shipping_amount?: number
+          shipping_city?: string | null
+          shipping_country?: string | null
+          shipping_email?: string | null
+          shipping_first_name?: string | null
+          shipping_last_name?: string | null
+          shipping_phone?: string | null
+          shipping_postal_code?: string | null
+          shipping_state?: string | null
+          status?: string
+          subtotal?: number
+          tax_amount?: number
+          total_amount?: number
+          tracking_number?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      product_categories: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          parent_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          parent_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          parent_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_categories_parent_id_fkey"
+            columns: ["parent_id"]
+            isOneToOne: false
+            referencedRelation: "product_categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      products: {
+        Row: {
+          category_id: string | null
+          cost_price: number
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string | null
+          is_active: boolean | null
+          name: string
+          sku: string
+          unit_of_measure: string | null
+          unit_price: number
+          updated_at: string
+        }
+        Insert: {
+          category_id?: string | null
+          cost_price?: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          name: string
+          sku: string
+          unit_of_measure?: string | null
+          unit_price?: number
+          updated_at?: string
+        }
+        Update: {
+          category_id?: string | null
+          cost_price?: number
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          is_active?: boolean | null
+          name?: string
+          sku?: string
+          unit_of_measure?: string | null
+          unit_price?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "products_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "product_categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           created_at: string
@@ -35,12 +362,36 @@ export type Database = {
         }
         Relationships: []
       }
+      shopping_carts: {
+        Row: {
+          created_at: string
+          id: string
+          session_id: string | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          session_id?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          session_id?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      generate_order_number: { Args: never; Returns: string }
     }
     Enums: {
       [_ in never]: never

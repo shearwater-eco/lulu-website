@@ -1,13 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ShoppingCart, Search, User, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useCart } from '@/hooks/useCart';
-import { useAuth } from '@/hooks/useAuth';
 import { useState } from 'react';
-import luluBird from '@/assets/lulu-bird.png';
 
 interface StoreHeaderProps {
   onSearch?: (query: string) => void;
@@ -15,7 +12,6 @@ interface StoreHeaderProps {
 
 export function StoreHeader({ onSearch }: StoreHeaderProps) {
   const { itemCount } = useCart();
-  const { user } = useAuth();
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearch = (e: React.FormEvent) => {
@@ -29,7 +25,6 @@ export function StoreHeader({ onSearch }: StoreHeaderProps) {
     { href: '/about', label: 'About' },
     { href: '/sustainability', label: 'Sustainability' },
     { href: '/business', label: 'Business' },
-    { href: '/retailers', label: 'Retailers' },
     { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
   ];
@@ -107,45 +102,10 @@ export function StoreHeader({ onSearch }: StoreHeaderProps) {
 
           {/* Account */}
           <Button variant="ghost" size="icon" asChild>
-            <Link to={user ? '/dashboard' : '/auth'}>
+            <Link to="/auth">
               <User className="h-5 w-5" />
             </Link>
           </Button>
-        </div>
-      </div>
-
-      {/* Sub-header with LULU bird and tagline */}
-      <div className="border-t border-foreground/10 py-2">
-        <div className="container flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img 
-              src={luluBird} 
-              alt="LULU the bird" 
-              className="h-12 w-auto"
-            />
-            <div>
-              <p className="font-semibold text-sm">Ready to go LULU?</p>
-              <p className="text-xs text-primary italic">Gentle on you, kind to the Earth</p>
-            </div>
-          </div>
-
-          <div className="hidden sm:flex items-center gap-3">
-            <Button 
-              size="sm" 
-              asChild
-              className="rounded-full bg-primary text-primary-foreground px-6 font-semibold"
-            >
-              <Link to="/shop">Shop Now</Link>
-            </Button>
-            <Button 
-              size="sm" 
-              variant="outline"
-              asChild
-              className="rounded-full border-2 border-foreground px-6 font-semibold"
-            >
-              <Link to="/business">For Business</Link>
-            </Button>
-          </div>
         </div>
       </div>
     </header>

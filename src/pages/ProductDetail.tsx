@@ -13,7 +13,7 @@ export default function ProductDetail() {
   const { productId } = useParams<{ productId: string }>();
   const navigate = useNavigate();
   const { products, isLoading } = useStorefront();
-  const { addToCart } = useCart();
+  const { addItem } = useCart();
   const [quantity, setQuantity] = useState(1);
 
   const product = products.find(p => p.id === productId);
@@ -25,7 +25,16 @@ export default function ProductDetail() {
 
   const handleAddToCart = () => {
     if (product) {
-      addToCart.mutate({ productId: product.id, quantity });
+      addItem({
+        id: product.id,
+        name: product.name,
+        description: product.description || '',
+        price: Number(product.unit_price),
+        image: product.image_url || '',
+        category: product.category?.name || '',
+        stock: product.totalStock,
+        sku: product.sku,
+      }, quantity);
     }
   };
 
@@ -175,7 +184,6 @@ export default function ProductDetail() {
                   size="lg"
                   className="w-full"
                   onClick={handleAddToCart}
-                  disabled={addToCart.isPending}
                 >
                   <ShoppingBag className="mr-2 h-5 w-5" />
                   Add to Cart - ${(Number(product.unit_price) * quantity).toFixed(2)}

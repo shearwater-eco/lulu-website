@@ -1,5 +1,5 @@
 import { Leaf, TreePine, Recycle, Droplets } from 'lucide-react';
-import { RainbowBorder } from '../RainbowBorder';
+import { RainbowBorder } from '@/components/storefront/RainbowBorder';
 
 interface Certification {
   icon: React.ReactNode;

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { RainbowBorder, RainbowStripeBar } from '../RainbowBorder';
-import luluHero from '@/assets/lulu-hero.jpg';
+import { RainbowBorder, RainbowStripeBar } from '@/components/storefront/RainbowBorder';
+import luluHero from '@/assets/lulu-mascot-welsh-coast.png';
 
 export function HeroSection() {
   return (
