@@ -19,12 +19,21 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const { addToCart } = useCart();
+  const { addItem } = useCart();
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    addToCart.mutate({ productId: product.id, quantity: 1 });
+    addItem({
+      id: product.id,
+      name: product.name,
+      description: product.description || '',
+      price: Number(product.unit_price),
+      image: product.image_url || '',
+      category: product.category?.name || '',
+      stock: product.totalStock,
+      sku: product.sku,
+    }, 1);
   };
 
   return (
@@ -59,7 +68,6 @@ export function ProductCard({ product }: ProductCardProps) {
               <Button
                 size="icon"
                 onClick={handleAddToCart}
-                disabled={addToCart.isPending}
                 className="rounded-full border-2 border-foreground bg-primary text-primary-foreground shadow-brutal-sm hover:shadow-brutal"
               >
                 <ShoppingBag className="h-4 w-4" />

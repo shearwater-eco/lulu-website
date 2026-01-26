@@ -5,9 +5,9 @@ import { Separator } from '@/components/ui/separator';
 import { useCart } from '@/hooks/useCart';
 
 export function CartDrawer() {
-  const { cart, itemCount, subtotal, updateQuantity, removeFromCart } = useCart();
+  const { items, total, itemCount, updateQuantity, removeItem } = useCart();
 
-  if (!cart || cart.items.length === 0) {
+  if (items.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-12 text-center">
         <Package className="h-16 w-16 text-muted-foreground/50 mb-4" />
@@ -26,13 +26,13 @@ export function CartDrawer() {
     <div className="flex flex-col h-full">
       <div className="flex-1 overflow-auto py-4">
         <div className="space-y-4">
-          {cart.items.map((item) => (
-            <div key={item.id} className="flex gap-4">
+          {items.map((item) => (
+            <div key={item.product.id} className="flex gap-4">
               {/* Image */}
               <div className="w-20 h-20 rounded-md overflow-hidden bg-muted shrink-0">
-                {item.product.image_url ? (
+                {item.product.image ? (
                   <img
-                    src={item.product.image_url}
+                    src={item.product.image}
                     alt={item.product.name}
                     className="w-full h-full object-cover"
                   />
@@ -52,7 +52,7 @@ export function CartDrawer() {
                   {item.product.name}
                 </Link>
                 <p className="text-sm text-muted-foreground">
-                  ${Number(item.product.unit_price).toFixed(2)}
+                  ${item.product.price.toFixed(2)}
                 </p>
 
                 {/* Quantity controls */}
@@ -61,13 +61,7 @@ export function CartDrawer() {
                     variant="outline"
                     size="icon"
                     className="h-7 w-7"
-                    onClick={() =>
-                      updateQuantity.mutate({
-                        itemId: item.id,
-                        quantity: item.quantity - 1,
-                      })
-                    }
-                    disabled={updateQuantity.isPending}
+                    onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
                   >
                     <Minus className="h-3 w-3" />
                   </Button>
@@ -76,13 +70,7 @@ export function CartDrawer() {
                     variant="outline"
                     size="icon"
                     className="h-7 w-7"
-                    onClick={() =>
-                      updateQuantity.mutate({
-                        itemId: item.id,
-                        quantity: item.quantity + 1,
-                      })
-                    }
-                    disabled={updateQuantity.isPending}
+                    onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
                   >
                     <Plus className="h-3 w-3" />
                   </Button>
@@ -90,8 +78,7 @@ export function CartDrawer() {
                     variant="ghost"
                     size="icon"
                     className="h-7 w-7 ml-auto text-muted-foreground hover:text-destructive"
-                    onClick={() => removeFromCart.mutate(item.id)}
-                    disabled={removeFromCart.isPending}
+                    onClick={() => removeItem(item.product.id)}
                   >
                     <Trash2 className="h-4 w-4" />
                   </Button>
@@ -105,7 +92,7 @@ export function CartDrawer() {
       <div className="border-t pt-4 space-y-4">
         <div className="flex justify-between text-sm">
           <span className="text-muted-foreground">Subtotal ({itemCount} items)</span>
-          <span className="font-medium">${subtotal.toFixed(2)}</span>
+          <span className="font-medium">${total.toFixed(2)}</span>
         </div>
         <p className="text-xs text-muted-foreground">
           Shipping and taxes calculated at checkout

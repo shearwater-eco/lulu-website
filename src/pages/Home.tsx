@@ -1,11 +1,11 @@
 import { StoreLayout } from '@/components/storefront/StoreLayout';
 import { SideRainbowStrips } from '@/components/storefront/RainbowBorder';
-import { HeroSection } from '@/components/storefront/sections/HeroSection';
-import { ProductRangeSection } from '@/components/storefront/sections/ProductRangeSection';
-import { CertificationsSection } from '@/components/storefront/sections/CertificationsSection';
-import { WhyChooseSection } from '@/components/storefront/sections/WhyChooseSection';
-import { TestimonialsSection } from '@/components/storefront/sections/TestimonialsSection';
-import { CTASection } from '@/components/storefront/sections/CTASection';
+import { HeroSection } from '@/sections/HeroSection';
+import { ProductRangeSection } from '@/sections/ProductRangeSection';
+import { CertificationsSection } from '@/sections/CertificationsSection';
+import { WhyChooseSection } from '@/sections/WhyChooseSection';
+import { TestimonialsSection } from '@/sections/TestimonialsSection';
+import { CTASection } from '@/sections/CTASection';
 
 export default function Home() {
   return (

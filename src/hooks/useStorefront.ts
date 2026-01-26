@@ -50,8 +50,8 @@ export function useStorefront() {
         .from('product_categories')
         .select('*');
 
-      const categories = (categoriesData || []) as ProductCategory[];
-      const inventory = (inventoryData || []) as { product_id: string; quantity_on_hand: number }[];
+      const categories = (categoriesData || []) as unknown as ProductCategory[];
+      const inventory = (inventoryData || []) as unknown as { product_id: string; quantity_on_hand: number }[];
 
       return (productsData || []).map((product: any): Product => {
         const productInventory = inventory.filter(inv => inv.product_id === product.id);
@@ -78,7 +78,7 @@ export function useStorefront() {
         .order('name');
 
       if (error) throw error;
-      return data as ProductCategory[];
+      return data as unknown as ProductCategory[];
     },
   });
 

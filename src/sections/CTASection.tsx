@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { RainbowBorder } from '../RainbowBorder';
+import { RainbowBorder } from '@/components/storefront/RainbowBorder';
 
 export function CTASection() {
   return (

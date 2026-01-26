@@ -1,5 +1,5 @@
 import { Star } from 'lucide-react';
-import { RainbowBorder } from '../RainbowBorder';
+import { RainbowBorder } from '@/components/storefront/RainbowBorder';
 
 interface Testimonial {
   quote: string;
