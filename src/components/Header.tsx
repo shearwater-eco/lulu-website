@@ -95,9 +95,11 @@ const Header = () => {
                   <Search className="h-6 w-6" />
                 </Button>
                 <CartSheet />
-                <Button variant="ghost" size="icon" className="mosaic-border p-3">
-                  <User className="h-6 w-6" />
-                </Button>
+                <Link to="/account">
+                  <Button variant="ghost" size="icon" className="mosaic-border p-3">
+                    <User className="h-6 w-6" />
+                  </Button>
+                </Link>
 
                 {/* Mobile menu trigger */}
                 <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -114,9 +116,11 @@ const Header = () => {
                           {item.name}
                         </Link>)}
                       <div className="mosaic-border-thick pt-4 mt-4 space-y-2 rounded-xl bg-white">
-                        <Button className="w-full justify-start btn-hero" variant="ghost">
-                          <User className="h-5 w-5 mr-2" />
-                          My Account
+                        <Button className="w-full justify-start btn-hero" variant="ghost" asChild>
+                          <Link to="/account" onClick={() => setIsMenuOpen(false)}>
+                            <User className="h-5 w-5 mr-2" />
+                            My Account
+                          </Link>
                         </Button>
                         <Button className="w-full justify-start btn-secondary" variant="ghost">
                           <ShoppingCart className="h-5 w-5 mr-2" />
