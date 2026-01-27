@@ -57,7 +57,7 @@ const Asda = () => {
   }
 
   // Check if user has admin or manager role
-  const hasAccess = roles.some(role => role === 'admin' || role === 'manager');
+  const hasAccess = roles.some(r => r.role === 'admin' || r.role === 'manager');
   
   if (!hasAccess) {
     return (
