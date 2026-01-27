@@ -58,12 +58,12 @@ export function AdminLayout({ children }: AdminLayoutProps) {
   useEffect(() => {
     if (!authLoading && !rolesLoading) {
       if (!user) {
-        navigate('/auth');
+        navigate('/auth', { state: { from: location.pathname } });
       } else if (!isAdmin && !isManager) {
         navigate('/');
       }
     }
-  }, [user, isAdmin, isManager, authLoading, rolesLoading, navigate]);
+  }, [user, isAdmin, isManager, authLoading, rolesLoading, navigate, location.pathname]);
 
   const handleSignOut = async () => {
     await signOut();

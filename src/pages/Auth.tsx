@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,6 +10,8 @@ import { useAuth } from '@/hooks/useAuth';
 import { toast } from 'sonner';
 
 export default function Auth() {
+  const location = useLocation();
+  const redirectTo = (location.state as { from?: string })?.from || '/';
   const navigate = useNavigate();
   const { signIn, signUp } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
@@ -39,7 +41,7 @@ export default function Auth() {
         toast.error(error.message || 'Failed to sign in');
       } else {
         toast.success('Welcome back!');
-        navigate('/');
+        navigate(redirectTo);
       }
     } catch (err: any) {
       toast.error(err.message || 'An error occurred');
