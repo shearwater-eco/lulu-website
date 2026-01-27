@@ -20,6 +20,7 @@ import NotFound from "./pages/NotFound";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Auth from "./pages/Auth";
+import Account from "./pages/Account";
 // Admin pages
 import AdminDashboard from "./pages/admin/Dashboard";
 import AdminOrders from "./pages/admin/Orders";
@@ -81,6 +82,7 @@ const App = () => (
                   <Route path="/catalog" element={<Catalog />} />
                   <Route path="/product/:productId" element={<ProductDetail />} />
                   <Route path="/cart" element={<Cart />} />
+                  <Route path="/account" element={<Account />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
