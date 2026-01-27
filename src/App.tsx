@@ -34,6 +34,7 @@ import AdminTimeTracking from "./pages/admin/TimeTracking";
 import AdminClients from "./pages/admin/Clients";
 import AdminCRM from "./pages/admin/CRM";
 import AdminBilling from "./pages/admin/Billing";
+import AdminPurchaseOrders from "./pages/admin/PurchaseOrders";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +55,7 @@ const App = () => (
           <Route path="/admin/orders" element={<AdminOrders />} />
           <Route path="/admin/products" element={<AdminProducts />} />
           <Route path="/admin/inventory" element={<AdminInventory />} />
+          <Route path="/admin/purchase-orders" element={<AdminPurchaseOrders />} />
           <Route path="/admin/customers" element={<AdminCustomers />} />
           <Route path="/admin/suppliers" element={<AdminSuppliers />} />
           <Route path="/admin/reports" element={<AdminReports />} />
