@@ -12,6 +12,9 @@ import {
   LogOut,
   ChevronLeft,
   Menu,
+  ListTodo,
+  Clock,
+  UserCircle,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -26,6 +29,9 @@ interface AdminLayoutProps {
 
 const navItems = [
   { href: '/admin', icon: LayoutDashboard, label: 'Dashboard' },
+  { href: '/admin/tasks', icon: ListTodo, label: 'Tasks & Projects' },
+  { href: '/admin/time', icon: Clock, label: 'Time Tracking' },
+  { href: '/admin/clients', icon: UserCircle, label: 'Clients' },
   { href: '/admin/orders', icon: ShoppingCart, label: 'Orders' },
   { href: '/admin/products', icon: Package, label: 'Products' },
   { href: '/admin/inventory', icon: Boxes, label: 'Inventory' },
