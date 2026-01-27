@@ -32,6 +32,7 @@ const navItems = [
   { href: '/admin/tasks', icon: ListTodo, label: 'Tasks & Projects' },
   { href: '/admin/time', icon: Clock, label: 'Time Tracking' },
   { href: '/admin/clients', icon: UserCircle, label: 'Clients' },
+  { href: '/admin/crm', icon: Users, label: 'CRM & Sales' },
   { href: '/admin/orders', icon: ShoppingCart, label: 'Orders' },
   { href: '/admin/products', icon: Package, label: 'Products' },
   { href: '/admin/inventory', icon: Boxes, label: 'Inventory' },
