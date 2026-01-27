@@ -15,6 +15,7 @@ import {
   ListTodo,
   Clock,
   UserCircle,
+  CreditCard,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -33,6 +34,7 @@ const navItems = [
   { href: '/admin/time', icon: Clock, label: 'Time Tracking' },
   { href: '/admin/clients', icon: UserCircle, label: 'Clients' },
   { href: '/admin/crm', icon: Users, label: 'CRM & Sales' },
+  { href: '/admin/billing', icon: CreditCard, label: 'Billing' },
   { href: '/admin/orders', icon: ShoppingCart, label: 'Orders' },
   { href: '/admin/products', icon: Package, label: 'Products' },
   { href: '/admin/inventory', icon: Boxes, label: 'Inventory' },

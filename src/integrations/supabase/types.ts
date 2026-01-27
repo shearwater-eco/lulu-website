@@ -459,6 +459,174 @@ export type Database = {
           },
         ]
       }
+      invoice_items: {
+        Row: {
+          created_at: string
+          description: string
+          discount_percent: number | null
+          id: string
+          invoice_id: string
+          line_total: number
+          plan_id: string | null
+          product_id: string | null
+          quantity: number
+          tax_rate: number | null
+          unit_price: number
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          discount_percent?: number | null
+          id?: string
+          invoice_id: string
+          line_total?: number
+          plan_id?: string | null
+          product_id?: string | null
+          quantity?: number
+          tax_rate?: number | null
+          unit_price?: number
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          discount_percent?: number | null
+          id?: string
+          invoice_id?: string
+          line_total?: number
+          plan_id?: string | null
+          product_id?: string | null
+          quantity?: number
+          tax_rate?: number | null
+          unit_price?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "invoice_items_invoice_id_fkey"
+            columns: ["invoice_id"]
+            isOneToOne: false
+            referencedRelation: "invoices"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "invoice_items_plan_id_fkey"
+            columns: ["plan_id"]
+            isOneToOne: false
+            referencedRelation: "subscription_plans"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "invoice_items_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "invoice_items_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products_public"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      invoices: {
+        Row: {
+          billing_address: Json | null
+          created_at: string
+          created_by: string | null
+          currency: string | null
+          customer_id: string
+          discount_amount: number | null
+          due_date: string
+          id: string
+          invoice_number: string
+          issue_date: string
+          notes: string | null
+          paid_date: string | null
+          payment_method: string | null
+          payment_reference: string | null
+          promo_code_id: string | null
+          status: string
+          subscription_id: string | null
+          subtotal: number
+          tax_amount: number | null
+          tax_rate: number | null
+          total_amount: number
+          updated_at: string
+        }
+        Insert: {
+          billing_address?: Json | null
+          created_at?: string
+          created_by?: string | null
+          currency?: string | null
+          customer_id: string
+          discount_amount?: number | null
+          due_date: string
+          id?: string
+          invoice_number: string
+          issue_date?: string
+          notes?: string | null
+          paid_date?: string | null
+          payment_method?: string | null
+          payment_reference?: string | null
+          promo_code_id?: string | null
+          status?: string
+          subscription_id?: string | null
+          subtotal?: number
+          tax_amount?: number | null
+          tax_rate?: number | null
+          total_amount?: number
+          updated_at?: string
+        }
+        Update: {
+          billing_address?: Json | null
+          created_at?: string
+          created_by?: string | null
+          currency?: string | null
+          customer_id?: string
+          discount_amount?: number | null
+          due_date?: string
+          id?: string
+          invoice_number?: string
+          issue_date?: string
+          notes?: string | null
+          paid_date?: string | null
+          payment_method?: string | null
+          payment_reference?: string | null
+          promo_code_id?: string | null
+          status?: string
+          subscription_id?: string | null
+          subtotal?: number
+          tax_amount?: number | null
+          tax_rate?: number | null
+          total_amount?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "invoices_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "invoices_promo_code_id_fkey"
+            columns: ["promo_code_id"]
+            isOneToOne: false
+            referencedRelation: "promo_codes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "invoices_subscription_id_fkey"
+            columns: ["subscription_id"]
+            isOneToOne: false
+            referencedRelation: "subscriptions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       lead_scoring_rules: {
         Row: {
           created_at: string
@@ -667,6 +835,85 @@ export type Database = {
         }
         Relationships: []
       }
+      payments: {
+        Row: {
+          amount: number
+          created_at: string
+          currency: string | null
+          customer_id: string
+          gateway_response: Json | null
+          gateway_transaction_id: string | null
+          id: string
+          invoice_id: string | null
+          notes: string | null
+          payment_gateway: string | null
+          payment_method: string | null
+          refund_amount: number | null
+          refunded_at: string | null
+          status: string
+          subscription_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          amount: number
+          created_at?: string
+          currency?: string | null
+          customer_id: string
+          gateway_response?: Json | null
+          gateway_transaction_id?: string | null
+          id?: string
+          invoice_id?: string | null
+          notes?: string | null
+          payment_gateway?: string | null
+          payment_method?: string | null
+          refund_amount?: number | null
+          refunded_at?: string | null
+          status?: string
+          subscription_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          currency?: string | null
+          customer_id?: string
+          gateway_response?: Json | null
+          gateway_transaction_id?: string | null
+          id?: string
+          invoice_id?: string | null
+          notes?: string | null
+          payment_gateway?: string | null
+          payment_method?: string | null
+          refund_amount?: number | null
+          refunded_at?: string | null
+          status?: string
+          subscription_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "payments_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "payments_invoice_id_fkey"
+            columns: ["invoice_id"]
+            isOneToOne: false
+            referencedRelation: "invoices"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "payments_subscription_id_fkey"
+            columns: ["subscription_id"]
+            isOneToOne: false
+            referencedRelation: "subscriptions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       pipeline_stages: {
         Row: {
           color: string | null
@@ -710,6 +957,50 @@ export type Database = {
             columns: ["pipeline_id"]
             isOneToOne: false
             referencedRelation: "sales_pipelines"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      plan_addons: {
+        Row: {
+          billing_period: string | null
+          created_at: string
+          description: string | null
+          id: string
+          is_active: boolean | null
+          name: string
+          plan_id: string | null
+          price: number
+          updated_at: string
+        }
+        Insert: {
+          billing_period?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean | null
+          name: string
+          plan_id?: string | null
+          price?: number
+          updated_at?: string
+        }
+        Update: {
+          billing_period?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_active?: boolean | null
+          name?: string
+          plan_id?: string | null
+          price?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "plan_addons_plan_id_fkey"
+            columns: ["plan_id"]
+            isOneToOne: false
+            referencedRelation: "subscription_plans"
             referencedColumns: ["id"]
           },
         ]
@@ -911,6 +1202,63 @@ export type Database = {
           },
         ]
       }
+      promo_codes: {
+        Row: {
+          applicable_plan_ids: string[] | null
+          applies_to: string | null
+          code: string
+          created_at: string
+          created_by: string | null
+          description: string | null
+          discount_type: string
+          discount_value: number
+          id: string
+          is_active: boolean | null
+          max_uses: number | null
+          min_order_value: number | null
+          updated_at: string
+          uses_count: number | null
+          valid_from: string | null
+          valid_until: string | null
+        }
+        Insert: {
+          applicable_plan_ids?: string[] | null
+          applies_to?: string | null
+          code: string
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          discount_type?: string
+          discount_value: number
+          id?: string
+          is_active?: boolean | null
+          max_uses?: number | null
+          min_order_value?: number | null
+          updated_at?: string
+          uses_count?: number | null
+          valid_from?: string | null
+          valid_until?: string | null
+        }
+        Update: {
+          applicable_plan_ids?: string[] | null
+          applies_to?: string | null
+          code?: string
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          discount_type?: string
+          discount_value?: number
+          id?: string
+          is_active?: boolean | null
+          max_uses?: number | null
+          min_order_value?: number | null
+          updated_at?: string
+          uses_count?: number | null
+          valid_from?: string | null
+          valid_until?: string | null
+        }
+        Relationships: []
+      }
       purchase_order_items: {
         Row: {
           created_at: string
@@ -1091,6 +1439,187 @@ export type Database = {
         }
         Relationships: []
       }
+      subscription_addons: {
+        Row: {
+          addon_id: string
+          created_at: string
+          id: string
+          quantity: number | null
+          subscription_id: string
+        }
+        Insert: {
+          addon_id: string
+          created_at?: string
+          id?: string
+          quantity?: number | null
+          subscription_id: string
+        }
+        Update: {
+          addon_id?: string
+          created_at?: string
+          id?: string
+          quantity?: number | null
+          subscription_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "subscription_addons_addon_id_fkey"
+            columns: ["addon_id"]
+            isOneToOne: false
+            referencedRelation: "plan_addons"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "subscription_addons_subscription_id_fkey"
+            columns: ["subscription_id"]
+            isOneToOne: false
+            referencedRelation: "subscriptions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      subscription_plans: {
+        Row: {
+          billing_period: string | null
+          created_at: string
+          currency: string | null
+          description: string | null
+          features: Json | null
+          id: string
+          is_active: boolean | null
+          is_public: boolean | null
+          limits: Json | null
+          name: string
+          price: number
+          sort_order: number | null
+          trial_days: number | null
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          billing_period?: string | null
+          created_at?: string
+          currency?: string | null
+          description?: string | null
+          features?: Json | null
+          id?: string
+          is_active?: boolean | null
+          is_public?: boolean | null
+          limits?: Json | null
+          name: string
+          price?: number
+          sort_order?: number | null
+          trial_days?: number | null
+          type?: string
+          updated_at?: string
+        }
+        Update: {
+          billing_period?: string | null
+          created_at?: string
+          currency?: string | null
+          description?: string | null
+          features?: Json | null
+          id?: string
+          is_active?: boolean | null
+          is_public?: boolean | null
+          limits?: Json | null
+          name?: string
+          price?: number
+          sort_order?: number | null
+          trial_days?: number | null
+          type?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      subscriptions: {
+        Row: {
+          auto_renew: boolean | null
+          billing_cycle_end: string | null
+          billing_cycle_start: string | null
+          cancellation_reason: string | null
+          cancelled_at: string | null
+          created_at: string
+          current_period_end: string | null
+          current_period_start: string | null
+          customer_id: string
+          external_subscription_id: string | null
+          id: string
+          metadata: Json | null
+          notes: string | null
+          payment_method: string | null
+          plan_id: string
+          promo_code_id: string | null
+          status: string
+          trial_ends_at: string | null
+          updated_at: string
+        }
+        Insert: {
+          auto_renew?: boolean | null
+          billing_cycle_end?: string | null
+          billing_cycle_start?: string | null
+          cancellation_reason?: string | null
+          cancelled_at?: string | null
+          created_at?: string
+          current_period_end?: string | null
+          current_period_start?: string | null
+          customer_id: string
+          external_subscription_id?: string | null
+          id?: string
+          metadata?: Json | null
+          notes?: string | null
+          payment_method?: string | null
+          plan_id: string
+          promo_code_id?: string | null
+          status?: string
+          trial_ends_at?: string | null
+          updated_at?: string
+        }
+        Update: {
+          auto_renew?: boolean | null
+          billing_cycle_end?: string | null
+          billing_cycle_start?: string | null
+          cancellation_reason?: string | null
+          cancelled_at?: string | null
+          created_at?: string
+          current_period_end?: string | null
+          current_period_start?: string | null
+          customer_id?: string
+          external_subscription_id?: string | null
+          id?: string
+          metadata?: Json | null
+          notes?: string | null
+          payment_method?: string | null
+          plan_id?: string
+          promo_code_id?: string | null
+          status?: string
+          trial_ends_at?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "subscriptions_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "subscriptions_plan_id_fkey"
+            columns: ["plan_id"]
+            isOneToOne: false
+            referencedRelation: "subscription_plans"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "subscriptions_promo_code_id_fkey"
+            columns: ["promo_code_id"]
+            isOneToOne: false
+            referencedRelation: "promo_codes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       suppliers: {
         Row: {
           address: string | null
@@ -1135,6 +1664,72 @@ export type Database = {
           updated_at?: string
         }
         Relationships: []
+      }
+      support_tickets: {
+        Row: {
+          assigned_to: string | null
+          category: string | null
+          created_at: string
+          created_by: string | null
+          customer_id: string | null
+          description: string | null
+          id: string
+          priority: string | null
+          resolved_at: string | null
+          status: string
+          subject: string
+          subscription_id: string | null
+          ticket_number: string
+          updated_at: string
+        }
+        Insert: {
+          assigned_to?: string | null
+          category?: string | null
+          created_at?: string
+          created_by?: string | null
+          customer_id?: string | null
+          description?: string | null
+          id?: string
+          priority?: string | null
+          resolved_at?: string | null
+          status?: string
+          subject: string
+          subscription_id?: string | null
+          ticket_number: string
+          updated_at?: string
+        }
+        Update: {
+          assigned_to?: string | null
+          category?: string | null
+          created_at?: string
+          created_by?: string | null
+          customer_id?: string | null
+          description?: string | null
+          id?: string
+          priority?: string | null
+          resolved_at?: string | null
+          status?: string
+          subject?: string
+          subscription_id?: string | null
+          ticket_number?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "support_tickets_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "support_tickets_subscription_id_fkey"
+            columns: ["subscription_id"]
+            isOneToOne: false
+            referencedRelation: "subscriptions"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       task_label_assignments: {
         Row: {
@@ -1252,6 +1847,44 @@ export type Database = {
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "projects"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ticket_messages: {
+        Row: {
+          created_at: string
+          id: string
+          is_internal: boolean | null
+          message: string
+          sender_id: string | null
+          sender_type: string
+          ticket_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_internal?: boolean | null
+          message: string
+          sender_id?: string | null
+          sender_type?: string
+          ticket_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_internal?: boolean | null
+          message?: string
+          sender_id?: string | null
+          sender_type?: string
+          ticket_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ticket_messages_ticket_id_fkey"
+            columns: ["ticket_id"]
+            isOneToOne: false
+            referencedRelation: "support_tickets"
             referencedColumns: ["id"]
           },
         ]
@@ -1400,8 +2033,10 @@ export type Database = {
       }
     }
     Functions: {
+      generate_invoice_number: { Args: never; Returns: string }
       generate_order_number: { Args: never; Returns: string }
       generate_po_number: { Args: never; Returns: string }
+      generate_ticket_number: { Args: never; Returns: string }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
