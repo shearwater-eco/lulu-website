@@ -105,6 +105,134 @@ export type Database = {
         }
         Relationships: []
       }
+      companies: {
+        Row: {
+          address: string | null
+          annual_revenue: number | null
+          city: string | null
+          country: string | null
+          created_at: string
+          created_by: string | null
+          email: string | null
+          employee_count: string | null
+          id: string
+          industry: string | null
+          is_active: boolean | null
+          name: string
+          notes: string | null
+          phone: string | null
+          updated_at: string
+          website: string | null
+        }
+        Insert: {
+          address?: string | null
+          annual_revenue?: number | null
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          created_by?: string | null
+          email?: string | null
+          employee_count?: string | null
+          id?: string
+          industry?: string | null
+          is_active?: boolean | null
+          name: string
+          notes?: string | null
+          phone?: string | null
+          updated_at?: string
+          website?: string | null
+        }
+        Update: {
+          address?: string | null
+          annual_revenue?: number | null
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          created_by?: string | null
+          email?: string | null
+          employee_count?: string | null
+          id?: string
+          industry?: string | null
+          is_active?: boolean | null
+          name?: string
+          notes?: string | null
+          phone?: string | null
+          updated_at?: string
+          website?: string | null
+        }
+        Relationships: []
+      }
+      contacts: {
+        Row: {
+          company_id: string | null
+          created_at: string
+          created_by: string | null
+          department: string | null
+          email: string | null
+          first_name: string
+          id: string
+          is_active: boolean | null
+          job_title: string | null
+          last_name: string | null
+          lead_score: number | null
+          lead_source: string | null
+          lead_status: string | null
+          linkedin_url: string | null
+          notes: string | null
+          owner_id: string | null
+          phone: string | null
+          updated_at: string
+        }
+        Insert: {
+          company_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          department?: string | null
+          email?: string | null
+          first_name: string
+          id?: string
+          is_active?: boolean | null
+          job_title?: string | null
+          last_name?: string | null
+          lead_score?: number | null
+          lead_source?: string | null
+          lead_status?: string | null
+          linkedin_url?: string | null
+          notes?: string | null
+          owner_id?: string | null
+          phone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          company_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          department?: string | null
+          email?: string | null
+          first_name?: string
+          id?: string
+          is_active?: boolean | null
+          job_title?: string | null
+          last_name?: string | null
+          lead_score?: number | null
+          lead_source?: string | null
+          lead_status?: string | null
+          linkedin_url?: string | null
+          notes?: string | null
+          owner_id?: string | null
+          phone?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "contacts_company_id_fkey"
+            columns: ["company_id"]
+            isOneToOne: false
+            referencedRelation: "companies"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       customers: {
         Row: {
           company: string | null
@@ -150,6 +278,145 @@ export type Database = {
         }
         Relationships: []
       }
+      deal_activities: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          created_by: string | null
+          deal_id: string
+          description: string | null
+          due_date: string | null
+          id: string
+          subject: string | null
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          created_by?: string | null
+          deal_id: string
+          description?: string | null
+          due_date?: string | null
+          id?: string
+          subject?: string | null
+          type: string
+          updated_at?: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          created_by?: string | null
+          deal_id?: string
+          description?: string | null
+          due_date?: string | null
+          id?: string
+          subject?: string | null
+          type?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "deal_activities_deal_id_fkey"
+            columns: ["deal_id"]
+            isOneToOne: false
+            referencedRelation: "deals"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      deals: {
+        Row: {
+          actual_close_date: string | null
+          company_id: string | null
+          contact_id: string | null
+          created_at: string
+          created_by: string | null
+          currency: string | null
+          expected_close_date: string | null
+          id: string
+          lost_reason: string | null
+          name: string
+          notes: string | null
+          owner_id: string | null
+          pipeline_id: string
+          position: number | null
+          probability: number | null
+          stage_id: string
+          updated_at: string
+          value: number | null
+        }
+        Insert: {
+          actual_close_date?: string | null
+          company_id?: string | null
+          contact_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          currency?: string | null
+          expected_close_date?: string | null
+          id?: string
+          lost_reason?: string | null
+          name: string
+          notes?: string | null
+          owner_id?: string | null
+          pipeline_id: string
+          position?: number | null
+          probability?: number | null
+          stage_id: string
+          updated_at?: string
+          value?: number | null
+        }
+        Update: {
+          actual_close_date?: string | null
+          company_id?: string | null
+          contact_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          currency?: string | null
+          expected_close_date?: string | null
+          id?: string
+          lost_reason?: string | null
+          name?: string
+          notes?: string | null
+          owner_id?: string | null
+          pipeline_id?: string
+          position?: number | null
+          probability?: number | null
+          stage_id?: string
+          updated_at?: string
+          value?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "deals_company_id_fkey"
+            columns: ["company_id"]
+            isOneToOne: false
+            referencedRelation: "companies"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "deals_contact_id_fkey"
+            columns: ["contact_id"]
+            isOneToOne: false
+            referencedRelation: "contacts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "deals_pipeline_id_fkey"
+            columns: ["pipeline_id"]
+            isOneToOne: false
+            referencedRelation: "sales_pipelines"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "deals_stage_id_fkey"
+            columns: ["stage_id"]
+            isOneToOne: false
+            referencedRelation: "pipeline_stages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       inventory: {
         Row: {
           created_at: string
@@ -191,6 +458,45 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      lead_scoring_rules: {
+        Row: {
+          created_at: string
+          description: string | null
+          field: string
+          id: string
+          is_active: boolean | null
+          name: string
+          operator: string
+          score: number
+          updated_at: string
+          value: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          field: string
+          id?: string
+          is_active?: boolean | null
+          name: string
+          operator: string
+          score?: number
+          updated_at?: string
+          value: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          field?: string
+          id?: string
+          is_active?: boolean | null
+          name?: string
+          operator?: string
+          score?: number
+          updated_at?: string
+          value?: string
+        }
+        Relationships: []
       }
       order_items: {
         Row: {
@@ -360,6 +666,53 @@ export type Database = {
           user_id?: string | null
         }
         Relationships: []
+      }
+      pipeline_stages: {
+        Row: {
+          color: string | null
+          created_at: string
+          id: string
+          is_lost: boolean | null
+          is_won: boolean | null
+          name: string
+          pipeline_id: string
+          position: number
+          probability: number | null
+          updated_at: string
+        }
+        Insert: {
+          color?: string | null
+          created_at?: string
+          id?: string
+          is_lost?: boolean | null
+          is_won?: boolean | null
+          name: string
+          pipeline_id: string
+          position?: number
+          probability?: number | null
+          updated_at?: string
+        }
+        Update: {
+          color?: string | null
+          created_at?: string
+          id?: string
+          is_lost?: boolean | null
+          is_won?: boolean | null
+          name?: string
+          pipeline_id?: string
+          position?: number
+          probability?: number | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pipeline_stages_pipeline_id_fkey"
+            columns: ["pipeline_id"]
+            isOneToOne: false
+            referencedRelation: "sales_pipelines"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       product_categories: {
         Row: {
@@ -677,6 +1030,42 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      sales_pipelines: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          description: string | null
+          id: string
+          is_active: boolean | null
+          is_default: boolean | null
+          name: string
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean | null
+          is_default?: boolean | null
+          name: string
+          type?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          id?: string
+          is_active?: boolean | null
+          is_default?: boolean | null
+          name?: string
+          type?: string
+          updated_at?: string
+        }
+        Relationships: []
       }
       shopping_carts: {
         Row: {
