@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { useCart } from "@/hooks/useCart";
+import { useCheckout } from "@/hooks/useCheckout";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { Address } from "@/lib/ecommerce-types";
@@ -14,10 +15,10 @@ import { z } from "zod";
 type FieldErrors = Partial<Record<keyof Address, string>>;
 
 const Checkout = () => {
-  const { items, total, clearCart } = useCart();
+  const { items, total } = useCart();
+  const { processCheckout, isProcessing } = useCheckout();
   const navigate = useNavigate();
   const { toast } = useToast();
-  const [isProcessing, setIsProcessing] = useState(false);
   const [shippingErrors, setShippingErrors] = useState<FieldErrors>({});
   const [billingErrors, setBillingErrors] = useState<FieldErrors>({});
   
@@ -56,7 +57,6 @@ const Checkout = () => {
   ) => {
     if (type === 'shipping') {
       setShippingAddress(prev => ({ ...prev, [field]: value }));
-      // Clear error when user starts typing
       if (shippingErrors[field]) {
         setShippingErrors(prev => ({ ...prev, [field]: undefined }));
       }
@@ -109,10 +109,7 @@ const Checkout = () => {
       return;
     }
 
-    // Validate shipping address
     const isShippingValid = validateAddress(shippingAddress, setShippingErrors);
-    
-    // Validate billing address (only if not same as shipping)
     const actualBillingAddress = sameAsShipping ? shippingAddress : billingAddress;
     const isBillingValid = sameAsShipping 
       ? true 
@@ -127,31 +124,14 @@ const Checkout = () => {
       return;
     }
 
-    setIsProcessing(true);
+    const result = await processCheckout(shippingAddress, actualBillingAddress);
 
-    try {
-      // Simulate payment processing
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Here you would integrate with your payment processor
-      // For now, we'll just simulate a successful order
-      
-      clearCart();
-      
+    if (result.success) {
       toast({
         title: "Order Placed Successfully!",
-        description: "Thank you for your purchase. You'll receive a confirmation email shortly.",
+        description: `Order ${result.orderNumber} has been created.`,
       });
-      
       navigate("/order-confirmation");
-    } catch (error) {
-      toast({
-        title: "Payment Failed",
-        description: "There was an error processing your payment. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsProcessing(false);
     }
   };
 

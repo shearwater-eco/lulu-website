@@ -15,7 +15,6 @@ interface Product {
   description: string | null;
   category_id: string | null;
   unit_price: number;
-  cost_price: number;
   unit_of_measure: string;
   image_url: string | null;
   is_active: boolean;
@@ -25,13 +24,13 @@ interface Product {
 }
 
 export function useStorefront() {
-  // Fetch public products
+  // Fetch public products (using products_public view - no cost_price exposed)
   const { data: products = [], isLoading: productsLoading } = useQuery({
     queryKey: ['storefront-products'],
     queryFn: async () => {
-      // Fetch active products
+      // Fetch active products from public view
       const { data: productsData, error: productsError } = await supabase
-        .from('products')
+        .from('products_public')
         .select('*')
         .eq('is_active', true)
         .order('name');
