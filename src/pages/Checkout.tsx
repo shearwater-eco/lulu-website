@@ -8,12 +8,18 @@ import { useCart } from "@/hooks/useCart";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { Address } from "@/lib/ecommerce-types";
+import { addressSchema } from "@/lib/validations/checkout";
+import { z } from "zod";
+
+type FieldErrors = Partial<Record<keyof Address, string>>;
 
 const Checkout = () => {
   const { items, total, clearCart } = useCart();
   const navigate = useNavigate();
   const { toast } = useToast();
   const [isProcessing, setIsProcessing] = useState(false);
+  const [shippingErrors, setShippingErrors] = useState<FieldErrors>({});
+  const [billingErrors, setBillingErrors] = useState<FieldErrors>({});
   
   const [shippingAddress, setShippingAddress] = useState<Address>({
     firstName: "",
@@ -50,11 +56,18 @@ const Checkout = () => {
   ) => {
     if (type === 'shipping') {
       setShippingAddress(prev => ({ ...prev, [field]: value }));
+      // Clear error when user starts typing
+      if (shippingErrors[field]) {
+        setShippingErrors(prev => ({ ...prev, [field]: undefined }));
+      }
       if (sameAsShipping) {
         setBillingAddress(prev => ({ ...prev, [field]: value }));
       }
     } else {
       setBillingAddress(prev => ({ ...prev, [field]: value }));
+      if (billingErrors[field]) {
+        setBillingErrors(prev => ({ ...prev, [field]: undefined }));
+      }
     }
   };
 
@@ -62,6 +75,25 @@ const Checkout = () => {
     setSameAsShipping(checked);
     if (checked) {
       setBillingAddress(shippingAddress);
+      setBillingErrors({});
+    }
+  };
+
+  const validateAddress = (address: Address, setErrors: (errors: FieldErrors) => void): boolean => {
+    try {
+      addressSchema.parse(address);
+      setErrors({});
+      return true;
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const fieldErrors: FieldErrors = {};
+        error.errors.forEach((err) => {
+          const field = err.path[0] as keyof Address;
+          fieldErrors[field] = err.message;
+        });
+        setErrors(fieldErrors);
+      }
+      return false;
     }
   };
 
@@ -72,6 +104,24 @@ const Checkout = () => {
       toast({
         title: "Error",
         description: "Your cart is empty",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Validate shipping address
+    const isShippingValid = validateAddress(shippingAddress, setShippingErrors);
+    
+    // Validate billing address (only if not same as shipping)
+    const actualBillingAddress = sameAsShipping ? shippingAddress : billingAddress;
+    const isBillingValid = sameAsShipping 
+      ? true 
+      : validateAddress(billingAddress, setBillingErrors);
+
+    if (!isShippingValid || !isBillingValid) {
+      toast({
+        title: "Validation Error",
+        description: "Please correct the errors in the form before submitting.",
         variant: "destructive",
       });
       return;
@@ -121,6 +171,34 @@ const Checkout = () => {
     );
   }
 
+  const renderInputField = (
+    type: 'shipping' | 'billing',
+    field: keyof Address,
+    label: string,
+    address: Address,
+    errors: FieldErrors,
+    inputType: string = 'text',
+    required: boolean = true
+  ) => {
+    const id = `${type}-${field}`;
+    const error = errors[field];
+    
+    return (
+      <div>
+        <Label htmlFor={id}>{label}{!required && ' (Optional)'}</Label>
+        <Input
+          id={id}
+          type={inputType}
+          value={address[field]}
+          onChange={(e) => handleInputChange(type, field, e.target.value)}
+          className={error ? 'border-destructive' : ''}
+          required={required}
+        />
+        {error && <p className="text-sm text-destructive mt-1">{error}</p>}
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-background py-8">
       <div className="container mx-auto px-4">
@@ -138,94 +216,23 @@ const Checkout = () => {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="shipping-firstName">First Name</Label>
-                        <Input
-                          id="shipping-firstName"
-                          value={shippingAddress.firstName}
-                          onChange={(e) => handleInputChange('shipping', 'firstName', e.target.value)}
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="shipping-lastName">Last Name</Label>
-                        <Input
-                          id="shipping-lastName"
-                          value={shippingAddress.lastName}
-                          onChange={(e) => handleInputChange('shipping', 'lastName', e.target.value)}
-                          required
-                        />
-                      </div>
+                      {renderInputField('shipping', 'firstName', 'First Name', shippingAddress, shippingErrors)}
+                      {renderInputField('shipping', 'lastName', 'Last Name', shippingAddress, shippingErrors)}
                     </div>
-                    <div>
-                      <Label htmlFor="shipping-email">Email</Label>
-                      <Input
-                        id="shipping-email"
-                        type="email"
-                        value={shippingAddress.email}
-                        onChange={(e) => handleInputChange('shipping', 'email', e.target.value)}
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="shipping-phone">Phone</Label>
-                      <Input
-                        id="shipping-phone"
-                        value={shippingAddress.phone}
-                        onChange={(e) => handleInputChange('shipping', 'phone', e.target.value)}
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="shipping-address1">Address Line 1</Label>
-                      <Input
-                        id="shipping-address1"
-                        value={shippingAddress.addressLine1}
-                        onChange={(e) => handleInputChange('shipping', 'addressLine1', e.target.value)}
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="shipping-address2">Address Line 2 (Optional)</Label>
-                      <Input
-                        id="shipping-address2"
-                        value={shippingAddress.addressLine2}
-                        onChange={(e) => handleInputChange('shipping', 'addressLine2', e.target.value)}
-                      />
-                    </div>
+                    {renderInputField('shipping', 'email', 'Email', shippingAddress, shippingErrors, 'email')}
+                    {renderInputField('shipping', 'phone', 'Phone', shippingAddress, shippingErrors, 'tel', false)}
+                    {renderInputField('shipping', 'addressLine1', 'Address Line 1', shippingAddress, shippingErrors)}
+                    {renderInputField('shipping', 'addressLine2', 'Address Line 2', shippingAddress, shippingErrors, 'text', false)}
                     <div className="grid md:grid-cols-3 gap-4">
-                      <div>
-                        <Label htmlFor="shipping-city">City</Label>
-                        <Input
-                          id="shipping-city"
-                          value={shippingAddress.city}
-                          onChange={(e) => handleInputChange('shipping', 'city', e.target.value)}
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="shipping-state">State/County</Label>
-                        <Input
-                          id="shipping-state"
-                          value={shippingAddress.state}
-                          onChange={(e) => handleInputChange('shipping', 'state', e.target.value)}
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="shipping-postal">Postal Code</Label>
-                        <Input
-                          id="shipping-postal"
-                          value={shippingAddress.postalCode}
-                          onChange={(e) => handleInputChange('shipping', 'postalCode', e.target.value)}
-                          required
-                        />
-                      </div>
+                      {renderInputField('shipping', 'city', 'City', shippingAddress, shippingErrors)}
+                      {renderInputField('shipping', 'state', 'State/County', shippingAddress, shippingErrors)}
+                      {renderInputField('shipping', 'postalCode', 'Postal Code', shippingAddress, shippingErrors)}
                     </div>
                   </CardContent>
                 </Card>
 
                 {/* Billing Address */}
-                <Card>
+                <Card className="mt-6">
                   <CardHeader>
                     <CardTitle>Billing Address</CardTitle>
                     <div className="flex items-center space-x-2">
@@ -241,33 +248,25 @@ const Checkout = () => {
                   {!sameAsShipping && (
                     <CardContent className="space-y-4">
                       <div className="grid md:grid-cols-2 gap-4">
-                        <div>
-                          <Label htmlFor="billing-firstName">First Name</Label>
-                          <Input
-                            id="billing-firstName"
-                            value={billingAddress.firstName}
-                            onChange={(e) => handleInputChange('billing', 'firstName', e.target.value)}
-                            required
-                          />
-                        </div>
-                        <div>
-                          <Label htmlFor="billing-lastName">Last Name</Label>
-                          <Input
-                            id="billing-lastName"
-                            value={billingAddress.lastName}
-                            onChange={(e) => handleInputChange('billing', 'lastName', e.target.value)}
-                            required
-                          />
-                        </div>
+                        {renderInputField('billing', 'firstName', 'First Name', billingAddress, billingErrors)}
+                        {renderInputField('billing', 'lastName', 'Last Name', billingAddress, billingErrors)}
                       </div>
-                      {/* ... similar fields as shipping address ... */}
+                      {renderInputField('billing', 'email', 'Email', billingAddress, billingErrors, 'email')}
+                      {renderInputField('billing', 'phone', 'Phone', billingAddress, billingErrors, 'tel', false)}
+                      {renderInputField('billing', 'addressLine1', 'Address Line 1', billingAddress, billingErrors)}
+                      {renderInputField('billing', 'addressLine2', 'Address Line 2', billingAddress, billingErrors, 'text', false)}
+                      <div className="grid md:grid-cols-3 gap-4">
+                        {renderInputField('billing', 'city', 'City', billingAddress, billingErrors)}
+                        {renderInputField('billing', 'state', 'State/County', billingAddress, billingErrors)}
+                        {renderInputField('billing', 'postalCode', 'Postal Code', billingAddress, billingErrors)}
+                      </div>
                     </CardContent>
                   )}
                 </Card>
 
                 <Button 
                   type="submit" 
-                  className="w-full" 
+                  className="w-full mt-6" 
                   size="lg"
                   disabled={isProcessing}
                 >
