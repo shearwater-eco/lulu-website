@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
-import { useAuth } from '@/hooks/useAuth';
 
 type AppRole = 'admin' | 'manager' | 'staff' | 'user';
 
@@ -11,23 +9,30 @@ interface UserRole {
   role: AppRole;
 }
 
-export function useUserRoles() {
-  const { user } = useAuth();
+export function useUserRoles(userId?: string | null) {
+  const resolvedUserId = userId ?? null;
   
-  const { data: roles = [], isLoading, refetch } = useQuery({
-    queryKey: ['user-roles', user?.id],
+  const {
+    data: roles = [],
+    isLoading,
+    isFetching,
+    isError,
+    error,
+    refetch,
+  } = useQuery({
+    queryKey: ['user-roles', resolvedUserId],
     queryFn: async () => {
-      if (!user?.id) return [];
+      if (!resolvedUserId) return [];
       
       const { data, error } = await supabase
         .from('user_roles')
         .select('*')
-        .eq('user_id', user.id);
+        .eq('user_id', resolvedUserId);
       
       if (error) throw error;
       return data as unknown as UserRole[];
     },
-    enabled: !!user?.id,
+    enabled: !!resolvedUserId,
   });
 
   const hasRole = (role: AppRole): boolean => {
@@ -41,6 +46,9 @@ export function useUserRoles() {
   return {
     roles,
     isLoading,
+    isFetching,
+    isError,
+    error,
     hasRole,
     isAdmin,
     isManager,

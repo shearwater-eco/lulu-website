@@ -20,7 +20,7 @@ import { Loader2 } from "lucide-react";
 
 const Asda = () => {
   const { user, isLoading: authLoading } = useAuth();
-  const { roles, isLoading: rolesLoading } = useUserRoles();
+  const { roles, isLoading: rolesLoading } = useUserRoles(user?.id);
   const [formData, setFormData] = useState({
     name: "",
     email: "",

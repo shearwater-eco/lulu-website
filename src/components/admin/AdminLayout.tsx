@@ -50,27 +50,35 @@ export function AdminLayout({ children }: AdminLayoutProps) {
   const location = useLocation();
   const navigate = useNavigate();
   const { user, signOut, isLoading: authLoading } = useAuth();
-  const { isAdmin, isManager, isLoading: rolesLoading } = useUserRoles();
+  const {
+    isAdmin,
+    isManager,
+    isLoading: rolesLoading,
+    isFetching: rolesFetching,
+    isError: rolesError,
+    error,
+    refetch,
+  } = useUserRoles(user?.id);
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const rolesBusy = rolesLoading || rolesFetching;
+
   // Redirect if not authenticated or not admin/manager
   useEffect(() => {
-    if (!authLoading && !rolesLoading) {
+    if (!authLoading && !rolesBusy) {
       if (!user) {
-        navigate('/auth', { state: { from: location.pathname } });
-      } else if (!isAdmin && !isManager) {
-        navigate('/');
+        navigate('/auth', { state: { from: `${location.pathname}${location.search}${location.hash}` } });
       }
     }
-  }, [user, isAdmin, isManager, authLoading, rolesLoading, navigate, location.pathname]);
+  }, [user, authLoading, rolesBusy, navigate, location.pathname, location.search, location.hash]);
 
   const handleSignOut = async () => {
     await signOut();
     navigate('/');
   };
 
-  if (authLoading || rolesLoading) {
+  if (authLoading || rolesBusy) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full" />
@@ -78,8 +86,53 @@ export function AdminLayout({ children }: AdminLayoutProps) {
     );
   }
 
-  if (!user || (!isAdmin && !isManager)) {
+  if (rolesError) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-6">
+        <div className="max-w-md w-full bg-background border rounded-xl p-6 space-y-3">
+          <h1 className="text-xl font-semibold">Can't verify admin access</h1>
+          <p className="text-sm text-muted-foreground">
+            Please retry. If this keeps happening, sign out and back in.
+          </p>
+          <pre className="text-xs bg-muted/30 border rounded-lg p-3 overflow-auto">
+            {String((error as any)?.message ?? error ?? 'Unknown error')}
+          </pre>
+          <div className="flex gap-2">
+            <Button onClick={() => refetch()}>
+              Retry
+            </Button>
+            <Button variant="outline" onClick={handleSignOut}>
+              Sign out
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
     return null;
+  }
+
+  if (!isAdmin && !isManager) {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-6">
+        <div className="max-w-md w-full bg-background border rounded-xl p-6 space-y-3 text-center">
+          <h1 className="text-xl font-semibold">Access denied</h1>
+          <p className="text-sm text-muted-foreground">
+            Your account doesn't have admin access.
+          </p>
+          <div className="flex gap-2 justify-center">
+            <Button variant="outline" asChild>
+              <Link to="/">Go home</Link>
+            </Button>
+            <Button onClick={() => refetch()}>
+              Recheck access
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
