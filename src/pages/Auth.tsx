@@ -11,11 +11,42 @@ import { toast } from 'sonner';
 
 export default function Auth() {
   const location = useLocation();
-  const redirectTo = (location.state as { from?: string })?.from || '/';
+  const redirectTo = getSafeRedirectTo((location.state as { from?: unknown } | null)?.from);
   const navigate = useNavigate();
   const { signIn, signUp } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  function getSafeRedirectTo(from: unknown): string {
+    // Only allow internal navigations. If we accidentally receive a full URL
+    // (or the malformed "/https://..." form), extract just the path.
+    if (typeof from !== 'string') return '/';
+    const trimmed = from.trim();
+    if (!trimmed) return '/';
+
+    const extractPath = (urlString: string): string | null => {
+      try {
+        const u = new URL(urlString);
+        const path = `${u.pathname}${u.search}${u.hash}`;
+        return path && path.startsWith('/') ? path : '/';
+      } catch {
+        return null;
+      }
+    };
+
+    if (/^https?:\/\//i.test(trimmed)) {
+      return extractPath(trimmed) ?? '/';
+    }
+
+    // Handle malformed internal path that looks like "/https://example.com/auth"
+    if (/^\/https?:\/\//i.test(trimmed)) {
+      return extractPath(trimmed.slice(1)) ?? '/';
+    }
+
+    // Only allow internal app paths.
+    if (!trimmed.startsWith('/')) return '/';
+    return trimmed;
+  }
   
   // Login form state
   const [loginEmail, setLoginEmail] = useState('');
@@ -41,7 +72,7 @@ export default function Auth() {
         toast.error(error.message || 'Failed to sign in');
       } else {
         toast.success('Welcome back!');
-        navigate(redirectTo);
+        navigate(redirectTo, { replace: true });
       }
     } catch (err: any) {
       toast.error(err.message || 'An error occurred');
