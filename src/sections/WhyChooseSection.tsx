@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Heart, Award, Truck, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import luluHero from '@/assets/lulu-mascot-welsh-coast.png';
+import luluHero from '@/assets/lulu-hero.jpg';
 
 interface Feature {
   icon: React.ReactNode;
