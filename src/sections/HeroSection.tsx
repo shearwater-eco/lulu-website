@@ -1,81 +1,108 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Users } from 'lucide-react';
+import { ArrowRight, Leaf, Recycle, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { RainbowBorder, RainbowStripeBar } from '@/components/storefront/RainbowBorder';
-import luluHero from '@/assets/lulu-mascot-welsh-coast.png';
+import luluBoxMockup from '@/assets/lulu-box-mockup.png';
 
 export function HeroSection() {
   return (
     <section className="relative py-12 md:py-20">
       {/* Animated rainbow stripe bar */}
-      <RainbowStripeBar className="mb-12" />
+      <RainbowStripeBar className="mb-8" />
       
       <div className="container">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left side - Text content */}
-          <div className="space-y-8">
-            {/* Product label with rainbow border */}
-            <RainbowBorder className="inline-block">
-              <div className="px-8 py-6 text-center">
-                <h2 className="text-2xl md:text-3xl font-bold font-serif tracking-wide">
-                  TOILET TISSUE
-                </h2>
-                <p className="text-sm italic text-muted-foreground mt-1">by</p>
-                <p className="text-2xl font-bold font-serif">LULU</p>
-              </div>
-            </RainbowBorder>
+          <div className="space-y-6">
+            {/* Main headline - clear value proposition */}
+            <div className="space-y-2">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif tracking-wide leading-tight">
+                Premium Toilet Tissue
+                <span className="block text-primary">at Supermarket Prices</span>
+              </h1>
+            </div>
 
-            <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
-              Sustainable paper products that don't compromise on quality. 
-              Join the eco-revolution with Lulu the Shearwater!
+            {/* Eco credentials - quick scannable badges */}
+            <div className="flex flex-wrap gap-3">
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-secondary/50 rounded-full border border-foreground/20">
+                <Leaf className="h-4 w-4 text-primary" />
+                <span className="text-sm font-medium">Tree-Free</span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-secondary/50 rounded-full border border-foreground/20">
+                <Recycle className="h-4 w-4 text-primary" />
+                <span className="text-sm font-medium">Plastic-Free</span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-1.5 bg-secondary/50 rounded-full border border-foreground/20">
+                <MapPin className="h-4 w-4 text-primary" />
+                <span className="text-sm font-medium">Made in Wales</span>
+              </div>
+            </div>
+
+            {/* Supporting text */}
+            <p className="text-lg text-muted-foreground max-w-lg">
+              Soft, strong, and sustainable. LULU toilet tissue gives you the quality you expect without harming the planet.
             </p>
 
-            {/* CTA Buttons - EXACT lulu.earth style */}
-            <div className="flex flex-wrap gap-4">
+            {/* Primary CTA - single focused action */}
+            <div className="flex flex-col sm:flex-row gap-4 items-start">
               <Button 
                 size="lg" 
                 asChild
-                className="rounded-xl border-2 border-foreground bg-primary text-primary-foreground text-base font-bold px-8 py-6 shadow-brutal hover:shadow-brutal-lg transition-all hover:-translate-y-0.5"
+                className="rounded-xl border-2 border-foreground bg-primary text-primary-foreground text-lg font-bold px-10 py-7 shadow-brutal hover:shadow-brutal-lg transition-all hover:-translate-y-0.5"
               >
                 <Link to="/shop">
                   SHOP NOW
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button 
-                size="lg" 
-                asChild
-                className="rounded-xl border-2 border-foreground bg-secondary text-secondary-foreground text-base font-bold px-8 py-6 shadow-brutal hover:shadow-brutal-lg transition-all hover:-translate-y-0.5"
+              <Link 
+                to="/business" 
+                className="text-sm font-medium text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors py-2"
               >
-                <Link to="/business">
-                  FOR BUSINESSES
-                  <Users className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
+                Ordering for a business?
+              </Link>
             </div>
+
+            {/* Aspirational social proof */}
+            <p className="text-sm text-muted-foreground italic">
+              Join thousands making the switch to sustainable
+            </p>
           </div>
 
-          {/* Right side - LULU hero image with rainbow border */}
+          {/* Right side - Product + Video showcase */}
           <div className="relative">
             <RainbowBorder animated>
-              <div className="overflow-hidden rounded-lg">
+              <div className="p-6 md:p-8 bg-background">
+                {/* Product box image - prominent */}
                 <img 
-                  src={luluHero} 
-                  alt="LULU the bird on a beautiful beach with dolphins"
-                  className="w-full h-auto object-cover"
+                  src={luluBoxMockup} 
+                  alt="LULU sustainable toilet tissue box - 9 rolls, tree-free"
+                  className="w-full max-w-sm mx-auto h-auto object-contain mb-4"
                 />
-              </div>
-              {/* "Meet Lulu" badge */}
-              <div className="absolute bottom-4 right-4 bg-background rounded-full px-4 py-2 border-2 border-foreground shadow-brutal-sm flex items-center gap-2">
-                <span className="text-sm font-semibold">Meet Lulu!</span>
-                <div className="w-6 h-1 bg-gradient-to-r from-rainbow-teal via-rainbow-pink to-rainbow-yellow rounded-full" />
+                
+                {/* Video below - supporting content */}
+                <div className="rounded-lg overflow-hidden border-2 border-foreground/10">
+                  <video 
+                    src="/lulu-video-website-2.mp4" 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    className="w-full h-auto"
+                  />
+                </div>
               </div>
             </RainbowBorder>
+            
+            {/* "Meet Lulu" badge */}
+            <div className="absolute -bottom-3 -right-3 md:bottom-4 md:right-4 bg-background rounded-full px-4 py-2 border-2 border-foreground shadow-brutal-sm flex items-center gap-2">
+              <span className="text-sm font-semibold">Meet Lulu! 🐦</span>
+            </div>
           </div>
         </div>
 
         {/* Tagline */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-12 md:mt-16">
           <p className="text-xl md:text-2xl font-serif italic text-muted-foreground">
             Gentle on you, kind to the Earth
           </p>
