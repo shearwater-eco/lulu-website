@@ -20,15 +20,6 @@ function seededRandom(seed: number) {
   return x - Math.floor(x);
 }
 
-/**
- * Generates radiating trapezoid wedge tiles that fan outward from the
- * inner panel edge — matching the physical LULU box stained-glass style.
- *
- * The approach: divide each side of the border into radial "columns" that
- * emanate from the center. Each column is split into "rows" (depth layers).
- * This creates the characteristic fan/sunburst pattern with black leading.
- */
-
 // --- MOSAIC FRAME: wraps children with a stained-glass border ---
 interface MosaicFrameProps {
   children: ReactNode;
@@ -40,15 +31,13 @@ interface MosaicFrameProps {
 export function MosaicFrame({
   children,
   className,
-  borderWidth = 40,
+  borderWidth = 48,
   showArch = false,
 }: MosaicFrameProps) {
   return (
     <div className={cn('relative', className)}>
       {/* Mosaic border background — SVG that fills the whole area */}
-      <div
-        className="absolute inset-0 rounded-sm overflow-hidden"
-      >
+      <div className="absolute inset-0 rounded-sm overflow-hidden">
         <RadiatingMosaicBorder seed={1} />
       </div>
 
@@ -59,7 +48,7 @@ export function MosaicFrame({
         </div>
       )}
 
-      {/* Inner content area */}
+      {/* Inner content area — sits inside the hourglass */}
       <div
         className="relative z-10"
         style={{
@@ -74,32 +63,141 @@ export function MosaicFrame({
 }
 
 /**
- * Radiating mosaic border — generates trapezoid tiles that fan out
- * from center towards each edge of the container.
+ * Radial sunburst mosaic border.
+ *
+ * Layer order (back to front):
+ * 1. Hot pink solid outer frame
+ * 2. Light blue/teal solid background
+ * 3. Black rect (leading background)
+ * 4. Mosaic trapezoid tile paths
+ * 5. Hourglass white fill with thin black stroke
+ *
+ * Tiles radiate from the center outward — each tile is a trapezoid
+ * formed between two radial lines and two concentric depth rings.
+ * The inner ring follows the concave hourglass curve.
  */
 function RadiatingMosaicBorder({ seed = 1 }: { seed?: number }) {
-  // We create an SVG with a viewBox and generate trapezoid paths
-  // for each of the 4 sides (top, right, bottom, left).
-  const viewW = 600;
-  const viewH = 800;
-  const border = 60; // border thickness in viewBox units
-  const gap = 2; // leading gap between tiles
+  const vW = 600;
+  const vH = 800;
 
+  // Outer frame insets
+  const pinkInset = 6;   // hot pink outer frame thickness
+  const tealInset = 14;  // teal layer thickness (after pink)
+  const mosaicInset = tealInset + pinkInset; // where mosaic area starts
+
+  // Hourglass inner panel dimensions
+  const panelTop = 70;
+  const panelBottom = vH - 70;
+  const panelLeft = 80;
+  const panelRight = vW - 80;
+  // Concave waist (narrowest point at vertical center)
+  const waistInset = 50; // how much the sides curve inward at the middle
+  const panelCenterY = vH / 2;
+
+  // Build the hourglass path using cubic beziers
+  const hourglassPath = useMemo(() => {
+    const tl = { x: panelLeft, y: panelTop };
+    const tr = { x: panelRight, y: panelTop };
+    const br = { x: panelRight, y: panelBottom };
+    const bl = { x: panelLeft, y: panelBottom };
+    const waistL = panelLeft + waistInset;
+    const waistR = panelRight - waistInset;
+
+    return [
+      `M ${tl.x} ${tl.y}`,
+      `L ${tr.x} ${tr.y}`,
+      // Right side: curve inward to waist then back out
+      `C ${tr.x} ${tr.y + 120}, ${waistR} ${panelCenterY - 80}, ${waistR} ${panelCenterY}`,
+      `C ${waistR} ${panelCenterY + 80}, ${br.x} ${br.y - 120}, ${br.x} ${br.y}`,
+      `L ${bl.x} ${bl.y}`,
+      // Left side: curve inward to waist then back out
+      `C ${bl.x} ${bl.y - 120}, ${waistL} ${panelCenterY + 80}, ${waistL} ${panelCenterY}`,
+      `C ${waistL} ${panelCenterY - 80}, ${tl.x} ${tl.y + 120}, ${tl.x} ${tl.y}`,
+      'Z',
+    ].join(' ');
+  }, []);
+
+  // Sample points along the hourglass inner boundary for tile generation
+  // Returns {x, y} for a given parameter t (0..1 going clockwise from top-left)
+  const sampleHourglass = useMemo(() => {
+    // We sample using cubic bezier math
+    const cubicBezier = (
+      t: number,
+      p0: number, p1: number, p2: number, p3: number
+    ) => {
+      const u = 1 - t;
+      return u * u * u * p0 + 3 * u * u * t * p1 + 3 * u * t * t * p2 + t * t * t * p3;
+    };
+
+    const tl = { x: panelLeft, y: panelTop };
+    const tr = { x: panelRight, y: panelTop };
+    const br = { x: panelRight, y: panelBottom };
+    const bl = { x: panelLeft, y: panelBottom };
+    const waistL = panelLeft + waistInset;
+    const waistR = panelRight - waistInset;
+
+    return (side: 'top' | 'right' | 'bottom' | 'left', t: number): { x: number; y: number } => {
+      switch (side) {
+        case 'top': {
+          // Linear along top edge from tl to tr
+          return { x: tl.x + (tr.x - tl.x) * t, y: tl.y };
+        }
+        case 'right': {
+          // Cubic bezier: tr → (tr.x, tr.y+120) → (waistR, cy-80) → (waistR, cy) first half
+          // then (waistR, cy) → (waistR, cy+80) → (br.x, br.y-120) → br second half
+          if (t <= 0.5) {
+            const lt = t * 2;
+            return {
+              x: cubicBezier(lt, tr.x, tr.x, waistR, waistR),
+              y: cubicBezier(lt, tr.y, tr.y + 120, panelCenterY - 80, panelCenterY),
+            };
+          } else {
+            const lt = (t - 0.5) * 2;
+            return {
+              x: cubicBezier(lt, waistR, waistR, br.x, br.x),
+              y: cubicBezier(lt, panelCenterY, panelCenterY + 80, br.y - 120, br.y),
+            };
+          }
+        }
+        case 'bottom': {
+          // Linear along bottom edge from br to bl (reversed)
+          return { x: br.x - (br.x - bl.x) * t, y: br.y };
+        }
+        case 'left': {
+          // Cubic bezier: bl → (bl.x, bl.y-120) → (waistL, cy+80) → (waistL, cy) first half
+          // then (waistL, cy) → (waistL, cy-80) → (tl.x, tl.y+120) → tl second half
+          if (t <= 0.5) {
+            const lt = t * 2;
+            return {
+              x: cubicBezier(lt, bl.x, bl.x, waistL, waistL),
+              y: cubicBezier(lt, bl.y, bl.y - 120, panelCenterY + 80, panelCenterY),
+            };
+          } else {
+            const lt = (t - 0.5) * 2;
+            return {
+              x: cubicBezier(lt, waistL, waistL, tl.x, tl.x),
+              y: cubicBezier(lt, panelCenterY, panelCenterY - 80, tl.y + 120, tl.y),
+            };
+          }
+        }
+      }
+    };
+  }, []);
+
+  // Generate mosaic tiles
   const tiles = useMemo(() => {
     const result: { d: string; color: string }[] = [];
     let idx = seed;
+    const gap = 3; // leading gap between tiles
 
-    // Helper: interpolate between two points
-    const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+    const pickColor = () => {
+      const ci = Math.floor(seededRandom(idx++) * MOSAIC_COLORS.length);
+      return MOSAIC_COLORS[ci];
+    };
 
-    // Generate tiles for one side
-    // outerEdge: array of points along the outer edge (left to right or top to bottom)
-    // innerEdge: corresponding points along the inner edge
-    const generateSide = (
-      outerStart: [number, number],
-      outerEnd: [number, number],
-      innerStart: [number, number],
-      innerEnd: [number, number],
+    // For each side, generate tiles that radiate from inner curve to outer edge
+    const generateSideTiles = (
+      side: 'top' | 'right' | 'bottom' | 'left',
       numCols: number,
       numRows: number,
     ) => {
@@ -107,86 +205,124 @@ function RadiatingMosaicBorder({ seed = 1 }: { seed?: number }) {
         const t0 = col / numCols;
         const t1 = (col + 1) / numCols;
 
+        // Inner boundary points (on the hourglass curve)
+        const inner0 = sampleHourglass(side, t0);
+        const inner1 = sampleHourglass(side, t1);
+
+        // Outer boundary points (on the outer rectangle edge, inset by mosaicInset)
+        let outer0: { x: number; y: number };
+        let outer1: { x: number; y: number };
+
+        switch (side) {
+          case 'top':
+            outer0 = { x: mosaicInset + (vW - 2 * mosaicInset) * t0, y: mosaicInset };
+            outer1 = { x: mosaicInset + (vW - 2 * mosaicInset) * t1, y: mosaicInset };
+            break;
+          case 'right':
+            outer0 = { x: vW - mosaicInset, y: mosaicInset + (vH - 2 * mosaicInset) * t0 };
+            outer1 = { x: vW - mosaicInset, y: mosaicInset + (vH - 2 * mosaicInset) * t1 };
+            break;
+          case 'bottom':
+            outer0 = { x: vW - mosaicInset - (vW - 2 * mosaicInset) * t0, y: vH - mosaicInset };
+            outer1 = { x: vW - mosaicInset - (vW - 2 * mosaicInset) * t1, y: vH - mosaicInset };
+            break;
+          case 'left':
+            outer0 = { x: mosaicInset, y: vH - mosaicInset - (vH - 2 * mosaicInset) * t0 };
+            outer1 = { x: mosaicInset, y: vH - mosaicInset - (vH - 2 * mosaicInset) * t1 };
+            break;
+        }
+
+        // Split into depth rows
         for (let row = 0; row < numRows; row++) {
           const r0 = row / numRows;
           const r1 = (row + 1) / numRows;
 
-          // Four corners of the trapezoid
-          // Outer edge at t0,t1 and inner edge at t0,t1, interpolated by row depth
-          const ox0 = lerp(outerStart[0], outerEnd[0], t0);
-          const oy0 = lerp(outerStart[1], outerEnd[1], t0);
-          const ox1 = lerp(outerStart[0], outerEnd[0], t1);
-          const oy1 = lerp(outerStart[1], outerEnd[1], t1);
+          // Lerp between inner and outer for each depth
+          const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
-          const ix0 = lerp(innerStart[0], innerEnd[0], t0);
-          const iy0 = lerp(innerStart[1], innerEnd[1], t0);
-          const ix1 = lerp(innerStart[0], innerEnd[0], t1);
-          const iy1 = lerp(innerStart[1], innerEnd[1], t1);
+          const p0x = lerp(inner0.x, outer0.x, r0);
+          const p0y = lerp(inner0.y, outer0.y, r0);
+          const p1x = lerp(inner1.x, outer1.x, r0);
+          const p1y = lerp(inner1.y, outer1.y, r0);
+          const p2x = lerp(inner1.x, outer1.x, r1);
+          const p2y = lerp(inner1.y, outer1.y, r1);
+          const p3x = lerp(inner0.x, outer0.x, r1);
+          const p3y = lerp(inner0.y, outer0.y, r1);
 
-          // Interpolate between outer and inner by row depth
-          const p0x = lerp(ox0, ix0, r0) + gap / 2;
-          const p0y = lerp(oy0, iy0, r0) + gap / 2;
-          const p1x = lerp(ox1, ix1, r0) - gap / 2;
-          const p1y = lerp(oy1, iy1, r0) + gap / 2;
-          const p2x = lerp(ox1, ix1, r1) - gap / 2;
-          const p2y = lerp(oy1, iy1, r1) - gap / 2;
-          const p3x = lerp(ox0, ix0, r1) + gap / 2;
-          const p3y = lerp(oy0, iy0, r1) - gap / 2;
+          // Apply gap (shrink tile inward)
+          const cx = (p0x + p1x + p2x + p3x) / 4;
+          const cy = (p0y + p1y + p2y + p3y) / 4;
+          const shrink = (px: number, py: number) => {
+            const dx = px - cx;
+            const dy = py - cy;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 0.1) return { x: px, y: py };
+            const factor = Math.max(0, dist - gap / 2) / dist;
+            return { x: cx + dx * factor, y: cy + dy * factor };
+          };
 
-          const colorIdx = Math.floor(seededRandom(idx++) * MOSAIC_COLORS.length);
+          const s0 = shrink(p0x, p0y);
+          const s1 = shrink(p1x, p1y);
+          const s2 = shrink(p2x, p2y);
+          const s3 = shrink(p3x, p3y);
 
           result.push({
-            d: `M ${p0x} ${p0y} L ${p1x} ${p1y} L ${p2x} ${p2y} L ${p3x} ${p3y} Z`,
-            color: MOSAIC_COLORS[colorIdx],
+            d: `M ${s0.x} ${s0.y} L ${s1.x} ${s1.y} L ${s2.x} ${s2.y} L ${s3.x} ${s3.y} Z`,
+            color: pickColor(),
           });
         }
       }
     };
 
-    // TOP side: outer = top edge, inner = top of content area
-    generateSide(
-      [0, 0], [viewW, 0],           // outer left-to-right
-      [border, border], [viewW - border, border], // inner left-to-right
-      20, 3
-    );
-
-    // BOTTOM side
-    generateSide(
-      [0, viewH], [viewW, viewH],
-      [border, viewH - border], [viewW - border, viewH - border],
-      20, 3
-    );
-
-    // LEFT side
-    generateSide(
-      [0, 0], [0, viewH],
-      [border, border], [border, viewH - border],
-      12, 3
-    );
-
-    // RIGHT side
-    generateSide(
-      [viewW, 0], [viewW, viewH],
-      [viewW - border, border], [viewW - border, viewH - border],
-      12, 3
-    );
+    // Top: 12 cols × 2 rows
+    generateSideTiles('top', 12, 2);
+    // Bottom: 12 cols × 2 rows
+    generateSideTiles('bottom', 12, 2);
+    // Right: 10 cols × 2 rows
+    generateSideTiles('right', 10, 2);
+    // Left: 10 cols × 2 rows
+    generateSideTiles('left', 10, 2);
 
     return result;
-  }, [seed]);
+  }, [seed, sampleHourglass]);
 
   return (
     <svg
       className="w-full h-full"
-      viewBox={`0 0 ${viewW} ${viewH}`}
+      viewBox={`0 0 ${vW} ${vH}`}
       preserveAspectRatio="none"
       xmlns="http://www.w3.org/2000/svg"
       style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
     >
-      {/* Black background = the "leading" between tiles */}
-      <rect width={viewW} height={viewH} fill="#1a1a1a" />
+      {/* Layer 1: Hot pink outer frame */}
+      <rect width={vW} height={vH} fill="#E91E78" />
+
+      {/* Layer 2: Teal/light blue background */}
+      <rect
+        x={pinkInset} y={pinkInset}
+        width={vW - 2 * pinkInset} height={vH - 2 * pinkInset}
+        fill="#00B4A0"
+      />
+
+      {/* Layer 3: Black leading background */}
+      <rect
+        x={mosaicInset} y={mosaicInset}
+        width={vW - 2 * mosaicInset} height={vH - 2 * mosaicInset}
+        fill="#1a1a1a"
+      />
+
+      {/* Layer 4: Mosaic tiles */}
       {tiles.map((tile, i) => (
         <path key={i} d={tile.d} fill={tile.color} />
       ))}
+
+      {/* Layer 5: White hourglass panel with thin black stroke */}
+      <path
+        d={hourglassPath}
+        fill="white"
+        stroke="#1a1a1a"
+        strokeWidth={3}
+      />
     </svg>
   );
 }
@@ -292,15 +428,13 @@ export function MosaicStrip({ className, seed = 7 }: { className?: string; seed?
   );
 }
 
-// --- SIDE MOSAIC STRIPS: replaces the old SideRainbowStrips ---
+// --- SIDE MOSAIC STRIPS ---
 export function SideMosaicStrips() {
   return (
     <>
-      {/* Left side */}
       <div className="fixed left-0 top-0 bottom-0 w-8 hidden lg:block z-40 overflow-hidden">
         <SideStripPattern seed={3} />
       </div>
-      {/* Right side */}
       <div className="fixed right-0 top-0 bottom-0 w-8 hidden lg:block z-40 overflow-hidden">
         <SideStripPattern seed={5} />
       </div>
