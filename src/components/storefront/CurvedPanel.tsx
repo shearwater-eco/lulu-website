@@ -8,54 +8,65 @@ interface CurvedPanelProps {
 
 /**
  * Hourglass-shaped white panel matching the LULU box face.
- * Concave sides with teal outline + hot pink outer glow strip.
+ * The panel is wider at top and bottom, narrower at the center (concave sides).
+ * Has a teal/primary outline and hot pink outer glow strip — matching the box.
+ *
+ * Uses SVG clip-path for precise curves matching the physical packaging.
  */
 export function CurvedPanel({ children, className }: CurvedPanelProps) {
+  // The hourglass shape — concave sides. 
+  // Top edge: flat. Bottom edge: flat. Left & right: curve inward.
+  const clipPath = `
+    M 0.05 0
+    L 0.95 0
+    Q 1 0, 1 0.05
+    Q 0.92 0.25, 0.92 0.5
+    Q 0.92 0.75, 1 0.95
+    Q 1 1, 0.95 1
+    L 0.05 1
+    Q 0 1, 0 0.95
+    Q 0.08 0.75, 0.08 0.5
+    Q 0.08 0.25, 0 0.05
+    Q 0 0, 0.05 0
+    Z
+  `;
+
+  // Convert to polygon-ish percentages for CSS clip-path
+  const cssClipPath = `polygon(
+    5% 0%, 95% 0%,
+    100% 3%, 93% 25%, 92% 50%, 93% 75%, 100% 97%,
+    95% 100%, 5% 100%,
+    0% 97%, 7% 75%, 8% 50%, 7% 25%, 0% 3%
+  )`;
+
   return (
-    <div className={cn('relative mx-auto w-full max-w-lg', className)}>
+    <div className={cn('relative mx-auto w-full', className)}>
       {/* Hot pink glow strip behind the panel */}
       <div
         className="absolute inset-0"
         style={{
-          clipPath: `polygon(
-            8% 0%, 92% 0%,
-            100% 5%, 96% 50%, 100% 95%,
-            92% 100%, 8% 100%,
-            0% 95%, 4% 50%, 0% 5%
-          )`,
-          background: 'hsl(var(--secondary))',
-          transform: 'scale(1.03)',
+          clipPath: cssClipPath,
+          background: '#E91E78',
+          transform: 'scale(1.04, 1.02)',
         }}
       />
 
-      {/* Teal outline layer */}
+      {/* Teal/primary outline layer */}
       <div
         className="absolute inset-0"
         style={{
-          clipPath: `polygon(
-            8% 0%, 92% 0%,
-            100% 5%, 96% 50%, 100% 95%,
-            92% 100%, 8% 100%,
-            0% 95%, 4% 50%, 0% 5%
-          )`,
+          clipPath: cssClipPath,
           background: 'hsl(var(--primary))',
-          transform: 'scale(1.015)',
+          transform: 'scale(1.02, 1.01)',
         }}
       />
 
       {/* White panel */}
       <div
         className="relative bg-background"
-        style={{
-          clipPath: `polygon(
-            8% 0%, 92% 0%,
-            100% 5%, 96% 50%, 100% 95%,
-            92% 100%, 8% 100%,
-            0% 95%, 4% 50%, 0% 5%
-          )`,
-        }}
+        style={{ clipPath: cssClipPath }}
       >
-        <div className="px-8 py-10 md:px-12 md:py-14">
+        <div className="px-6 py-8 md:px-10 md:py-12 lg:px-14 lg:py-16">
           {children}
         </div>
       </div>
