@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, User, Search, ShoppingCart, Settings } from "lucide-react";
+import { Menu, X, User, Search, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link, useLocation } from "react-router-dom";
@@ -95,16 +95,9 @@ const Header = () => {
                   <Search className="h-6 w-6" />
                 </Button>
                 <CartSheet />
-                <Link to="/account">
-                  <Button variant="ghost" size="icon" className="mosaic-border p-3">
-                    <User className="h-6 w-6" />
-                  </Button>
-                </Link>
-                <Link to="/admin">
-                  <Button variant="ghost" size="icon" className="mosaic-border p-3">
-                    <Settings className="h-6 w-6" />
-                  </Button>
-                </Link>
+                <Button variant="ghost" size="icon" className="mosaic-border p-3">
+                  <User className="h-6 w-6" />
+                </Button>
 
                 {/* Mobile menu trigger */}
                 <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -121,17 +114,13 @@ const Header = () => {
                           {item.name}
                         </Link>)}
                       <div className="mosaic-border-thick pt-4 mt-4 space-y-2 rounded-xl bg-white">
-                        <Button className="w-full justify-start btn-hero" variant="ghost" asChild>
-                          <Link to="/account" onClick={() => setIsMenuOpen(false)}>
-                            <User className="h-5 w-5 mr-2" />
-                            My Account
-                          </Link>
+                        <Button className="w-full justify-start btn-hero" variant="ghost">
+                          <User className="h-5 w-5 mr-2" />
+                          My Account
                         </Button>
-                        <Button className="w-full justify-start btn-secondary" variant="ghost" asChild>
-                          <Link to="/admin" onClick={() => setIsMenuOpen(false)}>
-                            <Settings className="h-5 w-5 mr-2" />
-                            Admin
-                          </Link>
+                        <Button className="w-full justify-start btn-secondary" variant="ghost">
+                          <ShoppingCart className="h-5 w-5 mr-2" />
+                          Cart (0)
                         </Button>
                       </div>
                     </div>
