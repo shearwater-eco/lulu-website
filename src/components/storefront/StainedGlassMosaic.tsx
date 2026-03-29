@@ -274,14 +274,14 @@ function RadiatingMosaicBorder({ seed = 1 }: { seed?: number }) {
       }
     };
 
-    // Top: 12 cols × 2 rows
-    generateSideTiles('top', 12, 2);
-    // Bottom: 12 cols × 2 rows
-    generateSideTiles('bottom', 12, 2);
-    // Right: 10 cols × 2 rows
-    generateSideTiles('right', 10, 2);
-    // Left: 10 cols × 2 rows
-    generateSideTiles('left', 10, 2);
+    // Top: 16 cols × 3 rows
+    generateSideTiles('top', 16, 3);
+    // Bottom: 16 cols × 3 rows
+    generateSideTiles('bottom', 16, 3);
+    // Right: 14 cols × 3 rows
+    generateSideTiles('right', 14, 3);
+    // Left: 14 cols × 3 rows
+    generateSideTiles('left', 14, 3);
 
     return result;
   }, [seed, sampleHourglass]);
