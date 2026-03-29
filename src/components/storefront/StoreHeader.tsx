@@ -31,7 +31,7 @@ export function StoreHeader({ onSearch }: StoreHeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background border-b border-foreground/10">
-      <div className="container flex h-20 items-center justify-between">
+      <div className="container flex h-16 items-center justify-between">
         {/* Mobile menu */}
         <Sheet>
           <SheetTrigger asChild className="md:hidden">
