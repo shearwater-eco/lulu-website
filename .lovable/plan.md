@@ -1,104 +1,69 @@
 
 
-# "The Box IS The Website" — Complete Implementation Plan
+# Fix: Stained-Glass Mosaic Border — Match Physical Box Exactly
 
-## Concept
+## What's Wrong Now
 
-The homepage becomes the LULU box unfolded flat. The stained-glass mosaic border from the physical packaging frames the page. The front panel is the hero. The back panel tells Lulu's story. Below that, a clean product grid for shopping. The box handle becomes a decorative arch element at the top.
+The current border draws simple rectangular grid tiles along each edge. The real box has:
+- **Radiating trapezoid tiles** that fan outward from the center of the white panel
+- **Hot pink outer frame** (solid thick strip around the entire edge)
+- **Light blue/teal background** visible behind/around the mosaic tiles
+- **Thin black outline** around the white hourglass panel (NOT teal/blue)
+- Tiles follow the **concave hourglass curve** on the sides — narrow at the waist, wide at corners
 
----
-
-## Page Flow (Top to Bottom)
+## Exact Layer Structure (outside → inside)
 
 ```text
-┌─ HEADER (compact, h-16) ─────────────────────┐
-│                                                │
-│  ═══ "THE BEST TP IN THE UNIVERSE" ═══        │
-│                                                │
-│  ╔═ STAINED-GLASS MOSAIC BORDER ════════════╗  │
-│  ║  ┌─ Handle arch (decorative SVG) ────┐   ║  │
-│  ║  └──────────────────────────────────┘   ║  │
-│  ║  ┌─ CURVED WHITE PANEL (front) ─────┐   ║  │
-│  ║  │  "TOILET TISSUE by"               │   ║  │
-│  ║  │       LULU                         │   ║  │
-│  ║  │  [VAL-U-SMART 24 ROLLS seal]      │   ║  │
-│  ║  │  "gentle on you, kind to earth"    │   ║  │
-│  ║  │       [SHOP NOW]                   │   ║  │
-│  ║  └───────────────────────────────────┘   ║  │
-│  ╚══════════════════════════════════════════╝  │
-│                                                │
-│  [═══════ Video (autoplay, muted) ═══════]     │
-│                                                │
-│  ╔═ STAINED-GLASS MOSAIC BORDER ════════════╗  │
-│  ║  ┌─ CURVED WHITE PANEL (back) ──────┐   ║  │
-│  ║  │  WWW.LULU.EARTH                   │   ║  │
-│  ║  │  Lulu mascot + poem               │   ║  │
-│  ║  │  Certification badges (PNGs)       │   ║  │
-│  ║  │  "LULU by ShearWater Eco TM"      │   ║  │
-│  ║  └───────────────────────────────────┘   ║  │
-│  ╚══════════════════════════════════════════╝  │
-│                                                │
-│  ── OUR SUSTAINABLE RANGE ──                   │
-│  [Product+Price+AddToCart] x3                   │
-│                                                │
-│  ── TESTIMONIALS ──                            │
-│  ── CTA ──                                     │
-│  ── FOOTER ──                                  │
-└────────────────────────────────────────────────┘
+┌─ HOT PINK solid outer frame ──────────────┐
+│ ┌─ LIGHT BLUE/TEAL solid background ────┐ │
+│ │  ┌─ MOSAIC TILES (black leading) ───┐  │ │
+│ │  │  ┌─ thin BLACK outline ────────┐  │  │ │
+│ │  │  │                             │  │  │ │
+│ │  │  │   WHITE HOURGLASS PANEL     │  │  │ │
+│ │  │  │                             │  │  │ │
+│ │  │  └─────────────────────────────┘  │  │ │
+│ │  └───────────────────────────────────┘  │ │
+│ └─────────────────────────────────────────┘ │
+└─────────────────────────────────────────────┘
 ```
 
----
+## Tile Geometry
 
-## Files to Create
+**Top/bottom borders**: ~10-12 trapezoid columns fanning from the curved inner edge to the straight outer edge, 2 depth rows. Tiles are wider at the outer edge, narrower where they meet the curve.
 
-| File | What It Does |
-|------|-------------|
-| `src/components/storefront/StainedGlassMosaic.tsx` | SVG component generating the irregular radiating mosaic pattern with black "leading" lines. Colours from the box: hot pink (#E91E78), lime (#7CFC00), green (#00A651), red (#E30613), orange (#F7941D), yellow-green (#C5E300), teal (#00B4A0), sky blue (#00BFFF), purple (#8B00FF). Variants: `frame` (wraps content), `arch` (handle shape), `strip` (horizontal divider). |
-| `src/components/storefront/CurvedPanel.tsx` | Hourglass-shaped white content panel using CSS `clip-path`. Concave sides matching the box. Light teal outline + hot pink strip between panel edge and mosaic. |
-| `src/sections/BoxFrontSection.tsx` | Hero section = front face of box. Mosaic frame with handle arch at top. Curved white panel containing: "TOILET TISSUE by" (serif italic), "LULU" (bold serif, large), VAL-U-SMART seal (teal circle, feather, "24 ROLLS"), tagline, SHOP NOW button. Bold "THE BEST TP IN THE UNIVERSE" tagline banner above the mosaic frame. Video sits below the box frame. |
-| `src/sections/BoxBackSection.tsx` | Story section = back face of box. Same mosaic frame + curved panel. "WWW.LULU.EARTH" header, Lulu mascot image (existing `lulu-mascot-thumbs-up-new.png`), full poem in italic serif, row of certification badge PNGs (`badge-tree-free.png`, `badge-lower-carbon.png`, `badge-dignity.png`), "LULU by ShearWater Eco TM". |
+**Side borders**: ~8-10 trapezoid rows fanning from the concave inner edge outward to straight side edges. Very narrow at the waist (center), wide at top/bottom corners — creating the characteristic leaf/eye shape visible in the close-up photo.
 
-## Files to Modify
+**All tiles**: separated by ~3px black "leading" lines on a black background.
 
-| File | Change |
-|------|--------|
-| `src/pages/Home.tsx` | Replace current 6 sections with: BoxFrontSection, BoxBackSection, ProductRangeSection, TestimonialsSection, CTASection. Remove WhyChoose + Certifications imports. Update side strips to use new mosaic. |
-| `src/sections/ProductRangeSection.tsx` | Replace numbered circles with product images (existing box assets). Change "LEARN MORE" to "ADD TO CART". Add price placeholders ("From £X.XX"). Subtle mosaic border accents on cards. |
-| `src/components/storefront/RainbowBorder.tsx` | Update `SideRainbowStrips` to use stained-glass mosaic pattern instead of flat colour blocks. |
-| `src/components/storefront/StoreHeader.tsx` | Reduce height to h-16, add small Lulu mascot icon beside logo. |
-| `src/index.css` | Add stained-glass colour CSS variables. |
+## Changes — 2 Files Only
 
-## Files to Delete
+### 1. `src/components/storefront/StainedGlassMosaic.tsx` — Complete rewrite of `RadiatingMosaicBorder`
 
-| File | Reason |
-|------|--------|
-| `src/sections/WhyChooseSection.tsx` | Content merged into BoxBackSection |
-| `src/sections/CertificationsSection.tsx` | Badge images moved to BoxBackSection |
+**New approach for `MosaicFrame`:**
+- Render an SVG that fills the entire component
+- Draw layers in order: hot pink rect → teal rect → black rect (leading background) → mosaic tile paths → hourglass white fill with thin black stroke
+- The hourglass inner shape uses cubic bezier curves (SVG `path` with `C` commands) matching the concave sides
+- Tiles are generated by casting radial lines from center to each edge, then splitting into depth rings between the inner curve and outer rectangle
+- The inner boundary points are sampled along the hourglass curve, so tiles naturally follow the concavity
+- Top/bottom: ~12 columns × 2 rows of trapezoids
+- Sides: ~8 columns × 2 rows of trapezoids
+- Corner tiles handled by the natural convergence of side/top tile fans
 
----
+### 2. `src/components/storefront/CurvedPanel.tsx` — Simplify
 
-## Existing Assets Used (no new uploads needed)
+- Remove the hot pink and teal layers (those are now in the border SVG)
+- Keep only the white panel with the hourglass clip-path
+- The border SVG already draws the thin black outline around the white area
 
-- `lulu-mascot-thumbs-up-new.png` — mascot in BoxBack
-- `badge-tree-free.png`, `badge-lower-carbon.png`, `badge-dignity.png` — certification badges in BoxBack
-- `lulu-box-front.jpg` / `lulu-box-mockup.png` — product images in ProductRange cards
-- `/lulu-video-website-2.mp4` — autoplay video below front panel
+## What Does NOT Change
 
-## Mobile Behaviour
-
-- Mosaic border shrinks from ~40px to ~16px
-- Handle arch scales down
-- Curved panel concavity reduces (subtler on small screens)
-- Side strips hidden (already the case)
+- `BoxFrontSection.tsx` — layout stays the same
+- `BoxBackSection.tsx` — same
+- `Home.tsx` / `Index.tsx` — same
+- `MosaicStrip`, `SideMosaicStrips`, `MosaicArch` — untouched
 
 ## Implementation Order
 
-1. StainedGlassMosaic + CurvedPanel components
-2. BoxFrontSection (hero with tagline + handle arch)
-3. BoxBackSection (story + badges)
-4. Update Home.tsx (new section order)
-5. Update ProductRangeSection (sales-focused cards)
-6. Compact StoreHeader
-7. Delete WhyChooseSection + CertificationsSection
-8. Polish + mobile responsiveness
+1. Rewrite `StainedGlassMosaic.tsx` — new `RadiatingMosaicBorder` with correct geometry + layered background
+2. Simplify `CurvedPanel.tsx` — remove pink/teal layers
 
