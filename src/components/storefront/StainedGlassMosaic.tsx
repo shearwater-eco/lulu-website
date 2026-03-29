@@ -81,17 +81,17 @@ function RadiatingMosaicBorder({ seed = 1 }: { seed?: number }) {
   const vH = 800;
 
   // Outer frame insets
-  const pinkInset = 6;   // hot pink outer frame thickness
-  const tealInset = 14;  // teal layer thickness (after pink)
-  const mosaicInset = tealInset + pinkInset; // where mosaic area starts
+  const pinkInset = 5;
+  const tealInset = 10;
+  const mosaicInset = tealInset + pinkInset;
 
-  // Hourglass inner panel dimensions
-  const panelTop = 70;
-  const panelBottom = vH - 70;
-  const panelLeft = 80;
-  const panelRight = vW - 80;
-  // Concave waist (narrowest point at vertical center)
-  const waistInset = 50; // how much the sides curve inward at the middle
+  // Hourglass inner panel — generous white area
+  const panelTop = 55;
+  const panelBottom = vH - 55;
+  const panelLeft = 60;
+  const panelRight = vW - 60;
+  // Concave waist — subtle curve matching the box
+  const waistInset = 25;
   const panelCenterY = vH / 2;
 
   // Build the hourglass path using cubic beziers
@@ -274,14 +274,14 @@ function RadiatingMosaicBorder({ seed = 1 }: { seed?: number }) {
       }
     };
 
-    // Top: 12 cols × 2 rows
-    generateSideTiles('top', 12, 2);
-    // Bottom: 12 cols × 2 rows
-    generateSideTiles('bottom', 12, 2);
-    // Right: 10 cols × 2 rows
-    generateSideTiles('right', 10, 2);
-    // Left: 10 cols × 2 rows
-    generateSideTiles('left', 10, 2);
+    // Top: 16 cols × 3 rows
+    generateSideTiles('top', 16, 3);
+    // Bottom: 16 cols × 3 rows
+    generateSideTiles('bottom', 16, 3);
+    // Right: 14 cols × 3 rows
+    generateSideTiles('right', 14, 3);
+    // Left: 14 cols × 3 rows
+    generateSideTiles('left', 14, 3);
 
     return result;
   }, [seed, sampleHourglass]);
