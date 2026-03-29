@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { MosaicFrame, MosaicArch, MosaicStrip } from '@/components/storefront/StainedGlassMosaic';
+import { MosaicFrame, MosaicStrip } from '@/components/storefront/StainedGlassMosaic';
 import { CurvedPanel } from '@/components/storefront/CurvedPanel';
 
 export function BoxFrontSection() {
@@ -20,53 +20,70 @@ export function BoxFrontSection() {
       {/* Mosaic strip divider */}
       <MosaicStrip className="mb-0" seed={11} />
 
-      {/* Box front face — mosaic frame with handle arch */}
-      <MosaicFrame showArch borderWidth={24} className="mx-auto max-w-3xl">
+      {/* Box front face — mosaic frame with content */}
+      <MosaicFrame borderWidth={28} className="mx-auto max-w-2xl md:max-w-3xl">
         <CurvedPanel>
-          <div className="text-center space-y-5">
-            {/* Product descriptor */}
-            <p className="text-base md:text-lg font-serif italic text-muted-foreground tracking-wide">
-              TOILET TISSUE by
-            </p>
+          <div className="text-center space-y-4 md:space-y-6">
+            {/* TOILET TISSUE — curved across the top, serif italic like the box */}
+            <div>
+              <h3
+                className="text-2xl sm:text-3xl md:text-4xl font-serif italic tracking-wide text-foreground"
+                style={{ fontWeight: 400 }}
+              >
+                TOILET TISSUE
+              </h3>
+              <p className="text-lg md:text-xl font-serif italic text-muted-foreground mt-1">
+                by
+              </p>
+            </div>
 
-            {/* LULU brand name — dominant */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-serif tracking-tight leading-none">
+            {/* LULU brand name — large, bold serif, dominant */}
+            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold font-serif tracking-tight leading-none text-foreground">
               LULU
             </h1>
 
-            {/* VAL-U-SMART seal */}
-            <div className="flex justify-center">
-              <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full border-[3px] border-primary bg-primary/5 flex flex-col items-center justify-center">
-                <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-primary">
+            {/* VAL-U-SMART seal — matching the teal circle from the box */}
+            <div className="flex justify-center py-2">
+              <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-[4px] border-primary bg-primary/5 flex flex-col items-center justify-center">
+                {/* VAL-U-SMART text around the top */}
+                <span
+                  className="text-[9px] md:text-[11px] font-bold tracking-[0.25em] uppercase text-primary"
+                  style={{ letterSpacing: '0.25em' }}
+                >
                   VAL-U-SMART
                 </span>
-                <span className="text-2xl md:text-3xl font-bold text-foreground leading-none mt-1">
+
+                {/* 24 ROLLS */}
+                <span className="text-3xl md:text-4xl font-bold text-foreground leading-none mt-1">
                   24
                 </span>
-                <span className="text-[10px] md:text-xs font-bold uppercase text-primary tracking-wider">
+                <span className="text-xs md:text-sm font-bold uppercase text-foreground tracking-wider">
                   ROLLS
                 </span>
-                {/* Feather accent */}
-                <span className="absolute -top-2 -right-2 text-lg">🪶</span>
+
+                {/* Feather icon */}
+                <span className="text-xl md:text-2xl mt-1 opacity-60">🪶</span>
               </div>
             </div>
 
-            {/* Tagline */}
-            <p className="text-sm md:text-base font-serif italic text-muted-foreground">
+            {/* Tagline — italic serif, matching the box */}
+            <p className="text-base md:text-lg lg:text-xl font-serif italic text-muted-foreground">
               gentle on you, kind to the earth
             </p>
 
             {/* SHOP NOW CTA */}
-            <Button
-              size="lg"
-              asChild
-              className="rounded-xl border-2 border-foreground bg-primary text-primary-foreground text-lg font-bold px-10 py-7 shadow-brutal hover:shadow-brutal-lg transition-all hover:-translate-y-0.5"
-            >
-              <Link to="/shop">
-                SHOP NOW
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+            <div className="pt-2">
+              <Button
+                size="lg"
+                asChild
+                className="rounded-xl border-2 border-foreground bg-primary text-primary-foreground text-lg font-bold px-10 py-7 shadow-brutal hover:shadow-brutal-lg transition-all hover:-translate-y-0.5"
+              >
+                <Link to="/shop">
+                  SHOP NOW
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </CurvedPanel>
       </MosaicFrame>
