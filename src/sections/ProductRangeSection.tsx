@@ -1,44 +1,45 @@
 import { Link } from 'react-router-dom';
+import { ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { RainbowBorder } from '@/components/storefront/RainbowBorder';
+import luluBoxFront from '@/assets/lulu-box-front.jpg';
+import luluBoxMockup from '@/assets/lulu-box-mockup.png';
+import luluRealBox from '@/assets/lulu-real-box.jpg';
 
 interface ProductCategory {
-  number: number;
   title: string;
   description: string;
+  price: string;
+  image: string;
   features: string[];
-  color: 'green' | 'teal' | 'orange';
+  href: string;
 }
 
 const products: ProductCategory[] = [
   {
-    number: 1,
     title: 'TOILET TISSUE',
     description: 'Soft, strong, and sustainable. Perfect for everyday use.',
-    features: ['9 Rolls', '3-Ply', 'FSC Certified'],
-    color: 'green',
+    price: 'From £8.99',
+    image: luluBoxFront,
+    features: ['24 Rolls', '3-Ply', 'FSC Certified'],
+    href: '/shop?category=toilet-tissue',
   },
   {
-    number: 2,
     title: 'KITCHEN ROLLS',
     description: 'Absorbent and eco-friendly for all your kitchen needs.',
+    price: 'From £6.99',
+    image: luluBoxMockup,
     features: ['6 Rolls', '2-Ply', 'Plastic-Free'],
-    color: 'teal',
+    href: '/shop?category=kitchen-rolls',
   },
   {
-    number: 3,
     title: 'FACIAL TISSUES',
     description: 'Gentle on your skin, gentle on the environment.',
+    price: 'From £3.99',
+    image: luluRealBox,
     features: ['Box of 150', 'Ultra Soft', 'Chemical-Free'],
-    color: 'orange',
+    href: '/shop?category=facial-tissues',
   },
 ];
-
-const colorMap = {
-  green: { bg: 'bg-[#4ADE80]', text: 'text-white' },
-  teal: { bg: 'bg-[#00C1B0]', text: 'text-white' },
-  orange: { bg: 'bg-[#FF8B4D]', text: 'text-white' },
-};
 
 export function ProductRangeSection() {
   return (
@@ -57,46 +58,59 @@ export function ProductRangeSection() {
         {/* Product cards */}
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {products.map((product) => (
-            <RainbowBorder key={product.number}>
-              <div className="p-6 md:p-8 text-center space-y-6">
-                {/* Number circle */}
-                <div 
-                  className={`w-16 h-16 rounded-full mx-auto flex items-center justify-center text-2xl font-bold ${colorMap[product.color].bg} ${colorMap[product.color].text}`}
-                >
-                  {product.number}
+            <div
+              key={product.title}
+              className="group rounded-xl border-2 border-foreground/10 bg-card overflow-hidden hover:border-primary/50 transition-all hover:-translate-y-1 hover:shadow-lg"
+            >
+              {/* Product image */}
+              <div className="aspect-square overflow-hidden bg-muted">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              <div className="p-6 space-y-4">
+                {/* Title + Price */}
+                <div className="flex items-start justify-between gap-2">
+                  <h3 className="text-lg md:text-xl font-bold font-serif tracking-wide">
+                    {product.title}
+                  </h3>
+                  <span className="text-lg font-bold text-primary whitespace-nowrap">
+                    {product.price}
+                  </span>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-xl md:text-2xl font-bold font-serif tracking-wide">
-                  {product.title}
-                </h3>
-
                 {/* Description */}
-                <p className="text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   {product.description}
                 </p>
 
                 {/* Features */}
-                <div className="flex flex-wrap justify-center gap-2">
+                <div className="flex flex-wrap gap-2">
                   {product.features.map((feature) => (
-                    <span 
+                    <span
                       key={feature}
-                      className="px-3 py-1 text-sm rounded-full border border-foreground bg-muted"
+                      className="px-2.5 py-0.5 text-xs rounded-full border border-foreground/20 bg-muted font-medium"
                     >
                       {feature}
                     </span>
                   ))}
                 </div>
 
-                {/* CTA Button */}
-                <Button 
+                {/* Add to Cart */}
+                <Button
                   asChild
-                  className="w-full rounded-xl border-2 border-foreground bg-primary text-primary-foreground font-bold py-6 shadow-brutal hover:shadow-brutal-lg transition-all"
+                  className="w-full rounded-xl border-2 border-foreground bg-primary text-primary-foreground font-bold py-5 shadow-brutal hover:shadow-brutal-lg transition-all"
                 >
-                  <Link to="/shop">LEARN MORE</Link>
+                  <Link to={product.href}>
+                    <ShoppingCart className="mr-2 h-4 w-4" />
+                    ADD TO CART
+                  </Link>
                 </Button>
               </div>
-            </RainbowBorder>
+            </div>
           ))}
         </div>
       </div>
