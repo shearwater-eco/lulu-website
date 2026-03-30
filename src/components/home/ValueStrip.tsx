@@ -2,32 +2,34 @@ import { Package, Star, Truck, Shield } from "lucide-react";
 
 const ValueStrip = () => {
   const items = [
-    { icon: Package, text: "24 Rolls. No nonsense.", delay: "0s" },
-    { icon: Star, text: "Great everyday value", delay: "0.1s" },
-    { icon: Truck, text: "Delivered to your door", delay: "0.2s" },
-    { icon: Shield, text: "Soft & strong", delay: "0.3s" },
+    { icon: Package, text: "24 Rolls. No nonsense.", color: "tile-teal", rotation: "rotate-[-2deg]" },
+    { icon: Star, text: "Great everyday value", color: "tile-green", rotation: "rotate-[1deg]" },
+    { icon: Truck, text: "Delivered to your door", color: "tile-blue", rotation: "rotate-[-1deg]" },
+    { icon: Shield, text: "Soft & strong", color: "tile-pink", rotation: "rotate-[2deg]" },
   ];
 
   return (
-    <section className="py-6 my-4">
-      <div className="mosaic-border-small rounded-2xl bg-white p-5 mx-4">
-        <div className="flex flex-wrap justify-center gap-6 lg:gap-10">
-          {items.map((item, i) => (
+    <section className="py-4 my-2">
+      <div className="flex flex-wrap justify-center gap-3 lg:gap-5 px-4">
+        {items.map((item, i) => (
+          <div
+            key={i}
+            className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl border-2 border-black shadow-md transform ${item.rotation} transition-transform hover:scale-110 hover:rotate-0 cursor-default animate-pop-in`}
+            style={{
+              backgroundColor: `hsl(var(--${item.color}) / 0.12)`,
+              animationDelay: `${i * 0.12}s`,
+              animationFillMode: "backwards",
+            }}
+          >
             <div
-              key={i}
-              className="flex items-center gap-3 animate-fade-in"
-              style={{ animationDelay: item.delay, animationFillMode: "backwards" }}
+              className="p-1.5 rounded-md text-white border-2 border-black flex-shrink-0"
+              style={{ backgroundColor: `hsl(var(--${item.color}))` }}
             >
-              <div
-                className="p-2.5 rounded-lg text-white border-2 border-black flex-shrink-0"
-                style={{ backgroundColor: `hsl(var(--tile-teal))` }}
-              >
-                <item.icon className="h-5 w-5" />
-              </div>
-              <p className="font-bold text-foreground text-sm lulu-title whitespace-nowrap">{item.text}</p>
+              <item.icon className="h-4 w-4" />
             </div>
-          ))}
-        </div>
+            <p className="font-bold text-foreground text-xs lg:text-sm lulu-title whitespace-nowrap">{item.text}</p>
+          </div>
+        ))}
       </div>
     </section>
   );
