@@ -20,13 +20,19 @@ const Header = () => {
     <header className="relative sticky top-0 z-50 backdrop-blur">
       <div className="mosaic-border-curved-top bg-white relative">
         <div className="container px-4 pt-3 pb-0 mx-0 my-0 py-0">
-          <div className="flex items-center justify-between h-16">
-            {/* THE BEST TP IN THE UNIVERSE - now in header */}
-            <Link to="/" className="flex items-center">
+          <div className="flex items-center justify-center h-16">
+            {/* Right actions - left side for balance */}
+            <div className="flex items-center space-x-3 absolute left-4">
+              <Button variant="ghost" size="icon" className="mosaic-border p-2">
+                <Search className="h-5 w-5" />
+              </Button>
+            </div>
+
+            <Link to="/" className="flex items-center flex-1 justify-center px-16">
               <span 
-                className="font-black uppercase tracking-wider animate-pulse flex-1 text-center"
+                className="font-black uppercase tracking-wider animate-pulse text-center"
                 style={{ 
-                  fontSize: 'clamp(1rem, 3.5vw, 2.2rem)',
+                  fontSize: 'clamp(1.2rem, 4vw, 2.8rem)',
                   background: `linear-gradient(90deg, 
                     hsl(var(--tile-green)), 
                     hsl(var(--tile-pink)), 
@@ -52,7 +58,7 @@ const Header = () => {
             </Link>
 
             {/* Right actions */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3 absolute right-4">
               <Button variant="ghost" size="icon" className="mosaic-border p-2">
                 <Search className="h-5 w-5" />
               </Button>
