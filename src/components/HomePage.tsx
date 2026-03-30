@@ -1,4 +1,4 @@
-import { ArrowRight, Truck, Shield, Lock, Package, Star, Leaf, Recycle, Droplets, TreePine } from "lucide-react";
+import { ArrowRight, Truck, Shield, Lock, Package, Star, Leaf, Recycle, Droplets, TreePine, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import luluMascotThumbsUp from "@/assets/lulu-mascot-thumbs-up.png";
