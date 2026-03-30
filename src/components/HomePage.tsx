@@ -47,28 +47,10 @@ const HomePage = () => {
             </div>
 
             <div className="container mx-auto px-4">
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div className="text-center lg:text-left space-y-6">
-                  <p className="text-xl lg:text-2xl text-muted-foreground font-medium lulu-subtitle">
-                    Big value loo roll for everyday homes
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <Link to="/shop">
-                      <button className="btn-lulu-primary flex items-center">
-                        Shop 24 Rolls
-                        <ArrowRight className="ml-2 h-5 w-5" />
-                      </button>
-                    </Link>
-                    <Link to="/shop">
-                      <button className="btn-lulu-secondary">
-                        See 48 Rolls
-                      </button>
-                    </Link>
-                  </div>
-                  <p className="text-lg text-foreground font-semibold lulu-subtitle">
-                    Soft. Strong. Smart value.
-                  </p>
-                </div>
+              <div className="text-center space-y-6">
+                <p className="text-xl lg:text-2xl text-muted-foreground font-medium lulu-subtitle">
+                  Big value loo roll for everyday homes
+                </p>
 
                 <div className="relative flex items-center justify-center min-h-[300px]">
                   <img 
@@ -92,6 +74,23 @@ const HomePage = () => {
                     height={160}
                   />
                 </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link to="/shop">
+                    <button className="btn-lulu-primary flex items-center">
+                      Shop 24 Rolls
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </button>
+                  </Link>
+                  <Link to="/shop">
+                    <button className="btn-lulu-secondary">
+                      See 48 Rolls
+                    </button>
+                  </Link>
+                </div>
+                <p className="text-lg text-foreground font-semibold lulu-subtitle">
+                  Soft. Strong. Smart value.
+                </p>
               </div>
             </div>
           </section>
