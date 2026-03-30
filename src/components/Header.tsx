@@ -21,42 +21,19 @@ const Header = () => {
       <div className="mosaic-border-curved-top bg-white relative">
         <div className="container px-4 pt-3 pb-0 mx-0 my-0 py-0">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+            {/* THE BEST TP IN THE UNIVERSE - now in header */}
             <Link to="/" className="flex items-center">
-              <div className="mosaic-border-thick rounded-lg p-3 bg-white">
-                <span className="text-4xl font-bold logo-mosaic">LULU</span>
-              </div>
+              <span 
+                className="font-black uppercase tracking-wider"
+                style={{ 
+                  fontSize: 'clamp(0.8rem, 2.5vw, 1.8rem)',
+                  color: 'hsl(var(--foreground))',
+                  fontFamily: "'Times', 'Times New Roman', serif",
+                }}
+              >
+                THE BEST TP IN THE UNIVERSE
+              </span>
             </Link>
-
-            {/* Desktop nav */}
-            <nav className="hidden md:flex items-center space-x-6">
-              {navItems.map(item => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`font-bold text-sm transition-all border-b-3 border-transparent hover:border-current ${
-                    item.primary
-                      ? "px-4 py-2 rounded-lg text-white border-2 border-black"
-                      : "text-foreground"
-                  }`}
-                  style={item.primary ? { backgroundColor: `hsl(var(--${item.color}))` } : undefined}
-                  onMouseEnter={e => {
-                    if (!item.primary) {
-                      e.currentTarget.style.color = `hsl(var(--${item.color}))`;
-                      e.currentTarget.style.borderBottomColor = `hsl(var(--${item.color}))`;
-                    }
-                  }}
-                  onMouseLeave={e => {
-                    if (!item.primary) {
-                      e.currentTarget.style.color = 'hsl(var(--foreground))';
-                      e.currentTarget.style.borderBottomColor = 'transparent';
-                    }
-                  }}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </nav>
 
             {/* Right actions */}
             <div className="flex items-center space-x-3">

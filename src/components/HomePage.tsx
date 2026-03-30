@@ -12,35 +12,38 @@ const HomePage = () => {
         <div className="bottom-border"></div>
         <div className="lulu-content">
 
-          {/* HERO SECTION */}
-          <section className="relative pt-0 pb-12 lg:pb-20">
-            {/* Full-width headline banner - flush to top */}
-            <div className="mb-6 -mt-8 text-center overflow-hidden">
-              <h1 
-                className="font-black leading-none animate-pulse uppercase tracking-wider"
-                style={{ 
-                  fontSize: 'clamp(1.5rem, 5vw, 4rem)',
-                  background: `linear-gradient(90deg, 
-                    hsl(var(--tile-green)), 
-                    hsl(var(--tile-pink)), 
-                    hsl(var(--tile-orange)), 
-                    hsl(var(--tile-yellow)), 
-                    hsl(var(--tile-blue)), 
-                    hsl(var(--tile-teal)), 
-                    hsl(var(--tile-lime)), 
-                    hsl(var(--tile-coral)), 
-                    hsl(var(--tile-purple)), 
-                    hsl(var(--tile-turquoise))
-                  )`,
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  letterSpacing: '0.05em',
-                  fontFamily: "'Times', 'Times New Roman', serif",
+          {/* NAV ITEMS - inside colored border */}
+          <nav className="flex items-center justify-center gap-4 md:gap-6 py-3 -mt-4 mb-4 flex-wrap">
+            {[
+              { name: "Shop", href: "/shop", color: "tile-teal" },
+              { name: "24 Rolls", href: "/shop", color: "tile-green" },
+              { name: "48 Rolls", href: "/shop", color: "tile-pink" },
+              { name: "Watch the Ad", href: "/about", color: "tile-orange" },
+              { name: "About Lulu", href: "/about", color: "tile-blue" },
+            ].map(item => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className="font-bold text-sm text-foreground transition-all border-b-2 border-transparent hover:border-current"
+                onMouseEnter={e => {
+                  e.currentTarget.style.color = `hsl(var(--${item.color}))`;
+                  e.currentTarget.style.borderBottomColor = `hsl(var(--${item.color}))`;
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.color = 'hsl(var(--foreground))';
+                  e.currentTarget.style.borderBottomColor = 'transparent';
                 }}
               >
-                THE BEST TP IN THE UNIVERSE
-              </h1>
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+
+          {/* HERO SECTION */}
+          <section className="relative pt-0 pb-12 lg:pb-20">
+            {/* LULU logo - now where headline was */}
+            <div className="mb-6 text-center">
+              <span className="text-6xl md:text-8xl font-bold logo-mosaic">LULU</span>
             </div>
 
             <div className="container mx-auto px-4">
