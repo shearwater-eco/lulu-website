@@ -15,8 +15,30 @@ const HomePage = () => {
           {/* HERO SECTION */}
           <section className="relative pt-0 pb-12 lg:pb-20">
             {/* Full-width headline banner - flush to top */}
-            <div className="mosaic-border-small rounded-2xl p-3 bg-white mb-8 -mt-4 text-center overflow-hidden">
-              <h1 className="lulu-title text-black leading-none" style={{ fontSize: 'clamp(1.2rem, 4.5vw, 3.5rem)' }}>
+            <div className="mb-6 -mt-8 text-center overflow-hidden">
+              <h1 
+                className="font-black leading-none animate-pulse uppercase tracking-wider"
+                style={{ 
+                  fontSize: 'clamp(1.5rem, 5vw, 4rem)',
+                  background: `linear-gradient(90deg, 
+                    hsl(var(--tile-green)), 
+                    hsl(var(--tile-pink)), 
+                    hsl(var(--tile-orange)), 
+                    hsl(var(--tile-yellow)), 
+                    hsl(var(--tile-blue)), 
+                    hsl(var(--tile-teal)), 
+                    hsl(var(--tile-lime)), 
+                    hsl(var(--tile-coral)), 
+                    hsl(var(--tile-purple)), 
+                    hsl(var(--tile-turquoise))
+                  )`,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  letterSpacing: '0.05em',
+                  fontFamily: "'Times', 'Times New Roman', serif",
+                }}
+              >
                 THE BEST TP IN THE UNIVERSE
               </h1>
             </div>
