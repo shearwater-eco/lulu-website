@@ -20,7 +20,7 @@ const Header = () => {
     <header className="relative sticky top-0 z-50 backdrop-blur">
       <div className="mosaic-border-curved-top bg-white relative">
         <div className="container px-4 pt-3 pb-0 mx-0 my-0 py-0">
-          <div className="flex items-center justify-center h-16">
+          <div className="flex items-center justify-center h-16 relative">
             {/* Right actions - left side for balance */}
             <div className="flex items-center space-x-3 absolute left-4">
               <Button variant="ghost" size="icon" className="mosaic-border p-2">
