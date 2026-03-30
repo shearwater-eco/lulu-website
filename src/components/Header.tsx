@@ -23,30 +23,16 @@ const Header = () => {
           <div className="flex items-center justify-between h-16">
             {/* THE BEST TP IN THE UNIVERSE - now in header */}
             <Link to="/" className="flex items-center">
-              <h1 
-                className="font-black uppercase tracking-wider animate-pulse"
+              <span 
+                className="font-black uppercase tracking-wider"
                 style={{ 
                   fontSize: 'clamp(0.8rem, 2.5vw, 1.8rem)',
-                  background: `linear-gradient(90deg, 
-                    hsl(var(--tile-green)), 
-                    hsl(var(--tile-pink)), 
-                    hsl(var(--tile-orange)), 
-                    hsl(var(--tile-yellow)), 
-                    hsl(var(--tile-blue)), 
-                    hsl(var(--tile-teal)), 
-                    hsl(var(--tile-lime)), 
-                    hsl(var(--tile-coral)), 
-                    hsl(var(--tile-purple)), 
-                    hsl(var(--tile-turquoise))
-                  )`,
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
+                  color: 'hsl(var(--foreground))',
                   fontFamily: "'Times', 'Times New Roman', serif",
                 }}
               >
                 THE BEST TP IN THE UNIVERSE
-              </h1>
+              </span>
             </Link>
 
             {/* Right actions */}
