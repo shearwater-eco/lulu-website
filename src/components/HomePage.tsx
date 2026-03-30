@@ -14,14 +14,16 @@ const HomePage = () => {
 
           {/* HERO SECTION */}
           <section className="relative py-12 lg:py-20">
+            {/* Full-width headline banner */}
+            <div className="mosaic-border-small rounded-2xl p-6 bg-white mb-8 mx-4 text-center">
+              <h1 className="lulu-title text-4xl md:text-5xl lg:text-7xl text-black leading-tight">
+                THE BEST TP IN THE UNIVERSE
+              </h1>
+            </div>
+
             <div className="container mx-auto px-4">
               <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <div className="text-center lg:text-left space-y-6">
-                  <div className="mosaic-border-small rounded-2xl inline-block p-6 bg-white">
-                    <h1 className="lulu-title text-4xl lg:text-6xl text-black leading-tight">
-                      The Best TP<br />in the Universe
-                    </h1>
-                  </div>
                   <p className="text-xl lg:text-2xl text-muted-foreground font-medium lulu-subtitle">
                     Big value loo roll for everyday homes
                   </p>
