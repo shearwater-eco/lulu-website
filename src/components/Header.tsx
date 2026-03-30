@@ -24,11 +24,27 @@ const Header = () => {
             {/* THE BEST TP IN THE UNIVERSE - now in header */}
             <Link to="/" className="flex items-center">
               <span 
-                className="font-black uppercase tracking-wider"
+                className="font-black uppercase tracking-wider animate-pulse flex-1 text-center"
                 style={{ 
-                  fontSize: 'clamp(0.8rem, 2.5vw, 1.8rem)',
-                  color: 'hsl(var(--foreground))',
+                  fontSize: 'clamp(1rem, 3.5vw, 2.2rem)',
+                  background: `linear-gradient(90deg, 
+                    hsl(var(--tile-green)), 
+                    hsl(var(--tile-pink)), 
+                    hsl(var(--tile-orange)), 
+                    hsl(var(--tile-yellow)), 
+                    hsl(var(--tile-blue)), 
+                    hsl(var(--tile-teal)), 
+                    hsl(var(--tile-lime)), 
+                    hsl(var(--tile-coral)), 
+                    hsl(var(--tile-purple)), 
+                    hsl(var(--tile-turquoise))
+                  )`,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  WebkitTextStroke: '1px hsl(var(--foreground))',
                   fontFamily: "'Times', 'Times New Roman', serif",
+                  letterSpacing: '0.05em',
                 }}
               >
                 THE BEST TP IN THE UNIVERSE
