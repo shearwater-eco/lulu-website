@@ -10,10 +10,10 @@ const HomePage = () => {
       <div className="lulu-package">
         <div className="right-border"></div>
         <div className="bottom-border"></div>
-        <div className="lulu-content">
-
-          {/* NAV ITEMS - inside colored border */}
-          <nav className="flex items-center justify-center gap-4 md:gap-6 py-3 -mt-4 mb-4 flex-wrap">
+        
+        {/* NAV BAR - between borders, right-aligned with social icons */}
+        <div className="flex items-center justify-end gap-3 md:gap-5 px-4 py-1 -mt-2 mb-0">
+          <nav className="flex items-center gap-3 md:gap-5">
             {[
               { name: "Shop", href: "/shop", color: "tile-teal" },
               { name: "24 Rolls", href: "/shop", color: "tile-green" },
@@ -24,7 +24,7 @@ const HomePage = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className="font-bold text-sm text-foreground transition-all border-b-2 border-transparent hover:border-current"
+                className="font-bold text-xs md:text-sm text-foreground transition-all border-b-2 border-transparent hover:border-current whitespace-nowrap"
                 onMouseEnter={e => {
                   e.currentTarget.style.color = `hsl(var(--${item.color}))`;
                   e.currentTarget.style.borderBottomColor = `hsl(var(--${item.color}))`;
@@ -38,6 +38,23 @@ const HomePage = () => {
               </Link>
             ))}
           </nav>
+          <div className="flex items-center gap-2 ml-2">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <Facebook className="h-4 w-4" />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <Instagram className="h-4 w-4" />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <Twitter className="h-4 w-4" />
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <Youtube className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+        
+        <div className="lulu-content">
 
           {/* HERO SECTION */}
           <section className="relative pt-0 pb-12 lg:pb-20">
