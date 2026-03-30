@@ -6,243 +6,263 @@ import ziggyAlien from "@/assets/ziggy-alien.png";
 
 const HomePage = () => {
   return (
-    <div className="bg-background">
-      {/* HERO SECTION */}
-      <section className="relative overflow-hidden py-12 lg:py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div className="text-center lg:text-left space-y-6">
-              <h1 className="text-5xl lg:text-7xl font-black text-foreground leading-tight">
-                The Best TP<br />in the Universe
-              </h1>
-              <p className="text-xl lg:text-2xl text-muted-foreground font-medium">
-                Big value loo roll for everyday homes
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button className="btn-hero text-xl px-10 py-7 font-bold rounded-xl" asChild>
-                  <Link to="/shop">
-                    Shop 24 Rolls
-                    <ArrowRight className="ml-2 h-6 w-6" />
-                  </Link>
-                </Button>
-                <Button variant="outline" className="mosaic-border text-lg px-8 py-6 font-bold rounded-xl" asChild>
-                  <Link to="/shop">See 48 Rolls</Link>
-                </Button>
-              </div>
-              <p className="text-lg text-muted-foreground font-semibold">
-                Soft. Strong. Smart value.
-              </p>
-            </div>
+    <div className="lulu-frame">
+      <div className="lulu-package">
+        <div className="right-border"></div>
+        <div className="bottom-border"></div>
+        <div className="lulu-content">
 
-            <div className="relative flex items-center justify-center">
-              {/* Lulu mascot */}
-              <img 
-                src={luluMascotThumbsUp} 
-                alt="Lulu the mascot"
-                className="w-40 lg:w-56 absolute -left-4 lg:left-0 bottom-0 z-10 drop-shadow-lg"
-                width={224}
-                height={224}
-              />
-              {/* Product placeholder */}
-              <div className="mosaic-border-thick rounded-3xl bg-muted w-64 h-72 lg:w-80 lg:h-96 flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <Package className="h-16 w-16 mx-auto mb-3 opacity-40" />
-                  <p className="text-sm font-medium opacity-60">Product image</p>
+          {/* HERO SECTION */}
+          <section className="relative py-12 lg:py-20">
+            <div className="container mx-auto px-4">
+              <div className="grid lg:grid-cols-2 gap-8 items-center">
+                <div className="text-center lg:text-left space-y-6">
+                  <div className="mosaic-border-small rounded-2xl inline-block p-6 bg-white">
+                    <h1 className="lulu-title text-4xl lg:text-6xl text-black leading-tight">
+                      The Best TP<br />in the Universe
+                    </h1>
+                  </div>
+                  <p className="text-xl lg:text-2xl text-muted-foreground font-medium lulu-subtitle">
+                    Big value loo roll for everyday homes
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <Link to="/shop">
+                      <button className="btn-lulu-primary flex items-center">
+                        Shop 24 Rolls
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </button>
+                    </Link>
+                    <Link to="/shop">
+                      <button className="btn-lulu-secondary">
+                        See 48 Rolls
+                      </button>
+                    </Link>
+                  </div>
+                  <p className="text-lg text-foreground font-semibold lulu-subtitle">
+                    Soft. Strong. Smart value.
+                  </p>
+                </div>
+
+                <div className="relative flex items-center justify-center min-h-[300px]">
+                  <img 
+                    src={luluMascotThumbsUp} 
+                    alt="Lulu the mascot"
+                    className="w-36 lg:w-48 absolute left-0 lg:left-4 bottom-0 z-10 drop-shadow-lg"
+                    width={192}
+                    height={192}
+                  />
+                  <div className="mosaic-border-small rounded-3xl bg-white w-56 h-64 lg:w-72 lg:h-80 flex items-center justify-center">
+                    <div className="text-center text-muted-foreground">
+                      <Package className="h-16 w-16 mx-auto mb-3 opacity-40" />
+                      <p className="text-sm font-medium opacity-60">Product image</p>
+                    </div>
+                  </div>
+                  <img 
+                    src={ziggyAlien} 
+                    alt="Ziggy the friendly alien"
+                    className="w-28 lg:w-40 absolute right-0 lg:right-4 bottom-0 z-10 drop-shadow-lg"
+                    width={160}
+                    height={160}
+                  />
                 </div>
               </div>
-              {/* Ziggy */}
-              <img 
-                src={ziggyAlien} 
-                alt="Ziggy the friendly alien"
-                className="w-32 lg:w-44 absolute -right-2 lg:right-0 bottom-0 z-10 drop-shadow-lg"
-                width={176}
-                height={176}
-              />
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* QUICK VALUE STRIP */}
-      <section className="mosaic-border-thick bg-white py-6">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              { icon: Package, text: "24 Rolls. No nonsense." },
-              { icon: Star, text: "Great everyday value" },
-              { icon: Truck, text: "Delivered to your door" },
-              { icon: Shield, text: "Soft & strong" },
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center gap-2">
-                <item.icon className="h-8 w-8 text-primary" />
-                <p className="font-bold text-foreground text-sm lg:text-base">{item.text}</p>
+          {/* QUICK VALUE STRIP */}
+          <section className="py-6 my-8">
+            <div className="mosaic-border-small rounded-2xl bg-white p-6 mx-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                {[
+                  { icon: Package, text: "24 Rolls. No nonsense." },
+                  { icon: Star, text: "Great everyday value" },
+                  { icon: Truck, text: "Delivered to your door" },
+                  { icon: Shield, text: "Soft & strong" },
+                ].map((item, i) => (
+                  <div key={i} className="flex flex-col items-center gap-2">
+                    <div className="p-3 rounded-lg text-white border-2 border-black" style={{ backgroundColor: `hsl(var(--tile-teal))` }}>
+                      <item.icon className="h-6 w-6" />
+                    </div>
+                    <p className="font-bold text-foreground text-sm lulu-title text-xs">{item.text}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
+          </section>
 
-      {/* PRODUCT SECTION - 24 ROLLS */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-5 gap-8">
-            {/* Main product - 24 rolls */}
-            <div className="lg:col-span-3 mosaic-border-thick rounded-3xl bg-white p-8">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="bg-muted rounded-2xl h-72 flex items-center justify-center">
-                  <div className="text-center text-muted-foreground">
-                    <Package className="h-16 w-16 mx-auto mb-3 opacity-40" />
-                    <p className="text-sm font-medium opacity-60">Product image</p>
+          {/* PRODUCT SECTION */}
+          <section className="py-8">
+            <div className="container mx-auto px-4">
+              <div className="grid lg:grid-cols-5 gap-8">
+                {/* Main product - 24 rolls */}
+                <div className="lg:col-span-3 card-lulu">
+                  <div className="grid md:grid-cols-2 gap-6 items-center">
+                    <div className="bg-muted rounded-xl h-64 flex items-center justify-center border-2 border-black">
+                      <div className="text-center text-muted-foreground">
+                        <Package className="h-16 w-16 mx-auto mb-3 opacity-40" />
+                        <p className="text-sm font-medium opacity-60">Product image</p>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <h2 className="lulu-title text-2xl">Val-U-Smart 24 Rolls</h2>
+                      <p className="text-3xl font-black" style={{ color: 'hsl(var(--tile-teal))' }}>£11.99</p>
+                      
+                      <div className="border-2 border-black rounded-xl p-3" style={{ backgroundColor: 'hsl(var(--tile-yellow) / 0.15)' }}>
+                        <p className="font-bold text-foreground text-sm">🎉 Subscribe & Save</p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          10% off + 11th box FREE + no price increases for your next 10 boxes
+                        </p>
+                      </div>
+
+                      <ul className="space-y-2">
+                        {["Big value pack", "Soft & strong", "Made for everyday homes"].map((item, i) => (
+                          <li key={i} className="flex items-center gap-2 text-foreground font-medium text-sm">
+                            <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: 'hsl(var(--tile-teal))' }} />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <Link to="/shop">
+                        <button className="btn-lulu-primary w-full flex items-center justify-center text-base">
+                          Buy Now – Free Delivery
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-                <div className="space-y-4">
-                  <h2 className="text-3xl font-black text-foreground">Val-U-Smart 24 Rolls</h2>
-                  <p className="text-4xl font-black text-primary">£11.99</p>
-                  
-                  <div className="mosaic-border rounded-xl p-4 bg-accent/10">
-                    <p className="font-bold text-foreground text-sm">🎉 Subscribe & Save</p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      10% off + 11th box FREE + no price increases for your next 10 boxes
+
+                {/* Secondary product - 48 rolls */}
+                <div className="lg:col-span-2 card-lulu flex flex-col justify-between">
+                  <div>
+                    <div className="bg-muted rounded-xl h-44 flex items-center justify-center mb-4 border-2 border-black">
+                      <div className="text-center text-muted-foreground">
+                        <Package className="h-12 w-12 mx-auto mb-2 opacity-40" />
+                        <p className="text-sm font-medium opacity-60">Product image</p>
+                      </div>
+                    </div>
+                    <h3 className="lulu-title text-lg mb-2">48 Rolls – Stock Up</h3>
+                    <p className="text-muted-foreground text-sm lulu-subtitle">
+                      The bigger box for bigger families. Even better value per roll.
                     </p>
                   </div>
-
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2 text-foreground font-medium">
-                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" /> Big value pack
-                    </li>
-                    <li className="flex items-center gap-2 text-foreground font-medium">
-                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" /> Soft & strong
-                    </li>
-                    <li className="flex items-center gap-2 text-foreground font-medium">
-                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" /> Made for everyday homes
-                    </li>
-                  </ul>
-
-                  <Button className="btn-hero w-full text-lg py-6 font-bold rounded-xl" asChild>
-                    <Link to="/shop">
-                      Buy Now – Free Delivery
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
+                  <Link to="/shop">
+                    <button className="btn-lulu-secondary w-full mt-4 text-base">
+                      View Option
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
+          </section>
 
-            {/* Secondary product - 48 rolls */}
-            <div className="lg:col-span-2 mosaic-border rounded-3xl bg-white p-6 flex flex-col justify-between">
-              <div>
-                <div className="bg-muted rounded-2xl h-48 flex items-center justify-center mb-4">
-                  <div className="text-center text-muted-foreground">
-                    <Package className="h-12 w-12 mx-auto mb-2 opacity-40" />
-                    <p className="text-sm font-medium opacity-60">Product image</p>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">48 Rolls – Stock Up</h3>
-                <p className="text-muted-foreground text-sm">
-                  The bigger box for bigger families. Even better value per roll.
+          {/* MEET LULU */}
+          <section className="py-12">
+            <div className="container mx-auto px-4">
+              <div className="mosaic-border-small rounded-2xl bg-white p-8 max-w-3xl mx-auto text-center space-y-6">
+                <h2 className="lulu-title text-3xl">Meet Lulu</h2>
+                <img 
+                  src={luluMascotThumbsUp} 
+                  alt="Lulu the mascot"
+                  className="w-36 h-36 mx-auto object-contain"
+                  loading="lazy"
+                  width={144}
+                  height={144}
+                />
+                <p className="text-lg text-muted-foreground lulu-subtitle">
+                  Fun, lovable, and here to make everyday essentials better value for everyone.
+                </p>
+                <p className="text-lg text-foreground font-bold lulu-title text-base">
+                  No fuss. No nonsense. Just a smart buy.
                 </p>
               </div>
-              <Button variant="outline" className="mosaic-border w-full mt-4 font-bold rounded-xl" asChild>
-                <Link to="/shop">View Option</Link>
-              </Button>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* MEET LULU SECTION */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-4xl font-black text-foreground">Meet Lulu</h2>
-            <img 
-              src={luluMascotThumbsUp} 
-              alt="Lulu the mascot"
-              className="w-40 h-40 mx-auto object-contain"
-              loading="lazy"
-              width={160}
-              height={160}
-            />
-            <p className="text-xl text-muted-foreground font-medium">
-              Fun, lovable, and here to make everyday essentials better value for everyone.
-            </p>
-            <p className="text-lg text-foreground font-bold">
-              No fuss. No nonsense. Just a smart buy.
-            </p>
-          </div>
-        </div>
-      </section>
+          {/* ZIGGY CAMPAIGN */}
+          <section className="py-8">
+            <div className="container mx-auto px-4">
+              <div className="card-lulu">
+                <div className="flex flex-col md:flex-row items-center gap-6">
+                  <img 
+                    src={ziggyAlien} 
+                    alt="Ziggy the alien"
+                    className="w-28 h-28 object-contain flex-shrink-0"
+                    loading="lazy"
+                    width={112}
+                    height={112}
+                  />
+                  <div className="text-center md:text-left space-y-2 flex-1">
+                    <h2 className="lulu-title text-xl lg:text-2xl">
+                      Why is an alien coming to Earth for loo roll?
+                    </h2>
+                    <p className="text-lg text-muted-foreground lulu-subtitle">
+                      Ziggy's flying saucer loo blocked up. Lulu sorted it.
+                    </p>
+                  </div>
+                  <Link to="/about" className="flex-shrink-0">
+                    <button className="btn-lulu-primary">
+                      Watch the Ad
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
 
-      {/* CAMPAIGN STRIP - ZIGGY */}
-      <section className="py-12 mosaic-border-thick bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
-            <img 
-              src={ziggyAlien} 
-              alt="Ziggy the alien"
-              className="w-32 h-32 object-contain flex-shrink-0"
-              loading="lazy"
-              width={128}
-              height={128}
-            />
-            <div className="text-center md:text-left space-y-3">
-              <h2 className="text-2xl lg:text-3xl font-black text-foreground">
-                Why is an alien coming to Earth for loo roll?
+          {/* TRUST / SOCIAL PROOF */}
+          <section className="py-12">
+            <div className="container mx-auto px-4">
+              <h2 className="lulu-title text-2xl text-center mb-8">
+                Loved by everyday households
               </h2>
-              <p className="text-lg text-muted-foreground">
-                Ziggy's flying saucer loo blocked up. Lulu sorted it.
-              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                {[
+                  { icon: Truck, title: "Free Delivery", desc: "Straight to your door, no fuss", color: "tile-teal" },
+                  { icon: Lock, title: "Secure Checkout", desc: "Safe and simple payments", color: "tile-blue" },
+                  { icon: Shield, title: "Quality Guaranteed", desc: "Soft, strong, reliable", color: "tile-green" },
+                ].map((item, i) => (
+                  <div key={i} className="card-lulu text-center">
+                    <div className="p-3 rounded-lg text-white border-2 border-black inline-block mb-3" style={{ backgroundColor: `hsl(var(--${item.color}))` }}>
+                      <item.icon className="h-8 w-8" />
+                    </div>
+                    <h3 className="font-bold text-foreground mb-1 lulu-title text-sm">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground lulu-subtitle">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-            <Button className="btn-hero flex-shrink-0 font-bold rounded-xl px-8 py-5 text-lg" asChild>
-              <Link to="/about">Watch the Ad</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* TRUST / SOCIAL PROOF */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-black text-foreground text-center mb-8">
-            Loved by everyday households
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            {[
-              { icon: Truck, title: "Free Delivery", desc: "Straight to your door, no fuss" },
-              { icon: Lock, title: "Secure Checkout", desc: "Safe and simple payments" },
-              { icon: Shield, title: "Quality Guaranteed", desc: "Soft, strong, reliable" },
-            ].map((item, i) => (
-              <div key={i} className="mosaic-border rounded-xl p-6 text-center bg-white">
-                <item.icon className="h-10 w-10 mx-auto mb-3 text-primary" />
-                <h3 className="font-bold text-foreground mb-1">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
+          {/* ECO VALUES - BOTTOM */}
+          <section className="py-12">
+            <div className="container mx-auto px-4">
+              <div className="mosaic-border-small rounded-2xl bg-white p-8">
+                <h2 className="lulu-title text-2xl text-center mb-8">
+                  Gentle on you, kind to the planet
+                </h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  {[
+                    { icon: Recycle, text: "Plastic-free packaging", color: "tile-green" },
+                    { icon: TreePine, text: "100% soft Bamboo – responsibly sourced", color: "tile-teal" },
+                    { icon: Droplets, text: "4D super absorbent technology", color: "tile-blue" },
+                    { icon: Leaf, text: "Zero waste to landfill packaging", color: "tile-lime" },
+                  ].map((item, i) => (
+                    <div key={i} className="text-center space-y-3">
+                      <div className="p-3 rounded-lg text-white border-2 border-black inline-block" style={{ backgroundColor: `hsl(var(--${item.color}))` }}>
+                        <item.icon className="h-8 w-8" />
+                      </div>
+                      <p className="font-bold text-foreground text-sm lulu-title text-xs">{item.text}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
+          </section>
 
-      {/* ECO / BRAND VALUES - BOTTOM */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-black text-foreground text-center mb-10">
-            Gentle on you, kind to the planet
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {[
-              { icon: Recycle, text: "Plastic-free packaging" },
-              { icon: TreePine, text: "100% soft Bamboo – responsibly sourced" },
-              { icon: Droplets, text: "4D super absorbent technology" },
-              { icon: Leaf, text: "Zero waste to landfill packaging" },
-            ].map((item, i) => (
-              <div key={i} className="text-center space-y-3">
-                <item.icon className="h-10 w-10 mx-auto text-primary" />
-                <p className="font-bold text-foreground text-sm">{item.text}</p>
-              </div>
-            ))}
-          </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
