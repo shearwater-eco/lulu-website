@@ -1,159 +1,82 @@
-import { useState, useEffect } from "react";
-import { Menu, X, User, Search, ShoppingCart } from "lucide-react";
+import { useState } from "react";
+import { Menu, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { CartSheet } from "./CartSheet";
-import luluMascotImage from "@/assets/lulu-mascot-thumbs-up-new.png";
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const location = useLocation();
-  const isAsdaPage = location.pathname === "/asda";
 
-  useEffect(() => {
-    if (!isAsdaPage) return;
+  const navItems = [
+    { name: "Shop", href: "/shop", primary: true },
+    { name: "24 Rolls", href: "/shop" },
+    { name: "48 Rolls", href: "/shop" },
+    { name: "Watch the Ad", href: "/about" },
+    { name: "About Lulu", href: "/about" },
+  ];
 
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      
-      setLastScrollY(currentScrollY);
-    };
+  return (
+    <header className="sticky top-0 z-50 bg-white border-b-4 border-foreground">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
+            <span className="text-3xl font-black logo-mosaic tracking-tight">LULU</span>
+          </Link>
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY, isAsdaPage]);
-  const navItems = [{
-    name: "Home",
-    href: "/",
-    color: "primary"
-  }, {
-    name: "Shop",
-    href: "/shop",
-    color: "vibrant-green"
-  }, {
-    name: "About",
-    href: "/about",
-    color: "secondary"
-  }, {
-    name: "Sustainability",
-    href: "/sustainability",
-    color: "accent"
-  }, {
-    name: "Business",
-    href: "/business",
-    color: "vibrant-blue"
-  }, {
-    name: "Retailers",
-    href: "/asda",
-    color: "vibrant-pink"
-  }, {
-    name: "Blog",
-    href: "/blog",
-    color: "vibrant-orange"
-  }, {
-    name: "Contact",
-    href: "/contact",
-    color: "vibrant-purple"
-  }];
-  return <>
-      {/* Header with curved mosaic border */}
-      <header className={`relative sticky top-0 z-50 backdrop-blur transition-transform duration-300 ${isAsdaPage && !isVisible ? '-translate-y-full' : 'translate-y-0'}`}>
-        <div className="mosaic-border-curved-top bg-white relative">
-          <div className="container px-4 pt-3 pb-0 mx-0 my-0 py-0">
-            <div className="flex items-center justify-between h-20">
-              <Link to="/" className="flex items-center space-x-2">
-                <div className="mosaic-border-thick rounded-lg p-4 bg-white">
-                  <span className="text-6xl font-bold logo-mosaic">LULU
-                </span>
-                </div>
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-6">
+            {navItems.map(item => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className={`font-bold text-sm transition-colors ${
+                  item.primary
+                    ? "bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90"
+                    : "text-foreground hover:text-primary"
+                }`}
+              >
+                {item.name}
               </Link>
+            ))}
+          </nav>
 
-              <nav className="hidden md:flex items-center space-x-8">
-                {navItems.map(item => <Link key={item.name} to={item.href} className="text-foreground hover:text-primary transition-colors font-bold text-lg border-b-4 border-transparent hover:border-current relative group" style={{
-                ['--hover-color' as any]: `hsl(var(--${item.color}))`
-              }} onMouseEnter={e => {
-                e.currentTarget.style.borderBottomColor = `hsl(var(--${item.color}))`;
-                e.currentTarget.style.color = `hsl(var(--${item.color}))`;
-              }} onMouseLeave={e => {
-                e.currentTarget.style.borderBottomColor = 'transparent';
-                e.currentTarget.style.color = 'hsl(var(--foreground))';
-              }}>
-                    {item.name}
-                  </Link>)}
-              </nav>
+          {/* Right actions */}
+          <div className="flex items-center gap-3">
+            <CartSheet />
 
-              <div className="flex items-center space-x-4">
-                <Button variant="ghost" size="icon" className="mosaic-border p-3">
-                  <Search className="h-6 w-6" />
+            {/* Mobile menu */}
+            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+              <SheetTrigger asChild className="md:hidden">
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
                 </Button>
-                <CartSheet />
-                <Button variant="ghost" size="icon" className="mosaic-border p-3">
-                  <User className="h-6 w-6" />
-                </Button>
-
-                {/* Mobile menu trigger */}
-                <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-                  <SheetTrigger asChild className="md:hidden">
-                    <Button variant="ghost" size="icon" className="mosaic-border p-3">
-                      <Menu className="h-6 w-6" />
-                    </Button>
-                  </SheetTrigger>
-                  <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white border-l-8 border-mosaic">
-                    <div className="flex flex-col space-y-4 mt-8">
-                      {navItems.map(item => <Link key={item.name} to={item.href} className="text-lg font-bold text-foreground hover:text-primary transition-colors p-4 mosaic-border rounded-lg hover:shadow-vibrant" onClick={() => setIsMenuOpen(false)} style={{
-                      borderLeftColor: `hsl(var(--${item.color}))`
-                    }}>
-                          {item.name}
-                        </Link>)}
-                      <div className="mosaic-border-thick pt-4 mt-4 space-y-2 rounded-xl bg-white">
-                        <Button className="w-full justify-start btn-hero" variant="ghost">
-                          <User className="h-5 w-5 mr-2" />
-                          My Account
-                        </Button>
-                        <Button className="w-full justify-start btn-secondary" variant="ghost">
-                          <ShoppingCart className="h-5 w-5 mr-2" />
-                          Cart (0)
-                        </Button>
-                      </div>
-                    </div>
-                  </SheetContent>
-                </Sheet>
-              </div>
-            </div>
-            
-            {/* Call to Action Section - positioned directly below navigation */}
-            <div className="mosaic-border-thick bg-white rounded-2xl p-3 flex flex-col md:flex-row items-center justify-between gap-3 -mt-8 mb-2">
-              <div className="flex items-center gap-4">
-                <img 
-                  src={luluMascotImage} 
-                  alt="Lulu mascot giving thumbs up"
-                  className="w-24 h-24 object-contain rounded-lg"
-                />
-                <div>
-                  <h2 className="text-2xl font-bold lulu-font text-foreground">Ready to go LULU?</h2>
-                  <p className="text-muted-foreground">Gentle on you, kind to the Earth</p>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[280px] bg-white">
+                <div className="flex flex-col gap-3 mt-8">
+                  {navItems.map(item => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`font-bold text-lg p-3 rounded-lg transition-colors ${
+                        item.primary
+                          ? "bg-primary text-primary-foreground"
+                          : "text-foreground hover:bg-muted"
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
                 </div>
-              </div>
-              <div className="flex gap-4">
-                <Button className="btn-hero px-8 py-3 text-lg font-bold" asChild>
-                  <Link to="/shop">Shop Now</Link>
-                </Button>
-                <Button variant="outline" className="mosaic-border px-8 py-3 text-lg font-bold" asChild>
-                  <Link to="/business">For Business</Link>
-                </Button>
-              </div>
-            </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
-      </header>
-    </>;
+      </div>
+    </header>
+  );
 };
+
 export default Header;
