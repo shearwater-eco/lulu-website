@@ -15,8 +15,8 @@ const HomePage = () => {
           {/* HERO SECTION */}
           <section className="relative pt-0 pb-12 lg:pb-20">
             {/* Full-width headline banner - flush to top */}
-            <div className="mosaic-border-small rounded-2xl p-4 bg-white mb-8 -mt-4 text-center">
-              <h1 className="lulu-title text-xl sm:text-2xl md:text-3xl lg:text-4xl text-black leading-tight">
+            <div className="mosaic-border-small rounded-2xl p-3 bg-white mb-8 -mt-4 text-center overflow-hidden">
+              <h1 className="lulu-title text-black leading-none" style={{ fontSize: 'clamp(1.2rem, 4.5vw, 3.5rem)' }}>
                 THE BEST TP IN THE UNIVERSE
               </h1>
             </div>
