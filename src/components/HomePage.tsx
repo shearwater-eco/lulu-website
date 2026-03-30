@@ -13,10 +13,10 @@ const HomePage = () => {
         <div className="lulu-content">
 
           {/* HERO SECTION */}
-          <section className="relative py-12 lg:py-20">
-            {/* Full-width headline banner */}
-            <div className="mosaic-border-small rounded-2xl p-6 bg-white mb-8 mx-4 text-center">
-              <h1 className="lulu-title text-4xl md:text-5xl lg:text-7xl text-black leading-tight">
+          <section className="relative pt-0 pb-12 lg:pb-20">
+            {/* Full-width headline banner - flush to top */}
+            <div className="mosaic-border-small rounded-2xl p-4 bg-white mb-8 -mt-4 text-center">
+              <h1 className="lulu-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black leading-tight whitespace-nowrap">
                 THE BEST TP IN THE UNIVERSE
               </h1>
             </div>
