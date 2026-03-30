@@ -556,7 +556,8 @@
 
   .btn-lulu-secondary:hover {
     background: hsl(var(--tile-orange));
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 20px hsl(var(--tile-pink) / 0.3);
   }
 
   /* Card styling */
