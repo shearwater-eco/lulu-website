@@ -1,76 +1,115 @@
-import { ArrowRight, Package } from "lucide-react";
+import { ArrowRight, Package, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import luluMascotThumbsUp from "@/assets/lulu-mascot-thumbs-up.png";
 import ziggyAlien from "@/assets/ziggy-alien.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-0 pb-8 lg:pb-12 overflow-hidden">
+    <section className="relative pt-2 pb-6 lg:pb-10 overflow-hidden">
       {/* LULU logo */}
-      <div className="mb-4 text-center">
-        <span className="text-6xl md:text-8xl font-bold logo-mosaic">LULU</span>
+      <div className="mb-2 text-center">
+        <span className="text-7xl md:text-9xl font-bold logo-mosaic tracking-tight">LULU</span>
       </div>
 
-      <p className="text-xl lg:text-2xl text-muted-foreground font-medium lulu-subtitle text-center mb-6">
+      <p className="text-xl lg:text-2xl text-muted-foreground font-medium lulu-subtitle text-center mb-4">
         Big value loo roll for everyday homes
       </p>
 
       <div className="container mx-auto px-4">
-        {/* Scene: Lulu on cliff, product central, Ziggy in saucer */}
-        <div className="relative flex items-end justify-center min-h-[320px] lg:min-h-[400px] mb-8">
+        {/* SCENE — immersive, not a grid */}
+        <div className="relative flex items-end justify-center min-h-[340px] lg:min-h-[420px] mb-6">
           
-          {/* Cliff / ground element */}
-          <div className="absolute bottom-0 left-0 right-0 h-16 lg:h-20 rounded-t-[50%] border-t-3 border-black"
-            style={{ background: `linear-gradient(180deg, hsl(var(--tile-green) / 0.3) 0%, hsl(var(--tile-lime) / 0.15) 100%)` }}
+          {/* Sky sparkles */}
+          <Sparkles className="absolute top-6 left-[20%] h-5 w-5 text-tile-yellow animate-float opacity-60" />
+          <Sparkles className="absolute top-14 right-[25%] h-4 w-4 text-tile-pink animate-float-slow opacity-50" />
+          <Sparkles className="absolute top-3 right-[15%] h-3 w-3 text-tile-lime animate-float opacity-40" />
+
+          {/* Rolling hills / cliff */}
+          <div className="absolute bottom-0 left-[-5%] right-[-5%] h-24 lg:h-28 rounded-t-[60%] border-t-2 border-black"
+            style={{ background: `linear-gradient(180deg, hsl(var(--tile-green) / 0.35) 0%, hsl(var(--tile-lime) / 0.12) 100%)` }}
+          />
+          <div className="absolute bottom-0 left-[10%] right-[30%] h-16 lg:h-20 rounded-t-[70%]"
+            style={{ background: `linear-gradient(180deg, hsl(var(--tile-teal) / 0.15) 0%, transparent 100%)` }}
           />
 
-          {/* Lulu standing on cliff - left side */}
-          <div className="absolute left-2 lg:left-8 bottom-12 lg:bottom-16 z-20 animate-float-slow">
-            <img 
-              src={luluMascotThumbsUp} 
-              alt="Lulu the mascot standing proudly"
-              className="w-28 lg:w-44 drop-shadow-lg"
-              width={176}
-              height={176}
-            />
+          {/* LULU — big, standing on the hill, with speech bubble */}
+          <div className="absolute left-1 lg:left-6 bottom-16 lg:bottom-20 z-20">
+            {/* Speech bubble */}
+            <div className="relative mb-2 ml-4 lg:ml-8">
+              <div className="bg-white border-2 border-black rounded-2xl px-3 py-1.5 shadow-md transform rotate-[-2deg] animate-pop-in"
+                style={{ animationDelay: '0.6s', animationFillMode: 'backwards' }}
+              >
+                <p className="text-xs lg:text-sm font-bold lulu-title whitespace-nowrap">Smart value! 💪</p>
+              </div>
+              {/* Bubble tail */}
+              <div className="w-3 h-3 bg-white border-b-2 border-r-2 border-black transform rotate-45 ml-6 -mt-1.5" />
+            </div>
+            <div className="animate-float-slow">
+              <img 
+                src={luluMascotThumbsUp} 
+                alt="Lulu the mascot standing proudly"
+                className="w-32 lg:w-48 drop-shadow-xl"
+                width={192}
+                height={192}
+              />
+            </div>
           </div>
 
-          {/* Product box - large and central */}
-          <div className="relative z-10 animate-pop-in">
-            <div className="mosaic-border-small rounded-3xl bg-white w-48 h-56 lg:w-64 lg:h-72 flex items-center justify-center shadow-lg">
-              <div className="text-center text-muted-foreground">
-                <Package className="h-20 w-20 mx-auto mb-3 opacity-50" />
-                <p className="text-sm font-bold opacity-70 lulu-title">Val-U-Smart</p>
-                <p className="text-xs opacity-50">24 Rolls</p>
+          {/* PRODUCT — large, central, tilted slightly for energy */}
+          <div className="relative z-10 animate-pop-in transform rotate-[1deg]">
+            <div className="mosaic-border-small rounded-3xl bg-white w-52 h-60 lg:w-68 lg:h-76 flex items-center justify-center shadow-xl"
+              style={{ width: 'clamp(200px, 28vw, 272px)', height: 'clamp(230px, 32vw, 304px)' }}
+            >
+              <div className="text-center">
+                <Package className="h-20 w-20 lg:h-24 lg:w-24 mx-auto mb-3 text-tile-teal opacity-60" />
+                <p className="text-base lg:text-lg font-bold lulu-title">Val-U-Smart</p>
+                <p className="text-sm text-muted-foreground">24 Rolls</p>
+                <p className="text-2xl lg:text-3xl font-black mt-1" style={{ color: 'hsl(var(--tile-teal))' }}>£11.99</p>
+              </div>
+            </div>
+            {/* Price starburst */}
+            <div className="absolute -top-4 -right-4 lg:-top-5 lg:-right-5 z-30 animate-wiggle">
+              <div className="bg-tile-yellow text-foreground border-2 border-black rounded-full w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center transform rotate-[-8deg] shadow-md">
+                <div className="text-center leading-tight">
+                  <p className="text-[10px] lg:text-xs font-bold">FROM</p>
+                  <p className="text-sm lg:text-base font-black">50p</p>
+                  <p className="text-[10px] lg:text-xs font-bold">/roll</p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Ziggy in flying saucer - right side, floating */}
-          <div className="absolute right-0 lg:right-6 top-0 lg:top-4 z-20 animate-saucer-hover">
+          {/* ZIGGY — in flying saucer, top right, with speech bubble */}
+          <div className="absolute right-0 lg:right-4 top-2 lg:top-6 z-20 animate-saucer-hover">
             <div className="animate-saucer-glow">
               <img 
                 src={ziggyAlien} 
                 alt="Ziggy the friendly alien in a flying saucer"
-                className="w-24 lg:w-36 drop-shadow-lg"
-                width={144}
-                height={144}
+                className="w-28 lg:w-40 drop-shadow-xl"
+                width={160}
+                height={160}
               />
+            </div>
+            {/* Ziggy speech bubble */}
+            <div className="absolute -bottom-2 left-0 animate-pop-in" style={{ animationDelay: '1s', animationFillMode: 'backwards' }}>
+              <div className="bg-white border-2 border-black rounded-2xl px-2.5 py-1 shadow-md transform rotate-[3deg]">
+                <p className="text-[10px] lg:text-xs font-bold lulu-title whitespace-nowrap">Take me to the rolls! 🛸</p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center space-y-4">
+        {/* CTAs — big, bold, immediate */}
+        <div className="text-center space-y-3">
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/shop">
-              <button className="btn-lulu-primary flex items-center hover:animate-bounce-hover">
+              <button className="btn-lulu-primary flex items-center text-lg group">
                 Shop 24 Rolls
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </button>
             </Link>
             <Link to="/shop">
-              <button className="btn-lulu-secondary hover:animate-bounce-hover">
+              <button className="btn-lulu-secondary text-lg">
                 See 48 Rolls
               </button>
             </Link>
