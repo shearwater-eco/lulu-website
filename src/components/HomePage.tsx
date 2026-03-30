@@ -12,26 +12,27 @@ const HomePage = () => {
         <div className="bottom-border"></div>
         
         {/* NAV BAR - between borders, right-aligned with social icons */}
-        <div className="flex items-center justify-end gap-3 md:gap-5 px-4 py-1 -mt-2 mb-0">
-          <nav className="flex items-center gap-3 md:gap-5">
+        <div className="flex items-center justify-end gap-3 md:gap-5 px-4 py-3 my-2">
+          <nav className="flex items-center gap-2 md:gap-3">
             {[
-              { name: "Shop", href: "/shop", color: "tile-teal" },
-              { name: "24 Rolls", href: "/shop", color: "tile-green" },
-              { name: "48 Rolls", href: "/shop", color: "tile-pink" },
-              { name: "Watch the Ad", href: "/about", color: "tile-orange" },
-              { name: "About Lulu", href: "/about", color: "tile-blue" },
+              { name: "SHOP", href: "/shop", color: "tile-teal" },
+              { name: "24 ROLLS", href: "/shop", color: "tile-green" },
+              { name: "48 ROLLS", href: "/shop", color: "tile-pink" },
+              { name: "WATCH THE AD", href: "/about", color: "tile-orange" },
+              { name: "ABOUT LULU", href: "/about", color: "tile-blue" },
             ].map(item => (
               <Link
                 key={item.name}
                 to={item.href}
-                className="font-bold text-xs md:text-sm text-foreground transition-all border-b-2 border-transparent hover:border-current whitespace-nowrap"
+                className="font-bold text-xs md:text-sm uppercase whitespace-nowrap px-3 py-1.5 rounded-md border-2 border-black transition-all text-white"
+                style={{ backgroundColor: `hsl(var(--${item.color}))` }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.color = `hsl(var(--${item.color}))`;
-                  e.currentTarget.style.borderBottomColor = `hsl(var(--${item.color}))`;
+                  e.currentTarget.style.opacity = '0.85';
+                  e.currentTarget.style.transform = 'scale(1.05)';
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.color = 'hsl(var(--foreground))';
-                  e.currentTarget.style.borderBottomColor = 'transparent';
+                  e.currentTarget.style.opacity = '1';
+                  e.currentTarget.style.transform = 'scale(1)';
                 }}
               >
                 {item.name}
