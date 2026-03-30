@@ -16,7 +16,7 @@ const HomePage = () => {
           <section className="relative pt-0 pb-12 lg:pb-20">
             {/* Full-width headline banner - flush to top */}
             <div className="mosaic-border-small rounded-2xl p-4 bg-white mb-8 -mt-4 text-center">
-              <h1 className="lulu-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black leading-tight whitespace-nowrap">
+              <h1 className="lulu-title text-xl sm:text-2xl md:text-3xl lg:text-4xl text-black leading-tight">
                 THE BEST TP IN THE UNIVERSE
               </h1>
             </div>
