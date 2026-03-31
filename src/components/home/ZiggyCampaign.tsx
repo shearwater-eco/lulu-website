@@ -19,7 +19,7 @@ const ZiggyCampaign = () => {
               <div className="animate-saucer-hover">
                 <div className="animate-saucer-glow">
                   <img 
-                    src={ziggyAlien} 
+                    src={pluAlien} 
                     alt="P.L.U the alien"
                     className="w-36 h-36 lg:w-52 lg:h-52 object-contain"
                     loading="lazy"
