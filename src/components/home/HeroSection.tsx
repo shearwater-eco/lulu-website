@@ -1,7 +1,7 @@
 import { ArrowRight, Package, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import luluMascotThumbsUp from "@/assets/lulu-mascot-thumbs-up.png";
-import ziggyAlien from "@/assets/ziggy-alien-v2.png";
+import ziggyAlien from "@/assets/ziggy-alien-v3.png";
 
 const HeroSection = () => {
   return (

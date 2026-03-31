@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ziggyAlien from "@/assets/ziggy-alien-v2.png";
+import ziggyAlien from "@/assets/ziggy-alien-v3.png";
 
 const ZiggyCampaign = () => {
   return (
