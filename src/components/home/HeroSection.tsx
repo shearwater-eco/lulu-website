@@ -83,8 +83,8 @@ const HeroSection = () => {
           <div className="absolute right-[-2%] lg:right-0 top-[-4%] lg:top-0 z-20 animate-saucer-hover">
             <div className="animate-saucer-glow">
               <img 
-                src={ziggyAlien} 
-                alt="Ziggy the friendly alien in a flying saucer"
+                src={pluAlien} 
+                alt="P.L.U. the friendly alien in a flying saucer"
                 className="w-56 lg:w-80 drop-shadow-2xl"
                 width={256}
                 height={256}
