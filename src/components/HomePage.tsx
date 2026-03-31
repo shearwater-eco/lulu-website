@@ -59,7 +59,7 @@ const HomePage = () => {
           <ProductShowcase />
           <SecondaryProduct />
           <MeetLulu />
-          <ZiggyCampaign />
+          <PLUCampaign />
           <EcoSection />
         </div>
       </div>

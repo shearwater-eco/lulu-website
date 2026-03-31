@@ -62,4 +62,4 @@ const PLUCampaign = () => {
   );
 };
 
-export default ZiggyCampaign;
+export default PLUCampaign;

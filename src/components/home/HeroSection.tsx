@@ -90,7 +90,7 @@ const HeroSection = () => {
                 height={256}
               />
             </div>
-            {/* Ziggy speech bubble */}
+            {/* P.L.U. speech bubble */}
             <div className="absolute -bottom-2 left-0 animate-pop-in" style={{ animationDelay: '1s', animationFillMode: 'backwards' }}>
               <div className="bg-white border-2 border-black rounded-2xl px-2.5 py-1 shadow-md transform rotate-[3deg]">
                 <p className="text-[10px] lg:text-xs font-bold lulu-title whitespace-nowrap">Take me to the rolls! 🛸</p>
