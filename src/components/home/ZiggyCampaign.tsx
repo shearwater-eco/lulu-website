@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import ziggyAlien from "@/assets/ziggy-alien.png";
+import pluAlien from "@/assets/plu-alien.png";
 
-const ZiggyCampaign = () => {
+const PLUCampaign = () => {
   return (
     <section className="py-8 lg:py-12">
       <div className="container mx-auto px-4">
