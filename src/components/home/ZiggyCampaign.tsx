@@ -14,7 +14,7 @@ const ZiggyCampaign = () => {
           
           <div className="relative flex flex-col md:flex-row items-center gap-6 md:gap-10 p-6 lg:p-8">
             
-            {/* Ziggy — big and animated */}
+            {/* P.L.U — big and animated */}
             <div className="relative flex-shrink-0">
               <div className="animate-saucer-hover">
                 <div className="animate-saucer-glow">
