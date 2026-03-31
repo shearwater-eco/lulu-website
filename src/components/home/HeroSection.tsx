@@ -85,7 +85,8 @@ const HeroSection = () => {
               <img 
                 src={ziggyAlien} 
                 alt="Ziggy the friendly alien in a flying saucer"
-                className="w-44 lg:w-64 drop-shadow-2xl"
+                className="w-56 lg:w-80 drop-shadow-2xl rounded-full p-2"
+                style={{ backgroundColor: 'hsl(var(--tile-teal) / 0.3)' }}
                 width={256}
                 height={256}
               />
