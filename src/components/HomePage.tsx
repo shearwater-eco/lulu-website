@@ -6,7 +6,7 @@ import HeroSection from "@/components/home/HeroSection";
 import ProductShowcase from "@/components/home/ProductShowcase";
 import SecondaryProduct from "@/components/home/SecondaryProduct";
 import MeetLulu from "@/components/home/MeetLulu";
-import ZiggyCampaign from "@/components/home/ZiggyCampaign";
+import PLUCampaign from "@/components/home/ZiggyCampaign";
 import ValueStrip from "@/components/home/ValueStrip";
 import EcoSection from "@/components/home/EcoSection";
 
