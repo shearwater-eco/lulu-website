@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ziggyAlien from "@/assets/ziggy-alien.png";
+import pluAlien from "@/assets/plu-alien.png";
 
 const ZiggyCampaign = () => {
   return (
@@ -14,13 +14,13 @@ const ZiggyCampaign = () => {
           
           <div className="relative flex flex-col md:flex-row items-center gap-6 md:gap-10 p-6 lg:p-8">
             
-            {/* Ziggy — big and animated */}
+            {/* P.L.U — big and animated */}
             <div className="relative flex-shrink-0">
               <div className="animate-saucer-hover">
                 <div className="animate-saucer-glow">
                   <img 
-                    src={ziggyAlien} 
-                    alt="Ziggy the alien"
+                    src={pluAlien} 
+                    alt="P.L.U the alien"
                     className="w-36 h-36 lg:w-52 lg:h-52 object-contain"
                     loading="lazy"
                     width={160}
@@ -30,7 +30,7 @@ const ZiggyCampaign = () => {
               </div>
               {/* Name badge */}
               <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-tile-blue text-white px-4 py-1 rounded-full border-2 border-black text-xs font-bold lulu-title shadow-md">
-                ZIGGY
+                P.L.U
               </div>
             </div>
 

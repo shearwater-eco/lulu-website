@@ -1,7 +1,7 @@
 import { ArrowRight, Package, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import luluMascotThumbsUp from "@/assets/lulu-mascot-thumbs-up.png";
-import ziggyAlien from "@/assets/ziggy-alien.png";
+import pluAlien from "@/assets/plu-alien.png";
 
 const HeroSection = () => {
   return (
@@ -79,18 +79,18 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* ZIGGY — in flying saucer, top right, with speech bubble */}
+          {/* P.L.U — in flying saucer, top right, with speech bubble */}
           <div className="absolute right-[-2%] lg:right-0 top-[-4%] lg:top-0 z-20 animate-saucer-hover">
             <div className="animate-saucer-glow">
               <img 
-                src={ziggyAlien} 
-                alt="Ziggy the friendly alien in a flying saucer"
+                src={pluAlien} 
+                alt="P.L.U the friendly alien in a flying saucer"
                 className="w-44 lg:w-64 drop-shadow-2xl"
                 width={256}
                 height={256}
               />
             </div>
-            {/* Ziggy speech bubble */}
+            {/* P.L.U speech bubble */}
             <div className="absolute -bottom-2 left-0 animate-pop-in" style={{ animationDelay: '1s', animationFillMode: 'backwards' }}>
               <div className="bg-white border-2 border-black rounded-2xl px-2.5 py-1 shadow-md transform rotate-[3deg]">
                 <p className="text-[10px] lg:text-xs font-bold lulu-title whitespace-nowrap">Take me to the rolls! 🛸</p>
