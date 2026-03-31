@@ -1,7 +1,7 @@
 import { ArrowRight, Truck, Shield, Package, Star, Leaf, Recycle, TreePine, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 import luluMascotThumbsUp from "@/assets/lulu-mascot-thumbs-up.png";
-import ziggyAlien from "@/assets/ziggy-alien-v2.png";
+import ziggyAlien from "@/assets/ziggy-alien-v3.png";
 import HeroSection from "@/components/home/HeroSection";
 import ProductShowcase from "@/components/home/ProductShowcase";
 import SecondaryProduct from "@/components/home/SecondaryProduct";
