@@ -84,7 +84,7 @@ const HeroSection = () => {
             <div className="animate-saucer-glow">
               <img 
                 src={ziggyAlien} 
-                alt="Ziggy the friendly alien in a flying saucer"
+                alt="P.L.U the friendly alien in a flying saucer"
                 className="w-44 lg:w-64 drop-shadow-2xl"
                 width={256}
                 height={256}
