@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ziggyAlien from "@/assets/ziggy-alien.png";
+import ziggyAlien from "@/assets/ziggy-alien-v2.png";
 
 const ZiggyCampaign = () => {
   return (
@@ -21,7 +21,7 @@ const ZiggyCampaign = () => {
                   <img 
                     src={ziggyAlien} 
                     alt="Ziggy the alien"
-                    className="w-28 h-28 lg:w-40 lg:h-40 object-contain"
+                    className="w-36 h-36 lg:w-52 lg:h-52 object-contain"
                     loading="lazy"
                     width={160}
                     height={160}
