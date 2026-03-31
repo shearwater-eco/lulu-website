@@ -1,12 +1,12 @@
 import { ArrowRight, Truck, Shield, Package, Star, Leaf, Recycle, TreePine, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 import luluMascotThumbsUp from "@/assets/lulu-mascot-thumbs-up.png";
-import ziggyAlien from "@/assets/ziggy-alien.png";
+import pluAlien from "@/assets/plu-alien.png";
 import HeroSection from "@/components/home/HeroSection";
 import ProductShowcase from "@/components/home/ProductShowcase";
 import SecondaryProduct from "@/components/home/SecondaryProduct";
 import MeetLulu from "@/components/home/MeetLulu";
-import ZiggyCampaign from "@/components/home/ZiggyCampaign";
+import PLUCampaign from "@/components/home/ZiggyCampaign";
 import ValueStrip from "@/components/home/ValueStrip";
 import EcoSection from "@/components/home/EcoSection";
 
@@ -59,7 +59,7 @@ const HomePage = () => {
           <ProductShowcase />
           <SecondaryProduct />
           <MeetLulu />
-          <ZiggyCampaign />
+          <PLUCampaign />
           <EcoSection />
         </div>
       </div>
