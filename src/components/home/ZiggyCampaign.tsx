@@ -30,7 +30,7 @@ const PLUCampaign = () => {
               </div>
               {/* Name badge */}
               <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-tile-blue text-white px-4 py-1 rounded-full border-2 border-black text-xs font-bold lulu-title shadow-md">
-                ZIGGY
+                P.L.U.
               </div>
             </div>
 
