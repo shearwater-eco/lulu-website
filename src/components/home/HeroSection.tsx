@@ -80,14 +80,14 @@ const HeroSection = () => {
           </div>
 
           {/* ZIGGY — in flying saucer, top right, with speech bubble */}
-          <div className="absolute right-0 lg:right-4 top-2 lg:top-6 z-20 animate-saucer-hover">
+          <div className="absolute right-[-2%] lg:right-0 top-[-4%] lg:top-0 z-20 animate-saucer-hover">
             <div className="animate-saucer-glow">
               <img 
                 src={ziggyAlien} 
                 alt="Ziggy the friendly alien in a flying saucer"
-                className="w-28 lg:w-40 drop-shadow-xl"
-                width={160}
-                height={160}
+                className="w-44 lg:w-64 drop-shadow-2xl"
+                width={256}
+                height={256}
               />
             </div>
             {/* Ziggy speech bubble */}
