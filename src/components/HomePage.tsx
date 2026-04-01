@@ -17,39 +17,47 @@ const HomePage = () => {
         <div className="right-border"></div>
         <div className="bottom-border"></div>
         
-        {/* NAV embedded in top border */}
-        <div className="absolute top-0 left-0 right-0 z-30 -translate-y-1/2 flex items-center justify-end gap-2 md:gap-3 px-6 md:px-10">
-          <nav className="flex items-center gap-1.5 md:gap-2">
+        {/* NAV buttons embedded directly in the top border tiles */}
+        <div className="absolute -top-[15px] sm:-top-[25px] lg:-top-[35px] left-[-15px] sm:left-[-25px] lg:left-[-35px] right-[-15px] sm:right-[-25px] lg:right-[-35px] h-[15px] sm:h-[25px] lg:h-[35px] z-30 flex items-center">
+          {[
+            { name: "SHOP", href: "/shop", color: "tile-teal", left: "42.5%" },
+            { name: "24 ROLLS", href: "/shop", color: "tile-green", left: "0%" },
+            { name: "48 ROLLS", href: "/shop", color: "tile-pink", left: "8.5%" },
+            { name: "WATCH THE AD", href: "/about", color: "tile-orange", left: "17%" },
+            { name: "ABOUT LULU", href: "/about", color: "tile-blue", left: "34%" },
+          ].map(item => (
+            <Link
+              key={item.name}
+              to={item.href}
+              className="absolute font-bold text-[6px] sm:text-[8px] lg:text-[11px] uppercase whitespace-nowrap h-full flex items-center justify-center text-white hover:brightness-110 transition-all border-r border-black/30"
+              style={{
+                backgroundColor: `hsl(var(--${item.color}))`,
+                left: item.left,
+                width: '7.5%',
+              }}
+            >
+              {item.name}
+            </Link>
+          ))}
+          {/* Social icons in remaining tiles on the right */}
+          <div className="absolute right-0 top-0 h-full flex items-center gap-0">
             {[
-              { name: "SHOP", href: "/shop", color: "tile-teal" },
-              { name: "24 ROLLS", href: "/shop", color: "tile-green" },
-              { name: "48 ROLLS", href: "/shop", color: "tile-pink" },
-              { name: "WATCH THE AD", href: "/about", color: "tile-orange" },
-              { name: "ABOUT LULU", href: "/about", color: "tile-blue" },
-            ].map(item => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className="font-bold text-[10px] md:text-xs uppercase whitespace-nowrap px-2 md:px-3 py-1 md:py-1.5 rounded-md border-2 border-black transition-all text-white hover:scale-105 shadow-sm"
-                style={{ backgroundColor: `hsl(var(--${item.color}))` }}
+              { icon: Facebook, href: "https://facebook.com", left: "76.5%", color: "tile-turquoise" },
+              { icon: Instagram, href: "https://instagram.com", left: "84%", color: "tile-mint" },
+              { icon: Twitter, href: "https://twitter.com", left: "85%", color: "tile-mint" },
+              { icon: Youtube, href: "https://youtube.com", left: "93.5%", color: "tile-magenta" },
+            ].map((item, i) => (
+              <a
+                key={i}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute h-full flex items-center justify-center text-white hover:brightness-110 transition-all"
+                style={{ left: item.left, width: '7.5%' }}
               >
-                {item.name}
-              </Link>
+                <item.icon className="h-2 w-2 sm:h-3 sm:w-3 lg:h-4 lg:w-4" />
+              </a>
             ))}
-          </nav>
-          <div className="flex items-center gap-1.5 ml-1">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-white border-2 border-black rounded-full p-1 text-foreground hover:scale-110 transition-transform">
-              <Facebook className="h-3 w-3" />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-white border-2 border-black rounded-full p-1 text-foreground hover:scale-110 transition-transform">
-              <Instagram className="h-3 w-3" />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-white border-2 border-black rounded-full p-1 text-foreground hover:scale-110 transition-transform">
-              <Twitter className="h-3 w-3" />
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="bg-white border-2 border-black rounded-full p-1 text-foreground hover:scale-110 transition-transform">
-              <Youtube className="h-3 w-3" />
-            </a>
           </div>
         </div>
         
