@@ -44,13 +44,13 @@ const HeroSection = () => {
               {/* Bubble tail */}
               <div className="w-3 h-3 bg-white border-b-2 border-r-2 border-black transform rotate-45 ml-6 -mt-1.5" />
             </div>
-            <div className="animate-float-slow">
+            <div>
               <img 
                 src={luluMascotThumbsUp} 
                 alt="Lulu the mascot standing proudly"
-                className="w-32 lg:w-48 drop-shadow-xl"
-                width={192}
-                height={192}
+                className="w-64 lg:w-96 drop-shadow-xl"
+                width={384}
+                height={384}
               />
             </div>
           </div>
