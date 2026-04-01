@@ -11,7 +11,7 @@ const HeroSection = () => {
         <span className="text-7xl md:text-9xl font-bold logo-mosaic tracking-tight">LULU</span>
       </div>
 
-      <p className="text-xl lg:text-2xl text-muted-foreground font-medium lulu-subtitle text-center mb-4">
+      <p className="text-xl lg:text-2xl font-bold lulu-subtitle text-center mb-4" style={{ color: 'hsl(var(--tile-teal))', textShadow: '0 1px 2px rgba(0,0,0,0.1)' }}>
         Big value loo roll for everyday homes
       </p>
 
