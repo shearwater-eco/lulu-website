@@ -1,4 +1,4 @@
-import { ArrowRight, Truck, Shield, Package, Star, Leaf, Recycle, TreePine, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { ArrowRight, Truck, Shield, Package, Star, Leaf, Recycle, TreePine, Facebook, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import luluMascotThumbsUp from "@/assets/lulu-mascot-thumbs-up.png";
 import pluAlien from "@/assets/plu-alien.png";
@@ -10,11 +10,40 @@ import PLUCampaign from "@/components/home/ZiggyCampaign";
 import ValueStrip from "@/components/home/ValueStrip";
 import EcoSection from "@/components/home/EcoSection";
 
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.87a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.01-.3z"/>
+  </svg>
+);
+
 const HomePage = () => {
   return (
     <div className="lulu-frame">
       <div className="lulu-package">
-        <div className="right-border"></div>
+        <div className="right-border">
+          {/* Social media icons running down the right border */}
+          <div className="absolute top-[10%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-0 z-10">
+            {[
+              { icon: Instagram, href: "https://instagram.com", color: "tile-pink" },
+              { icon: Facebook, href: "https://facebook.com", color: "tile-blue" },
+              { icon: TikTokIcon, href: "https://tiktok.com", color: "tile-teal" },
+            ].map((item, i) => (
+              <a
+                key={i}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-[calc(100%+8px)] sm:w-[calc(100%+10px)] lg:w-[calc(100%+14px)] h-[50px] sm:h-[65px] lg:h-[75px] flex items-center justify-center text-white hover:scale-105 hover:brightness-110 transition-all border-y border-black/40 rounded-l-md"
+                style={{
+                  backgroundColor: `hsl(var(--${item.color}))`,
+                  boxShadow: '-3px 0 6px rgba(0,0,0,0.25)',
+                }}
+              >
+                <item.icon className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 drop-shadow-md" />
+              </a>
+            ))}
+          </div>
+        </div>
         <div className="bottom-border"></div>
         
         {/* NAV buttons on top border - right aligned, popping out */}
@@ -39,24 +68,6 @@ const HomePage = () => {
               {item.name}
             </Link>
           ))}
-          <div className="flex items-center h-full">
-            {[
-              { icon: Facebook, href: "https://facebook.com" },
-              { icon: Instagram, href: "https://instagram.com" },
-              { icon: Twitter, href: "https://twitter.com" },
-              { icon: Youtube, href: "https://youtube.com" },
-            ].map((item, i) => (
-              <a
-                key={i}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-full flex items-center justify-center px-1 sm:px-1.5 lg:px-2 text-white hover:scale-110 transition-all"
-              >
-                <item.icon className="h-2 w-2 sm:h-3 sm:w-3 lg:h-4 lg:w-4 drop-shadow-md" />
-              </a>
-            ))}
-          </div>
         </div>
         
         <div className="lulu-content pt-2">
