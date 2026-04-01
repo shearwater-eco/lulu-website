@@ -17,43 +17,37 @@ const HomePage = () => {
         <div className="right-border"></div>
         <div className="bottom-border"></div>
         
-        {/* NAV buttons embedded directly in the top border tiles */}
-        <div className="absolute -top-[15px] sm:-top-[25px] lg:-top-[35px] left-[-15px] sm:left-[-25px] lg:left-[-35px] right-[-15px] sm:right-[-25px] lg:right-[-35px] h-[15px] sm:h-[25px] lg:h-[35px] z-30 flex items-center">
+        {/* NAV buttons on top border - right aligned */}
+        <div className="absolute -top-[15px] sm:-top-[25px] lg:-top-[35px] right-[-15px] sm:right-[-25px] lg:right-[-35px] h-[15px] sm:h-[25px] lg:h-[35px] z-30 flex items-center justify-end gap-0">
           {[
-            { name: "SHOP", href: "/shop", color: "tile-teal", left: "42.5%" },
-            { name: "24 ROLLS", href: "/shop", color: "tile-green", left: "0%" },
-            { name: "48 ROLLS", href: "/shop", color: "tile-pink", left: "8.5%" },
-            { name: "WATCH THE AD", href: "/about", color: "tile-orange", left: "17%" },
-            { name: "ABOUT LULU", href: "/about", color: "tile-blue", left: "34%" },
+            { name: "SHOP", href: "/shop" },
+            { name: "24 ROLLS", href: "/shop" },
+            { name: "48 ROLLS", href: "/shop" },
+            { name: "WATCH THE AD", href: "/about" },
+            { name: "ABOUT LULU", href: "/about" },
           ].map(item => (
             <Link
               key={item.name}
               to={item.href}
-              className="absolute font-bold text-[6px] sm:text-[8px] lg:text-[11px] uppercase whitespace-nowrap h-full flex items-center justify-center text-white hover:brightness-110 transition-all border-r border-black/30"
-              style={{
-                backgroundColor: `hsl(var(--${item.color}))`,
-                left: item.left,
-                width: '7.5%',
-              }}
+              className="h-full flex items-center justify-center px-2 sm:px-3 lg:px-5 font-black text-[7px] sm:text-[10px] lg:text-sm uppercase whitespace-nowrap text-white tracking-wider hover:brightness-125 transition-all"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
             >
               {item.name}
             </Link>
           ))}
-          {/* Social icons in remaining tiles on the right */}
-          <div className="absolute right-0 top-0 h-full flex items-center gap-0">
+          <div className="h-full flex items-center gap-0">
             {[
-              { icon: Facebook, href: "https://facebook.com", left: "76.5%", color: "tile-turquoise" },
-              { icon: Instagram, href: "https://instagram.com", left: "84%", color: "tile-mint" },
-              { icon: Twitter, href: "https://twitter.com", left: "85%", color: "tile-mint" },
-              { icon: Youtube, href: "https://youtube.com", left: "93.5%", color: "tile-magenta" },
+              { icon: Facebook, href: "https://facebook.com" },
+              { icon: Instagram, href: "https://instagram.com" },
+              { icon: Twitter, href: "https://twitter.com" },
+              { icon: Youtube, href: "https://youtube.com" },
             ].map((item, i) => (
               <a
                 key={i}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute h-full flex items-center justify-center text-white hover:brightness-110 transition-all"
-                style={{ left: item.left, width: '7.5%' }}
+                className="h-full flex items-center justify-center px-1 sm:px-2 text-white hover:brightness-125 transition-all"
               >
                 <item.icon className="h-2 w-2 sm:h-3 sm:w-3 lg:h-4 lg:w-4" />
               </a>
