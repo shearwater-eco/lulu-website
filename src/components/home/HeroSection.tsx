@@ -33,7 +33,7 @@ const HeroSection = () => {
           />
 
           {/* LULU — big, standing on the hill, with speech bubble */}
-          <div className="absolute left-1 lg:left-6 bottom-16 lg:bottom-20 z-20">
+          <div className="absolute left-[-40px] lg:left-[-20px] bottom-16 lg:bottom-20 z-20">
             {/* Speech bubble */}
             <div className="relative mb-2 ml-4 lg:ml-8">
               <div className="bg-white border-2 border-black rounded-2xl px-3 py-1.5 shadow-md transform rotate-[-2deg] animate-pop-in"
