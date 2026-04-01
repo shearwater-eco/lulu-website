@@ -33,7 +33,7 @@ const HeroSection = () => {
           />
 
           {/* LULU — big, standing on the hill, with speech bubble */}
-          <div className="absolute left-1 lg:left-6 bottom-16 lg:bottom-20 z-20">
+          <div className="absolute left-[-40px] lg:left-[-20px] bottom-16 lg:bottom-20 z-20">
             {/* Speech bubble */}
             <div className="relative mb-2 ml-4 lg:ml-8">
               <div className="bg-white border-2 border-black rounded-2xl px-3 py-1.5 shadow-md transform rotate-[-2deg] animate-pop-in"
@@ -44,13 +44,13 @@ const HeroSection = () => {
               {/* Bubble tail */}
               <div className="w-3 h-3 bg-white border-b-2 border-r-2 border-black transform rotate-45 ml-6 -mt-1.5" />
             </div>
-            <div className="animate-float-slow">
+            <div>
               <img 
                 src={luluMascotThumbsUp} 
                 alt="Lulu the mascot standing proudly"
-                className="w-32 lg:w-48 drop-shadow-xl"
-                width={192}
-                height={192}
+                className="w-64 lg:w-96 drop-shadow-xl"
+                width={384}
+                height={384}
               />
             </div>
           </div>
@@ -80,14 +80,14 @@ const HeroSection = () => {
           </div>
 
           {/* P.L.U. — in flying saucer, top right of LULU title */}
-          <div className="absolute right-[-5%] lg:right-[2%] -top-[15%] lg:-top-[10%] z-20 animate-saucer-hover">
+          <div className="absolute right-[-8%] lg:right-[-2%] -top-[10%] lg:-top-[5%] z-20 animate-saucer-hover">
             <div className="animate-saucer-glow">
               <img 
                 src={pluAlien} 
                 alt="P.L.U. the friendly alien in a flying saucer"
-                className="w-[168px] lg:w-[240px] drop-shadow-2xl"
-                width={240}
-                height={240}
+                className="w-[220px] lg:w-[320px] drop-shadow-2xl"
+                width={320}
+                height={320}
               />
             </div>
             {/* P.L.U. speech bubble */}
