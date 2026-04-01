@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <section className="relative pt-0 pb-6 lg:pb-10 overflow-hidden">
       {/* LULU logo */}
-      <div className="mb-2 text-center">
+      <div className="-mt-6 lg:-mt-8 mb-2 text-center">
         <span className="text-7xl md:text-9xl font-bold logo-mosaic tracking-tight">LULU</span>
       </div>
 
