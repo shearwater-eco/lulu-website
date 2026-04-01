@@ -71,9 +71,9 @@ const HeroSection = () => {
             <div className="absolute -top-4 -right-4 lg:-top-5 lg:-right-5 z-30 animate-wiggle">
               <div className="bg-tile-yellow text-foreground border-2 border-black rounded-full w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center transform rotate-[-8deg] shadow-md">
                 <div className="text-center leading-tight">
-                  <p className="text-[10px] lg:text-xs font-bold">FROM</p>
-                  <p className="text-sm lg:text-base font-black">50p</p>
-                  <p className="text-[10px] lg:text-xs font-bold">/roll</p>
+                  <p className="text-[10px] lg:text-xs font-bold">GET</p>
+                  <p className="text-sm lg:text-base font-black">10%</p>
+                  <p className="text-[10px] lg:text-xs font-bold">OFF</p>
                 </div>
               </div>
             </div>
