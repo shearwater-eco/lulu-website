@@ -17,9 +17,9 @@ const HomePage = () => {
         <div className="right-border"></div>
         <div className="bottom-border"></div>
         
-        {/* NAV BAR */}
-        <div className="flex items-center justify-end gap-3 md:gap-5 px-4 py-3 my-2">
-          <nav className="flex items-center gap-2 md:gap-3">
+        {/* NAV embedded in top border */}
+        <div className="absolute top-0 left-0 right-0 z-30 -translate-y-1/2 flex items-center justify-end gap-2 md:gap-3 px-6 md:px-10">
+          <nav className="flex items-center gap-1.5 md:gap-2">
             {[
               { name: "SHOP", href: "/shop", color: "tile-teal" },
               { name: "24 ROLLS", href: "/shop", color: "tile-green" },
@@ -30,30 +30,30 @@ const HomePage = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className="font-bold text-xs md:text-sm uppercase whitespace-nowrap px-3 py-1.5 rounded-md border-2 border-black transition-all text-white hover:scale-105"
+                className="font-bold text-[10px] md:text-xs uppercase whitespace-nowrap px-2 md:px-3 py-1 md:py-1.5 rounded-md border-2 border-black transition-all text-white hover:scale-105 shadow-sm"
                 style={{ backgroundColor: `hsl(var(--${item.color}))` }}
               >
                 {item.name}
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-2 ml-2">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
-              <Facebook className="h-4 w-4" />
+          <div className="flex items-center gap-1.5 ml-1">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-white border-2 border-black rounded-full p-1 text-foreground hover:scale-110 transition-transform">
+              <Facebook className="h-3 w-3" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
-              <Instagram className="h-4 w-4" />
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-white border-2 border-black rounded-full p-1 text-foreground hover:scale-110 transition-transform">
+              <Instagram className="h-3 w-3" />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
-              <Twitter className="h-4 w-4" />
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-white border-2 border-black rounded-full p-1 text-foreground hover:scale-110 transition-transform">
+              <Twitter className="h-3 w-3" />
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
-              <Youtube className="h-4 w-4" />
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="bg-white border-2 border-black rounded-full p-1 text-foreground hover:scale-110 transition-transform">
+              <Youtube className="h-3 w-3" />
             </a>
           </div>
         </div>
         
-        <div className="lulu-content">
+        <div className="lulu-content pt-2">
           <HeroSection />
           <ValueStrip />
           <ProductShowcase />
