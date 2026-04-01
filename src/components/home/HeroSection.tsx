@@ -5,7 +5,7 @@ import pluAlien from "@/assets/plu-alien.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-2 pb-6 lg:pb-10 overflow-hidden">
+    <section className="relative pt-0 pb-6 lg:pb-10 overflow-hidden">
       {/* LULU logo */}
       <div className="mb-2 text-center">
         <span className="text-7xl md:text-9xl font-bold logo-mosaic tracking-tight">LULU</span>
