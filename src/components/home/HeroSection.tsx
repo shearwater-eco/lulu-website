@@ -80,14 +80,14 @@ const HeroSection = () => {
           </div>
 
           {/* P.L.U. — in flying saucer, top right of LULU title */}
-          <div className="absolute right-[-5%] lg:right-[2%] -top-[15%] lg:-top-[10%] z-20 animate-saucer-hover">
+          <div className="absolute right-[-8%] lg:right-[-2%] -top-[10%] lg:-top-[5%] z-20 animate-saucer-hover">
             <div className="animate-saucer-glow">
               <img 
                 src={pluAlien} 
                 alt="P.L.U. the friendly alien in a flying saucer"
-                className="w-[168px] lg:w-[240px] drop-shadow-2xl"
-                width={240}
-                height={240}
+                className="w-[220px] lg:w-[320px] drop-shadow-2xl"
+                width={320}
+                height={320}
               />
             </div>
             {/* P.L.U. speech bubble */}
