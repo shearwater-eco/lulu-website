@@ -85,9 +85,9 @@ const HeroSection = () => {
               <img 
                 src={pluAlien} 
                 alt="P.L.U. the friendly alien in a flying saucer"
-                className="w-56 lg:w-80 drop-shadow-2xl"
-                width={256}
-                height={256}
+                className="w-84 lg:w-[480px] drop-shadow-2xl"
+                width={384}
+                height={384}
               />
             </div>
             {/* P.L.U. speech bubble */}
