@@ -169,10 +169,10 @@
   .lulu-package::before {
     content: '';
     position: absolute;
-    top: -15px;
-    left: -15px;
-    right: -15px;
-    height: 15px;
+    top: -36px;
+    left: -36px;
+    right: -36px;
+    height: 36px;
     background: 
       /* Inner shadow for depth */
       linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 20%),
