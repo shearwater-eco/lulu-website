@@ -57,8 +57,8 @@ const HeroSection = () => {
 
           {/* PRODUCT — large, central, tilted slightly for energy */}
           <div className="relative z-10 animate-pop-in transform rotate-[1deg]">
-            <div className="mosaic-border-small rounded-3xl bg-white w-52 h-60 lg:w-68 lg:h-76 flex items-center justify-center shadow-xl"
-              style={{ width: 'clamp(200px, 28vw, 272px)', height: 'clamp(230px, 32vw, 304px)' }}
+            <div className="mosaic-border-small rounded-3xl bg-white w-[300px] h-[345px] lg:w-[408px] lg:h-[456px] flex items-center justify-center shadow-xl"
+              style={{ width: 'clamp(300px, 42vw, 408px)', height: 'clamp(345px, 48vw, 456px)' }}
             >
               <div className="text-center">
                 <Package className="h-20 w-20 lg:h-24 lg:w-24 mx-auto mb-3 text-tile-teal opacity-60" />
