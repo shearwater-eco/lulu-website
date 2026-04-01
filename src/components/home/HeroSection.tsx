@@ -69,11 +69,11 @@ const HeroSection = () => {
             </div>
             {/* Price starburst */}
             <div className="absolute -top-4 -right-4 lg:-top-5 lg:-right-5 z-30 animate-wiggle">
-              <div className="bg-tile-yellow text-foreground border-2 border-black rounded-full w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center transform rotate-[-8deg] shadow-md">
+              <div className="bg-tile-yellow text-foreground border-[3px] border-black rounded-full w-28 h-28 lg:w-40 lg:h-40 flex items-center justify-center transform rotate-[-8deg] shadow-xl">
                 <div className="text-center leading-tight">
-                  <p className="text-[10px] lg:text-xs font-bold">GET</p>
-                  <p className="text-sm lg:text-base font-black">10%</p>
-                  <p className="text-[10px] lg:text-xs font-bold">OFF</p>
+                  <p className="text-sm lg:text-lg font-black tracking-wide" style={{ textShadow: '1px 1px 0px rgba(0,0,0,0.15)' }}>GET</p>
+                  <p className="text-2xl lg:text-4xl font-black" style={{ textShadow: '2px 2px 0px rgba(0,0,0,0.15)' }}>10%</p>
+                  <p className="text-sm lg:text-lg font-black tracking-wide" style={{ textShadow: '1px 1px 0px rgba(0,0,0,0.15)' }}>OFF</p>
                 </div>
               </div>
             </div>
