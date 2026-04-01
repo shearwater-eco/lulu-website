@@ -11,9 +11,11 @@ const HeroSection = () => {
         <span className="text-7xl md:text-9xl font-bold logo-mosaic tracking-tight">LULU</span>
       </div>
 
-      <p className="text-xl lg:text-2xl font-bold lulu-subtitle text-center mb-4 inline-block mx-auto w-full py-2 px-4 rounded-lg" style={{ color: 'hsl(var(--tile-teal))', textShadow: '0 1px 2px rgba(0,0,0,0.1)', backgroundColor: 'hsl(var(--tile-lime) / 0.25)' }}>
-        Big value loo roll for everyday homes
-      </p>
+      <div className="text-center mb-4">
+        <p className="text-xl lg:text-2xl font-bold lulu-subtitle inline-block py-2 px-6 rounded-lg" style={{ color: 'hsl(var(--tile-teal))', textShadow: '0 1px 2px rgba(0,0,0,0.1)', backgroundColor: 'hsl(78, 100%, 55%, 0.35)' }}>
+          Big value loo roll for everyday homes
+        </p>
+      </div>
 
       <div className="container mx-auto px-4">
         {/* SCENE — immersive, not a grid */}
