@@ -80,7 +80,7 @@ const HeroSection = () => {
           </div>
 
           {/* P.L.U. — in flying saucer, top right, with speech bubble */}
-          <div className="absolute right-[-2%] lg:right-0 top-[-4%] lg:top-0 z-20 animate-saucer-hover">
+          <div className="absolute left-[-2%] lg:left-0 top-[-4%] lg:top-0 z-20 animate-saucer-hover">
             <div className="animate-saucer-glow">
               <img 
                 src={pluAlien} 
